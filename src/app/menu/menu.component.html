@@ -31,7 +31,7 @@
   </h2>
   <section class="grid grid-cols-2 lg:grid-cols-5 gap-6 mt-10">
     @for (promotion of promotions; track $index) {
-      <app-product-card [data]="promotion"/>
+    <app-product-card [data]="promotion" />
     }
   </section>
 
@@ -42,14 +42,15 @@
   </h2>
   <section class="grid grid-cols-2 lg:grid-cols-5 gap-6 mt-10">
     @for (onDemand of onDemandItems; track $index) {
-      <app-product-card [data]="onDemand"/>
+    <app-product-card [data]="onDemand" />
     }
   </section>
 
 
   <!-- BANNER DOWN -->
   <section class="banner-down mt-20">
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate id, omnis unde, nulla quasi rerum, provident pariatur quos obcaecati porro quam incidunt ea in repellendus totam dolor at velit ducimus?
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate id, omnis unde, nulla quasi rerum, provident
+    pariatur quos obcaecati porro quam incidunt ea in repellendus totam dolor at velit ducimus?
   </section>
 
 
