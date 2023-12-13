@@ -1,0 +1,48 @@
+<footer class="bg-[#202020] text-white flex justify-between p-5 border-t-[#DC5353] border-t-4">
+
+  <div class="logo"></div>
+
+  <section class="options grid grid-cols-3 gap-10">
+
+    <!-- MENU -->
+    <ul>
+      <h3 class="font-semibold mb-4">MENÚ</h3>
+      @for (item of menu; track $index) {
+        <li>{{ item.name }}</li>
+      }
+    </ul>
+
+    <!-- MY ACCOUNT -->
+    <ul>
+      <h3 class="font-semibold mb-4">MI CUENTA</h3>
+      @for (item of account; track $index) {
+        <li>{{ item.name }}</li>
+      }
+    </ul>
+
+    <!-- INFORMATION -->
+    <ul>
+      <h3 class="font-semibold mb-4">INFORMACIÓN</h3>
+      @for (item of information; track $index) {
+        <li>{{ item.name }}</li>
+      }
+    </ul>
+
+
+  </section>
+
+  <section class="extra">
+
+    <!-- PAYMENT METHODS -->
+    <div>
+      <h3>FORMAS DE PAGO</h3>
+      <div></div>
+    </div>
+
+    <!-- FOLLOW US -->
+    <div>
+
+    </div>
+  </section>
+
+</footer>

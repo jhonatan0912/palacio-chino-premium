@@ -1,0 +1,30 @@
+<main>
+
+  <h2 class="font-bold w-fit border-b border-b-black m-auto mt-10">ZONAS DE REPARTO</h2>
+
+
+  <section class="flex justify-center gap-6 mt-10">
+    @for (deliveryZone of deliveryZones; track $index) {
+    <div class="border border-black bg-white rounded-2xl">
+      <div class="border-b border-b-black text-center p-3 font-semibold">
+        {{ deliveryZone.district }}
+      </div>
+
+      <div class="flex flex-col gap-3 px-10 py-5">
+        <p class="w-fit border-b border-b-black">
+          Horario de reparto:
+        </p>
+        <p>De lunes a domingo</p>
+        <p>{{ deliveryZone.schedule }}</p>
+
+        <button class="rounded-lg text-white bg-[#DC5353] py-1 active:scale-95">
+          PEDIR AHORA
+        </button>
+      </div>
+
+    </div>
+    }
+  </section>
+
+
+</main>

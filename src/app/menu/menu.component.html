@@ -1,0 +1,56 @@
+<!-- BANNER -->
+<section class="banner">
+  <div class="banner__container">
+    <div class="banner__content">
+      <h1 class="banner__title">Menu</h1>
+      <p class="banner__text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.</p>
+    </div>
+  </div>
+</section>
+
+<main class="lg:p-10 max-w-[80%] m-auto">
+
+  <!-- MENU OPTIONS -->
+  <section class="flex justify-center gap-6">
+    @for (menuOption of menuOptions; track $index) {
+    <div class="flex flex-col gap-4">
+      <!-- ICON -->
+
+      <!-- NAME -->
+      <p>
+        {{ menuOption.name }}
+      </p>
+    </div>
+    }
+  </section>
+
+
+  <!-- PROMOTIONS -->
+  <h2 class="font-bold text-center border-b border-black w-fit m-auto mt-10">
+    PROMOCIONES
+  </h2>
+  <section class="grid grid-cols-2 lg:grid-cols-5 gap-6 mt-10">
+    @for (promotion of promotions; track $index) {
+      <app-product-card [data]="promotion"/>
+    }
+  </section>
+
+
+  <!-- ON DEMAND -->
+  <h2 class="font-bold text-center border-b border-black w-fit m-auto mt-10">
+    A LA CARTA
+  </h2>
+  <section class="grid grid-cols-2 lg:grid-cols-5 gap-6 mt-10">
+    @for (onDemand of onDemandItems; track $index) {
+      <app-product-card [data]="onDemand"/>
+    }
+  </section>
+
+
+  <!-- BANNER DOWN -->
+  <section class="banner-down mt-20">
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate id, omnis unde, nulla quasi rerum, provident pariatur quos obcaecati porro quam incidunt ea in repellendus totam dolor at velit ducimus?
+  </section>
+
+
+</main>

@@ -1,0 +1,31 @@
+<section class="flex justify-between p-6 bg-white">
+
+  <div
+    class="logo cursor-pointer"
+    (click)="navigateToHome()">
+    logo
+  </div>
+
+  <div class="options flex gap-5">
+
+    @for (option of options; track $index) {
+    <div
+      (click)="router.forward(option.path)"
+      class="font-medium cursor-pointer hover:opacity-95 active:opacity-50">
+      {{ option.name }}
+    </div>
+    }
+  </div>
+
+
+  <div class="login-cart">
+    <div class="login">
+
+    </div>
+
+    <div class="cart">
+
+    </div>
+  </div>
+
+</section>
