@@ -21,6 +21,10 @@ export const routes: Routes = [
         path: 'delivery-zones',
         loadComponent: () => import('./delivery-zones/delivery-zones.component').then(p => p.DeliveryZonesComponent)
       },
+      {
+        path: 'category/:id',
+        loadComponent: () => import('./category/category.component').then(p => p.CategoryComponent)
+      },
       { path: '**', redirectTo: 'menu', pathMatch: 'full' }
     ]
   },

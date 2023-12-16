@@ -1,0 +1,11 @@
+body {
+  position: relative !important;
+  width: 100% !important;
+  min-height: 100vh !important;
+  max-height: none !important;
+  overflow-x: hidden !important;
+}
+
+html.ion-ce body {
+  display: contents;
+}

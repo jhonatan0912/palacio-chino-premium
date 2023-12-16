@@ -3,6 +3,8 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url('./theme/fix-structure.scss');
+
 ion-icon {
   font-size: 24px;
   cursor: pointer;

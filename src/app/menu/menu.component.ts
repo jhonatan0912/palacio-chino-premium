@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ProductCardComponent, ProductCardData } from '../shared/components/product-card/product-card.component';
+import { ViewComponent } from '@core/view-component';
 
 @Component({
   selector: 'app-menu',
@@ -8,17 +9,16 @@ import { ProductCardComponent, ProductCardData } from '../shared/components/prod
   templateUrl: './menu.component.html',
   styleUrl: './menu.component.scss'
 })
-export class MenuComponent {
-
+export class MenuComponent extends ViewComponent {
 
   menuOptions = [
-    { icon: '', name: 'Promociones' },
-    { icon: '', name: 'Combos' },
-    { icon: '', name: 'Sopas' },
-    { icon: '', name: 'A la carta' },
-    { icon: '', name: 'Banquetes' },
-    { icon: '', name: 'Bebidas' },
-    { icon: '', name: 'Postres' },
+    { id: '1', icon: '', name: 'Promociones' },
+    { id: '2', icon: '', name: 'Combos' },
+    { id: '3', icon: '', name: 'Sopas' },
+    { id: '4', icon: '', name: 'A la carta' },
+    { id: '5', icon: '', name: 'Banquetes' },
+    { id: '6', icon: '', name: 'Bebidas' },
+    { id: '7', icon: '', name: 'Postres' },
   ];
 
   // TEMP
@@ -43,4 +43,8 @@ export class MenuComponent {
     { id: '9', image: '', name: 'Item 9', price: 500 },
     { id: '10', image: '', name: 'Item 10', price: 500 },
   ];
+
+  navigateToCategory(id: string): void {
+    this.router.forward(`category/${id}`);
+  }
 }
