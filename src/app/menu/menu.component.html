@@ -8,52 +8,77 @@
   </div>
 </section>
 
-<main class="lg:p-10 max-w-[80%] m-auto">
+<main class="home_content">
 
   <!-- MENU OPTIONS -->
-  <section class="flex justify-center gap-6">
-    @for (menuOption of menuOptions; track $index) {
-    <div
-      (click)="navigateToCategory(menuOption.id)"
-      class="flex flex-col gap-4 cursor-pointer">
-      <!-- ICON -->
-
-      <!-- NAME -->
-      <p>
-        {{ menuOption.name }}
-      </p>
-    </div>
-    }
-  </section>
-
+  <div class="menu_options">
+    <h2 class="title_menu">
+      MENÚ
+    </h2>
+    <section class="menu">
+      @for (menuOption of menuOptions; track $index) {
+      <div
+        (click)="navigateToCategory(menuOption.id)"
+        class="menu_content">
+        <!-- ICON -->
+        <img [src]="menuOption.icon" alt="icons-menu">
+        <!-- NAME -->
+        <p>
+          {{ menuOption.name }}
+        </p>
+      </div>
+      }
+    </section>
+  </div>
+  
 
   <!-- PROMOTIONS -->
-  <h2 class="font-bold text-center border-b border-black w-fit m-auto mt-10">
-    PROMOCIONES
-  </h2>
-  <section class="grid grid-cols-2 lg:grid-cols-5 gap-6 mt-10">
-    @for (promotion of promotions; track $index) {
-    <app-product-card [data]="promotion" />
-    }
-  </section>
-
+  <div class="menu_promotions">
+    <h2 class="title_menu">
+      PROMOCIONES
+    </h2>
+    <section class="cards-menu">
+      @for (promotion of promotions; track $index) {
+      <app-product-card [data]="promotion" />
+      }
+    </section>
+  </div>
+  
 
   <!-- ON DEMAND -->
-  <h2 class="font-bold text-center border-b border-black w-fit m-auto mt-10">
-    A LA CARTA
-  </h2>
-  <section class="grid grid-cols-2 lg:grid-cols-5 gap-6 mt-10">
-    @for (onDemand of onDemandItems; track $index) {
-    <app-product-card [data]="onDemand" />
-    }
-  </section>
-
-
-  <!-- BANNER DOWN -->
-  <section class="banner-down mt-20">
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate id, omnis unde, nulla quasi rerum, provident
-    pariatur quos obcaecati porro quam incidunt ea in repellendus totam dolor at velit ducimus?
-  </section>
-
+  <div class="menu_demand">
+    <h2 class="title_menu">
+      A LA CARTA
+    </h2>
+    <section class="cards-menu">
+      @for (onDemand of onDemandItems; track $index) {
+      <app-product-card [data]="onDemand" />
+      }
+    </section>
+  </div>
 
 </main>
+
+<!-- BANNER DOWN -->
+<section class="banner_down">
+  <div class="content_banner">
+    <div class="content_first">
+      <div class="title_banner">
+        <h2>Fresco.</h2>
+        <h2>Auténtico.</h2>
+        <h2>Sencillo.</h2>
+      </div>
+      <div class="message">
+        <p>Levamos los <strong>sabores</strong> del <strong>Oriente</strong> a tu plato.</p>
+      </div>
+      <div>
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Veniam voluptates nihil, a harum tempore voluptate molestias doloremque veritatis labore nam rem rerum, eligendi accusantium eum? Voluptatem sit consectetur dolore corporis!</p>
+      </div>
+    </div>
+    <div class="content_second">
+      <div>
+        <img src="/assets/logo.png" alt="Logo">
+      </div>
+    </div>
+  </div>
+</section>

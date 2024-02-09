@@ -9,3 +9,91 @@ ion-icon {
   font-size: 24px;
   cursor: pointer;
 }
+
+* {
+  font-family: Helvetica; //spartan
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-size: 15px;
+}
+
+div{
+  display: block;
+}
+
+@media (max-width: 576px) {
+  h1 {
+    font-size: 1.5rem;
+    /* 24px en móvil */
+  }
+  h2 {
+    font-size: 1.125rem;
+    /* 18px en móvil */
+  }
+}
+
+
+@media (max-width: 992px) {
+  h1 {
+    font-size: 1.875rem;
+    /* 30px en tablet */
+  }
+  h2 {
+    font-size: 1.25rem;
+    /* 20px en tablet */
+  }
+}
+
+
+//laptop
+
+/* Títulos de secciones */
+h1 {
+  font-size: 2.25rem;
+  /* 36px en escritorio */
+}
+/* Subtítulos */
+h2 {
+  font-size: 1.5rem;
+  /* 24px en escritorio */
+}
+
+
+.container__layout{
+  max-width: 1360px;
+  width: 100%;
+  margin: auto;
+}
+
+@media screen and (min-width: 601px) and (max-width: 768px){
+  .container__layout {
+     width: 90%;
+ }
+}
+
+@media screen and (min-width: 769px) and (max-width: 1115px){
+  .container__layout{
+     width: 1000px;
+    }
+}
+
+@media screen and (min-width: 1116px) and (max-width: 1279px){
+  .container__layout {
+     padding-left: 20px;
+     padding-right: 20px;
+ }
+}
+
+@media screen and (min-width: 12806px) and (max-width: 1439px){
+  .container__layout {
+     padding-left: 20px;
+     padding-right: 20px;
+ }
+}
+
+@media screen and (min-width: 1440px) and (max-width: 1500px){
+  .container__layout {
+     max-width: 1220px;
+ }
+}

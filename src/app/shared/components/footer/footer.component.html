@@ -1,48 +1,70 @@
-<footer class="bg-[#202020] text-white flex justify-between p-5 border-t-[#DC5353] border-t-4">
+<div class="line-red-footer"></div>
 
-  <div class="logo"></div>
+<footer class="footer container__layout">
 
-  <section class="options grid grid-cols-3 gap-10">
+  <section class="contend_footer_first">
 
-    <!-- MENU -->
-    <ul>
-      <ion-text class="font-semibold mb-4">MENÚ</ion-text>
-      @for (item of menu; track $index) {
-        <li>{{ item.name }}</li>
-      }
-    </ul>
+    <div class="logo">
+      <img src="/assets/logo.png" alt="Logo">
+    </div>
 
-    <!-- MY ACCOUNT -->
-    <ul>
-      <ion-text class="font-semibold mb-4">MI CUENTA</ion-text>
-      @for (item of account; track $index) {
-        <li>{{ item.name }}</li>
-      }
-    </ul>
+    <section class="options">
 
-    <!-- INFORMATION -->
-    <ul>
-      <ion-text class="font-semibold mb-4">INFORMACIÓN</ion-text>
-      @for (item of information; track $index) {
-        <li>{{ item.name }}</li>
-      }
-    </ul>
+      <!-- MENU -->
+      <ul>
+        <p class="title">MENÚ</p>
+        @for (item of menu; track $index) {
+          <li>{{ item.name }}</li>
+        }
+      </ul>
 
+      <!-- MY ACCOUNT -->
+      <ul>
+        <p class="title">MI CUENTA</p>
+        @for (item of account; track $index) {
+          <li>{{ item.name }}</li>
+        }
+      </ul>
+
+      <!-- INFORMATION -->
+      <ul>
+        <p class="title">INFORMACIÓN</p>
+        @for (item of information; track $index) {
+          <li>{{ item.name }}</li>
+        }
+      </ul>
+
+
+    </section>
+
+    <section class="extra">
+
+      <!-- PAYMENT METHODS -->
+      <div class="payment_methods">
+        <p class="title">FORMAS DE PAGO</p>
+        <div class="img_payment">
+          <img src="/assets/visa.svg" alt="image-visa">
+          <img src="/assets/mastercard.svg" alt="image-mastercard">
+          <img src="/assets/american-express.svg" alt="image-american_express">
+        </div>
+      </div>
+
+      <!-- FOLLOW US -->
+      <div class="follow_us">
+        <p class="title">SIGUENOS</p>
+        <div class="img_follow">
+          <img src="/assets/facebook.svg" alt="image-facebook">
+          <img src="/assets/whatsapp.svg" alt="image-whatsapp">
+        </div>
+      </div>
+    </section>
 
   </section>
 
-  <section class="extra">
-
-    <!-- PAYMENT METHODS -->
-    <div>
-      <ion-text>FORMAS DE PAGO</ion-text>
-      <div></div>
-    </div>
-
-    <!-- FOLLOW US -->
-    <div>
-
-    </div>
+  <section class="contend_footer_second">
+    <p>Copyright © 2022 Chifa Palacio Chino Premium - Todos los derechos reservados.</p>
+    <p>Powered by CLAY SYSTEM</p>
   </section>
+
 
 </footer>

@@ -1,0 +1,72 @@
+main{
+   margin-top: 240px;
+}
+
+.delivery_areas{
+   font-weight: 700;
+   width: fit-content;
+   border-bottom: 1px solid black;
+   margin: auto;
+   margin-bottom: 80px;
+   padding: 0 20px;
+}
+
+.content_delivery{
+   display: flex;
+   justify-content: space-evenly;
+   gap: 50px;
+   margin-top: 40px;
+}
+
+.cart_delivery{
+   border: 1px solid black;
+   background-color: white;
+   border-radius: 16px;
+   width: 260px;
+
+   .title_cart{
+      border-bottom: 1px solid black;
+      text-align: center;
+      padding: 20px 12px;
+      font-weight: 600;
+   }
+
+   .delivery_schedule{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+      padding: 30px 40px;
+      text-align: center;
+      p{
+         padding-top: 20px;
+      }
+
+      .title_delivery_schedule{
+         width: fit-content;
+         border-bottom: 1px solid black;
+         pad: 0 50px;
+      }
+
+
+      .button__delivery_schedule{
+         border-radius: 15px;
+         color: white;
+         background-color: #DB2E2E; 
+         margin-top: 20px;
+         padding: 10px 20px;
+         // transform: scale(0.95);
+      }
+
+      .button__delivery_schedule:hover{
+         background-color: #ff1616;
+      }
+   }
+
+}
+
+.map{
+   padding-top: 120px;
+   padding-bottom: 100px;
+   width: 100%;
+}

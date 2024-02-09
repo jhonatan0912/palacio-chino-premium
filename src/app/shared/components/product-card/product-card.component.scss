@@ -1,0 +1,40 @@
+.card{
+   box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1),
+    0 10px 10px -5px rgb(0 0 0 / 0.04);
+   cursor: pointer;
+   
+   img{
+       width: 100%;
+   }
+   .card-content{
+      border: 1px solid white;
+      border-bottom: 1px solid black;
+      text-align: center;
+
+      p{
+         margin: 10px 0;
+      }
+      .text-content{
+         color: #F23545;
+         font-weight: 600;
+      }
+      .price{
+         font-size: 14px;
+         font-weight: 400;
+      }
+   }
+
+   .button{
+      order: 1;
+      font-weight: 600;
+      padding: 10px;
+      text-align: center;
+      width: 100%;
+      font-size: 14px;
+   }
+   .button:hover{
+      background-color: rgb(67, 67, 67);
+      color: #eeeeee;
+   }
+
+}

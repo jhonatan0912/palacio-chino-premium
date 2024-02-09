@@ -1,13 +1,13 @@
-<section class="shadow-xl cursor-pointer">
+<section class="card">
 
   <img src="/assets/product-image.png" alt="Product Image">
 
-  <div class="card__content border border-b-black text-center">
-    <p class="text-[#F23545] font-semibold">{{ data.name }}</p>
-    <p>S/ {{ data.price | number: '1.2-2' }}</p>
+  <div class="card-content">
+    <p class="text-content">{{ data.name }}</p>
+    <p class="price">S/ {{ data.price | number: '1.2-2' }}</p>
   </div>
 
-  <button class="order font-semibold p-3 text-center w-full active:opacity-50">
+  <button class="button">
     ORDENAR
   </button>
 </section>

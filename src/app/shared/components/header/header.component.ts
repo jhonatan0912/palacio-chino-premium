@@ -21,6 +21,7 @@ export class HeaderComponent extends ViewComponent {
     { name: 'PROMOCIONES', path: 'promotions' },
     { name: 'LOCAL', path: 'establishments' },
     { name: 'ZONAS DE REPARTO', path: 'delivery-zones' },
+    { name: 'Pedir online', path: 'promotions' },
   ];
 
   navigateToHome() {

@@ -1,9 +1,15 @@
-<div class="relative min-h-screen flex flex-col">
-  <app-header class="fixed top-0 w-full z-50" />
+<div class="wrapper-principal">
 
-  <div class="flex-1 pt-[130px]">
-    <router-outlet />
+  <app-header class="page_wrapper_header" />
+
+  <div class="container__layout">
+
+    <div class="page-content-wrapper">
+      <router-outlet />
+    </div>
+
   </div>
 
-  <app-footer/>
+  <app-footer class="page_wrapper_footer" />
+
 </div>
