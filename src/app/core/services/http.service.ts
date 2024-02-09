@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class AppHttpService {
 
-  constructor(private http: HttpClient) { }
+  http: HttpClient = inject(HttpClient);
 
   get(url: string): Observable<any> {
     return this.http.get(url);

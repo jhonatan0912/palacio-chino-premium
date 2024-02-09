@@ -17,7 +17,7 @@ export class CategoriesProxy {
   }
 
   create(icon: string, name: string, code: string): Observable<CategoryDto> {
-    const body = JSON.stringify({
+    const body = ({
       icon,
       name,
       code
