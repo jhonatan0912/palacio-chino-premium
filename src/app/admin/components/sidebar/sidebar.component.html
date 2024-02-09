@@ -1,0 +1,30 @@
+<section class="wrapper">
+
+  <div class="button-expand" (click)="onToggle()">
+      {{ expanded ? '<' : '>' }}
+  </div>
+
+
+  <div class="sidebar" [ngClass]="{ 'hidden': !expanded }">
+    <div class="sidebar-header">
+      <h3>Admin</h3>
+    </div>
+    <div class="sidebar-content">
+      <ul>
+        <li>
+          <a>Categories</a>
+        </li>
+        <li>
+          <a>Users</a>
+        </li>
+        <li>
+          <a>Products</a>
+        </li>
+        <li>
+          <a>Orders</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+</section>

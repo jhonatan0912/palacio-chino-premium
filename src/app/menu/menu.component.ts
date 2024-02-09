@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { ProductCardComponent, ProductCardData } from '../shared/components/product-card/product-card.component';
 import { ViewComponent } from '@core/view-component';
+import { ProductCardComponent, ProductCardData } from '../shared/components/product-card/product-card.component';
 
 @Component({
   selector: 'app-menu',

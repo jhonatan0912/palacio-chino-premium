@@ -55,5 +55,28 @@ export const routes: Routes = [
       { path: '**', redirectTo: 'register', pathMatch: 'full' }
     ]
   },
-  { path: '**', redirectTo: '', pathMatch: 'full' },
+  {
+    path: 'admin',
+    loadComponent: () => import('./admin/admin.component').then(p => p.AdminComponent),
+    children: [
+      {
+        path: 'categories',
+        loadComponent: () => import('./admin/categories/categories.component').then(p => p.CategoriesComponent)
+      },
+      // {
+      //   path: 'products',
+      //   // loadComponent: () => import('./admin/products/products.component').then(p => p.ProductsComponent)
+      // },
+      // {
+      //   path: 'establishments',
+      //   // loadComponent: () => import('./admin/establishments/establishments.component').then(p => p.EstablishmentsComponent)
+      // },
+      // {
+      //   path: 'users',
+      //   // loadComponent: () => import('./admin/users/users.component').then(p => p.UsersComponent)
+      // },
+      { path: '', redirectTo: 'categories', pathMatch: 'full' }
+    ]
+  },
+  // { path: '**', redirectTo: '', pathMatch: 'full' },
 ];

@@ -1,0 +1,21 @@
+.layout {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+
+}
+
+app-admin-sidebar {
+  width: 11%;
+  transition: width 0.3s ease-in-out;
+
+  &.expanded {
+    width: 15%;
+  }
+
+}
+
+.layout__content {
+  flex: 1;
+  padding: 20px;
+}
