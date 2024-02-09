@@ -12,25 +12,31 @@
 
       <!-- MENU -->
       <ul>
-        <p class="title">MENÚ</p>
+        <p class="title pointer">MENÚ</p>
         @for (item of menu; track $index) {
-          <li>{{ item.name }}</li>
+          <li class="pointer">
+            {{ item.name }}
+          </li>
         }
       </ul>
 
       <!-- MY ACCOUNT -->
       <ul>
-        <p class="title">MI CUENTA</p>
+        <p class="title pointer">MI CUENTA</p>
         @for (item of account; track $index) {
-          <li>{{ item.name }}</li>
+          <li class="pointer">
+            {{ item.name }}
+          </li>
         }
       </ul>
 
       <!-- INFORMATION -->
       <ul>
-        <p class="title">INFORMACIÓN</p>
+        <p class="title pointer">INFORMACIÓN</p>
         @for (item of information; track $index) {
-          <li>{{ item.name }}</li>
+          <li class="pointer">
+            {{ item.name }}
+          </li>
         }
       </ul>
 
@@ -43,9 +49,9 @@
       <div class="payment_methods">
         <p class="title">FORMAS DE PAGO</p>
         <div class="img_payment">
-          <img src="/assets/visa.svg" alt="image-visa">
-          <img src="/assets/mastercard.svg" alt="image-mastercard">
-          <img src="/assets/american-express.svg" alt="image-american_express">
+          <img src="/assets/visa.svg" alt="Visa">
+          <img src="/assets/mastercard.svg" alt="Mastercard">
+          <img src="/assets/american-express.svg" alt="American Express">
         </div>
       </div>
 
