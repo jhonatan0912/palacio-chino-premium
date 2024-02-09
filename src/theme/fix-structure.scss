@@ -9,3 +9,11 @@ body {
 html.ion-ce body {
   display: contents;
 }
+
+input,
+li,
+ul,
+button,
+textarea {
+  all: unset;
+}
