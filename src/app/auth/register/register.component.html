@@ -21,7 +21,12 @@
         <input type="password" class="border border-black rounded-md py-2 mt-2">
       </div>
 
-      <lib-button title="INICIAR SESIÓN" type="fill" backgroundColor="#DC5353" />
+      <lib-button
+        title="INICIAR SESIÓN"
+        type="fill"
+        backgroundColor="#DC5353"
+        (onAction)="login()"
+      />
 
       <p class="font-semibold text-center mt-10">¿Eres nuevo?</p>
 

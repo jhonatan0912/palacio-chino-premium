@@ -28,4 +28,8 @@ export class HeaderComponent extends ViewComponent {
     this.router.forward('home');
   }
 
+  onAuth() {
+    this.router.forward('/auth/register');
+  }
+
 }

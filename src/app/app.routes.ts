@@ -25,7 +25,7 @@ export const routes: Routes = [
         path: 'category/:id',
         loadComponent: () => import('./category/category.component').then(p => p.CategoryComponent)
       },
-      { path: '**', redirectTo: 'menu', pathMatch: 'full' }
+      { path: '', redirectTo: 'menu', pathMatch: 'full' }
     ]
   },
   {
@@ -44,20 +44,16 @@ export const routes: Routes = [
         path: 'personal-information',
         loadComponent: () => import('./profile/personal-information/personal-information.component').then(p => p.PersonalInformationComponent)
       },
-      {
-        path: '',
-        redirectTo: 'personal-information',
-        pathMatch: 'full'
-      }
+      { path: '**', redirectTo: 'personal-information', pathMatch: 'full' }
     ]
   },
   {
     path: 'auth',
     children: [
       { path: 'register', loadComponent: () => import('./auth/register/register.component').then(p => p.RegisterComponent) },
-      { path: 'login', loadComponent: () => import('./auth/login/login.component').then(p => p.LoginComponent) }
+      { path: 'login', loadComponent: () => import('./auth/login/login.component').then(p => p.LoginComponent) },
+      { path: '**', redirectTo: 'register', pathMatch: 'full' }
     ]
   },
-  { path: '', redirectTo: '', pathMatch: 'full' },
   { path: '**', redirectTo: '', pathMatch: 'full' },
 ];
