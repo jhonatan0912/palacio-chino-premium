@@ -15,13 +15,13 @@ export class CategoriesProxy {
     return `${environment.api}/api/v1/categories`;
   }
 
-  create(icon: string, name: string, slug: string): Observable<CategoryDto> {
-    const body = ({
-      icon,
-      name,
-      slug
-    });
-    return this.http.create(this.path, body).pipe(mergeMap((data: any) => of(new CategoryDto().fromJS(data))));
+  create(icon: File, name: string, slug: string): Observable<CategoryDto> {
+    const form = new FormData();
+    form.append('icon', icon);
+    form.append('name', name);
+    form.append('slug', slug);
+    
+    return this.http.create(this.path, form).pipe(mergeMap((data: any) => of(new CategoryDto().fromJS(data))));
   }
 
   get(id: string): Observable<CategoryDto> {
@@ -56,3 +56,13 @@ export class CategoryDto {
     return result;
   };
 }
+
+export const getSlug = (name: string): string => {
+  return name.toLowerCase().split(' ').join('-');
+};
+
+export const onFileChange = (event: any): File | undefined => {
+  if (event.target.files === 0) return;
+
+  return event.target.files[0];
+};

@@ -1,16 +1,17 @@
 import { Component, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { CategoriesProxy } from '@shared/proxies/categories.proxies';
+import { SlugPipe } from '@shared/pipes/slug.pipe';
+import { CategoriesProxy, getSlug, onFileChange } from '@shared/proxies/categories.proxies';
 
 interface CategoryForm {
-  icon: string;
+  icon: File | undefined;
   name: string;
 }
 
 @Component({
   selector: 'category-form',
   standalone: true,
-  imports: [FormsModule],
+  imports: [FormsModule, SlugPipe],
   templateUrl: './category-form.component.html',
   styleUrls: ['./category-form.component.scss'],
 })
@@ -19,21 +20,21 @@ export class CategoryFormComponent {
   private categoriesProxy = inject(CategoriesProxy);
 
   categoryForm: CategoryForm = {
-    icon: '',
+    icon: undefined,
     name: '',
   };
 
-  get categorySlug(): string {
-    return this.categoryForm.name.toLowerCase().split(' ').join('-');
-  }
+  preview: string = '';
 
   addCategory(): void {
     const { icon, name } = this.categoryForm;
-
+    console.log(icon);
+    if (!icon) return;
+    console.log(icon);
     this.categoriesProxy.create(
       icon,
       name,
-      this.categorySlug
+      getSlug(name)
     ).subscribe({
       next: (response) => {
         this.resetForm();
@@ -47,9 +48,16 @@ export class CategoryFormComponent {
 
   resetForm(): void {
     this.categoryForm = {
-      icon: '',
+      icon: undefined,
       name: '',
     };
+  }
+
+  onFileChange(event: any) {
+    this.categoryForm.icon = onFileChange(event);
+    if (!this.categoryForm.icon) return;
+
+    this.preview = URL.createObjectURL(this.categoryForm.icon);
   }
 
 }
