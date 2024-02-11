@@ -5,7 +5,7 @@ import { IonIcon } from '@ionic/angular/standalone';
 @Component({
   selector: 'app-admin-sidebar',
   standalone: true,
-  imports: [NgClass, IonIcon],
+  imports: [NgClass,IonIcon],
   templateUrl: './sidebar.component.html',
   styleUrls: ['./sidebar.component.scss'],
 })

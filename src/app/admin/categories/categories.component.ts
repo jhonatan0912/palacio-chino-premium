@@ -15,5 +15,4 @@ import { CategoryListComponent } from './category-list/category-list.component';
 })
 export class CategoriesComponent {
 
-
 }
