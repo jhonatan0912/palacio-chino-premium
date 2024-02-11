@@ -20,8 +20,8 @@ export class CategoriesProxy {
     form.append('icon', icon);
     form.append('name', name);
     form.append('slug', slug);
-    
-    return this.http.create(this.path, form).pipe(mergeMap((data: any) => of(new CategoryDto().fromJS(data))));
+
+    return this.http.post(this.path, form).pipe(mergeMap((data: any) => of(new CategoryDto().fromJS(data))));
   }
 
   get(id: string): Observable<CategoryDto> {

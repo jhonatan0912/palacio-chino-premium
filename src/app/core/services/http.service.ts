@@ -13,7 +13,7 @@ export class AppHttpService {
     return this.http.get(url);
   }
 
-  create(url: string, body: any, options?: any): Observable<any> {
+  post(url: string, body: any, options?: any): Observable<any> {
     return this.http.post(url, body, options);
   }
 
