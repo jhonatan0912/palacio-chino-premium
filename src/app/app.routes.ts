@@ -78,5 +78,5 @@ export const routes: Routes = [
       { path: '', redirectTo: 'categories', pathMatch: 'full' }
     ]
   },
-  // { path: '**', redirectTo: '', pathMatch: 'full' },
+  { path: '**', redirectTo: '', pathMatch: 'full' },
 ];

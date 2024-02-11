@@ -31,15 +31,15 @@ export class CategoriesProxy {
 }
 
 export class CategoryDto {
-  id!: string;
-  code!: string;
+  id?: string;
+  slug!: string;
   icon!: string;
   name!: string;
 
   init(data: any): void {
     if (data) {
       this.id = data.id;
-      this.code = data.code;
+      this.slug = data.code;
       this.icon = data.icon;
       this.name = data.name;
     }
