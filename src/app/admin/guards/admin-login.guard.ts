@@ -2,16 +2,16 @@ import { inject } from '@angular/core';
 import { CanActivateFn } from '@angular/router';
 import { AppNavigationService } from '@core/index';
 
-export const adminDashboardGuard: CanActivateFn = (route, state) => {
+export const adminLoginGuard: CanActivateFn = (route, state) => {
   const navigation = inject(AppNavigationService);
   const token = localStorage.getItem('admin-token');
 
-  if (token) {
-    console.log('Admin token found');
+  if (!token) {
+    console.log('No admin token');
     return true;
   }
 
-  console.log('No admin token');
-  navigation.forward('/admin');
+  console.log('Admin token found');
+  navigation.forward('/admin-dashboard');
   return false;
 };

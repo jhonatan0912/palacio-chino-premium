@@ -1,15 +1,18 @@
 import { NgClass } from '@angular/common';
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output, inject } from '@angular/core';
+import { AppNavigationService } from '@core/index';
 import { IonIcon } from '@ionic/angular/standalone';
 
 @Component({
   selector: 'app-admin-sidebar',
   standalone: true,
-  imports: [NgClass,IonIcon],
+  imports: [NgClass, IonIcon],
   templateUrl: './sidebar.component.html',
   styleUrls: ['./sidebar.component.scss'],
 })
 export class SidebarComponent {
+
+  private navigation = inject(AppNavigationService);
 
   private _expanded: boolean = true;
 
@@ -26,7 +29,12 @@ export class SidebarComponent {
     }
   }
 
-  onToggle() {
+  onToggle(): void {
     this.expanded = !this.expanded;
+  }
+
+  onLogout(): void {
+    localStorage.removeItem('admin-token');
+    this.navigation.forward('menu');
   }
 }

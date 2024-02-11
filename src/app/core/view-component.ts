@@ -1,10 +1,10 @@
-import { NavigationService } from './services/navigation.service';
+import { AppNavigationService } from './services/navigation.service';
 
 export abstract class ViewComponent {
 
-  router: NavigationService;
+  router: AppNavigationService;
 
   constructor() {
-    this.router = new NavigationService();
+    this.router = new AppNavigationService();
   }
 }
