@@ -1,10 +1,8 @@
 <main class="layout">
-  @if (screen !== 'mobile') {
-    <app-admin-sidebar
-      [(expanded)]="expanded"
-      [ngClass]="{'expanded': expanded}"
-    />
-  }
+  <app-admin-sidebar
+    [(expanded)]="expanded"
+    [ngClass]="{'expanded': expanded}"
+  />
   <section class="layout__content">
     <router-outlet></router-outlet>
   </section>
