@@ -1,7 +1,11 @@
 <section class="wrapper">
 
   <div class="button-expand" (click)="onToggle()">
-      {{ expanded ? '<' : '>' }}
+      @if (expanded) {
+        <ion-icon name="chevron-back-outline" />
+      }@else{
+        <ion-icon name="chevron-forward-outline" />
+      }
   </div>
 
 

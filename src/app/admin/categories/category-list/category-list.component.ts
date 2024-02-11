@@ -1,9 +1,11 @@
 import { Component, OnInit, inject } from '@angular/core';
+import { IonIcon } from '@ionic/angular/standalone';
 import { CategoriesProxy, CategoryDto } from '@shared/proxies/categories.proxies';
 
 @Component({
   selector: 'category-list',
   standalone: true,
+  imports: [IonIcon],
   templateUrl: './category-list.component.html',
   styleUrls: ['./category-list.component.scss'],
 })
