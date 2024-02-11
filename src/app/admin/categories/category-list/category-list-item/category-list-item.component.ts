@@ -23,7 +23,6 @@ export class CategoryListItemComponent implements OnInit {
   ngOnInit() { }
 
   async onOptions(event: Event): Promise<void> {
-    console.log('options');
     const popover = await this.popoverController.create({
       event,
       component: CategoryListItemPopoverComponent,
@@ -35,7 +34,9 @@ export class CategoryListItemComponent implements OnInit {
     await popover.present();
 
     const { data } = await popover.onDidDismiss();
-    console.log(data);
+    if (!data) return;
+
+    console.log({ data });
   }
 
 }
