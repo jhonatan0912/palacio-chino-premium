@@ -3,17 +3,4 @@
   flex-direction: column;
   gap: 1rem;
   width: 300px;
-
-  .category {
-    box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.1);
-    padding: .5rem 1rem;
-    border-radius: .5rem;
-    position: relative;
-    display: flex;
-    justify-content: space-between;
-
-    &-options {
-      cursor: pointer;
-    }
-  }
 }

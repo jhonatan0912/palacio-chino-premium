@@ -2,12 +2,9 @@
 
   <div class="categories-table">
     @for (category of categories; track $index) {
-      <div class="category">
-        {{ category.name }}
-        <span class="category-options">
-          <ion-icon name="menu-outline" />
-        </span>
-      </div>
+      <category-list-item
+        [category]="category"
+      />
     }
   </div>
 </div>

@@ -1,0 +1,10 @@
+.options {
+  padding: .5em 1em;
+  display: flex;
+  flex-direction: column;
+  gap: .5em;
+
+  .option {
+    cursor: pointer;
+  }
+}
