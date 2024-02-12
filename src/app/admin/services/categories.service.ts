@@ -8,5 +8,4 @@ import { Subject } from 'rxjs';
 export class CategoriesService {
 
   onCategory: Subject<CategoryDto> = new Subject<CategoryDto>();
-  
 }

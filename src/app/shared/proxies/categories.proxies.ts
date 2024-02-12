@@ -34,8 +34,8 @@ export class CategoriesProxy {
 
   delete(id: string): Observable<void> {
     const url = `${this.path}/${id}`;
-    
-    return this.http.delete(url).pipe(mergeMap(() => of()));
+
+    return this.http.delete(url);
   }
 
 }

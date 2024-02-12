@@ -1,7 +1,8 @@
-import { Component, Input, OnInit, inject } from '@angular/core';
+import { Component, DestroyRef, EventEmitter, Input, Output, inject } from '@angular/core';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { PopoverController } from '@ionic/angular';
 import { IonIcon } from "@ionic/angular/standalone";
-import { CategoryDto } from '@shared/proxies/categories.proxies';
+import { CategoriesProxy, CategoryDto } from '@shared/proxies/categories.proxies';
 import { CategoryListItemPopoverComponent } from './category-list-item-popover/category-list-item-popover.component';
 
 @Component({
@@ -12,17 +13,17 @@ import { CategoryListItemPopoverComponent } from './category-list-item-popover/c
   templateUrl: './category-list-item.component.html',
   styleUrls: ['./category-list-item.component.scss'],
 })
-export class CategoryListItemComponent implements OnInit {
+export class CategoryListItemComponent {
 
+  private categoriesProxy = inject(CategoriesProxy);
   private popoverController = inject(PopoverController);
+  private deleteDestroyRef = inject(DestroyRef);
 
   @Input() category!: CategoryDto;
 
-  constructor() { }
+  @Output() onDelete: EventEmitter<string> = new EventEmitter<string>();
 
-  ngOnInit() { }
-
-  async onOptions(event: Event): Promise<void> {
+  async onOptions(event: Event, id: string): Promise<void> {
     const popover = await this.popoverController.create({
       event,
       component: CategoryListItemPopoverComponent,
@@ -36,7 +37,27 @@ export class CategoryListItemComponent implements OnInit {
     const { data } = await popover.onDidDismiss();
     if (!data) return;
 
-    console.log({ data });
+    switch (data) {
+      case 'edit':
+
+        break;
+      case 'delete':
+        this.onHandleDelete(id);
+        break;
+
+      default:
+        break;
+    }
+  }
+
+  onHandleDelete(id: string): void {
+    this.categoriesProxy.delete(id)
+      .pipe(takeUntilDestroyed(this.deleteDestroyRef))
+      .subscribe({
+        next: () => {
+          this.onDelete.emit(id);
+        }
+      });
   }
 
 }

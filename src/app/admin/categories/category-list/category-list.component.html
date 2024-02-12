@@ -4,6 +4,7 @@
     @for (category of categories; track $index) {
       <category-list-item
         [category]="category"
+        (onDelete)="onDelete($event)"
       />
     }
   </div>
