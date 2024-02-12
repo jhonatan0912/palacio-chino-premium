@@ -1,12 +1,10 @@
-import { Component, inject } from '@angular/core';
+import { Component, DestroyRef, inject } from '@angular/core';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { FormsModule } from '@angular/forms';
 import { SlugPipe } from '@shared/pipes/slug.pipe';
 import { CategoriesProxy, getSlug, onFileChange } from '@shared/proxies/categories.proxies';
+import { CategoriesService } from '../../services/categories.service';
 
-interface CategoryForm {
-  icon: File | undefined;
-  name: string;
-}
 
 @Component({
   selector: 'category-form',
@@ -18,46 +16,42 @@ interface CategoryForm {
 export class CategoryFormComponent {
 
   private categoriesProxy = inject(CategoriesProxy);
+  private categoriesService = inject(CategoriesService);
+  private destroyRef = inject(DestroyRef);
 
-  categoryForm: CategoryForm = {
-    icon: undefined,
-    name: '',
-  };
-
+  icon: File | undefined;
+  name: string = '';
   preview: string = '';
 
   addCategory(): void {
-    const { icon, name } = this.categoryForm;
-    console.log(icon);
-    if (!icon) return;
-    console.log(icon);
-    this.categoriesProxy.create(
-      icon,
-      name,
-      getSlug(name)
-    ).subscribe({
-      next: (response) => {
-        this.resetForm();
-        console.log(response);
-      },
-      error: (error) => {
-        console.log(error);
-      }
-    });
-  }
+    if (!this.icon) return;
 
-  resetForm(): void {
-    this.categoryForm = {
-      icon: undefined,
-      name: '',
-    };
+    this.categoriesProxy.create(
+      this.icon,
+      this.name,
+      getSlug(this.name)
+    ).pipe(takeUntilDestroyed(this.destroyRef))
+      .subscribe({
+        next: (category) => {
+          this.categoriesService.onCategory.next(category);
+          this.resetForm();
+        },
+        error: (error) => {
+          console.error(error);
+        }
+      });
   }
 
   onFileChange(event: any) {
-    this.categoryForm.icon = onFileChange(event);
-    if (!this.categoryForm.icon) return;
+    this.icon = onFileChange(event);
+    if (!this.icon) return;
 
-    this.preview = URL.createObjectURL(this.categoryForm.icon);
+    this.preview = URL.createObjectURL(this.icon);
   }
 
+  resetForm(): void {
+    this.icon = undefined;
+    this.name = '';
+    this.preview = '';
+  }
 }

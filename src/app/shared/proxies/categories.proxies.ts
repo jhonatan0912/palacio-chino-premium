@@ -32,6 +32,12 @@ export class CategoriesProxy {
     return this.http.get(this.path).pipe(mergeMap((data: any) => of(data.map((item: any) => new CategoryDto().fromJS(item)))));
   }
 
+  delete(id: string): Observable<void> {
+    const url = `${this.path}/${id}`;
+    
+    return this.http.delete(url).pipe(mergeMap(() => of()));
+  }
+
 }
 
 export class CategoryDto {
