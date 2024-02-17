@@ -1,19 +1,32 @@
+import { Injector } from '@angular/core';
 import { AppSessionService } from '@core/services/session.service';
-import { AuthProxy, UserAuthResponseDto } from '@shared/proxies/auth.proxies';
-import { Observable, tap } from 'rxjs';
+import { Platform } from '@ionic/angular';
+import { AuthProxy } from '@shared/proxies/auth.proxies';
+import { tap } from 'rxjs';
 
-export const appInitializer = (authProxy: AuthProxy, appSessionService: AppSessionService) => {
+export const appInitializer = (injector: Injector) => {
+  const authProxy = injector.get(AuthProxy);
+  const appSessionService = injector.get(AppSessionService);
+  const platform = injector.get(Platform);
+
   return () => {
-    return authProxy.getSession()
-      .pipe(
-        tap({
-          next: (user) => {
-            appSessionService.setUser(user);
-          },
-          error: (error) => {
-            console.error('Error', error);
-          }
-        })
-      );
+    return new Promise<void>((resolve, reject) => {
+      authProxy.getSession()
+        .pipe(
+          tap({
+            next: (user) => {
+              platform.ready()
+                .then(() => {
+                  appSessionService.setUser(user);
+                  resolve();
+                });
+            },
+            error: (error) => {
+              reject(error);
+            }
+          })
+        )
+        .subscribe();
+    });
   };
 };

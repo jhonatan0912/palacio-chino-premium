@@ -1,18 +1,20 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Injector } from "@angular/core";
 import { UserAuthResponseDto } from '@shared/proxies/auth.proxies';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable({ providedIn: 'root' })
 export class AppSessionService {
 
-  private _user: UserAuthResponseDto | null = null;
+  private _user: UserAuthResponseDto | undefined;
+
+  get user(): UserAuthResponseDto | undefined {
+    return this._user;
+  };
 
   setUser(user: UserAuthResponseDto) {
     this._user = user;
-  };
+  }
 
-  get user(): UserAuthResponseDto {
-    return this._user ? this._user : {} as UserAuthResponseDto;
+  clear() {
+    this._user = undefined;
   }
 }

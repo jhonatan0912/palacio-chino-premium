@@ -1,5 +1,5 @@
 import { NgIf } from '@angular/common';
-import { Component, inject } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { ViewComponent } from '@core/view-component';
 import { PopoverController } from '@ionic/angular';
 import { IonIcon } from '@ionic/angular/standalone';
@@ -18,7 +18,7 @@ interface HeaderOption {
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss',
 })
-export class HeaderComponent extends ViewComponent {
+export class HeaderComponent extends ViewComponent implements OnInit {
 
   private popoverController = inject(PopoverController);
 
@@ -29,12 +29,17 @@ export class HeaderComponent extends ViewComponent {
     { name: 'Pedir online', path: 'category/1' },
   ];
 
+  ngOnInit(): void {
+    console.log(this.session.user);
+  }
+
   navigateToHome() {
     this.navigation.forward('home');
   }
 
   onAuth() {
-    this.navigation.forward('/auth/login');
+    // this.navigation.forward('/auth/login');
+    console.log(this.session.user);
   }
 
   async onCart(event: Event): Promise<void> {
