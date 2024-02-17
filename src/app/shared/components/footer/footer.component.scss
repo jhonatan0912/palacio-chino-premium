@@ -1,19 +1,23 @@
-.footer {
-   // background-color: #202020;
-   padding: 30px 0;
-   // border-top: 4px solid #DC5353;
+.footer{
+   background-color: rgba(32, 32, 32, 1);
+   position: relative;
+   padding: 60px 0;
+
 }
 
 .line-red-footer {
    background-color: #DC5353;
    height: 2px;
-   margin-bottom: 20px;
+   // margin-bottom: 20px;
+   position: absolute;
+   top: 5px;
+   left: 0;
+   width: 100%;
 }
 
 .contend_footer_first {
    display: flex;
    justify-content: space-between;
-   padding-top: 30px;
 }
 
 .logo {
@@ -28,12 +32,20 @@
    display: grid;
    grid-template-columns: repeat(3, 1fr);
    gap: 100px;
-   padding-right: 150px;
-   border-right: 2px solid white;
 
-   li {
-      padding-top: 6px;
+   ul {
+      li {
+         padding-top: 6px;
+         display: block;
+      }
    }
+
+   
+}
+
+.line{
+   background-color: rgb(247, 247, 247);
+   width: 2px;
 }
 
 .title {
@@ -65,7 +77,7 @@
    padding-top: 6px;
 
    img {
-      width: 70px;
+      width: 40px;
    }
 }
 

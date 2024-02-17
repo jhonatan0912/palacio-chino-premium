@@ -1,0 +1,14 @@
+.button{
+   width: 100%;
+   // margin-top: 50px;
+   padding: 12px 8px;
+   border-radius: 8px;
+   text-align: center;
+   background-color: #F23545;
+}
+.button:hover{
+   background-color: #ef1628;    
+}
+.content_button{
+   display: flex;
+}

@@ -1,41 +1,62 @@
-<main class="flex w-full h-screen">
+<main class="main">
 
-  <section class="w-1/4">
-    <auth-aside />
-  </section>
+   <section class="panel_back">
+     <auth-aside />
+     <div class="name-logo">
+         <img src="/assets/logo.png" alt="">
+         <h2>Palacio Chino <br>Premium</h2>
+     </div>
+     <div></div>
+   </section>
+ 
+   <section class="form-container">
+ 
+     <div class="form shadow-2xl">
+       <h2 class="title_form">
+         Registrate
+       </h2>
 
-  <section class="form-container flex-1 flex items-center justify-center h-full">
+       <p class="text_extra">¿Ya tienes cuenta? 
+         <span (click)="onAuth()" id="log_in">Inicia Sesión</span>
+      </p>
+       
+      <div class="inputs_form">
+         <div class="form-input">
+            <span>Nombres completos</span>
+            <input type="text" placeholder="Nombres">
+         </div>
+   
+         <div class="form-input">
+            <span>Correo electrónico</span>
+            <input type="email" placeholder="Correo electrónico">
+         </div>
 
-    <div class="form shadow-2xl w-1/3 p-5 py-10 rounded-2xl bg-white">
-      <h2 class="text-center text-2xl font-bold">
-        Bienvenido
-      </h2>
-
-      <div class="flex flex-col mt-5">
-        <span>Correo electrónico</span>
-        <input type="email" class="border border-black rounded-md py-2 mt-2">
+         <div class="form-input">
+            <span>Contraseña</span>
+            <input type="password" placeholder="Contraseña">
+         </div>
+   
+         <div class="form-input">
+            <span>Confirmar Contraseña</span>
+            <input type="password" placeholder="Confirmar Contraseña">
+         </div>
       </div>
+      
+      <p class="text_extra" id="data">Al registrarse autoriza el tratamiento de sus 
+         <span>datos personales</span>
+      </p>
 
-      <div class="flex flex-col my-5">
-        <span>Contraseña</span>
-        <input type="password" class="border border-black rounded-md py-2 mt-2">
+      <div class="button_register">
+         <lib-button
+            title="REGISTRARME"
+            type="fill"
+            (onAction)="register()"
+         />
       </div>
-
-      <lib-button
-        title="INICIAR SESIÓN"
-        type="fill"
-        backgroundColor="#DC5353"
-        (onAction)="login()"
-      />
-
-      <p class="font-semibold text-center mt-10">¿Eres nuevo?</p>
-
-      <button class="border border-black w-full mt-6 py-3 rounded-md active:scale-95">
-        REGÍSTRATE
-      </button>
-    </div>
-
-  </section>
-
-
-</main>
+ 
+     </div>
+ 
+   </section>
+ 
+ 
+ </main>

@@ -1,0 +1,19 @@
+<div class="menu_options">
+  <h2 class="title_menu">
+    MENÚ
+  </h2>
+  <section class="menu">
+    @for (menuOption of menuOptions; track $index) {
+    <div
+      (click)="navigateToCategory(menuOption.id)"
+      class="menu_content">
+      <!-- ICON -->
+      <img [src]="menuOption.icon" alt="icons-menu">
+      <!-- NAME -->
+      <p>
+        {{ menuOption.name }}
+      </p>
+    </div>
+    }
+  </section>
+</div>

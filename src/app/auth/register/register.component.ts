@@ -13,5 +13,9 @@ import { ViewComponent } from '@core/view-component';
 })
 export class RegisterComponent extends ViewComponent {
 
-  login(): void { }
+  register(): void { }
+
+  onAuth() {
+    this.router.forward('/auth/login');
+  }
 }
