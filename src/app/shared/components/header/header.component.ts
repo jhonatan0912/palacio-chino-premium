@@ -3,6 +3,7 @@ import { ViewComponent } from '@core/view-component';
 import { PopoverController } from '@ionic/angular';
 import { IonIcon } from '@ionic/angular/standalone';
 import { ShoppingCartComponent } from '../shopping-cart/shopping-cart.component';
+import { JsonPipe, NgIf } from '@angular/common';
 
 
 interface HeaderOption {
@@ -13,7 +14,7 @@ interface HeaderOption {
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [IonIcon],
+  imports: [IonIcon, NgIf, JsonPipe],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss',
 })
@@ -29,11 +30,11 @@ export class HeaderComponent extends ViewComponent {
   ];
 
   navigateToHome() {
-    this.router.forward('home');
+    this.navigation.forward('home');
   }
 
   onAuth() {
-    this.router.forward('/auth/login');
+    this.navigation.forward('/auth/login');
   }
 
   async onCart(event: Event): Promise<void> {

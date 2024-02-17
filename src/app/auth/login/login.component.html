@@ -8,34 +8,34 @@
      </div>
      <div></div>
    </section>
- 
+
    <section class="form-container">
- 
+
      <div class="form shadow-2xl">
        <h2 class="title_form">
          Bienvenido
        </h2>
- 
+
        <div class="inputs_form">
          <div class="form-input">
             <span>Correo electrónico</span>
-            <input type="email" placeholder="Correlo electrónico">
+            <input [(ngModel)]="email" type="email" placeholder="Correo electrónico">
          </div>
-   
+
          <div class="form-input">
             <span>Contraseña</span>
-            <input type="password" placeholder="Contraseña">
+            <input (keydown.enter)="onLogin()"  [(ngModel)]="password" type="password" placeholder="Contraseña">
          </div>
       </div>
- 
+
        <lib-button
          title="INICIAR SESIÓN"
          type="fill"
-         (onAction)="login()"
+         (onAction)="onLogin()"
        />
- 
+
        <p class="">¿Eres nuevo?</p>
-      
+
        <div class="register_button">
          <button class="button active:scale-95" (click)="onAuth()">
            REGÍSTRATE
@@ -43,8 +43,8 @@
        </div>
 
      </div>
- 
+
    </section>
- 
- 
+
+
  </main>

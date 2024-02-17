@@ -20,7 +20,7 @@ export class ListMenuComponent extends ViewComponent {
   ];
 
   navigateToCategory(id: string): void {
-    this.router.forward(`category/${id}`);
+    this.navigation.forward(`category/${id}`);
   }
 
 }

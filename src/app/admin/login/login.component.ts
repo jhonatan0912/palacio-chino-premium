@@ -30,7 +30,7 @@ export class AdminLoginComponent extends ViewComponent implements OnInit {
     ).subscribe({
       next: (data) => {
         localStorage.setItem('admin-token', data.token);
-        this.router.forward('/admin-dashboard');
+        this.navigation.forward('/admin-dashboard');
       },
       error: (error) => {
         console.error(error);

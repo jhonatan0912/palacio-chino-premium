@@ -1,10 +1,13 @@
 import { AppNavigationService } from './services/navigation.service';
+import { AppSessionService } from './services/session.service';
 
 export abstract class ViewComponent {
 
-  router: AppNavigationService;
+  navigation: AppNavigationService;
+  session: AppSessionService;
 
   constructor() {
-    this.router = new AppNavigationService();
+    this.navigation = new AppNavigationService();
+    this.session = new AppSessionService();
   }
 }

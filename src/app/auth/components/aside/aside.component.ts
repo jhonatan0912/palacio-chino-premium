@@ -11,6 +11,6 @@ import { ViewComponent } from '@core/view-component';
 export class AsideComponent extends ViewComponent {
 
   navigateToHome() {
-    this.router.forward('/');
+    this.navigation.forward('/');
   }
 }

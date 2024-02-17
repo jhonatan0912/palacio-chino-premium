@@ -16,6 +16,6 @@ export class RegisterComponent extends ViewComponent {
   register(): void { }
 
   onAuth() {
-    this.router.forward('/auth/login');
+    this.navigation.forward('/auth/login');
   }
 }

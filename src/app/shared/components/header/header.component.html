@@ -8,7 +8,7 @@
     <div class="options">
 
       @for (option of options; track $index) {
-      <div (click)="router.forward(option.path)" class="title_header">
+      <div (click)="navigation.forward(option.path)" class="title_header">
         {{ option.name }}
       </div>
       }
@@ -16,7 +16,8 @@
 
 
     <div  class="login-cart">
-      <div class="login pointer" (click)="onAuth()">
+      {{ session.user | json }}
+      <div *ngIf="!session.user" class="login pointer" (click)="onAuth()">
         <ion-icon name="person-outline" />
         <p>ENTRAR</p>
       </div>
