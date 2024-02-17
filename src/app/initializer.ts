@@ -25,8 +25,8 @@ export const appInitializer = (injector: Injector) => {
               reject(error);
             }
           })
-        )
-        .subscribe();
+        ).subscribe();
+      resolve();
     });
   };
 };

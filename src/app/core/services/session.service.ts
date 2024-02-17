@@ -1,4 +1,4 @@
-import { Injectable, Injector } from "@angular/core";
+import { Injectable } from "@angular/core";
 import { UserAuthResponseDto } from '@shared/proxies/auth.proxies';
 
 @Injectable({ providedIn: 'root' })

@@ -17,11 +17,15 @@
 
     <div  class="login-cart">
 
-      <div *ngIf="!session.user" class="login pointer" (click)="onAuth()">
+      <div class="login pointer" (click)="onAuth()">
         <ion-icon name="person-outline" />
-        <p>
-          Iniciar sesión
-        </p>
+        @if (!session.user) {
+          <p>
+            Iniciar sesión
+          </p>
+        }@else {
+          {{ session.user.fullName }}
+        }
       </div>
 
       <div class="cart pointer" (click)="onCart($event)">
