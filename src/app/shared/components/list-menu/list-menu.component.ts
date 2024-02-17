@@ -3,10 +3,11 @@ import { ViewComponent } from '@core/view-component';
 
 @Component({
   selector: 'app-list-menu',
+  standalone: true,
   templateUrl: './list-menu.component.html',
   styleUrls: ['./list-menu.component.scss'],
 })
-export class ListMenuComponent  extends ViewComponent {
+export class ListMenuComponent extends ViewComponent {
 
   menuOptions = [
     { id: '1', icon: '/assets/img-promotion.svg', name: 'Promociones' },

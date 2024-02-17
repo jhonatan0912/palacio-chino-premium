@@ -42,7 +42,7 @@ export class CategoryListItemComponent {
 
         break;
       case 'delete':
-        this.onHandleDelete(id);
+        this.handleDelete(id);
         break;
 
       default:
@@ -50,7 +50,7 @@ export class CategoryListItemComponent {
     }
   }
 
-  onHandleDelete(id: string): void {
+  handleDelete(id: string): void {
     this.categoriesProxy.delete(id)
       .pipe(takeUntilDestroyed(this.deleteDestroyRef))
       .subscribe({
