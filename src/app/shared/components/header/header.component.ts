@@ -1,9 +1,9 @@
+import { NgIf } from '@angular/common';
 import { Component, inject } from '@angular/core';
 import { ViewComponent } from '@core/view-component';
 import { PopoverController } from '@ionic/angular';
 import { IonIcon } from '@ionic/angular/standalone';
 import { ShoppingCartComponent } from '../shopping-cart/shopping-cart.component';
-import { JsonPipe, NgIf } from '@angular/common';
 
 
 interface HeaderOption {
@@ -14,7 +14,7 @@ interface HeaderOption {
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [IonIcon, NgIf, JsonPipe],
+  imports: [IonIcon, NgIf],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss',
 })

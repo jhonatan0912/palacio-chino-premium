@@ -6,13 +6,13 @@ import { UserAuthResponseDto } from '@shared/proxies/auth.proxies';
 })
 export class AppSessionService {
 
-  private _user?: UserAuthResponseDto;
+  private _user: UserAuthResponseDto | null = null;
 
   setUser(user: UserAuthResponseDto) {
     this._user = user;
   };
 
-  get user(): UserAuthResponseDto | undefined {
-    return this._user ? this._user : undefined;
+  get user(): UserAuthResponseDto {
+    return this._user ? this._user : {} as UserAuthResponseDto;
   }
 }

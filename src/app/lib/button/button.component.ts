@@ -18,7 +18,6 @@ export class ButtonComponent {
 
   @Output() onAction: EventEmitter<void> = new EventEmitter<void>();
 
-
   get background(): string {
     return this.type === 'fill'
       ? this.backgroundColor

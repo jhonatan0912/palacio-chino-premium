@@ -1,13 +1,17 @@
-import { Component, OnInit } from '@angular/core';
+import { NgClass } from '@angular/common';
+import { Component, Input } from '@angular/core';
 import { ViewComponent } from '@core/view-component';
 
 @Component({
-  selector: 'app-list-menu',
+  selector: 'categories-menu',
   standalone: true,
-  templateUrl: './list-menu.component.html',
-  styleUrls: ['./list-menu.component.scss'],
+  imports: [NgClass],
+  templateUrl: './categories-menu.component.html',
+  styleUrls: ['./categories-menu.component.scss'],
 })
-export class ListMenuComponent extends ViewComponent {
+export class CategoriesMenuComponent extends ViewComponent {
+
+  @Input() selectedId!: string;
 
   menuOptions = [
     { id: '1', icon: '/assets/img-promotion.svg', name: 'Promociones' },
@@ -18,6 +22,11 @@ export class ListMenuComponent extends ViewComponent {
     { id: '6', icon: '/assets/img-bebida.svg', name: 'Bebidas' },
     { id: '7', icon: '/assets/img-postre.svg', name: 'Postres' },
   ];
+
+  constructor() {
+    super();
+    this.selectedId = this.menuOptions[0].id;
+  }
 
   navigateToCategory(id: string): void {
     this.navigation.forward(`category/${id}`);

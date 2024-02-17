@@ -6,7 +6,8 @@
     @for (menuOption of menuOptions; track $index) {
     <div
       (click)="navigateToCategory(menuOption.id)"
-      class="menu_content">
+      class="menu_content"
+      [ngClass]="{'selected': selectedId === menuOption.id}">
       <!-- ICON -->
       <img [src]="menuOption.icon" alt="icons-menu">
       <!-- NAME -->

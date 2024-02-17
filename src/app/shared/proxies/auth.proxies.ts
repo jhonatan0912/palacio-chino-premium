@@ -14,8 +14,9 @@ export class AuthProxy {
     return `${environment.api}/api/v1/auth`;
   }
 
-  register(email: string, password: string): Observable<AuthResponseDto> {
+  register(fullName: string, email: string, password: string): Observable<AuthResponseDto> {
     const body = {
+      fullName,
       email,
       password
     };
@@ -30,6 +31,10 @@ export class AuthProxy {
     };
 
     return this.http.post(`${this.path}/login`, body).pipe(mergeMap((data: any) => of(new AuthResponseDto().fromJS(data))));
+  }
+
+  getSession(): Observable<UserAuthResponseDto> {
+    return this.http.get(`${this.path}/session`).pipe(mergeMap((data: any) => of(new UserAuthResponseDto().fromJS(data))));
   }
 }
 
@@ -53,6 +58,7 @@ export class AuthResponseDto {
 }
 
 export class UserAuthResponseDto {
+  fullName!: string;
   email!: string;
   id!: string;
   isActive!: string;
@@ -60,6 +66,7 @@ export class UserAuthResponseDto {
 
   init(data: any): void {
     if (data) {
+      this.fullName = data.fullName;
       this.email = data.email;
       this.id = data.id;
       this.isActive = data.isActive;

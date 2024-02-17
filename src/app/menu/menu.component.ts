@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
 import { ViewComponent } from '@core/view-component';
 import { ProductCardComponent, ProductCardData } from '../shared/components/product-card/product-card.component';
-import { ListMenuComponent } from '@shared/components/list-menu/list-menu.component';
+import { CategoriesMenuComponent } from '@shared/components/categories-menu/categories-menu.component';
 
 @Component({
   selector: 'app-menu',
   standalone: true,
-  imports: [ProductCardComponent, ListMenuComponent],
+  imports: [ProductCardComponent, CategoriesMenuComponent],
   templateUrl: './menu.component.html',
   styleUrl: './menu.component.scss'
 })
