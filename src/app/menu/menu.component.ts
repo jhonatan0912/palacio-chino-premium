@@ -6,7 +6,7 @@ import { ListMenuComponent } from "../shared/components/list-menu/list-menu.comp
 @Component({
   selector: 'app-menu',
   standalone: true,
-  imports: [ProductCardComponent, ListMenuComponent],
+  imports: [ProductCardComponent, ], //listMenuComponent
   templateUrl: './menu.component.html',
   styleUrl: './menu.component.scss'
 })

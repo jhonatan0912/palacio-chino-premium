@@ -17,12 +17,12 @@
 
     <div  class="login-cart">
       <div class="login pointer" (click)="onAuth()">
-        <img src="/assets/user.svg" alt="User Login">
+        <ion-icon name="person-outline" />
         <p>ENTRAR</p>
       </div>
 
-      <div class="cart pointer">
-        <img src="/assets/shopping-cart.svg" alt="Shopping Cart">
+      <div class="cart pointer" (click)="onCart($event)">
+        <ion-icon class="cart-outline" name="cart-outline" />
       </div>
     </div>
   </div>

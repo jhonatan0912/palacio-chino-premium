@@ -1,12 +1,4 @@
-// .navbar {
-// background-color: rgba(35, 35, 35, 0.74);
-// background-color: rgba(228, 228, 228, 0.74);
-// background-color: white;
-// border-bottom: 1px solid black;
-// }
-
 .content_navbar {
-   // max-width: 1110px;
    display: flex;
    flex-direction: row;
    justify-content: space-between;
@@ -33,9 +25,6 @@
       cursor: pointer;
    }
 
-   // .title_header:hover{
-   //    color: #6b6b6b;
-   // }
    .title_header:last-child {
       background-color: #F23545;
       border-radius: 20px;
@@ -51,23 +40,20 @@
 .login-cart {
    display: flex;
    align-items: center;
-   gap: 30px;
-
+   gap: 1rem;
 }
 
 .login {
    display: flex;
    align-items: center;
-   gap: 10x;
-
-   img {
-      width: 35px;
-      height: 35px;
-   }
+   gap: .5rem;
 }
 
-.cart {
-   img {
-      width: 35px;
+ion-icon {
+   width: 32px;
+   height: 32px;
+
+   &.cart-outline {
+      margin-top: .5rem;
    }
 }

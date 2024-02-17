@@ -8,6 +8,7 @@
 app-admin-sidebar {
   width: 11%;
   transition: width 0.3s ease-in-out;
+  display: none;
 
   &.expanded {
     width: 15%;
@@ -18,4 +19,10 @@ app-admin-sidebar {
 .layout__content {
   flex: 1;
   padding: 20px;
+}
+
+@media screen and (min-width: 768px) {
+  app-admin-sidebar {
+    display: block;
+  }
 }

@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { NgClass } from '@angular/common';
+import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
-import { NgClass } from '@angular/common';
 
 @Component({
   selector: 'app-admin',
@@ -10,12 +10,7 @@ import { NgClass } from '@angular/common';
   templateUrl: './admin.component.html',
   styleUrls: ['./admin.component.scss'],
 })
-export class AdminComponent implements OnInit {
+export class AdminComponent {
 
   expanded: boolean = true;
-
-  constructor() { }
-
-  ngOnInit() { }
-
 }

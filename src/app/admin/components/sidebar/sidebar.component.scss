@@ -1,9 +1,10 @@
 .wrapper {
   position: relative;
+  height: 100%;
 
   .button-expand {
     position: absolute;
-    top: 20px;
+    top: 2rem;
     right: 0;
     z-index: 100;
     background-color: #DC5353;
@@ -20,18 +21,25 @@
 
   .sidebar {
     padding: 1rem;
-    // &.expanded {}
+    height: 100%;
+    display: flex;
+    flex-direction: column;
 
     &-header {
       padding-top: 1.5rem;
 
       & h3 {
-        font-size: 1.5rem;
+        font-size: 1.8rem;
         margin-bottom: 1rem;
+        font-weight: 800;
       }
     }
 
     &-content {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      flex: 1;
 
       & ul {
         display: flex;
@@ -49,6 +57,33 @@
             border-radius: .5rem;
             font-weight: 700;
           }
+        }
+      }
+
+    }
+
+    &-footer {
+      margin-top: 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      & button {
+        padding: .5em 1em;
+        border: none;
+        border-radius: .5rem;
+        background-color: #DC5353;
+        color: white;
+        cursor: pointer;
+        transition: .3s;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: .5rem;
+
+        &:hover {
+          background-color: #c23c3c;
         }
       }
     }
