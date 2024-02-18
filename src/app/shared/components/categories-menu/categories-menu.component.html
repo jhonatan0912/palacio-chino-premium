@@ -3,14 +3,14 @@
     MENÚ
   </h2>
   <section class="menu">
-    @for (menuOption of menuOptions; track $index) {
+    @for (menuOption of menuOptions(); track $index) {
+      <!-- (click)="navigateToCategory(menuOption.id)" -->
     <div
-      (click)="navigateToCategory(menuOption.id)"
       class="menu_content"
       [ngClass]="{'selected': selectedId === menuOption.id}">
-      <!-- ICON -->
+
       <img [src]="menuOption.icon" alt="icons-menu">
-      <!-- NAME -->
+
       <p>
         {{ menuOption.name }}
       </p>
