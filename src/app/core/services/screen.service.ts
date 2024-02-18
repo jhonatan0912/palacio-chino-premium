@@ -11,9 +11,9 @@ export enum Screen {
 @Injectable({
   providedIn: 'root'
 })
-export class ScreenService {
+export class AppScreenService {
 
-  private platform = inject(Platform);
+  private readonly platform = inject(Platform);
 
   get screen(): Screen {
     if (this.platform.is('android') || this.platform.is('ios') || this.platform.is('mobile')) {

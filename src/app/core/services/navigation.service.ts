@@ -1,5 +1,5 @@
 import { Injectable, inject } from '@angular/core';
-import { Params, Router } from '@angular/router';
+import { Params } from '@angular/router';
 import { NavController } from '@ionic/angular';
 
 @Injectable({
@@ -7,7 +7,7 @@ import { NavController } from '@ionic/angular';
 })
 export class AppNavigationService {
 
-  private navCtrl = inject(NavController);
+  private readonly navCtrl = inject(NavController);
 
   forward(path: string, queryParams?: Params): void {
     this.navCtrl.navigateForward(path, { queryParams });

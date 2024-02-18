@@ -45,6 +45,10 @@ export class MenuComponent extends ViewComponent {
     { id: '10', image: '', name: 'Item 10', price: 500 },
   ];
 
+  constructor() {
+    super();
+  }
+
   navigateToCategory(id: string): void {
     this.navigation.forward(`category/${id}`);
   }

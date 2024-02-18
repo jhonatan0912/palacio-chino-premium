@@ -1,0 +1,20 @@
+.wrapper {
+  padding: .5rem;
+
+  .title-close {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .close-container {
+    background: #ef1628;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    padding: .5rem;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
