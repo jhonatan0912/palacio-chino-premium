@@ -1,3 +1,42 @@
 <main class="wrapper">
-  Agregar dirección
+  <div class="title">
+    Agregar dirección
+  </div>
+
+  <div class="col">
+    <div class="row">
+      <!-- District -->
+      <select class="w-1/2" name="district" id="district">
+        <option readonly>Distrito</option>
+        <option value="chilca">Chilca</option>
+        <option value="huancayo">Huancayo</option>
+        <option value="el-tambo">El tambo</option>
+      </select>
+
+      <!-- Place type -->
+      <select class="w-1/2" name="type" id="type">
+        <option readonly>Tipo de lugar</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+      </select>
+    </div>
+
+    <div class="row">
+      <input type="text" placeholder="Calle">
+    </div>
+
+    <div class="row">
+      <input type="number" placeholder="Número de casa">
+      <input type="tel" placeholder="Celular">
+    </div>
+
+    <div class="row">
+      <textarea name="reference" id="reference" cols="30" rows="10" placeholder="Referencia"></textarea>
+    </div>
+
+    <div class="row">
+
+    </div>
+  </div>
 </main>

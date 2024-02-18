@@ -4,3 +4,15 @@
   border-radius: 1rem;
   padding: 1rem;
 }
+
+.col {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+input {
+  border: 1px solid #6A6A6A;
+  border-radius: .5rem;
+  padding: .5rem;
+}
