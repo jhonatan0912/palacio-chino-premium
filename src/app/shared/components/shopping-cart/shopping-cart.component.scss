@@ -4,17 +4,24 @@
   .title-close {
     display: flex;
     justify-content: space-between;
+    align-items: center;
+
+    .title {
+      font-weight: 500;
+      font-size: 1.2rem;
+    }
+
+    .close-container {
+      background: #ef1628;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      padding: .5rem;
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
   }
 
-  .close-container {
-    background: #ef1628;
-    width: 32px;
-    height: 32px;
-    border-radius: 50%;
-    padding: .5rem;
-    color: #fff;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
 }

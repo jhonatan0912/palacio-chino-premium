@@ -46,9 +46,7 @@ export class HeaderComponent extends ViewComponent {
       component: ShoppingCartComponent,
       event,
       arrow: false,
-      alignment: 'end'
-    }).then((res) => {
-      
+      alignment: 'end',
     });
   }
 

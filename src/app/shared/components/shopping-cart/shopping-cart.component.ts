@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { ViewComponent } from '@core/view-component';
-import { IonIcon } from '@ionic/angular/standalone';
+import { IonIcon, PopoverController } from '@ionic/angular/standalone';
 
 @Component({
   selector: 'app-shopping-cart',
@@ -11,8 +11,14 @@ import { IonIcon } from '@ionic/angular/standalone';
 })
 export class ShoppingCartComponent extends ViewComponent {
 
+  private popoverCtrl = inject(PopoverController);
+
   constructor() {
     super();
+  }
+
+  dismiss(): void {
+    this.popoverCtrl.dismiss('cancel');
   }
 
 }
