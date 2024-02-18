@@ -1,23 +1,17 @@
-//promociones
-
-// .home_content{
-//    max-width: 1110px;
-//    margin: auto;
-// }
-
-.banner{
+.banner {
    margin-top: 180px;
 }
 
-.menu_options{
+.menu_options {
    margin-top: 150px;
-   .menu{
+
+   .menu {
       display: flex;
       justify-content: center;
       gap: 60px;
       margin-top: 60px;
 
-      .menu_content{
+      .menu_content {
          width: 100px;
          display: flex;
          flex-direction: column;
@@ -27,12 +21,12 @@
          padding: 10px 0;
          cursor: pointer;
 
-         img{
+         img {
             width: 50px;
          }
       }
 
-      .menu_content:hover{
+      .menu_content:hover {
          background-color: #D9B536;
          border-radius: 10px;
          color: white;
@@ -41,14 +35,15 @@
    }
 }
 
-.menu_promotions{
-   margin-top: 150px;
-}
-.menu_demand{
+.menu_promotions {
    margin-top: 150px;
 }
 
-.title_menu{
+.menu_demand {
+   margin-top: 150px;
+}
+
+.title_menu {
    font-weight: bold;
    text-align: center;
    border-bottom: 1px solid black;
@@ -57,15 +52,15 @@
    padding: 0 40px;
 }
 
-.cards-menu{
+.cards-menu {
    display: grid;
-   grid-template-columns: repeat(4, 1fr);
+   grid-template-columns: repeat(5, 1fr);
    gap: 50px;
    margin-top: 60px;
 }
 
 
-.banner_down{
+.banner_down {
    background-image: url(/assets/banner-down.svg);
    background-position: center;
    background-size: cover;
@@ -74,7 +69,7 @@
    border-radius: 100px 0;
 }
 
-.content_banner{
+.content_banner {
    margin: auto;
    padding: 70px 100px;
    display: flex;
@@ -83,7 +78,7 @@
    // gap: 30px;
 }
 
-.content_first{
+.content_first {
    width: 700px;
    display: flex;
    flex-direction: column;
@@ -91,23 +86,25 @@
    align-items: flex-start;
    gap: 40px;
 
-   .title_banner{
-      h2{
+   .title_banner {
+      h2 {
          font-size: 40px;
          font-weight: 600;
       }
    }
-   .message{
-      p{
-         font-weight:500;
+
+   .message {
+      p {
+         font-weight: 500;
       }
    }
 }
 
-.content_second{
-   div{
+.content_second {
+   div {
       width: 130px;
-      img{
+
+      img {
          width: 100%;
       }
    }
@@ -118,6 +115,6 @@
 //celular
 @media (max-width: 576px) {
    .cards-menu {
-     grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: repeat(2, 1fr);
    }
 }

@@ -1,8 +1,17 @@
 .main-content {
   background: #ffffff;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
 
   .information {
     display: flex;
     gap: .5rem;
+  }
+
+  &__options {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
   }
 }

@@ -10,9 +10,9 @@ export class AuthService {
     localStorage.setItem(AUTH_TOKEN, token);
   };
 
-  getAuthToken(): string {
+  getAuthToken(): string | undefined {
     const token = localStorage.getItem(AUTH_TOKEN);
-    return token ? token : '';
+    return token ? token : undefined;
   }
 
   logout(): void {
