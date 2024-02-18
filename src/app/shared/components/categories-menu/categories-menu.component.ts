@@ -1,13 +1,14 @@
-import { NgClass } from '@angular/common';
-import { Component, DestroyRef, Input, OnInit, WritableSignal, inject } from '@angular/core';
+import { Component, DestroyRef, OnInit, inject } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { ViewComponent } from '@core/view-component';
 import { CategoriesProxy, CategoryDto } from '@shared/proxies/categories.proxies';
+import { environment } from '../../../../environments/environment.development';
+import { CategoryMenuComponent } from './category-menu/category-menu.component';
 
 @Component({
   selector: 'categories-menu',
   standalone: true,
-  imports: [NgClass],
+  imports: [ CategoryMenuComponent],
   templateUrl: './categories-menu.component.html',
   styleUrls: ['./categories-menu.component.scss'],
 })
@@ -16,12 +17,12 @@ export class CategoriesMenuComponent extends ViewComponent implements OnInit {
   private categoriesProxy = inject(CategoriesProxy);
   private destroyRef = inject(DestroyRef);
 
+  baseUrl: string = environment.api;
   selectedId!: string;
-  menuOptions!: WritableSignal<CategoryDto[]>;
+  categories: CategoryDto[] = [];
 
   constructor() {
     super();
-    // this.selectedId = this.menuOptions[0].id;
   }
 
   ngOnInit(): void {
@@ -33,8 +34,7 @@ export class CategoriesMenuComponent extends ViewComponent implements OnInit {
       .pipe(takeUntilDestroyed(this.destroyRef))
       .subscribe({
         next: (categories) => {
-          this.menuOptions.set(categories);
-          console.log(this.menuOptions());
+          this.categories = categories;
         }
       });
   }
