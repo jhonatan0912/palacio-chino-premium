@@ -34,7 +34,7 @@ export class HeaderComponent extends ViewComponent {
 
   onAuth() {
     if (this.session.user) {
-
+      this.navigation.forward('/profile');
     } else {
       this.navigation.forward('/auth/login');
     }

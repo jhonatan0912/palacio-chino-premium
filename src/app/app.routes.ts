@@ -32,7 +32,7 @@ export const routes: Routes = [
   },
   {
     path: 'profile',
-    loadComponent: () => import('./home/home.component').then(p => p.HomeComponent),
+    loadComponent: () => import('./profile/profile.component').then(p => p.ProfileComponent),
     children: [
       {
         path: 'addresses',

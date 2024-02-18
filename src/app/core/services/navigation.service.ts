@@ -1,16 +1,19 @@
 import { Injectable, inject } from '@angular/core';
-import { Router } from '@angular/router';
+import { Params, Router } from '@angular/router';
+import { NavController } from '@ionic/angular';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AppNavigationService {
 
-  private router = inject(Router);
+  private navCtrl = inject(NavController);
 
-  constructor() { }
+  forward(path: string, queryParams?: Params): void {
+    this.navCtrl.navigateForward(path, { queryParams });
+  }
 
-  forward(path: string) {
-    this.router.navigateByUrl(path);
+  back(path: string, queryParams?: Params): void {
+    this.navCtrl.navigateBack(path, { queryParams });
   }
 }

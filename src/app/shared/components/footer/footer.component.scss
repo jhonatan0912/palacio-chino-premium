@@ -1,14 +1,13 @@
-.footer{
+.footer {
    background-color: rgba(32, 32, 32, 1);
    position: relative;
-   padding: 60px 0;
+   padding: 30px 0 15px 0;
 
 }
 
 .line-red-footer {
    background-color: #DC5353;
    height: 2px;
-   // margin-bottom: 20px;
    position: absolute;
    top: 5px;
    left: 0;
@@ -21,7 +20,7 @@
 }
 
 .logo {
-   width: 150px;
+   width: 90px;
 
    img {
       width: 100%;
@@ -40,10 +39,10 @@
       }
    }
 
-   
+
 }
 
-.line{
+.line {
    background-color: rgb(247, 247, 247);
    width: 2px;
 }
@@ -66,7 +65,7 @@
    padding-top: 6px;
 
    img {
-      width: 50px;
+      width: 40px;
    }
 }
 
@@ -77,12 +76,12 @@
    padding-top: 6px;
 
    img {
-      width: 40px;
+      width: 32px;
    }
 }
 
 .contend_footer_second {
    display: flex;
    justify-content: space-between;
-   padding-top: 60px;
+   padding-top: 2rem;
 }

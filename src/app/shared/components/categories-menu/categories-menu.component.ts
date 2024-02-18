@@ -11,8 +11,8 @@ import { ViewComponent } from '@core/view-component';
 })
 export class CategoriesMenuComponent extends ViewComponent {
 
-  @Input() selectedId!: string;
 
+  selectedId!: string;
   menuOptions = [
     { id: '1', icon: '/assets/img-promotion.svg', name: 'Promociones' },
     { id: '2', icon: '/assets/img-combos.svg', name: 'Combos' },
@@ -29,6 +29,7 @@ export class CategoriesMenuComponent extends ViewComponent {
   }
 
   navigateToCategory(id: string): void {
+    this.selectedId = id;
     this.navigation.forward(`category/${id}`);
   }
 

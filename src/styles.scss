@@ -26,12 +26,10 @@ div {
 @media (max-width: 576px) {
   h1 {
     font-size: 1.5rem;
-    /* 24px en móvil */
   }
 
   h2 {
     font-size: 1.125rem;
-    /* 18px en móvil */
   }
 }
 
@@ -39,30 +37,23 @@ div {
 @media (max-width: 992px) {
   h1 {
     font-size: 1.875rem;
-    /* 30px en tablet */
   }
 
   h2 {
     font-size: 1.25rem;
-    /* 20px en tablet */
   }
 }
 
 
 //laptop
 
-/* Títulos de secciones */
 h1 {
   font-size: 2.25rem;
-  /* 36px en escritorio */
 }
 
-/* Subtítulos */
 h2 {
   font-size: 1.5rem;
-  /* 24px en escritorio */
 }
-
 
 .container__layout {
   max-width: 1360px;
@@ -100,4 +91,29 @@ h2 {
   .container__layout {
     max-width: 1220px;
   }
+}
+
+.page-content-wrapper {
+  min-height: 100vh;
+}
+
+@media screen and (max-width: 1024px) {
+  .page-content-wrapper {
+    width: 92%;
+    margin: 0 auto;
+  }
+}
+
+.page_wrapper_header {
+  position: fixed;
+  top: 0px;
+  width: 100%;
+  z-index: 50;
+  background-color: white;
+  box-shadow: 0 10px 25px -5px rgb(0 0 0 / 0.1)
+}
+
+.page_wrapper_footer {
+  color: #f1f1f1;
+  padding-top: 30px;
 }
