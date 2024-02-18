@@ -7,8 +7,14 @@
 
   <div class="main-content__options">
 
+    @for (option of options; track $index) {
+      <div class="option" (click)="onAction(option.route)">
+        {{ option.name }}
+      </div>
+    }
 
     <lib-button
+      class="btn-logout"
       title="Cerrar sesión"
       (onAction)="onLogout()"
     />

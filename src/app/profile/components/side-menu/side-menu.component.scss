@@ -3,15 +3,34 @@
   height: 100%;
   display: flex;
   flex-direction: column;
+  align-items: center;
+  padding: .5rem;
+  width: 100%;
 
   .information {
     display: flex;
     gap: .5rem;
+    font-size: 1.5rem;
   }
 
   &__options {
     display: flex;
     flex-direction: column;
     flex: 1;
+    width: 100%;
+    align-items: center;
+    gap: .9rem;
+    margin-top: 1rem;
+
+    .option {
+      font-size: 1.1rem;
+      font-weight: 500;
+      cursor: pointer;
+    }
+
+    .btn-logout {
+      width: 100%;
+      margin-top: auto;
+    }
   }
 }

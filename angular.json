@@ -42,9 +42,6 @@
                 "input": "node_modules/@ionic/angular/css/structure.css"
               },
               {
-                "input": "node_modules/@ionic/angular/css/typography.css"
-              },
-              {
                 "input": "node_modules/@ionic/angular/css/display.css"
               },
               {

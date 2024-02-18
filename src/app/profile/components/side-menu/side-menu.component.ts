@@ -4,6 +4,12 @@ import { ViewComponent } from '@core/view-component';
 import { IonButton, IonIcon } from '@ionic/angular/standalone';
 import { ButtonComponent } from '@lib/button/button.component';
 
+interface SideMenuOption {
+  id: string;
+  name: string;
+  route: string;
+}
+
 @Component({
   selector: 'profile-side-menu',
   standalone: true,
@@ -15,7 +21,16 @@ export class SideMenuComponent extends ViewComponent {
 
   private authService = inject(AuthService);
 
-  onLogout() {
+  options: SideMenuOption[] = [
+    { id: '1', name: 'Mis direcciones', route: '/profile/addresses' },
+    { id: '2', name: 'Mis pedidos', route: '/profile/orders' },
+  ];
+
+  onAction(route: string): void {
+    this.navigation.forward(route);
+  }
+
+  onLogout(): void {
     this.authService.logout();
     this.session.clear();
     this.navigation.forward('/home');
