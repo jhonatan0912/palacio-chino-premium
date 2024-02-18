@@ -1,0 +1,16 @@
+<div class="main-content">
+
+  <div class="information">
+    <ion-icon name="person-outline" />
+    {{ session.user?.fullName }}
+  </div>
+
+  <div class="options">
+
+
+    <lib-button
+      title="Cerrar sesión"
+      (onAction)="onLogout()"
+    />
+  </div>
+</div>

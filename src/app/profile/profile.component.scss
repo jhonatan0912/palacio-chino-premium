@@ -1,3 +1,22 @@
-.page-content-wrapper {
-  background-color: red;
+$header-height: 117px;
+
+.container__wrapper {
+  background-color: #ECECEC;
+  display: flex;
+  justify-content: space-between;
+  height: calc(100vh - $header-height);
+  padding-top: 4rem;
+}
+
+.content {
+  flex: 1;
+}
+
+.side-menu {
+  width: 20%;
+  background: #ffffff;
+  padding: 20px;
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+  border-radius: 1.5rem;
+  height: 90%;
 }

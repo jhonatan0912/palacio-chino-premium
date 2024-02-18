@@ -32,6 +32,9 @@
       ],
       "@shared/*": [
         "./src/app/shared/*"
+      ],
+      "@auth/*": [
+        "./src/app/auth/*"
       ]
     }
   },

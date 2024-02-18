@@ -1,12 +1,10 @@
-<div class="wrapper-principal">
+<main class="wrapper">
+  <app-header />
 
-  <app-header class="page_wrapper_header" />
-
-  <div class="container__layout">
-    <div class="page-content-wrapper">
+  <div class="container__wrapper">
+    <div class="content">
       <router-outlet />
     </div>
+    <profile-side-menu class="side-menu"/>
   </div>
-
-  <app-footer class="page_wrapper_footer" />
-</div>
+</main>
