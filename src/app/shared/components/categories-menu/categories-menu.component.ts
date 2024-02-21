@@ -1,14 +1,13 @@
-import { Component, DestroyRef, OnInit, inject } from '@angular/core';
+import { Component, DestroyRef, OnInit, inject, signal } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { ViewComponent } from '@core/view-component';
 import { CategoriesProxy, CategoryDto } from '@shared/proxies/categories.proxies';
-import { environment } from '../../../../environments/environment.development';
 import { CategoryMenuComponent } from './category-menu/category-menu.component';
 
 @Component({
   selector: 'categories-menu',
   standalone: true,
-  imports: [ CategoryMenuComponent],
+  imports: [CategoryMenuComponent],
   templateUrl: './categories-menu.component.html',
   styleUrls: ['./categories-menu.component.scss'],
 })
@@ -17,9 +16,8 @@ export class CategoriesMenuComponent extends ViewComponent implements OnInit {
   private categoriesProxy = inject(CategoriesProxy);
   private destroyRef = inject(DestroyRef);
 
-  baseUrl: string = environment.api;
   selectedId!: string;
-  categories: CategoryDto[] = [];
+  categories = signal<CategoryDto[]>([]);
 
   constructor() {
     super();
@@ -34,7 +32,7 @@ export class CategoriesMenuComponent extends ViewComponent implements OnInit {
       .pipe(takeUntilDestroyed(this.destroyRef))
       .subscribe({
         next: (categories) => {
-          this.categories = categories;
+          this.categories.set(categories);
         }
       });
   }

@@ -33,10 +33,9 @@ export class LoginComponent extends ViewComponent {
           this.session.setUser(res.user);
           this.authService.setAuthToken(res.token);
           this.navigation.forward('home');
-          console.log(this.session.user)
         },
         error: (err) => {
-          console.error(err);
+          console.error(err.message);
         }
       });
   }

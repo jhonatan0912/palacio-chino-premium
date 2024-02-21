@@ -30,8 +30,6 @@ export class CategoryListComponent implements OnInit {
   }
 
   onDelete(id: string): void {
-    console.log('onDelete');
     this.categories = this.categories.filter((category) => category.id !== id);
-    console.log(this.categories);
   }
 }

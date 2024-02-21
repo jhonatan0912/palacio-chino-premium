@@ -3,6 +3,11 @@ import { Component, EventEmitter, Input, Output, inject } from '@angular/core';
 import { AppNavigationService } from '@core/index';
 import { IonIcon } from '@ionic/angular/standalone';
 
+interface SidebarOption {
+  id: string;
+  name: string;
+}
+
 @Component({
   selector: 'app-admin-sidebar',
   standalone: true,
@@ -13,7 +18,6 @@ import { IonIcon } from '@ionic/angular/standalone';
 export class SidebarComponent {
 
   private navigation = inject(AppNavigationService);
-
   private _expanded: boolean = true;
 
   @Input() get expanded(): boolean {
@@ -29,8 +33,21 @@ export class SidebarComponent {
     }
   }
 
+  options: SidebarOption[] = [
+    { id: 'categories', name: 'Categorias' },
+    { id: 'users', name: 'Usuarios' },
+    { id: 'products', name: 'Productos' },
+    { id: 'orders', name: 'Ordenes' },
+  ];
+  currentOptionId: string = this.options[0].id;
+
   onToggle(): void {
     this.expanded = !this.expanded;
+  }
+
+  onOptionClicked(id: string): void {
+    this.currentOptionId = id;
+    this.navigation.forward(`/admin-dashboard/${id}`);
   }
 
   onLogout(): void {

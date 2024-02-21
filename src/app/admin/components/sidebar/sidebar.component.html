@@ -13,19 +13,16 @@
       <h3>Admin</h3>
     </div>
     <div class="sidebar-content">
-      <ul>
-        <li>
-          Categories
-        </li>
-        <li>
-          Users
-        </li>
-        <li>
-          Products
-        </li>
-        <li>
-          Orders
-        </li>
+      <ul class="sidebar__options">
+        @for (option of options; track $index) {
+          <li
+            class="sidebar__option"
+            [ngClass]="{'active' : option.id === currentOptionId }"
+            (click)="onOptionClicked(option.id)"
+          >
+            {{ option.name }}
+          </li>
+        }
       </ul>
 
       <div class="sidebar-footer">

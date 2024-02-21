@@ -41,17 +41,18 @@
       justify-content: space-between;
       flex: 1;
 
-      & ul {
+      & .sidebar__options {
         display: flex;
         flex-direction: column;
         gap: 1rem;
         font-weight: 500;
         cursor: pointer;
 
-        & li {
+        & .sidebar__option {
           padding: .5em;
 
-          &:hover {
+          &:hover,
+          &.active {
             color: #DC5353;
             background-color: #f5f5f5;
             border-radius: .5rem;
