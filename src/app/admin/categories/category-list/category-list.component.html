@@ -1,7 +1,7 @@
 <div class="container">
 
   <div class="categories-table">
-    @for (category of categories; track $index) {
+    @for (category of categories(); track $index) {
       <category-list-item
         [category]="category"
         (onDelete)="onDelete($event)"

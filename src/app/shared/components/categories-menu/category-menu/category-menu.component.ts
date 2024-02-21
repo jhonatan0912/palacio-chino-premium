@@ -1,7 +1,12 @@
 import { NgClass } from '@angular/common';
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Output, input } from '@angular/core';
+import { environment } from '@enviroments/environment.development';
 import { CategoryDto } from '@shared/proxies/categories.proxies';
-import { environment } from '../../../../../environments/environment.development';
+
+export const getIconUrl = ({ icon, ...rest }: CategoryDto) => {
+  const iconUrl = `${environment.api}/${icon}`;
+  return { icon: iconUrl, ...rest };
+};
 
 @Component({
   selector: 'category-menu',
@@ -12,15 +17,8 @@ import { environment } from '../../../../../environments/environment.development
 })
 export class CategoryMenuComponent {
 
-  @Input() category!: CategoryDto;
-  @Input() selectedId!: string;
+  category = input.required({ alias: 'category', transform: getIconUrl });
+  selectedId = input<string>();
 
   @Output() onAction: EventEmitter<string> = new EventEmitter();
-
-  get imageUrl(): string {
-    const baseUrl = environment.api;
-
-    return `${baseUrl}/${this.category.icon}`;
-  }
-
 }

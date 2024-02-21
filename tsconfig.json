@@ -24,6 +24,9 @@
       "dom"
     ],
     "paths": {
+      "@enviroments/*": [
+        "./src/environments/*"
+      ],
       "@core/*": [
         "./src/app/core/*"
       ],

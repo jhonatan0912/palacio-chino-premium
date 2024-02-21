@@ -1,6 +1,6 @@
 import { Injectable, inject } from '@angular/core';
 import { AppHttpService } from '@core/index';
-import { environment } from '../../../environments/environment.development';
+import { environment } from '@enviroments/environment.development';
 import { Observable, mergeMap, of } from 'rxjs';
 
 @Injectable({

@@ -1,9 +1,9 @@
-import { Component, DestroyRef, Input, OnInit, inject } from '@angular/core';
+import { Component, DestroyRef, OnInit, inject, input } from '@angular/core';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { IonIcon } from '@ionic/angular/standalone';
-import { CategoryListItemComponent } from './category-list-item/category-list-item.component';
 import { CategoryDto } from '@shared/proxies/categories.proxies';
 import { CategoriesService } from '../../services/categories.service';
-import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import { CategoryListItemComponent } from './category-list-item/category-list-item.component';
 
 @Component({
   selector: 'category-list',
@@ -17,19 +17,19 @@ export class CategoryListComponent implements OnInit {
   private categoriesService = inject(CategoriesService);
   private destroyRef = inject(DestroyRef);
 
-  @Input() categories!: CategoryDto[];
+  categories = input<CategoryDto[]>([]);
 
   ngOnInit(): void {
     this.categoriesService.onCategory
       .pipe(takeUntilDestroyed(this.destroyRef))
       .subscribe({
         next: (category) => {
-          this.categories = [...this.categories, category];
+          this.categories().push(category);
         }
       });
   }
 
   onDelete(id: string): void {
-    this.categories = this.categories.filter((category) => category.id !== id);
+    this.categories = input(this.categories().filter((category) => category.id !== id));
   }
 }

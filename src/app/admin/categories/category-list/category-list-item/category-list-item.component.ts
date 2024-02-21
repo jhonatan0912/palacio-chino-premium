@@ -1,4 +1,4 @@
-import { Component, DestroyRef, EventEmitter, Input, Output, inject } from '@angular/core';
+import { Component, DestroyRef, EventEmitter, Input, Output, inject, input } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { IonIcon } from "@ionic/angular/standalone";
 import { CategoriesProxy, CategoryDto } from '@shared/proxies/categories.proxies';
@@ -17,7 +17,7 @@ export class CategoryListItemComponent extends ViewComponent {
   private categoriesProxy = inject(CategoriesProxy);
   private deleteDestroyRef = inject(DestroyRef);
 
-  @Input() category!: CategoryDto;
+  category = input.required<CategoryDto>();
 
   @Output() onDelete: EventEmitter<string> = new EventEmitter<string>();
 
