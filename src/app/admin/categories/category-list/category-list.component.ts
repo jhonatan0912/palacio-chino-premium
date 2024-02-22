@@ -4,6 +4,8 @@ import { IonIcon } from '@ionic/angular/standalone';
 import { CategoryDto } from '@shared/proxies/categories.proxies';
 import { CategoriesService } from '../../services/categories.service';
 import { CategoryListItemComponent } from './category-list-item/category-list-item.component';
+import { ViewComponent } from '@core/view-component';
+import { AdminCategoryFormModalComponent } from '../../modals/category-form/category-form.component';
 
 @Component({
   selector: 'category-list',
@@ -12,7 +14,7 @@ import { CategoryListItemComponent } from './category-list-item/category-list-it
   templateUrl: './category-list.component.html',
   styleUrls: ['./category-list.component.scss'],
 })
-export class CategoryListComponent implements OnInit {
+export class CategoryListComponent extends ViewComponent implements OnInit {
 
   private categoriesService = inject(CategoriesService);
   private destroyRef = inject(DestroyRef);
@@ -27,6 +29,15 @@ export class CategoryListComponent implements OnInit {
           this.categories().push(category);
         }
       });
+  }
+
+  onUpdate(id: string): void {
+    this.dialog.showWithData({
+      component: AdminCategoryFormModalComponent,
+      componentProps: {
+        categoryId: id
+      }
+    });
   }
 
   onDelete(id: string): void {

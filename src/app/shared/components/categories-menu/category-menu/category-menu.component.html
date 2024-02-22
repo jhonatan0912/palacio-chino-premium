@@ -3,7 +3,7 @@
   class="menu_content"
   [ngClass]="{'selected': selectedId() === category().id!}">
 
-  <img [src]="category().icon" alt="icons-menu">
+  <img [src]="category().icon | categoryIcon" alt="icons-menu">
 
   <p>
     {{ category().name }}

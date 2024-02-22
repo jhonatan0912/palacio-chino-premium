@@ -14,7 +14,6 @@ export class AppPopoverService {
 
   async showWithData(opts: PopoverOptions): Promise<any> {
     const popover = await this.popoverCtrl.create(opts);
-
     popover.present();
 
     const data = await popover.onDidDismiss();

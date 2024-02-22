@@ -19,6 +19,7 @@ export class CategoryListItemComponent extends ViewComponent {
 
   category = input.required<CategoryDto>();
 
+  @Output() onUpdate: EventEmitter<string> = new EventEmitter<string>();
   @Output() onDelete: EventEmitter<string> = new EventEmitter<string>();
 
   async onOptions(event: Event, id: string): Promise<void> {
@@ -33,7 +34,7 @@ export class CategoryListItemComponent extends ViewComponent {
 
       switch (action) {
         case 'edit':
-
+          this.onUpdate.emit(id);
           break;
         case 'delete':
           this.handleDelete(id);

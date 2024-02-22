@@ -1,23 +1,19 @@
 import { NgClass } from '@angular/common';
 import { Component, EventEmitter, Output, input } from '@angular/core';
-import { environment } from '@enviroments/environment.development';
+import { CategoryIconPipe } from '@shared/pipes/categoryIcon.pipe';
 import { CategoryDto } from '@shared/proxies/categories.proxies';
 
-export const getIconUrl = ({ icon, ...rest }: CategoryDto) => {
-  const iconUrl = `${environment.api}/${icon}`;
-  return { icon: iconUrl, ...rest };
-};
 
 @Component({
   selector: 'category-menu',
   standalone: true,
-  imports: [NgClass],
+  imports: [NgClass, CategoryIconPipe],
   templateUrl: './category-menu.component.html',
   styleUrls: ['./category-menu.component.scss']
 })
 export class CategoryMenuComponent {
 
-  category = input.required({ alias: 'category', transform: getIconUrl });
+  category = input.required<CategoryDto>();
   selectedId = input<string>();
 
   @Output() onAction: EventEmitter<string> = new EventEmitter();
