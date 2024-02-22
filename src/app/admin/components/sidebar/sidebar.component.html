@@ -10,18 +10,19 @@
 
   <div class="sidebar" [ngClass]="{ 'hidden': !expanded }">
     <div class="sidebar-header">
-      <h3>Admin</h3>
+      <h3>
+        {{ expanded ? 'Admin' : '' }}
+      </h3>
     </div>
     <div class="sidebar-content">
       <ul class="sidebar__options">
         @for (option of options; track $index) {
-          <li
-            class="sidebar__option"
-            [ngClass]="{'active' : option.id === currentOptionId }"
-            (click)="onOptionClicked(option.id)"
-          >
-            {{ option.name }}
-          </li>
+          <sidebar-option
+            [option]="option"
+            [expanded]="expanded"
+            [(currentOptionId)]="currentOptionId"
+            (onOptionClicked)="onOptionClicked($event)"
+          />
         }
       </ul>
 

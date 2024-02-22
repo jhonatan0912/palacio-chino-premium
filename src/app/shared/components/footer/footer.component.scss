@@ -17,6 +17,7 @@
 .contend_footer_first {
    display: flex;
    justify-content: space-between;
+   flex-direction: column;
 }
 
 .logo {
@@ -28,18 +29,8 @@
 }
 
 .options {
-   display: grid;
-   grid-template-columns: repeat(3, 1fr);
-   gap: 100px;
-
-   ul {
-      li {
-         padding-top: 6px;
-         display: block;
-      }
-   }
-
-
+   display: flex;
+   flex-direction: column;
 }
 
 .line {
@@ -84,4 +75,27 @@
    display: flex;
    justify-content: space-between;
    padding-top: 2rem;
+   flex-direction: column;
+   text-align: center;
+}
+
+@media screen and (min-width:1024px) {
+   .options {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 100px;
+
+      ul {
+         li {
+            padding-top: 6px;
+            display: block;
+         }
+      }
+   }
+
+   .contend_footer_first,
+   .contend_footer_second {
+      display: flex;
+      flex-direction: row;
+   }
 }

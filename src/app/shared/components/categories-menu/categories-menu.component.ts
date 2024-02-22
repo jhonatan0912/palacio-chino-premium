@@ -16,8 +16,8 @@ export class CategoriesMenuComponent extends ViewComponent implements OnInit {
   private categoriesProxy = inject(CategoriesProxy);
   private destroyRef = inject(DestroyRef);
 
-  selectedId!: string;
   categories = signal<CategoryDto[]>([]);
+  selectedId!: string;
 
   constructor() {
     super();
@@ -33,6 +33,7 @@ export class CategoriesMenuComponent extends ViewComponent implements OnInit {
       .subscribe({
         next: (categories) => {
           this.categories.set(categories);
+          this.selectedId = this.categories()[0].id!;
         }
       });
   }
