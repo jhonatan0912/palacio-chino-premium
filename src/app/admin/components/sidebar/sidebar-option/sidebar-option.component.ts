@@ -19,12 +19,8 @@ export class AdminSidebarOptionComponent {
 
   option = input.required<SidebarOption>();
   expanded = input.required<boolean>();
-  currentOptionId = model.required<string>();
+
+  currentOptionId = input.required<string>();
 
   @Output() onOptionClicked = new EventEmitter<string>();
-
-  onClick(optionId: string): void {
-    this.currentOptionId.update((value) => optionId);
-    this.onOptionClicked.emit(optionId);
-  }
 }

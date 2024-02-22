@@ -1,7 +1,7 @@
 <li
   class="sidebar__option"
   [ngClass]="{'active' : option().id === currentOptionId() }"
-  (click)="onClick(option().id)"
+  (click)="onOptionClicked.emit(option().id)"
   >
     @if (expanded()) {
       {{ option().name }}

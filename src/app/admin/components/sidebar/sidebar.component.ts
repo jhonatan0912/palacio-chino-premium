@@ -43,6 +43,7 @@ export class SidebarComponent {
   }
 
   onOptionClicked(id: string): void {
+    this.currentOptionId = id;
     this.navigation.forward(`/admin-dashboard/${id}`);
   }
 
