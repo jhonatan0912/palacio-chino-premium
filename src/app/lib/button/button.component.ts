@@ -1,5 +1,5 @@
 import { NgClass } from '@angular/common';
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, HostBinding, Input, Output } from '@angular/core';
 
 export type ButtonType = 'fill' | 'outline' | 'link';
 
@@ -12,15 +12,9 @@ export type ButtonType = 'fill' | 'outline' | 'link';
 })
 export class ButtonComponent {
 
-  @Input() type: ButtonType = 'fill';
-  @Input() backgroundColor: string = '';
-  @Input() title: string = '';
+  @Input()
+  @HostBinding('class.fill')
+  type: ButtonType = 'fill';
 
   @Output() onAction: EventEmitter<void> = new EventEmitter<void>();
-
-  get background(): string {
-    return this.type === 'fill'
-      ? this.backgroundColor
-      : '';
-  }
 }
