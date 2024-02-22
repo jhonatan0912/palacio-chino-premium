@@ -1,14 +1,14 @@
 import { Component, OnInit, inject, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { CategoriesProxy, CategoryDto } from '@shared/proxies/categories.proxies';
-import { CategoryFormComponent } from './category-form/category-form.component';
+import { AdminCategoryFormComponent } from './category-form/category-form.component';
 import { CategoryListComponent } from './category-list/category-list.component';
 
 
 @Component({
   selector: 'app-categories',
   standalone: true,
-  imports: [FormsModule, CategoryFormComponent, CategoryListComponent],
+  imports: [FormsModule, AdminCategoryFormComponent, CategoryListComponent],
   providers: [CategoriesProxy],
   templateUrl: './categories.component.html',
   styleUrls: ['./categories.component.scss'],
