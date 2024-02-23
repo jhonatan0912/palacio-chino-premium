@@ -3,10 +3,9 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('./theme/fix-structure.scss');
-@import url('./theme/popover-classes.scss');
-@import url('./theme/utils.scss');
-@import url('./theme/variables.scss');
+@import './theme/fix-structure.scss';
+@import './theme/popover-classes.scss';
+@import './theme/utils.scss';
 
 .page_wrapper_header {
   position: fixed;
@@ -34,7 +33,7 @@
 
 @media screen and (min-width: 768px) and (max-width: 1023px) {
   .container__layout {
-    width: 100%;
+    width: 80%;
   }
 }
 

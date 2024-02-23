@@ -1,4 +1,4 @@
-import { NgClass } from '@angular/common';
+import { NgClass, NgOptimizedImage } from '@angular/common';
 import { Component, EventEmitter, Output, input } from '@angular/core';
 import { CategoryIconPipe } from '@shared/pipes/categoryIcon.pipe';
 import { CategoryDto } from '@shared/proxies/categories.proxies';

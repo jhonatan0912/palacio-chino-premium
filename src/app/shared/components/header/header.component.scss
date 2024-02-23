@@ -26,14 +26,14 @@
    }
 
    .title_header:last-child {
-      background-color: #F23545;
+      background-color: var(--primary-red);
       border-radius: 20px;
       color: white;
       padding: 10px 25px;
    }
 
    .title_header:last-child:hover {
-      background-color: #ef1628;
+      background-color: var(--primary-red);
    }
 }
 

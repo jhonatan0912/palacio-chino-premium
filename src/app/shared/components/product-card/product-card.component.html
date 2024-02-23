@@ -1,10 +1,18 @@
 <section class="card">
-
-  <img src="/assets/product-image.png" alt="Product Image">
+  <img
+    src="/assets/product-image.png"
+    width="200px"
+    height="160px"
+    alt="Product Image"
+  />
 
   <div class="card-content">
-    <p class="text-content">{{ data.name }}</p>
-    <p class="price">S/ {{ data.price | number: '1.2-2' }}</p>
+    <p class="text-content">
+      {{ data.name }}
+    </p>
+    <p class="price">
+      S/ {{ data.price | number: '1.2-2' }}
+    </p>
   </div>
 
   <button class="button">

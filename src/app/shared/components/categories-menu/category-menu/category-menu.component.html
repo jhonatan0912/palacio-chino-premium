@@ -3,7 +3,13 @@
   (click)="onAction.emit(category().id!)"
   [ngClass]="{'selected': selectedId() === category().id!}">
 
-  <img class="category__image" [src]="category().icon | categoryIcon" alt="icons-menu">
+  <img
+    class="category__image"
+    [src]="category().icon | categoryIcon"
+    [width]="50"
+    [height]="50"
+    alt="icons-menu"
+  />
 
   <p class="category__name">
     {{ category().name }}

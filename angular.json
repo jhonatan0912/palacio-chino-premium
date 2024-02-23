@@ -62,7 +62,8 @@
               {
                 "input": "src/theme/variables.scss"
               },
-              "src/styles.scss"
+              "src/styles.scss",
+              "src/theme/variables.scss"
             ],
             "scripts": []
           },
