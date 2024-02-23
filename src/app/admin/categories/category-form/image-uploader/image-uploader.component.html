@@ -1,0 +1,10 @@
+<img [src]="preview()" alt="Preview">
+<div class="icon__upload">
+  <ion-icon name="cloud-upload-outline"/>
+  <input
+    id="icon"
+    type="file"
+    accept="image/*"
+    (change)="onFileChange($event)"
+  >
+</div>

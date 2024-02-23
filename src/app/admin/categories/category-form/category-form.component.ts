@@ -4,12 +4,13 @@ import { FormsModule } from '@angular/forms';
 import { SlugPipe } from '@shared/pipes/slug.pipe';
 import { CategoriesProxy, getSlug, onFileChange } from '@shared/proxies/categories.proxies';
 import { CategoriesService } from '../../services/categories.service';
-
+import { IonIcon } from "@ionic/angular/standalone";
+import { ImageUploaderComponent } from './image-uploader/image-uploader.component';
 
 @Component({
   selector: 'category-form',
   standalone: true,
-  imports: [FormsModule, SlugPipe],
+  imports: [ImageUploaderComponent, IonIcon, FormsModule, SlugPipe],
   templateUrl: './category-form.component.html',
   styleUrls: ['./category-form.component.scss'],
 })
@@ -21,7 +22,6 @@ export class AdminCategoryFormComponent {
 
   icon: File | undefined;
   name: string = '';
-  preview: string = '';
 
   addCategory(): void {
     if (!this.icon) return;
@@ -44,14 +44,10 @@ export class AdminCategoryFormComponent {
 
   onFileChange(event: any) {
     this.icon = onFileChange(event);
-    if (!this.icon) return;
-
-    this.preview = URL.createObjectURL(this.icon);
   }
 
   resetForm(): void {
     this.icon = undefined;
     this.name = '';
-    this.preview = '';
   }
 }

@@ -26,6 +26,14 @@
       border-radius: 5px;
       font-size: 1rem;
 
+      &[type='file'] {
+        all: unset;
+        visibility: hidden;
+        background-color: red;
+        width: 100px;
+        height: 30px;
+      }
+
       &.code {
         cursor: not-allowed;
       }
