@@ -1,12 +1,6 @@
 <section class="wrapper">
 
-  <div class="button-expand" (click)="onToggle()">
-      @if (expanded) {
-        <ion-icon name="chevron-back-outline" />
-      }@else{
-        <ion-icon name="chevron-forward-outline" />
-      }
-  </div>
+  <sidebar-expand-button [(expanded)]="expanded" (onToggle)="onToggle()"/>
 
   <div class="sidebar" [ngClass]="{ 'hidden': !expanded }">
     <div class="sidebar-header">
@@ -27,12 +21,10 @@
       </ul>
 
       <div class="sidebar-footer">
-        <button
-          class="btn btn-primary"
-          (click)="onLogout()">
+        <lib-button (onAction)="onLogout()">
           <ion-icon name="log-out-outline" />
           Cerrar sesión
-        </button>
+        </lib-button>
       </div>
     </div>
   </div>

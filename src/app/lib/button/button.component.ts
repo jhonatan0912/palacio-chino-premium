@@ -1,5 +1,5 @@
 import { NgClass } from '@angular/common';
-import { Component, EventEmitter, HostBinding, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Host, HostBinding, Input, Output } from '@angular/core';
 
 export type ButtonType = 'fill' | 'outline' | 'link';
 

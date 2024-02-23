@@ -26,9 +26,9 @@ export class CategoryListItemComponent extends ViewComponent {
     this.popup.showWithData({
       component: CategoryListItemPopoverComponent,
       event: event,
-      side: 'left',
+      side: 'start',
       arrow: false,
-      alignment: 'start'
+      alignment: 'start',
     }).then((action) => {
       if (!action) return;
 

@@ -1,10 +1,11 @@
-<img [src]="preview()" alt="Preview">
-<div class="icon__upload">
+<img class="preview" [src]="preview()" alt="Preview">
+<div class="icon__upload" (click)="openFileInput()">
   <ion-icon name="cloud-upload-outline"/>
   <input
-    id="icon"
+    #file
     type="file"
     accept="image/*"
     (change)="onFileChange($event)"
   >
+  Sube una imagen
 </div>

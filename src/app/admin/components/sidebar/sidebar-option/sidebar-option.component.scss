@@ -1,5 +1,7 @@
 .sidebar__option {
+  display: block;
   padding: .5em;
+  width: 100%;
 
   &:hover,
   &.active {

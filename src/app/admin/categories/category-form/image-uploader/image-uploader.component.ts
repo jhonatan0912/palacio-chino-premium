@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output, model, signal } from '@angular/core';
+import { Component, ElementRef, EventEmitter, Output, ViewChild, signal } from '@angular/core';
 import { IonIcon } from '@ionic/angular/standalone';
 
 @Component({
@@ -10,9 +10,15 @@ import { IonIcon } from '@ionic/angular/standalone';
 })
 export class ImageUploaderComponent {
 
-  preview = signal<string>('');
+  @ViewChild('file') file!: ElementRef<HTMLIonInputElement>;
+
+  preview = signal<string>('/assets/empty-image.png');
 
   @Output() onChange = new EventEmitter<File>();
+
+  openFileInput(): void {
+    this.file.nativeElement.click();
+  }
 
   onFileChange(event: any): void {
     const file = event.target.files[0];

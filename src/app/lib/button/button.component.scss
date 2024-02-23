@@ -1,6 +1,17 @@
 :host {
    &.fill {
       color: #fff;
+      width: 100%;
+      font-weight: 700;
+      text-align: center;
+   }
+
+   &.left {
+      justify-content: flex-start;
+   }
+
+   .right {
+      justify-content: flex-end;
    }
 }
 
@@ -9,9 +20,13 @@
    padding: 12px 8px;
    border-radius: 8px;
    text-align: center;
-   background-color: #F23545;
+   background-color: #DC5353;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   gap: .5rem;
 }
 
 .button:hover {
-   background-color: #ef1628;
+   background-color: #DC5353;
 }

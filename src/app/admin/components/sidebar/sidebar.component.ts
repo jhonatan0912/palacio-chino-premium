@@ -3,12 +3,14 @@ import { Component, EventEmitter, Input, Output, inject } from '@angular/core';
 import { AppNavigationService } from '@core/index';
 import { IonIcon } from '@ionic/angular/standalone';
 import { AdminSidebarOptionComponent, SidebarOption } from './sidebar-option/sidebar-option.component';
+import { AdminSidebarExpandButtonComponent } from './sidebar-expand-button/sidebar-expand-button.component';
+import { ButtonComponent } from '@lib/button/button.component';
 
 
 @Component({
   selector: 'app-admin-sidebar',
   standalone: true,
-  imports: [NgClass, IonIcon, AdminSidebarOptionComponent],
+  imports: [NgClass, IonIcon, AdminSidebarOptionComponent, AdminSidebarExpandButtonComponent, ButtonComponent],
   templateUrl: './sidebar.component.html',
   styleUrls: ['./sidebar.component.scss'],
 })
