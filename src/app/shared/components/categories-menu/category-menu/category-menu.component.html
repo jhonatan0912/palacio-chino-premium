@@ -1,11 +1,11 @@
 <div
+  class="category"
   (click)="onAction.emit(category().id!)"
-  class="menu_content"
   [ngClass]="{'selected': selectedId() === category().id!}">
 
-  <img [src]="category().icon | categoryIcon" alt="icons-menu">
+  <img class="category__image" [src]="category().icon | categoryIcon" alt="icons-menu">
 
-  <p>
+  <p class="category__name">
     {{ category().name }}
   </p>
 </div>

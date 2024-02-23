@@ -9,6 +9,13 @@
         (onAction)="navigateToCategory($event)"
         [selectedId]="selectedId"
       />
+    }@empty {
+      @for (item of [1,1,1,1,1]; track $index) {
+        <ion-skeleton-text
+          class="menu-skeleton"
+          animated
+        />
+      }
     }
   </section>
 </div>

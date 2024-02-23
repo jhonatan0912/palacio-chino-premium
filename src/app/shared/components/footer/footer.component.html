@@ -12,34 +12,40 @@
       <section class="options">
 
         <!-- MENU -->
-        <ul>
+        <div>
           <p class="title pointer">MENÚ</p>
-          @for (item of menu; track $index) {
-            <li class="pointer">
-              {{ item.name }}
-            </li>
-          }
-        </ul>
+          <ul>
+            @for (item of menu; track $index) {
+              <li class="pointer">
+                {{ item.name }}
+              </li>
+            }
+          </ul>
+        </div>
 
         <!-- MY ACCOUNT -->
-        <ul>
+        <div>
           <p class="title pointer">MI CUENTA</p>
-          @for (item of account; track $index) {
-            <li class="pointer">
-              {{ item.name }}
-            </li>
-          }
-        </ul>
+          <ul>
+            @for (item of account; track $index) {
+              <li class="pointer">
+                {{ item.name }}
+              </li>
+            }
+          </ul>
+        </div>
 
         <!-- INFORMATION -->
-        <ul>
+        <div>
           <p class="title pointer">INFORMACIÓN</p>
-          @for (item of information; track $index) {
-            <li class="pointer">
-              {{ item.name }}
-            </li>
-          }
-        </ul>
+          <ul>
+            @for (item of information; track $index) {
+              <li class="pointer">
+                {{ item.name }}
+              </li>
+            }
+          </ul>
+        </div>
 
       </section>
 

@@ -1,3 +1,11 @@
+* {
+  font-family: Helvetica;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-size: 15px;
+}
+
 body {
   position: relative !important;
   width: 100% !important;
@@ -18,4 +26,9 @@ textarea,
 select,
 option {
   all: unset;
+}
+
+ion-icon {
+  font-size: 24px;
+  cursor: pointer;
 }

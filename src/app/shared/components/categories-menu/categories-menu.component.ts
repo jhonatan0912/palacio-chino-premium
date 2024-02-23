@@ -3,11 +3,12 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { ViewComponent } from '@core/view-component';
 import { CategoriesProxy, CategoryDto } from '@shared/proxies/categories.proxies';
 import { CategoryMenuComponent } from './category-menu/category-menu.component';
+import { IonSkeletonText } from "@ionic/angular/standalone";
 
 @Component({
   selector: 'categories-menu',
   standalone: true,
-  imports: [CategoryMenuComponent],
+  imports: [IonSkeletonText, CategoryMenuComponent],
   templateUrl: './categories-menu.component.html',
   styleUrls: ['./categories-menu.component.scss'],
 })
