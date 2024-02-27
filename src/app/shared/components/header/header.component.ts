@@ -47,6 +47,7 @@ export class HeaderComponent extends ViewComponent {
       event,
       arrow: false,
       alignment: 'end',
+      cssClass: ['shopping-cart']
     });
   }
 
