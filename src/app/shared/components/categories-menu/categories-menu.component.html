@@ -3,7 +3,7 @@
     MENÚ
   </h2>
   <section class="menu">
-    @for (category of categories(); track $index) {
+    @for (category of categories(); track category.id) {
     <category-menu
       [category]="category"
       (onAction)="navigateToCategory($event)"

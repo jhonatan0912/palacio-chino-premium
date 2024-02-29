@@ -38,6 +38,12 @@
       ],
       "@auth/*": [
         "./src/app/auth/*"
+      ],
+      "@admin/*": [
+        "./src/app/admin/*"
+      ],
+      "@profile/*": [
+        "./src/app/profile/*"
       ]
     }
   },

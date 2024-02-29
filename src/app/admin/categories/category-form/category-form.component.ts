@@ -6,11 +6,12 @@ import { CategoriesProxy, getSlug, onFileChange } from '@shared/proxies/categori
 import { CategoriesService } from '../../services/categories.service';
 import { IonIcon } from "@ionic/angular/standalone";
 import { ImageUploaderComponent } from './image-uploader/image-uploader.component';
+import { ButtonComponent } from '@lib/button/button.component';
 
 @Component({
   selector: 'category-form',
   standalone: true,
-  imports: [ImageUploaderComponent, IonIcon, FormsModule, SlugPipe],
+  imports: [ImageUploaderComponent, IonIcon, FormsModule, SlugPipe, ButtonComponent],
   templateUrl: './category-form.component.html',
   styleUrls: ['./category-form.component.scss'],
 })

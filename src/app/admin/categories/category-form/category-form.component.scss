@@ -2,7 +2,7 @@
   margin-bottom: 20px;
   display: flex;
   flex-direction: column;
-  max-width: 300px;
+  width: 250px;
 
   & .row {
     margin-bottom: 20px;
@@ -29,9 +29,6 @@
       &[type='file'] {
         all: unset;
         visibility: hidden;
-        background-color: red;
-        width: 100px;
-        height: 30px;
       }
 
       &.code {
