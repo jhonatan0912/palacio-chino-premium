@@ -76,6 +76,14 @@ export const routes: Routes = [
         loadComponent: () => import('./admin/users/users.component').then(p => p.AdminUsersComponent)
       },
       {
+        path: 'products',
+        loadComponent: () => import('./admin/products/products.component').then(p => p.ProductsComponent)
+      },
+      {
+        path: 'orders',
+        loadComponent: () => import('./admin/orders/orders.component').then(p => p.OrdersComponent)
+      },
+      {
         path: '',
         redirectTo: 'categories',
         pathMatch: 'full'
