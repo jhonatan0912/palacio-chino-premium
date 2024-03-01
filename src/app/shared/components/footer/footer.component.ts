@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, inject, signal } from '@angular/core';
 import { IonicModule } from '@ionic/angular';
+import { CategoryDto } from '@shared/proxies/categories.proxies';
+import { CategoriesService } from '@shared/services/categories.service';
 
 @Component({
   selector: 'app-footer',
@@ -8,17 +10,8 @@ import { IonicModule } from '@ionic/angular';
   templateUrl: './footer.component.html',
   styleUrl: './footer.component.scss'
 })
-export class FooterComponent {
-
-  menu = [
-    { name: 'Promociones' },
-    { name: 'Combos' },
-    { name: 'A la carta' },
-    { name: 'Banquetes' },
-    { name: 'Sopas' },
-    { name: 'Bebidas' },
-    { name: 'Complementos' },
-  ];
+export class FooterComponent implements OnInit {
+  private categoriesService = inject(CategoriesService);
 
   account = [
     { name: 'Mis ordenes' },
@@ -33,7 +26,18 @@ export class FooterComponent {
     { name: 'Contáctanos' },
   ];
 
+  categories = signal<CategoryDto[]>([]);
+
   get year(): string {
     return new Date().getFullYear().toString();
   }
+
+  ngOnInit(): void {
+    this.getCategories();
+  }
+
+  getCategories(): void {
+    this.categories.set(this.categoriesService.categories());
+  }
+
 }

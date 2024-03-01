@@ -1,23 +1,3 @@
-<<<<<<< HEAD
-.content_button{
-   display: flex;
-}
-
-.button{
-   width: 100%;
-   // margin-top: 50px;
-   padding: 12px 40px;
-   border-radius: 8px;
-   text-align: center;
-   background-color: #F23545;
-   
-}
-
-.button:hover{
-   background-color: #ef1628;    
-}
-
-=======
 :host {
    &.fill {
       color: #fff;
@@ -50,4 +30,3 @@
 .button:hover {
    background-color: #DC5353;
 }
->>>>>>> 29f882c8ff09e8de4f2bd4c634c7630992431b79

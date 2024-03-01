@@ -12,25 +12,25 @@
     <label for="name">
       Nombre
     </label>
-    <input id="name" type="text">
+    <input id="name" type="text" [(ngModel)]="name">
   </div>
 
   <div class="row">
     <label for="price">
       Precio
     </label>
-    <input id="price" type="number" inputmode="decimal">
+    <input id="price" type="number" inputmode="decimal" [(ngModel)]="price">
   </div>
 
   <div class="row">
     <label for="description">
       Descripción
     </label>
-    <textarea id="description">
+    <textarea id="description" [(ngModel)]="description">
     </textarea>
   </div>
 
-  <lib-button>
+  <lib-button (onAction)="onCreate()">
     Crear
   </lib-button>
 </section>

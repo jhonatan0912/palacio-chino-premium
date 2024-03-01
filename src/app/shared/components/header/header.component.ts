@@ -1,4 +1,4 @@
-import { CategoriesService } from '@admin/services/categories.service';
+import { CategoriesService } from '@shared/services/categories.service';
 import { Component, effect, inject } from '@angular/core';
 import { ViewComponent } from '@core/view-component';
 import { IonIcon } from '@ionic/angular/standalone';

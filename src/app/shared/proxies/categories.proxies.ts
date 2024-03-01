@@ -68,6 +68,8 @@ export const getSlug = (name: string): string => {
 };
 
 export const onFileChange = (event: any): File | undefined => {
+  debugger;
+  console.log(event);
   if (event.target.files === 0) return;
 
   return event.target.files[0];

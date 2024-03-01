@@ -1,4 +1,4 @@
-import { CategoriesService } from '@admin/services/categories.service';
+import { CategoriesService } from '@shared/services/categories.service';
 import { Component, DestroyRef, inject } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { FormsModule } from '@angular/forms';
@@ -25,6 +25,7 @@ export class AdminCategoryFormComponent {
   name: string = '';
 
   addCategory(): void {
+    debugger;
     if (!this.icon) return;
 
     this.categoriesProxy.create(

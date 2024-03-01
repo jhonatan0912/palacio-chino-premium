@@ -10,8 +10,7 @@
           src="/assets/logo.png"
           alt="Logo"
           height="90px"
-          height="90px"
-        />
+          height="90px" />
       </div>
 
       <section class="options">
@@ -20,10 +19,10 @@
         <div>
           <p class="title pointer">MENÚ</p>
           <ul>
-            @for (item of menu; track $index) {
-              <li class="pointer">
-                {{ item.name }}
-              </li>
+            @for (category of categories(); track category.id) {
+            <li class="pointer">
+              {{ category.name }}
+            </li>
             }
           </ul>
         </div>
@@ -33,9 +32,9 @@
           <p class="title pointer">MI CUENTA</p>
           <ul>
             @for (item of account; track $index) {
-              <li class="pointer">
-                {{ item.name }}
-              </li>
+            <li class="pointer">
+              {{ item.name }}
+            </li>
             }
           </ul>
         </div>
@@ -45,9 +44,9 @@
           <p class="title pointer">INFORMACIÓN</p>
           <ul>
             @for (item of information; track $index) {
-              <li class="pointer">
-                {{ item.name }}
-              </li>
+            <li class="pointer">
+              {{ item.name }}
+            </li>
             }
           </ul>
         </div>
@@ -67,22 +66,19 @@
               width="40px"
               height="28px"
               src="/assets/visa.svg"
-              alt="Visa"
-            />
+              alt="Visa" />
             <img
               class="img_payment__provider"
               width="40px"
               height="28px"
               src="/assets/mastercard.svg"
-              alt="Mastercard"
-            />
+              alt="Mastercard" />
             <img
               class="img_payment__provider"
               width="40px"
               height="28px"
               src="/assets/american-express.svg"
-              alt="American Express"
-            />
+              alt="American Express" />
           </div>
         </div>
 
@@ -95,15 +91,13 @@
               width="32px"
               height="32px"
               src="/assets/facebook.svg"
-              alt="Facebook Logo"
-            />
+              alt="Facebook Logo" />
             <img
               class="img_follow__social"
               width="32px"
               height="32px"
               src="/assets/whatsapp.svg"
-              alt="Whatsapp Logo"
-            />
+              alt="Whatsapp Logo" />
           </div>
         </div>
       </section>
@@ -111,10 +105,10 @@
     </section>
 
     <section class="contend_footer_second">
-      <p>Copyright © {{ year }} Chifa Palacio Chino Premium - Todos los derechos reservados.</p>
+      <p>Copyright © {{ year }} Chifa Palacio Chino Premium - Todos los derechos
+        reservados.</p>
       <p>Powered by CLAY SYSTEM</p>
     </section>
-
 
   </div>
 
