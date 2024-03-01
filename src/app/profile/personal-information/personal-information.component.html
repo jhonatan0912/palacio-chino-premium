@@ -1,1 +1,26 @@
-awdadawd
+<div class="my_data">
+   <h2>Mis datos</h2>
+
+   <div class="inputs_form">
+      <input type="text" placeholder="Nombre">
+      <div class="inputs_second">
+         <input type="text" placeholder="Correo Electrónico">
+         <input type="text" placeholder="Celular">
+         <select name="" id="">
+            <option value="dni">DNI</option>
+            <option value="ruc">RUC</option>
+            <option value="ce">CE</option>
+         </select>
+         <input type="text" placeholder="Documento">
+      </div>
+   </div>
+   
+   <button class="button_save">
+      <lib-button
+         title="GUARDAR"
+         type="fill"
+         (onAction)="save()"
+      />
+   </button>
+   
+</div>

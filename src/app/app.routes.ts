@@ -39,6 +39,10 @@ export const routes: Routes = [
         loadComponent: () => import('./profile/addresses/addresses.component').then(p => p.AddressesComponent)
       },
       {
+        path: 'register-address',
+        loadComponent: () => import('./profile/addresses/address-form/address-form.component').then(p => p.AddressFormComponent)
+      },
+      {
         path: 'orders',
         loadComponent: () => import('./profile/orders/orders.component').then(p => p.OrdersComponent)
       },

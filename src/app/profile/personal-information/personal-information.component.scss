@@ -1,0 +1,35 @@
+.my_data{
+   background-color: rgb(253, 253, 253);
+   border: 1px solid black;
+   padding: 40px;
+   border-radius: 30px;
+   display: flex;
+   flex-direction: column;
+}
+
+.inputs_form{
+   display: flex;
+   flex-direction: column;
+   gap: 30px;
+   margin-top: 50px;
+   margin-bottom: 40px;
+
+   .inputs_second{
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 30px;
+   }
+}
+
+input, select{
+   border: 1px solid black;
+   border-radius: 10px;
+   padding: 8px 0;
+   // margin-top: 8px;
+   padding: 10px 10px;
+}
+
+.button_save{
+   display: flex;
+   justify-content: center;
+}
