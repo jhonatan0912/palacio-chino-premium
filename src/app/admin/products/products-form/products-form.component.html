@@ -1,0 +1,36 @@
+<section class="form">
+  <p>
+    Registrar producto
+  </p>
+
+  <div class="row">
+    <image-uploader
+      (onChange)="onFileChange($event)" />
+  </div>
+
+  <div class="row">
+    <label for="name">
+      Nombre
+    </label>
+    <input id="name" type="text">
+  </div>
+
+  <div class="row">
+    <label for="price">
+      Precio
+    </label>
+    <input id="price" type="number" inputmode="decimal">
+  </div>
+
+  <div class="row">
+    <label for="description">
+      Descripción
+    </label>
+    <textarea id="description">
+    </textarea>
+  </div>
+
+  <lib-button>
+    Crear
+  </lib-button>
+</section>

@@ -22,8 +22,8 @@ export class ImageUploaderComponent {
 
   onFileChange(event: any): void {
     const file = event.target.files[0];
-    this.preview.set(URL.createObjectURL(file));
     this.onChange.emit(file);
+    this.preview.set(URL.createObjectURL(file));
   }
 
 }
