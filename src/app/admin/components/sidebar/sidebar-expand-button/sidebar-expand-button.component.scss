@@ -1,0 +1,16 @@
+.button-expand {
+  position: absolute;
+  top: 2.2rem;
+  right: 0;
+  z-index: 100;
+  background-color: #DC5353;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.1rem;
+  width: 35px;
+  height: 35px;
+  cursor: pointer;
+}

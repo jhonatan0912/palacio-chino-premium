@@ -1,7 +1,5 @@
-<div class="content_button">
-  <button (click)="onAction.emit()" [style.background-color]="background" class="button" [ngClass]="{
-      'text-white': type === 'fill'
-    }">
-    {{ title }}
-  </button>
-</div>
+<button
+  class="button"
+  (click)="onAction.emit()">
+  <ng-content />
+</button>

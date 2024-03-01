@@ -1,25 +1,26 @@
-import { Component, DestroyRef, OnInit, inject } from '@angular/core';
+import { Component, DestroyRef, OnInit, inject, signal } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { ViewComponent } from '@core/view-component';
 import { CategoriesProxy, CategoryDto } from '@shared/proxies/categories.proxies';
-import { environment } from '../../../../environments/environment.development';
 import { CategoryMenuComponent } from './category-menu/category-menu.component';
+import { IonSkeletonText } from "@ionic/angular/standalone";
+import { CategoriesService } from '@admin/services/categories.service';
 
 @Component({
   selector: 'categories-menu',
   standalone: true,
-  imports: [ CategoryMenuComponent],
+  imports: [IonSkeletonText, CategoryMenuComponent],
   templateUrl: './categories-menu.component.html',
   styleUrls: ['./categories-menu.component.scss'],
 })
 export class CategoriesMenuComponent extends ViewComponent implements OnInit {
 
   private categoriesProxy = inject(CategoriesProxy);
+  private categoriesService = inject(CategoriesService);
   private destroyRef = inject(DestroyRef);
 
-  baseUrl: string = environment.api;
+  categories = signal<CategoryDto[]>([]);
   selectedId!: string;
-  categories: CategoryDto[] = [];
 
   constructor() {
     super();
@@ -34,7 +35,9 @@ export class CategoriesMenuComponent extends ViewComponent implements OnInit {
       .pipe(takeUntilDestroyed(this.destroyRef))
       .subscribe({
         next: (categories) => {
-          this.categories = categories;
+          this.categories.set(categories);
+          this.categoriesService.categories.set(categories);
+          this.selectedId = this.categories()[0].id!;
         }
       });
   }

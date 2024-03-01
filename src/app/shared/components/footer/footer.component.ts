@@ -32,4 +32,8 @@ export class FooterComponent {
     { name: 'Zonas de reparto' },
     { name: 'Contáctanos' },
   ];
+
+  get year(): string {
+    return new Date().getFullYear().toString();
+  }
 }

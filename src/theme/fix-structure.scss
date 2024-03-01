@@ -1,3 +1,11 @@
+* {
+  font-family: Helvetica;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-size: 15px;
+}
+
 body {
   position: relative !important;
   width: 100% !important;
@@ -13,9 +21,30 @@ html.ion-ce body {
 input,
 li,
 ul,
-button,
 textarea,
 select,
 option {
   all: unset;
+}
+
+ion-icon {
+  font-size: 24px;
+  cursor: pointer;
+}
+
+h2 {
+  font-size: 1.125rem !important;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  h2 {
+    font-size: 1.25rem !important;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  h2 {
+    font-size: 1.5rem !important;
+  }
+
 }

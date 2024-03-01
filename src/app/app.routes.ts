@@ -73,7 +73,19 @@ export const routes: Routes = [
     children: [
       {
         path: 'categories',
-        loadComponent: () => import('./admin/categories/categories.component').then(p => p.CategoriesComponent)
+        loadComponent: () => import('./admin/categories/categories.component').then(p => p.AdminCategoriesComponent)
+      },
+      {
+        path: 'users',
+        loadComponent: () => import('./admin/users/users.component').then(p => p.AdminUsersComponent)
+      },
+      {
+        path: 'products',
+        loadComponent: () => import('./admin/products/products.component').then(p => p.ProductsComponent)
+      },
+      {
+        path: 'orders',
+        loadComponent: () => import('./admin/orders/orders.component').then(p => p.OrdersComponent)
       },
       {
         path: '',

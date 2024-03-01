@@ -1,4 +1,4 @@
-import { Component, DestroyRef, EventEmitter, Input, Output, inject } from '@angular/core';
+import { Component, DestroyRef, EventEmitter, Input, Output, inject, input } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { IonIcon } from "@ionic/angular/standalone";
 import { CategoriesProxy, CategoryDto } from '@shared/proxies/categories.proxies';
@@ -17,23 +17,24 @@ export class CategoryListItemComponent extends ViewComponent {
   private categoriesProxy = inject(CategoriesProxy);
   private deleteDestroyRef = inject(DestroyRef);
 
-  @Input() category!: CategoryDto;
+  category = input.required<CategoryDto>();
 
+  @Output() onUpdate: EventEmitter<string> = new EventEmitter<string>();
   @Output() onDelete: EventEmitter<string> = new EventEmitter<string>();
 
   async onOptions(event: Event, id: string): Promise<void> {
     this.popup.showWithData({
       component: CategoryListItemPopoverComponent,
       event: event,
-      side: 'left',
+      side: 'start',
       arrow: false,
-      alignment: 'start'
+      alignment: 'start',
     }).then((action) => {
       if (!action) return;
 
       switch (action) {
         case 'edit':
-
+          this.onUpdate.emit(id);
           break;
         case 'delete':
           this.handleDelete(id);

@@ -1,11 +1,11 @@
 <div class="container">
 
   <div class="categories-table">
-    @for (category of categories; track $index) {
-      <category-list-item
-        [category]="category"
-        (onDelete)="onDelete($event)"
-      />
+    @for (category of categories(); track category.id) {
+    <category-list-item
+      [category]="category"
+      (onUpdate)="onUpdate($event)"
+      (onDelete)="onDelete($event)" />
     }
   </div>
 </div>

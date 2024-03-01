@@ -2,7 +2,7 @@
 
    <div class="menu_options">
       <section class="menu">
-        @for (menuOption of menuOptions; track $index) {
+        @for (menuOption of menuOptions; track menuOption.id) {
         <div
           (click)="navigateToCategory(menuOption.id)"
           class="menu_content">
@@ -23,7 +23,7 @@
      PROMOCIONES
    </h2>
    <section class="cards-menu">
-     @for (promotion of promotions; track $index) {
+     @for (promotion of promotions; track promotion.id) {
      <app-product-card [data]="promotion" />
      }
    </section>

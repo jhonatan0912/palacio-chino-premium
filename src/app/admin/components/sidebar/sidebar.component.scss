@@ -2,23 +2,6 @@
   position: relative;
   height: 100%;
 
-  .button-expand {
-    position: absolute;
-    top: 2rem;
-    right: 0;
-    z-index: 100;
-    background-color: #DC5353;
-    color: white;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 1.1rem;
-    width: 35px;
-    height: 35px;
-    cursor: pointer;
-  }
-
   .sidebar {
     padding: 1rem;
     height: 100%;
@@ -26,7 +9,7 @@
     flex-direction: column;
 
     &-header {
-      padding-top: 1.5rem;
+      padding-top: 1rem;
 
       & h3 {
         font-size: 1.8rem;
@@ -41,23 +24,12 @@
       justify-content: space-between;
       flex: 1;
 
-      & ul {
+      & .sidebar__options {
         display: flex;
         flex-direction: column;
         gap: 1rem;
         font-weight: 500;
         cursor: pointer;
-
-        & li {
-          padding: .5em;
-
-          &:hover {
-            color: #DC5353;
-            background-color: #f5f5f5;
-            border-radius: .5rem;
-            font-weight: 700;
-          }
-        }
       }
 
     }
@@ -68,23 +40,9 @@
       justify-content: space-between;
       align-items: center;
 
-      & button {
-        padding: .5em 1em;
-        border: none;
-        border-radius: .5rem;
-        background-color: #DC5353;
-        color: white;
-        cursor: pointer;
-        transition: .3s;
-        width: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: .5rem;
-
-        &:hover {
-          background-color: #c23c3c;
-        }
+      ion-icon[name="log-out-outline"] {
+        min-width: 24px;
+        min-height: 24px;
       }
     }
   }

@@ -1,5 +1,6 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, inject } from '@angular/core';
 import { IonicModule } from '@ionic/angular';
+import { CategoriesProxy } from '@shared/proxies/categories.proxies';
 
 @Component({
   selector: 'app-category',
@@ -10,10 +11,23 @@ import { IonicModule } from '@ionic/angular';
 })
 export class CategoryComponent implements OnInit {
 
-  @Input({ required: true }) name: string = 'awdaw';
+  private categoriesProxy = inject(CategoriesProxy);
+
+  @Input({ required: true }) id: string = 'awdaw';
 
   constructor() { }
 
-  ngOnInit() { }
+  ngOnInit() {
+    this.getCategoryInfo();
+  }
+
+  getCategoryInfo(): void {
+    this.categoriesProxy.get(this.id)
+      .subscribe({
+        next: (category) => {
+          console.log({ category });
+        }
+      });
+  }
 
 }

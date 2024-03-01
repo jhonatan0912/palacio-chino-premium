@@ -24,6 +24,9 @@
       "dom"
     ],
     "paths": {
+      "@enviroments/*": [
+        "./src/environments/*"
+      ],
       "@core/*": [
         "./src/app/core/*"
       ],
@@ -35,6 +38,12 @@
       ],
       "@auth/*": [
         "./src/app/auth/*"
+      ],
+      "@admin/*": [
+        "./src/app/admin/*"
+      ],
+      "@profile/*": [
+        "./src/app/profile/*"
       ]
     }
   },

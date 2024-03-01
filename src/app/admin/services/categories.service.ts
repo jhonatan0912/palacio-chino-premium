@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, signal } from '@angular/core';
 import { CategoryDto } from '@shared/proxies/categories.proxies';
 import { Subject } from 'rxjs';
 
@@ -6,6 +6,8 @@ import { Subject } from 'rxjs';
   providedIn: 'root'
 })
 export class CategoriesService {
+
+  categories = signal<CategoryDto[]>([]);
 
   onCategory: Subject<CategoryDto> = new Subject<CategoryDto>();
 }

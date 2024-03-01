@@ -1,40 +1,31 @@
 <section class="wrapper">
 
-  <div class="button-expand" (click)="onToggle()">
-      @if (expanded) {
-        <ion-icon name="chevron-back-outline" />
-      }@else{
-        <ion-icon name="chevron-forward-outline" />
-      }
-  </div>
+  <sidebar-expand-button
+    [(expanded)]="expanded"
+    (onToggle)="onToggle()" />
 
   <div class="sidebar" [ngClass]="{ 'hidden': !expanded }">
     <div class="sidebar-header">
-      <h3>Admin</h3>
+      <h3>
+        {{ expanded ? 'Admin' : '' }}
+      </h3>
     </div>
     <div class="sidebar-content">
-      <ul>
-        <li>
-          Categories
-        </li>
-        <li>
-          Users
-        </li>
-        <li>
-          Products
-        </li>
-        <li>
-          Orders
-        </li>
+      <ul class="sidebar__options">
+        @for (option of options; track option.id) {
+        <sidebar-option
+          [option]="option"
+          [expanded]="expanded"
+          [currentOptionId]="currentOptionId"
+          (onOptionClicked)="onOptionClicked($event)" />
+        }
       </ul>
 
       <div class="sidebar-footer">
-        <button
-          class="btn btn-primary"
-          (click)="onLogout()">
+        <lib-button (onAction)="onLogout()">
           <ion-icon name="log-out-outline" />
           Cerrar sesión
-        </button>
+        </lib-button>
       </div>
     </div>
   </div>

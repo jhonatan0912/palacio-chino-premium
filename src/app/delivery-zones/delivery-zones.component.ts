@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
+import { StoreMapComponent } from '@shared/components/store-map/store-map.component';
 
 @Component({
   selector: 'app-delivery-zones',
   standalone: true,
-  imports: [],
+  imports: [StoreMapComponent],
   templateUrl: './delivery-zones.component.html',
   styleUrl: './delivery-zones.component.scss'
 })

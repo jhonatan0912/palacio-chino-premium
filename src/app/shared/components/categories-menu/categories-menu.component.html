@@ -3,11 +3,17 @@
     MENÚ
   </h2>
   <section class="menu">
-    @for (category of categories; track $index) {
-      <category-menu
-        [category]="category"
-        (onAction)="navigateToCategory($event)"
-      />
+    @for (category of categories(); track category.id) {
+    <category-menu
+      [category]="category"
+      (onAction)="navigateToCategory($event)"
+      [selectedId]="selectedId" />
+    }@empty {
+    @for (item of [1,1,1,1,1]; track $index) {
+    <ion-skeleton-text
+      class="menu-skeleton"
+      animated />
+    }
     }
   </section>
 </div>

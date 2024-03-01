@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 .content_button{
    display: flex;
 }
@@ -16,3 +17,37 @@
    background-color: #ef1628;    
 }
 
+=======
+:host {
+   &.fill {
+      color: #fff;
+      width: 100%;
+      font-weight: 700;
+      text-align: center;
+   }
+
+   &.left {
+      justify-content: flex-start;
+   }
+
+   .right {
+      justify-content: flex-end;
+   }
+}
+
+.button {
+   width: 100%;
+   padding: 12px 8px;
+   border-radius: 8px;
+   text-align: center;
+   background-color: #DC5353;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   gap: .5rem;
+}
+
+.button:hover {
+   background-color: #DC5353;
+}
+>>>>>>> 29f882c8ff09e8de4f2bd4c634c7630992431b79

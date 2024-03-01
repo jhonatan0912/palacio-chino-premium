@@ -1,7 +1,7 @@
 import { Injectable, inject } from '@angular/core';
 import { AppHttpService } from '@core/index';
+import { environment } from '@enviroments/environment.development';
 import { Observable, map } from 'rxjs';
-import { environment } from '../../../environments/environment.development';
 
 @Injectable({
   providedIn: 'root'

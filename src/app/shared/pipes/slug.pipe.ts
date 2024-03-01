@@ -6,7 +6,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class SlugPipe implements PipeTransform {
 
-  transform(name: string): any {
+  transform(name: string): string {
     return name.toLocaleLowerCase().split(' ').join('-');
   }
 

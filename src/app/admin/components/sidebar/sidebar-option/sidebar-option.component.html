@@ -1,0 +1,10 @@
+<li
+  class="sidebar__option"
+  [ngClass]="{'active' : option().id === currentOptionId() }"
+  (click)="onOptionClicked.emit(option().id)">
+  @if (expanded()) {
+  {{ option().name }}
+  }@else{
+  <ion-icon [name]="option().icon" />
+  }
+</li>

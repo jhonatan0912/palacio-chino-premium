@@ -1,0 +1,13 @@
+.sidebar__option {
+  display: block;
+  padding: .5em;
+  width: 100%;
+
+  &:hover,
+  &.active {
+    color: #DC5353;
+    background-color: #f5f5f5;
+    border-radius: .5rem;
+    font-weight: 700;
+  }
+}
