@@ -1,16 +1,18 @@
 $header-height: 117px;
 
 .container__wrapper {
-  background-color: #ECECEC;
+  // background-color: #ECECEC;
   display: flex;
+  gap: 80px;
   justify-content: space-between;
   height: calc(100vh - $header-height);
-  padding-top: 4rem;
+  padding-top: 8rem;
 }
 
 .content {
   flex: 1;
-  padding-left: 3rem;
+  // padding-left: 3rem;
+  width: 900px;
 }
 
 .side-menu {

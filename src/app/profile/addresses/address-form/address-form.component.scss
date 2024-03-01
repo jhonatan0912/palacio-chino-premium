@@ -1,18 +1,56 @@
 .wrapper {
   background: #fff;
-  max-width: 30%;
+  // max-width: 30%;
+  border: 1px solid black;
+  padding: 40px;
   border-radius: 1rem;
-  padding: 1rem;
+}
+
+.title{
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+.sub_title{
+  margin-top: 3rem;
+}
+
+input, select, textarea{
+  border: 1px solid black;
+  // border: 1px solid #6A6A6A;
+  border-radius: 10px;
+  padding: 10px 10px;
+  width: 100%;
 }
 
 .col {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 2rem;
+  margin-top: 2rem;
 }
 
-input {
-  border: 1px solid #6A6A6A;
-  border-radius: .5rem;
-  padding: .5rem;
+.row{
+  display: flex;
+  flex-direction: row;
+  gap: 80px;
+}
+
+.buttons{
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+}
+
+.button_return{
+  background-color: rgb(75, 75, 75);
+  padding: auto;
+  padding-left: 50px;
+  padding-right: 50px;
+  border-radius: 6px;
+  color: #fff;
+}
+
+.button_return:hover{
+  background-color: rgba(35, 35, 35, 1);
 }

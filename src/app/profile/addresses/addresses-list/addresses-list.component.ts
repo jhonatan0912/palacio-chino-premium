@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ViewComponent } from '@core/view-component';
 
 @Component({
   selector: 'addresses-list',
@@ -6,11 +7,10 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './addresses-list.component.html',
   styleUrls: ['./addresses-list.component.scss']
 })
-export class AddressesListComponent implements OnInit {
+export class AddressesListComponent extends ViewComponent {
 
-  constructor() { }
-
-  ngOnInit() {
+  addAddresses() {
+    this.navigation.forward('/profile/register-address');
   }
 
 }
