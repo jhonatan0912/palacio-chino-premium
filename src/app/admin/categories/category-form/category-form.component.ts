@@ -25,7 +25,6 @@ export class AdminCategoryFormComponent {
   name: string = '';
 
   addCategory(): void {
-    debugger;
     if (!this.icon) return;
 
     this.categoriesProxy.create(

@@ -1,7 +1,9 @@
 import { DecimalPipe } from "@angular/common";
-import { Component, inject, input, signal } from '@angular/core';
-import { IonToggle } from "@ionic/angular/standalone";
-import { ProductDto } from '@shared/proxies/products.proxie';
+import { Component, DestroyRef, Input, inject, input, signal } from '@angular/core';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import { IonToggle, ToggleCustomEvent } from "@ionic/angular/standalone";
+import { CategoryDto } from '@shared/proxies/categories.proxies';
+import { ProductDto, ProductsProxy } from '@shared/proxies/products.proxie';
 import { ProductsService } from '@shared/services/products.service';
 
 @Component({
@@ -14,8 +16,10 @@ import { ProductsService } from '@shared/services/products.service';
 export class ProductsModalComponent {
 
   private productsService = inject(ProductsService);
+  private productsProxy = inject(ProductsProxy);
+  private destroyRef = inject(DestroyRef);
 
-  categoryId = input<string>();
+  @Input() categoryId!: string;
   products = signal<ProductDto[]>([]);
 
   ngOnInit() {
@@ -24,5 +28,28 @@ export class ProductsModalComponent {
 
   getProducts(): void {
     this.products.set(this.productsService.products());
+  }
+
+  onChange(event: ToggleCustomEvent, product: ProductDto): void {
+    const checked = event.detail.checked;
+    const categoryId = checked ? this.categoryId : null;
+
+    this.productsProxy.update(
+      product.id!,
+      categoryId,
+      product.image,
+      product.name,
+      product.price,
+      product.description
+    ).pipe(
+      takeUntilDestroyed(this.destroyRef)
+    ).subscribe({
+      next: (res) => {
+      }
+    });
+  }
+
+  checked(categories: CategoryDto[]): boolean {
+    return categories.some((category) => category.id === this.categoryId);
   }
 }

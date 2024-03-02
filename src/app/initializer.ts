@@ -1,6 +1,7 @@
 import { Injector } from '@angular/core';
 import { AuthService } from '@auth/services/auth.service';
 import { AppSessionService } from '@core/services/session.service';
+import { AUTH_TOKEN } from '@core/utils/constants';
 import { Platform } from '@ionic/angular';
 import { AuthProxy } from '@shared/proxies/auth.proxies';
 import { CategoriesProxy } from '@shared/proxies/categories.proxies';
@@ -53,6 +54,7 @@ export const appInitializer = (injector: Injector) => {
                 });
             },
             error: (error) => {
+              localStorage.removeItem(AUTH_TOKEN);
               reject(error);
             }
           })

@@ -29,7 +29,6 @@ export class CategoryComponent implements OnInit {
         takeUntilDestroyed(this.destroyRef)
       ).subscribe({
         next: (category) => {
-          console.log({ category });
         }
       });
   }

@@ -2,6 +2,7 @@ import { Injectable, inject } from '@angular/core';
 import { AppHttpService } from '@core/index';
 import { environment } from '@enviroments/environment.development';
 import { Observable, mergeMap, of } from 'rxjs';
+import { CategoryDto } from './categories.proxies';
 
 @Injectable({
   providedIn: 'root'
@@ -32,6 +33,18 @@ export class ProductsProxy {
     return this.http.get(this.path).pipe(mergeMap((data: any) => of(data.map((item: any) => new ProductDto().fromJS(item)))));
   }
 
+  update(id: string, categoryId: string | null, image: string, name: string, price: number, description: string): Observable<void> {
+    const url = `${this.path}/${id}`;
+    const body = {
+      categoryId,
+      image,
+      name,
+      price,
+      description
+    };
+    return this.http.update(url, body);
+  }
+
   delete(id: string): Observable<void> {
     const url = `${this.path}/${id}`;
 
@@ -41,16 +54,26 @@ export class ProductsProxy {
 
 export class ProductDto {
   id?: string;
+  image!: string;
   name!: string;
   price!: number;
   description!: string;
+  categories!: CategoryDto[];
 
   init(data: any): void {
     if (data) {
       this.id = data.id;
+      this.image = data.image;
       this.name = data.name;
       this.price = data.price;
       this.description = data.description;
+      this.categories = [];
+
+      if (Array.isArray(data.categories)) {
+        for (const item of data.categories) {
+          this.categories.push(new CategoryDto().fromJS(item));
+        }
+      }
     }
   }
 
