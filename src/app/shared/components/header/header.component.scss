@@ -18,11 +18,12 @@
 .options {
    display: flex;
    align-items: center;
-   gap: 50px;
+   gap: 1rem;
 
    .title_header {
       font-weight: 500;
       cursor: pointer;
+      font-size: 14px ;
    }
 
    .title_header:last-child {
@@ -30,6 +31,7 @@
       border-radius: 20px;
       color: white;
       padding: 10px 25px;
+      display: none;
    }
 
    .title_header:last-child:hover {
@@ -55,5 +57,13 @@ ion-icon {
 
    &.cart-outline {
       margin-top: .5rem;
+   }
+}
+
+@media screen and (min-width: 768px) {
+   .title_header {
+      &:last-child {
+         display: block !important;
+      }
    }
 }

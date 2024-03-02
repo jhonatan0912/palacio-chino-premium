@@ -1,0 +1,26 @@
+<section class="container">
+  <table>
+    <thead>
+      <tr>
+        <th>Nombre</th>
+        <th>Price</th>
+        <th>Category</th>
+      </tr>
+    </thead>
+    <tbody>
+      @for (product of products(); track product.id) {
+      <tr>
+        <td>{{ product.name }}</td>
+        <td>{{ product.price | number: '1.2-2' }}</td>
+        <td>
+          <ion-toggle />
+        </td>
+      </tr>
+      }@empty {
+      <div>
+        No hay productos
+      </div>
+      }
+    </tbody>
+  </table>
+</section>

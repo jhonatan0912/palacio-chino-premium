@@ -30,6 +30,7 @@ export class CategoriesMenuComponent extends ViewComponent implements OnInit {
 
   getCategories(): void {
     this.categories.set(this.categoriesService.categories());
+    this.selectedId = this.categories()[0].id!;
   }
 
   navigateToCategory(id: string): void {

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { Action } from '@core/services/types';
+import { AdminCategoryActions } from '@core/services/types';
 import { ViewComponent } from '@core/view-component';
+
 
 @Component({
   selector: 'category-list-item-popover',
@@ -10,7 +11,7 @@ import { ViewComponent } from '@core/view-component';
 })
 export class CategoryListItemPopoverComponent extends ViewComponent {
 
-  onAction(action: Action): void {
+  onAction(action: AdminCategoryActions): void {
     this.popup.dismiss(action);
   }
 }

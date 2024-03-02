@@ -1,6 +1,6 @@
-import { Component, DestroyRef, OnInit, inject } from '@angular/core';
+import { Component, DestroyRef, inject } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
-import { FormControl, FormsModule } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 import { ButtonComponent } from '@lib/button/button.component';
 import { ImageUploaderComponent } from '@shared/components/image-uploader/image-uploader.component';
 import { onFileChange } from '@shared/proxies/categories.proxies';
@@ -13,7 +13,7 @@ import { ProductsProxy } from '@shared/proxies/products.proxie';
   templateUrl: './products-form.component.html',
   styleUrls: ['./products-form.component.scss'],
 })
-export class ProductsFormComponent implements OnInit {
+export class ProductsFormComponent {
 
   private productsProxy = inject(ProductsProxy);
   private destroyRef = inject(DestroyRef);
@@ -22,10 +22,6 @@ export class ProductsFormComponent implements OnInit {
   name: string = '';
   price: number = 0;
   description: string = '';
-
-  constructor() { }
-
-  ngOnInit() { }
 
   onCreate(): void {
     if (!this.image) return;
@@ -49,6 +45,12 @@ export class ProductsFormComponent implements OnInit {
 
   onFileChange(event: File) {
     this.image = onFileChange(event);
-    console.log(this.image);
   };
+
+  resetForm(): void {
+    this.image = undefined;
+    this.name = '';
+    this.price = 0;
+    this.description = '';
+  }
 }

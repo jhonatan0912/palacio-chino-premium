@@ -4,6 +4,7 @@ import { IonIcon } from "@ionic/angular/standalone";
 import { CategoriesProxy, CategoryDto } from '@shared/proxies/categories.proxies';
 import { CategoryListItemPopoverComponent } from './category-list-item-popover/category-list-item-popover.component';
 import { ViewComponent } from '@core/view-component';
+import { ProductsModalComponent } from '@admin/modals/products/products.component';
 
 @Component({
   selector: 'category-list-item',
@@ -39,13 +40,23 @@ export class CategoryListItemComponent extends ViewComponent {
         case 'delete':
           this.handleDelete(id);
           break;
+        case 'assign':
+          this.openProductsModal(id);
+          break;
 
         default:
           break;
       }
     });
+  }
 
-
+  openProductsModal(id: string): void {
+    this.dialog.showWithData({
+      component: ProductsModalComponent,
+      componentProps: {
+        categoryId: id
+      }
+    });
   }
 
   handleDelete(id: string): void {

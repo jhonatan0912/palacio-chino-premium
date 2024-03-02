@@ -1,4 +1,5 @@
-import { Component, Input, OnInit, inject } from '@angular/core';
+import { Component, DestroyRef, Input, OnInit, inject } from '@angular/core';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { IonicModule } from '@ionic/angular';
 import { CategoriesProxy } from '@shared/proxies/categories.proxies';
 
@@ -12,6 +13,7 @@ import { CategoriesProxy } from '@shared/proxies/categories.proxies';
 export class CategoryComponent implements OnInit {
 
   private categoriesProxy = inject(CategoriesProxy);
+  private destroyRef = inject(DestroyRef);
 
   @Input({ required: true }) id: string = 'awdaw';
 
@@ -23,7 +25,9 @@ export class CategoryComponent implements OnInit {
 
   getCategoryInfo(): void {
     this.categoriesProxy.get(this.id)
-      .subscribe({
+      .pipe(
+        takeUntilDestroyed(this.destroyRef)
+      ).subscribe({
         next: (category) => {
           console.log({ category });
         }
