@@ -1,4 +1,37 @@
 .container {
-  background-color: red;
   margin-top: 10rem;
+
+  .category-name {
+    text-transform: uppercase;
+    margin: auto;
+    text-align: center;
+    margin-top: 3rem;
+    font-weight: bold;
+    border-bottom: 1px solid #000;
+    width: max-content;
+  }
+
+  .products {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    margin-top: 3rem;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .container {
+    .products {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+    }
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .container {
+    .products {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+
 }

@@ -1,19 +1,14 @@
-<div class="menu_options">
-  <h2 class="title_menu">
-    MENÚ
-  </h2>
-  <section class="menu">
-    @for (category of categories(); track category.id) {
-    <category-menu
-      [category]="category"
-      (onAction)="navigateToCategory($event)"
-      [selectedId]="selectedId" />
-    }@empty {
-    @for (item of [1,1,1,1,1]; track $index) {
-    <ion-skeleton-text
-      class="menu-skeleton"
-      animated />
-    }
-    }
-  </section>
-</div>
+<section class="menu">
+  @for (category of categories(); track category.id) {
+  <category-menu
+    [category]="category"
+    (onAction)="navigateToCategory($event)"
+    [selectedId]="selectedId" />
+  }@empty {
+  @for (item of [1,1,1,1,1]; track $index) {
+  <ion-skeleton-text
+    class="menu-skeleton"
+    animated />
+  }
+  }
+</section>

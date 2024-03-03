@@ -18,11 +18,10 @@
     </h2>
     <section class="cards-menu">
       @for (promotion of promotions; track $index) {
-      <app-product-card [data]="promotion" />
+      <!-- <app-product-card /> -->
       }
     </section>
   </div>
-
 
   <!-- ON DEMAND -->
   <div class="menu_demand">
@@ -31,7 +30,7 @@
     </h2>
     <section class="cards-menu">
       @for (onDemand of onDemandItems; track $index) {
-      <app-product-card [data]="onDemand" />
+      <!-- <app-product-card /> -->
       }
     </section>
   </div>
@@ -48,10 +47,14 @@
         <h2>Sencillo.</h2>
       </div>
       <div class="message">
-        <p>Llevamos los <strong>sabores</strong> del <strong>Oriente</strong> a tu plato.</p>
+        <p>Llevamos los <strong>sabores</strong> del <strong>Oriente</strong> a
+          tu plato.</p>
       </div>
       <div>
-        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Veniam voluptates nihil, a harum tempore voluptate molestias doloremque veritatis labore nam rem rerum, eligendi accusantium eum? Voluptatem sit consectetur dolore corporis!</p>
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Veniam
+          voluptates nihil, a harum tempore voluptate molestias doloremque
+          veritatis labore nam rem rerum, eligendi accusantium eum? Voluptatem
+          sit consectetur dolore corporis!</p>
       </div>
     </div>
     <div class="content_second">
@@ -60,8 +63,7 @@
           src="/assets/logo.png"
           alt="Logo"
           height="90px"
-          height="90px"
-        />
+          height="90px" />
       </div>
     </div>
   </div>

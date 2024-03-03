@@ -26,11 +26,23 @@ export class ProductsProxy {
   };
 
   get(id: string): Observable<ProductDto> {
-    return this.http.get(`${this.path}/${id}`).pipe(mergeMap((data: any) => of(new ProductDto().fromJS(data))));
+    const url = `${this.path}/${id}`;
+    return this.http.get(url).pipe(mergeMap((data: any) => of(new ProductDto().fromJS(data))));
   }
 
   getAll(): Observable<ProductDto[]> {
     return this.http.get(this.path).pipe(mergeMap((data: any) => of(data.map((item: any) => new ProductDto().fromJS(item)))));
+  }
+
+  getByCategory(idCategory: string, page: number = 1, pageSize: number = 10): Observable<ProductDto[]> {
+    let url = `${this.path}/getByCategory/${idCategory}`;
+    if (page !== null && page !== undefined)
+      url += `?page=${page}`;
+
+    if (pageSize !== null && pageSize !== undefined)
+      url += `&pageSize=${pageSize}`;
+
+    return this.http.get(url).pipe(mergeMap((data: any) => of(data.map((item: any) => new ProductDto().fromJS(item)))));
   }
 
   update(id: string, categoryId: string | null, image: string, name: string, price: number, description: string): Observable<void> {

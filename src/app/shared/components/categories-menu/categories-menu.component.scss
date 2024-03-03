@@ -1,23 +1,9 @@
-.menu_options {
-   margin-top: 150px;
-
-   .title_menu {
-      font-weight: bold;
-      text-align: center;
-      border-bottom: 1px solid black;
-      width: fit-content;
-      margin: auto;
-      padding: 0 40px;
-   }
-
-   .menu {
-      display: flex;
-      justify-content: center;
-      gap: 60px;
-      margin-top: 60px;
-   }
+.menu {
+   display: flex;
+   justify-content: center;
+   gap: 3rem;
+   margin-top: 60px;
 }
-
 
 .menu-skeleton {
    width: 90px;

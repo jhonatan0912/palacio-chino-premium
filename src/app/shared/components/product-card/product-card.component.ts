@@ -1,5 +1,6 @@
 import { DecimalPipe } from '@angular/common';
-import { Component, Input } from '@angular/core';
+import { Component, Input, input } from '@angular/core';
+import { ProductDto } from '@shared/proxies/products.proxie';
 
 export interface ProductCardData {
   id: string;
@@ -17,6 +18,6 @@ export interface ProductCardData {
 })
 export class ProductCardComponent {
 
-  @Input() data!: ProductCardData;
+  product = input.required<ProductDto>();
 
 }
