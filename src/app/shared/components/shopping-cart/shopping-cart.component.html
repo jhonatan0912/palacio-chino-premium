@@ -13,7 +13,13 @@
   <div class="content">
     @for (product of products(); track product.id) {
     <shopping-cart-product
-      [product]="product" />
+      [product]="product"
+      [(quantity)]="product.quantity!" />
+    }@empty {
+    <div class="empty">
+      <img src="/assets/empty-cart.png" alt="Empty cart">
+      No hay productos en tu carrito
+    </div>
     }
   </div>
 </section>

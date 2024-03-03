@@ -15,6 +15,19 @@
       <p class="total">
         S/{{ product().price * product().quantity!}}
       </p>
+
+      <div class="quantity-container">
+        <button (click)="substract()">
+          -
+        </button>
+        <input
+          type="number"
+          inputmode="decimal"
+          [(ngModel)]="quantity">
+        <button (click)="add()">
+          +
+        </button>
+      </div>
     </div>
   </section>
 </article>
