@@ -1,26 +1,30 @@
 :host {
-   &.fill {
+   background-color: #DC5353;
+   border-radius: 8px;
+
+   &.button-fill {
       color: #fff;
       width: 100%;
       font-weight: 700;
       text-align: center;
    }
 
-   &.left {
-      justify-content: flex-start;
+   &.button-outline {
+      background: none;
+      border: 1px solid #DC5353;
+
+      &:hover {
+         background-color: #DC5353;
+         color: #fff;
+      }
    }
 
-   .right {
-      justify-content: flex-end;
-   }
 }
 
 .button {
    width: 100%;
    padding: 12px 8px;
-   border-radius: 8px;
    text-align: center;
-   background-color: #DC5353;
    display: flex;
    align-items: center;
    justify-content: center;
@@ -29,4 +33,5 @@
 
 .button:hover {
    background-color: #DC5353;
+   border-radius: 8px;
 }

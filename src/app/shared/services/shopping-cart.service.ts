@@ -9,7 +9,7 @@ export class ShoppingCartService {
 
   cart = signal<ProductDto[]>([]);
 
-  add(product: ProductDto): void {
+  addToCart(product: ProductDto): void {
     const productInCart = this.cart().find(p => p.id == product.id);
     if (productInCart) {
       productInCart.quantity! += 1;
@@ -22,6 +22,24 @@ export class ShoppingCartService {
       newProduct.image = product.image;
       newProduct.quantity = 1;
       this.cart.set([...this.cart(), newProduct]);
+    }
+    localStorage.setItem(SHOPPING_CART, JSON.stringify(this.cart()));
+  }
+
+  add(product: ProductDto): void {
+    const productInCart = this.cart().find(p => p.id == product.id);
+    if (productInCart) {
+      productInCart.quantity! += 1;
+      this.cart.set([...this.cart()]);
+    }
+    localStorage.setItem(SHOPPING_CART, JSON.stringify(this.cart()));
+  }
+
+  substract(product: ProductDto): void {
+    const productInCart = this.cart().find(p => p.id == product.id);
+    if (productInCart && productInCart.quantity! > 1) {
+      productInCart.quantity! -= 1;
+      this.cart.set([...this.cart()]);
     }
     localStorage.setItem(SHOPPING_CART, JSON.stringify(this.cart()));
   }

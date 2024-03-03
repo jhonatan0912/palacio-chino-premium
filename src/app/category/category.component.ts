@@ -60,7 +60,7 @@ export class CategoryComponent extends ViewComponent {
   }
 
   onOrder(product: ProductDto): void {
-    this.shoppingCartService.add(product);
+    this.shoppingCartService.addToCart(product);
   }
 
 }

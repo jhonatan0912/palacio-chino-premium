@@ -54,14 +54,9 @@
           width: max-content;
           max-width: 50px;
           text-align: center;
+          cursor: not-allowed;
         }
       }
-    }
-
-    .empty {
-      color: #f00;
-      font-size: 1.2rem;
-      font-weight: 500;
     }
   }
 }

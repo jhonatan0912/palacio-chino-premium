@@ -13,8 +13,12 @@ export type ButtonType = 'fill' | 'outline' | 'link';
 export class ButtonComponent {
 
   @Input()
-  @HostBinding('class.fill')
   type: ButtonType = 'fill';
 
   @Output() onAction: EventEmitter<void> = new EventEmitter<void>();
+
+  @HostBinding('class')
+  protected get buttonType(): string {
+    return `button-${this.type}`;
+  }
 }
