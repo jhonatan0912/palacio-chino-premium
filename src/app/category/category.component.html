@@ -7,8 +7,14 @@
   </h2>
 
   <div class="products">
+    @if (busy()) {
+    <category-skeleton />
+    }@else {
     @for (product of products(); track product.id) {
-    <app-product-card [product]="product" />
+    <app-product-card
+      [product]="product"
+      (onOrder)="onOrder($event)" />
+    }
     }
   </div>
 </main>

@@ -1,13 +1,14 @@
-import { Injector } from '@angular/core';
+import { Injector, inject } from '@angular/core';
 import { AuthService } from '@auth/services/auth.service';
 import { AppSessionService } from '@core/services/session.service';
-import { AUTH_TOKEN } from '@core/utils/constants';
+import { AUTH_TOKEN, SHOPPING_CART } from '@core/utils/constants';
 import { Platform } from '@ionic/angular';
 import { AuthProxy } from '@shared/proxies/auth.proxies';
 import { CategoriesProxy } from '@shared/proxies/categories.proxies';
 import { ProductsProxy } from '@shared/proxies/products.proxie';
 import { CategoriesService } from '@shared/services/categories.service';
 import { ProductsService } from '@shared/services/products.service';
+import { ShoppingCartService } from '@shared/services/shopping-cart.service';
 import { tap } from 'rxjs';
 
 const getCategories = (injector: Injector): void => {
@@ -30,6 +31,13 @@ const getProducts = (injector: Injector): void => {
     });
 };
 
+const setCart = (injector: Injector) => {
+  const cart = localStorage.getItem(SHOPPING_CART);
+  const shoppingCartService = injector.get(ShoppingCartService);
+  if (!cart) return;
+  shoppingCartService.cart.set(JSON.parse(cart));
+};
+
 export const appInitializer = (injector: Injector) => {
   const authProxy = injector.get(AuthProxy);
   const authService = injector.get(AuthService);
@@ -41,6 +49,7 @@ export const appInitializer = (injector: Injector) => {
     return new Promise<void>((resolve, reject) => {
       getCategories(injector);
       getProducts(injector);
+      setCart(injector);
       if (!token) return resolve();
 
       authProxy.getSession()

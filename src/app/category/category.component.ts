@@ -1,33 +1,40 @@
 import { Component, DestroyRef, WritableSignal, effect, inject, input, signal } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import { ViewComponent } from '@core/view-component';
 import { IonicModule } from '@ionic/angular';
 import { CategoriesMenuComponent } from '@shared/components/categories-menu/categories-menu.component';
 import { ProductCardComponent } from '@shared/components/product-card/product-card.component';
 import { CategoriesProxy, CategoryDto } from '@shared/proxies/categories.proxies';
 import { ProductDto, ProductsProxy } from '@shared/proxies/products.proxie';
+import { ShoppingCartService } from '@shared/services/shopping-cart.service';
+import { finalize } from 'rxjs';
+import { CategorySkeletonComponent } from './category-skeleton/category-skeleton.component';
 
 @Component({
   selector: 'app-category',
   standalone: true,
-  imports: [IonicModule, CategoriesMenuComponent, ProductCardComponent],
+  imports: [IonicModule, CategoriesMenuComponent, ProductCardComponent, CategorySkeletonComponent],
   templateUrl: './category.component.html',
   styleUrls: ['./category.component.scss'],
 })
-export class CategoryComponent {
+export class CategoryComponent extends ViewComponent {
 
   private categoriesProxy = inject(CategoriesProxy);
+  private shoppingCartService = inject(ShoppingCartService);
   private productsProxy = inject(ProductsProxy);
   private destroyRef = inject(DestroyRef);
 
   id = input.required<string>();
   category: WritableSignal<CategoryDto | undefined> = signal(undefined);
   products = signal<ProductDto[]>([]);
+  busy = signal<boolean>(false);
 
   constructor() {
+    super();
     effect(() => {
       this.getCategoryInfo(this.id());
       this.getProductsByCategory(this.id());
-    });
+    }, { allowSignalWrites: true });
   }
 
   getCategoryInfo(id: string): void {
@@ -42,12 +49,18 @@ export class CategoryComponent {
   }
 
   getProductsByCategory(id: string): void {
+    this.busy.set(true);
     this.productsProxy.getByCategory(id)
+      .pipe(finalize(() => this.busy.set(false)))
       .subscribe({
         next: (products) => {
           this.products.set(products);
         }
       });
+  }
+
+  onOrder(product: ProductDto): void {
+    this.shoppingCartService.add(product);
   }
 
 }

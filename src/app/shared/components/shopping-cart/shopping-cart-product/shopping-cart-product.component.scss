@@ -1,0 +1,21 @@
+.product {
+  display: flex;
+  gap: 10px;
+
+  &__image {
+    width: 100px;
+    height: 100px;
+
+    & img {
+      width: 100%;
+      height: 100%;
+      object-fit: fill;
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+  }
+}

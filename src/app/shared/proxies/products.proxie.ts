@@ -71,6 +71,7 @@ export class ProductDto {
   price!: number;
   description!: string;
   categories!: CategoryDto[];
+  quantity?: number | undefined;
 
   init(data: any): void {
     if (data) {
@@ -79,6 +80,7 @@ export class ProductDto {
       this.name = data.name;
       this.price = data.price;
       this.description = data.description;
+
       this.categories = [];
 
       if (Array.isArray(data.categories)) {

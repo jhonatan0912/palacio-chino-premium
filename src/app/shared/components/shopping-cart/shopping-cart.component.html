@@ -6,8 +6,14 @@
 
     <div class="close-container" (click)="dismiss()">
       <ion-icon
-        name="close-outline"
-      />
+        name="close-outline" />
     </div>
+  </div>
+
+  <div class="content">
+    @for (product of products(); track product.id) {
+    <shopping-cart-product
+      [product]="product" />
+    }
   </div>
 </section>

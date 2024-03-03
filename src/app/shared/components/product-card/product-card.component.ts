@@ -1,5 +1,5 @@
 import { DecimalPipe } from '@angular/common';
-import { Component, Input, input } from '@angular/core';
+import { Component, EventEmitter, Input, Output, input } from '@angular/core';
 import { ProductDto } from '@shared/proxies/products.proxie';
 
 export interface ProductCardData {
@@ -19,5 +19,7 @@ export interface ProductCardData {
 export class ProductCardComponent {
 
   product = input.required<ProductDto>();
+
+  @Output() onOrder = new EventEmitter<ProductDto>();
 
 }
