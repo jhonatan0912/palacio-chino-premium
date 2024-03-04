@@ -23,7 +23,7 @@
    .title_header {
       font-weight: 500;
       cursor: pointer;
-      font-size: 14px ;
+      font-size: 14px;
    }
 
    .title_header:last-child {
@@ -43,13 +43,34 @@
    display: flex;
    align-items: center;
    gap: 1rem;
+
+   .login {
+      display: flex;
+      align-items: center;
+      gap: .5rem;
+   }
+
+   .cart {
+      position: relative;
+
+      .badge {
+         position: absolute;
+         top: -2px;
+         right: -8px;
+         width: max-content;
+         min-width: 18px;
+         height: 18px;
+         border-radius: 50%;
+         font-size: .8rem;
+         background: #DC5353;
+         color: #fff;
+         padding: 1px 4px;
+         display: grid;
+         place-content: center;
+      }
+   }
 }
 
-.login {
-   display: flex;
-   align-items: center;
-   gap: .5rem;
-}
 
 ion-icon {
    width: 32px;
