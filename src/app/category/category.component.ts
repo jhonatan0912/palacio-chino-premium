@@ -6,7 +6,6 @@ import { CategoriesMenuComponent } from '@shared/components/categories-menu/cate
 import { ProductCardComponent } from '@shared/components/product-card/product-card.component';
 import { CategoriesProxy, CategoryDto } from '@shared/proxies/categories.proxies';
 import { ProductDto, ProductsProxy } from '@shared/proxies/products.proxie';
-import { ShoppingCartService } from '@shared/services/shopping-cart.service';
 import { finalize } from 'rxjs';
 import { CategorySkeletonComponent } from './category-skeleton/category-skeleton.component';
 
@@ -20,7 +19,6 @@ import { CategorySkeletonComponent } from './category-skeleton/category-skeleton
 export class CategoryComponent extends ViewComponent {
 
   private categoriesProxy = inject(CategoriesProxy);
-  private shoppingCartService = inject(ShoppingCartService);
   private productsProxy = inject(ProductsProxy);
   private destroyRef = inject(DestroyRef);
 
@@ -58,9 +56,4 @@ export class CategoryComponent extends ViewComponent {
         }
       });
   }
-
-  onOrder(product: ProductDto): void {
-    this.shoppingCartService.addToCart(product);
-  }
-
 }

@@ -41,6 +41,18 @@ export class ProductsProxy {
     return this.http.get(url).pipe(mergeMap((data: any) => of(new GetAllProductsResponseDto().fromJS(data))));
   }
 
+  getPromotions(limit: number = 0, offset: number = 10): Observable<GetAllProductsResponseDto> {
+    let url = `${this.path}/promotions`;
+    if (limit !== null && limit !== undefined)
+      url += `?limit=${limit}`;
+
+    if (offset !== null && offset !== undefined)
+      url += `&offset=${offset}`;
+
+    return this.http.get(url).pipe(mergeMap((data: any) => of(new GetAllProductsResponseDto().fromJS(data))));
+
+  }
+
   getByCategory(idCategory: string, page: number = 1, pageSize: number = 10): Observable<ProductDto[]> {
     let url = `${this.path}/getByCategory/${idCategory}`;
     if (page !== null && page !== undefined)

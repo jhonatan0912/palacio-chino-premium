@@ -17,8 +17,9 @@
       PROMOCIONES
     </h2>
     <section class="cards-menu">
-      @for (promotion of promotions; track $index) {
-      <!-- <app-product-card /> -->
+      @for (product of promotions(); track product.id) {
+      <app-product-card
+        [product]="product" />
       }
     </section>
   </div>
