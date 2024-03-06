@@ -36,11 +36,16 @@ export const routes: Routes = [
     children: [
       {
         path: 'addresses',
-        loadComponent: () => import('./profile/addresses/addresses.component').then(p => p.AddressesComponent)
-      },
-      {
-        path: 'register-address',
-        loadComponent: () => import('./profile/addresses/address-form/address-form.component').then(p => p.AddressFormComponent)
+        children: [
+          {
+            path: '',
+            loadComponent: () => import('./profile/addresses/addresses.component').then(p => p.AddressesComponent),
+          },
+          {
+            path: 'add',
+            loadComponent: () => import('./profile/addresses/address-form/address-form.component').then(p => p.AddressFormComponent)
+          }
+        ]
       },
       {
         path: 'orders',

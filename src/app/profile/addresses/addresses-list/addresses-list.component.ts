@@ -10,7 +10,7 @@ import { ViewComponent } from '@core/view-component';
 export class AddressesListComponent extends ViewComponent {
 
   addAddresses() {
-    this.navigation.forward('/profile/register-address');
+    this.navigation.forward('/profile/addresses/add');
   }
 
 }

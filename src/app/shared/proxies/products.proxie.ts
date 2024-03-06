@@ -30,24 +30,24 @@ export class ProductsProxy {
     return this.http.get(url).pipe(mergeMap((data: any) => of(new ProductDto().fromJS(data))));
   }
 
-  getAll(limit: number = 0, offset: number = 10): Observable<GetAllProductsResponseDto> {
+  getAll(page: number = 0, limit: number = 10): Observable<GetAllProductsResponseDto> {
     let url = this.path;
-    if (limit !== null && limit !== undefined)
-      url += `?limit=${limit}`;
+    if (page !== null && page !== undefined)
+      url += `?page=${page}`;
 
-    if (offset !== null && offset !== undefined)
-      url += `&offset=${offset}`;
+    if (limit !== null && limit !== undefined)
+      url += `&limit=${limit}`;
 
     return this.http.get(url).pipe(mergeMap((data: any) => of(new GetAllProductsResponseDto().fromJS(data))));
   }
 
-  getPromotions(limit: number = 0, offset: number = 10): Observable<GetAllProductsResponseDto> {
+  getPromotions(page: number = 0, limit: number = 10): Observable<GetAllProductsResponseDto> {
     let url = `${this.path}/promotions`;
-    if (limit !== null && limit !== undefined)
-      url += `?limit=${limit}`;
+    if (page !== null && page !== undefined)
+      url += `?page=${page}`;
 
-    if (offset !== null && offset !== undefined)
-      url += `&offset=${offset}`;
+    if (limit !== null && limit !== undefined)
+      url += `&limit=${limit}`;
 
     return this.http.get(url).pipe(mergeMap((data: any) => of(new GetAllProductsResponseDto().fromJS(data))));
 
@@ -103,15 +103,17 @@ export class GetAllProductsResponseDto {
 }
 
 export class GetAllProductsResponseMetaDto {
+  page!: number;
   limit!: number;
-  offset!: number;
   total!: number;
+  lastPage!: number;
 
   init(data: any): void {
     if (data) {
+      this.page = data.page;
       this.limit = data.limit;
-      this.offset = data.offset;
       this.total = data.total;
+      this.lastPage = data.lastPage;
     }
   }
 
