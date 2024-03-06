@@ -1,14 +1,16 @@
 import { Component, DestroyRef, OnInit, inject, signal } from '@angular/core';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { ViewComponent } from '@core/view-component';
-import { ProductCardComponent, ProductCardData } from '../shared/components/product-card/product-card.component';
+import { IonSpinner } from "@ionic/angular/standalone";
 import { CategoriesMenuComponent } from '@shared/components/categories-menu/categories-menu.component';
 import { ProductDto, ProductsProxy } from '@shared/proxies/products.proxie';
-import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import { finalize } from 'rxjs';
+import { ProductCardComponent } from '../shared/components/product-card/product-card.component';
 
 @Component({
   selector: 'app-menu',
   standalone: true,
-  imports: [ProductCardComponent, CategoriesMenuComponent],
+  imports: [IonSpinner, ProductCardComponent, CategoriesMenuComponent],
   templateUrl: './menu.component.html',
   styleUrl: './menu.component.scss'
 })
@@ -17,8 +19,9 @@ export class MenuComponent extends ViewComponent implements OnInit {
   private productsProxy = inject(ProductsProxy);
   private destroyRef = inject(DestroyRef);
 
-  limit: number = 10;
-  offset: number = 0;
+  page: number = 1;
+  lastPage: number = 1;
+  busy: boolean = false;
   promotions = signal<ProductDto[]>([]);
 
   constructor() {
@@ -34,13 +37,18 @@ export class MenuComponent extends ViewComponent implements OnInit {
   }
 
   getPromotions(): void {
-    this.productsProxy.getPromotions()
-      .pipe(takeUntilDestroyed(this.destroyRef))
-      .subscribe({
+    if (this.page > this.lastPage) return;
+
+    this.busy = true;
+    this.productsProxy.getPromotions(this.page)
+      .pipe(
+        takeUntilDestroyed(this.destroyRef),
+        finalize(() => this.busy = false)
+      ).subscribe({
         next: (res) => {
-          this.limit += 10;
-          this.offset += 10;
-          this.promotions.set(res.products);
+          this.page += 1;
+          this.lastPage = res.meta.lastPage;
+          this.promotions.set([...this.promotions(), ...res.products]);
         }
       });
   }

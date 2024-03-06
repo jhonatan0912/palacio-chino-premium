@@ -22,37 +22,18 @@
         [product]="product" />
       }
     </section>
+
+    @if (page <= lastPage) {
+    <button
+      role="button"
+      (click)="getPromotions()"
+      class="load-more">
+      @if (busy) {
+      <ion-spinner name="crescent" />
+      }@else {
+      Ver más
+      }
+    </button>
+    }
   </div>
 </main>
-
-<!-- BANNER DOWN -->
-<!-- <section class="banner_down">
-  <div class="content_banner">
-    <div class="content_first">
-      <div class="title_banner">
-        <h2>Fresco.</h2>
-        <h2>Auténtico.</h2>
-        <h2>Sencillo.</h2>
-      </div>
-      <div class="message">
-        <p>Llevamos los <strong>sabores</strong> del <strong>Oriente</strong> a
-          tu plato.</p>
-      </div>
-      <div>
-        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Veniam
-          voluptates nihil, a harum tempore voluptate molestias doloremque
-          veritatis labore nam rem rerum, eligendi accusantium eum? Voluptatem
-          sit consectetur dolore corporis!</p>
-      </div>
-    </div>
-    <div class="content_second">
-      <div>
-        <img
-          src="/assets/logo.png"
-          alt="Logo"
-          height="90px"
-          height="90px" />
-      </div>
-    </div>
-  </div>
-</section> -->
