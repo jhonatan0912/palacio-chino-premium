@@ -1,19 +1,21 @@
-<section class="navbar container__layout">
-
-  <div class="content_navbar">
-    <div class="logo options" (click)="navigateToHome()">
+<header class="navbar container__layout">
+  <nav class="content_navbar">
+    <div class="logo options">
       <img
+        (click)="navigateToHome()"
         src="/assets/logo.png"
-        alt="Logo"
+        alt="Logo Palacio Chino Premium"
         width="90px"
         height="90px" />
-      <div class="options">
+      <ul class="options">
         @for (option of options; track $index) {
-        <div (click)="navigation.forward(option.path)" class="title_header">
+        <li
+          (click)="onOptionNavigate(option.path)"
+          class="option">
           {{ option.name }}
-        </div>
+        </li>
         }
-      </div>
+      </ul>
     </div>
 
     <div class="login-cart">
@@ -37,6 +39,5 @@
         <ion-icon class="cart-outline" name="cart-outline" />
       </div>
     </div>
-  </div>
-
-</section>
+  </nav>
+</header>

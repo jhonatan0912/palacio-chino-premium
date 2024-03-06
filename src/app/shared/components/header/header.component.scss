@@ -1,9 +1,9 @@
 .content_navbar {
    display: flex;
-   flex-direction: row;
    justify-content: space-between;
    margin: 0 auto;
    padding: .9rem 0;
+   align-items: center;
 }
 
 .logo {
@@ -17,28 +17,40 @@
 
 .options {
    display: flex;
-   align-items: center;
    gap: 1rem;
    flex: 1;
    justify-content: center;
 
-   .title_header {
+   .option {
       font-weight: 500;
       cursor: pointer;
       font-size: 14px;
+      height: auto;
+      display: flex;
+      align-items: center;
+
+      &:hover {
+         font-weight: 600;
+      }
    }
 
-   .title_header:last-child {
+   .option:last-child {
+      align-items: center;
       background-color: var(--primary-red);
       border-radius: 20px;
-      color: white;
+      color: #fff;
+      display: flex;
+      height: max-content;
+      justify-content: center;
       padding: 10px 25px;
-      display: none;
+      margin-block: auto;
    }
 
-   .title_header:last-child:hover {
+   .option:last-child:hover {
       background-color: var(--primary-red);
    }
+
+
 }
 
 .login-cart {
@@ -69,6 +81,7 @@
          padding: 1px 4px;
          display: grid;
          place-content: center;
+         z-index: 99;
       }
    }
 }
@@ -84,7 +97,7 @@ ion-icon {
 }
 
 @media screen and (min-width: 768px) {
-   .title_header {
+   .option {
       &:last-child {
          display: block !important;
       }

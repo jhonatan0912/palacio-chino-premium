@@ -25,20 +25,20 @@ export class HeaderComponent extends ViewComponent {
 
   cartBadge = signal<number | null>(null);
   options: HeaderOption[] = [
-    { name: 'PROMOCIONES', path: 'category/1' },
+    { name: 'PROMOCIONES', path: '' },
     { name: 'LOCAL', path: 'establishments' },
     { name: 'ZONAS DE REPARTO', path: 'delivery-zones' },
-    { name: 'Pedir online', path: 'category/1' },
+    { name: 'Pedir online', path: '' },
   ];
 
   constructor() {
     super();
     effect(() => {
-      const url = this.categoriesService.categories()[0]?.id;
-      if (!url) return;
+      const id = this.categoriesService.categories()[0]?.id;
+      if (!id) return;
 
-      this.options[0].path = `category/${url}`;
-      this.options[3].path = `category/${url}`;
+      this.options[0].path = `/category/${id}`;
+      this.options[3].path = `/category/${id}`;
 
       this.cartBadge.set(this.shoppingCartService.cart().length);
     }, { allowSignalWrites: true });
@@ -54,6 +54,10 @@ export class HeaderComponent extends ViewComponent {
     } else {
       this.navigation.forward('/auth/login');
     }
+  }
+
+  onOptionNavigate(path: string): void {
+    this.navigation.forward(path);
   }
 
   async onCart(event: Event): Promise<void> {
