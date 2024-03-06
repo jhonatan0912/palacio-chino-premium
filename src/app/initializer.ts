@@ -25,8 +25,8 @@ const getProducts = (injector: Injector): void => {
   const productsProxy = injector.get(ProductsProxy);
 
   productsProxy.getAll()
-    .subscribe((products) => {
-      productsService.products.set(products);
+    .subscribe((response) => {
+      productsService.products.set(response.products);
     });
 };
 

@@ -1,8 +1,8 @@
 import { Injectable, inject } from '@angular/core';
 import { AppHttpService } from '@core/index';
-import { environment } from '@enviroments/environment.development';
 import { Observable, mergeMap, of } from 'rxjs';
 import { CategoryDto } from './categories.proxies';
+import { environment } from '@environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -30,8 +30,15 @@ export class ProductsProxy {
     return this.http.get(url).pipe(mergeMap((data: any) => of(new ProductDto().fromJS(data))));
   }
 
-  getAll(): Observable<ProductDto[]> {
-    return this.http.get(this.path).pipe(mergeMap((data: any) => of(data.map((item: any) => new ProductDto().fromJS(item)))));
+  getAll(limit: number = 0, offset: number = 10): Observable<GetAllProductsResponseDto> {
+    let url = this.path;
+    if (limit !== null && limit !== undefined)
+      url += `?limit=${limit}`;
+
+    if (offset !== null && offset !== undefined)
+      url += `&offset=${offset}`;
+
+    return this.http.get(url).pipe(mergeMap((data: any) => of(new GetAllProductsResponseDto().fromJS(data))));
   }
 
   getByCategory(idCategory: string, page: number = 1, pageSize: number = 10): Observable<ProductDto[]> {
@@ -61,6 +68,46 @@ export class ProductsProxy {
     const url = `${this.path}/${id}`;
 
     return this.http.delete(url);
+  }
+}
+
+export class GetAllProductsResponseDto {
+  meta!: GetAllProductsResponseMetaDto;
+  products!: ProductDto[];
+
+  init(data: any): void {
+    if (data) {
+      this.meta = data.meta ? new GetAllProductsResponseMetaDto().fromJS(data.meta) : <any>undefined;
+      this.products = data.products ? data.products.map((item: any) => new ProductDto().fromJS(item)) : [];
+    }
+  }
+
+  fromJS(data: any): GetAllProductsResponseDto {
+    data = typeof data === 'object' ? data : {};
+    const result = new GetAllProductsResponseDto();
+    result.init(data);
+    return result;
+  }
+}
+
+export class GetAllProductsResponseMetaDto {
+  limit!: number;
+  offset!: number;
+  total!: number;
+
+  init(data: any): void {
+    if (data) {
+      this.limit = data.limit;
+      this.offset = data.offset;
+      this.total = data.total;
+    }
+  }
+
+  fromJS(data: any): GetAllProductsResponseMetaDto {
+    data = typeof data === 'object' ? data : {};
+    const result = new GetAllProductsResponseMetaDto();
+    result.init(data);
+    return result;
   }
 }
 
