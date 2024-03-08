@@ -4,7 +4,7 @@ import { ViewComponent } from '@core/view-component';
 import { IonSpinner } from "@ionic/angular/standalone";
 import { CategoriesMenuComponent } from '@shared/components/categories-menu/categories-menu.component';
 import { ProductDto, ProductsProxy } from '@shared/proxies/products.proxie';
-import { finalize } from 'rxjs';
+import { finalize } from 'rxjs/internal/operators/finalize';
 import { ProductCardComponent } from '../shared/components/product-card/product-card.component';
 
 @Component({

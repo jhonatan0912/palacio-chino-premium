@@ -6,11 +6,12 @@ import { ProductDto } from '@shared/proxies/products.proxie';
 import { ShoppingCartService } from '@shared/services/shopping-cart.service';
 import { ShoppingCartProductComponent } from './shopping-cart-product/shopping-cart-product.component';
 import { ButtonComponent } from '@lib/button/button.component';
+import { ShoppingCartFooterComponent } from './shopping-cart-footer/shopping-cart-footer.component';
 
 @Component({
   selector: 'app-shopping-cart',
   standalone: true,
-  imports: [IonIcon, JsonPipe, ShoppingCartProductComponent, DecimalPipe, ButtonComponent],
+  imports: [IonIcon, JsonPipe, ShoppingCartProductComponent, DecimalPipe, ButtonComponent, ShoppingCartFooterComponent],
   templateUrl: './shopping-cart.component.html',
   styleUrls: ['./shopping-cart.component.scss']
 })
@@ -34,7 +35,7 @@ export class ShoppingCartComponent extends ViewComponent implements OnInit {
     console.log(this.shoppingCartService.cart());
   }
 
-  dismiss(): void {
+  onDismiss(): void {
     this.popoverCtrl.dismiss('cancel');
   }
 

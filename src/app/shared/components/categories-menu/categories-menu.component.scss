@@ -2,10 +2,16 @@
    display: flex;
    justify-content: center;
    gap: 3rem;
-   margin-top: 60px;
+   margin-top: 5rem;
 }
 
 .menu-skeleton {
    width: 90px;
    height: 120px;
+}
+
+@media (min-width: 768px) {
+   .menu {
+      margin-top: 10rem;
+   }
 }

@@ -11,12 +11,10 @@ import { ButtonComponent } from '@lib/button/button.component';
 })
 export class AddressFormComponent extends ViewComponent {
 
-  ngOnInit() {
-  }
-
-  addAddress(): void {
-  }
-  return() {
+  goDashboard(): void {
     this.navigation.forward('/profile/addresses');
+  }
+  addAddress(): void {
+    
   }
 }

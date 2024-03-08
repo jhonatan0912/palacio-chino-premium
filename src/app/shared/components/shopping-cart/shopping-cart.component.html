@@ -1,4 +1,14 @@
 <section class="wrapper">
+  <div class="title-close">
+    <div class="title">
+      Tu carrito
+    </div>
+
+    <div class="close-container" (click)="onDismiss()">
+      <ion-icon
+        name="close-outline" />
+    </div>
+  </div>
 
   <div class="content">
     @for (product of products(); track product.id) {
@@ -9,7 +19,7 @@
       <div class="main_content">
     
         <div class="close-container">
-          <div class="close-button" (click)="dismiss()">
+          <div class="close-button" (click)="onDismiss()">
             <ion-icon
               name="close-outline"
             />
@@ -32,7 +42,7 @@
         <div class="button_order">
           <div>
             <lib-button
-              (onAction)="dismiss()"
+              (onAction)="onDismiss()"
             >
             ORDENAR AHORA
             </lib-button>
@@ -43,27 +53,10 @@
     }
 
     @if (products().length >= 1) {
-    <section class="footer">
-      <div class="footer__total">
-        <div class="total-title">
-          Total
-        </div>
-
-        <div class="total-price">
-          S/{{ total() | number: '1.2-2'}}
-        </div>
-      </div>
-
-      <div class="footer__buttons">
-        <lib-button (onAction)="onPay()">
-          Pagar
-        </lib-button>
-
-        <lib-button type="outline" (onAction)="dismiss()">
-          Seguir comprando
-        </lib-button>
-      </div>
-    </section>
+    <shopping-cart-footer
+      [total]="total()"
+      (onPay)="onPay()"
+      (onDismiss)="onDismiss()" />
     }
   </div>
 </section>

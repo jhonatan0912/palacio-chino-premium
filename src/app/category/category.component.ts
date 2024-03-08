@@ -6,7 +6,7 @@ import { CategoriesMenuComponent } from '@shared/components/categories-menu/cate
 import { ProductCardComponent } from '@shared/components/product-card/product-card.component';
 import { CategoriesProxy, CategoryDto } from '@shared/proxies/categories.proxies';
 import { ProductDto, ProductsProxy } from '@shared/proxies/products.proxie';
-import { finalize } from 'rxjs';
+import { finalize } from 'rxjs/internal/operators/finalize';
 import { CategorySkeletonComponent } from './category-skeleton/category-skeleton.component';
 
 @Component({

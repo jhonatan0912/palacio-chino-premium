@@ -1,12 +1,3 @@
-<!-- BANNER -->
-<section class="banner">
-  <div class="banner__container">
-    <div class="banner__content">
-
-    </div>
-  </div>
-</section>
-
 <main class="home_content">
 
   <categories-menu />
@@ -23,7 +14,7 @@
       }
     </section>
 
-    @if (page <= lastPage) {
+    @if (page <= lastPage && promotions().length > 0) {
     <button
       role="button"
       (click)="getPromotions()"
