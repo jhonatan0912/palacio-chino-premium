@@ -39,20 +39,4 @@
     font-weight: 700;
     font-size: 1.2rem;
   }
-
-  .footer {
-    &__total {
-      display: flex;
-      justify-content: space-between;
-      font-weight: bolder;
-      font-size: 1.5rem;
-    }
-
-    &__buttons {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 1rem;
-    }
-  }
-
 }

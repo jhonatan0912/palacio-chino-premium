@@ -4,7 +4,7 @@
       Tu carrito
     </div>
 
-    <div class="close-container" (click)="dismiss()">
+    <div class="close-container" (click)="onDismiss()">
       <ion-icon
         name="close-outline" />
     </div>
@@ -23,27 +23,10 @@
     }
 
     @if (products().length >= 1) {
-    <section class="footer">
-      <div class="footer__total">
-        <div class="total-title">
-          Total
-        </div>
-
-        <div class="total-price">
-          S/{{ total() | number: '1.2-2'}}
-        </div>
-      </div>
-
-      <div class="footer__buttons">
-        <lib-button (onAction)="onPay()">
-          Pagar
-        </lib-button>
-
-        <lib-button type="outline" (onAction)="dismiss()">
-          Seguir comprando
-        </lib-button>
-      </div>
-    </section>
+    <shopping-cart-footer
+      [total]="total()"
+      (onPay)="onPay()"
+      (onDismiss)="onDismiss()" />
     }
   </div>
 </section>

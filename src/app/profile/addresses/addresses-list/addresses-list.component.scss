@@ -1,11 +1,11 @@
-.wrapper{
-   background: #fff;
+.wrapper {
+  background: #fff;
   border: 1px solid black;
   padding: 40px;
   border-radius: 1rem;
 }
 
-.add_address{
+.add_address {
   background-color: #F23545;
   color: #fff;
   width: auto;
@@ -15,25 +15,25 @@
   cursor: pointer;
 }
 
-.add_address:hover{
+.add_address:hover {
   background-color: #ef1628;
 }
 
-.content_address{
+.content_address {
   display: flex;
   flex-direction: column;
   align-items: center;
   margin-top: 3rem;
 }
 
-.col{
+.col {
   display: flex;
   flex-direction: column;
   gap: 2rem;
   margin-top: 3rem;
 }
 
-.row{
+.row {
   border: 1px solid black;
   border-radius: 1rem;
   display: flex;
@@ -42,26 +42,27 @@
   gap: 2rem;
   padding: 1rem;
 
-  img{
+  img {
     width: 60px;
   }
 }
 
-.text{
-  span{
+.text {
+  span {
     font-weight: 600;
   }
-  p{
+
+  p {
     color: #737373;
   }
 }
 
-.buttons{
+.buttons {
   display: flex;
   flex-direction: row;
   gap: 1rem;
 
-  button{
+  button {
     border: 1px solid black;
     position: relative;
     border-radius: 1rem;
@@ -71,7 +72,7 @@
     cursor: pointer;
     overflow: hidden;
 
-    .capa_img{
+    .capa_img {
       position: absolute;
       top: 0;
       left: 0;
@@ -84,34 +85,36 @@
       justify-content: center;
       align-items: center;
 
-      img{
+      img {
         width: 30px;
         filter: invert(1)
-      };
+      }
+
+      ;
     }
 
   }
 
-  button:hover > .capa_img{
+  button:hover>.capa_img {
     opacity: 1;
     visibility: visible;
   }
 
-  button:hover{
+  button:hover {
     border: none;
   }
-  
-  button:hover:first-child{
+
+  button:hover:first-child {
     background-color: #f2d235c3;
     color: #f2d23500;
   }
 
-  button:hover:nth-child(2){
+  button:hover:nth-child(2) {
     background-color: #27b611c3;
     color: #27b61100;
   }
 
-  button:hover:last-child{
+  button:hover:last-child {
     background-color: #F23545c3;
     color: #f2354500;
   }

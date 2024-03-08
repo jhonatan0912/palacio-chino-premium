@@ -1,7 +1,8 @@
 <main class="wrapper">
   <div class="title">
     <h2>Direcciones</h2>
-    <p>Selecccione una direccion y si no tiene niguna dioreccion registrada agregue una.</p>
+    <p>Selecccione una direccion y si no tiene niguna dioreccion registrada
+      agregue una.</p>
   </div>
   <div class="sub_title">
     Agregar dirección
@@ -36,7 +37,8 @@
     </div>
 
     <div class="row">
-      <textarea name="reference" id="reference" cols="30" rows="5" placeholder="Referencia"></textarea>
+      <textarea name="reference" id="reference" cols="30" rows="5"
+        placeholder="Referencia"></textarea>
     </div>
 
   </div>
@@ -60,11 +62,9 @@
   <div class="buttons">
     <lib-button
       title="AGREGAR DIRECCIóN"
-      type="fill"
-      (onAction)="addAddress()"
-    />
+      type="fill" />
 
-    <button class="button_return" (click)="return()">
+    <button class="button_return" (click)="goDashboard()">
       Volver
     </button>
   </div>
