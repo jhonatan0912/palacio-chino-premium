@@ -3,14 +3,15 @@
   height: 100%;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  padding: .5rem;
+  // align-items: center;
+  // padding: .5rem;
   width: 100%;
 
   .information {
     display: flex;
     gap: .5rem;
-    font-size: 1.5rem;
+    font-size: 1.4rem;
+    font-weight: 600;
   }
 
   &__options {
@@ -20,13 +21,18 @@
     width: 100%;
     align-items: center;
     gap: .9rem;
-    margin-top: 1rem;
+    margin-top: 2rem;
 
     .option {
       font-size: 1.1rem;
       font-weight: 500;
       cursor: pointer;
     }
+
+    .option:hover{
+      color: #F23545;
+    }
+    
 
     .btn-logout {
       width: 100%;

@@ -1,10 +1,7 @@
 <main class="wrapper">
+  
   <div class="title">
-    <h2>Direcciones</h2>
-    <p>Selecccione una direccion y si no tiene niguna dioreccion registrada agregue una.</p>
-  </div>
-  <div class="sub_title">
-    Agregar dirección
+    <h2>Agregar dirección</h2>
   </div>
 
   <div class="col">
@@ -58,11 +55,13 @@
   </div>
 
   <div class="buttons">
-    <lib-button
-      title="AGREGAR DIRECCIóN"
-      type="fill"
-      (onAction)="addAddress()"
-    />
+    <div class="">
+      <lib-button
+        (onAction)="addAddress()"
+      >
+      Agregar dirección
+      </lib-button>
+    </div>
 
     <button class="button_return" (click)="return()">
       Volver

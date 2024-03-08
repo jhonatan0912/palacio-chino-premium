@@ -1,10 +1,17 @@
 <main class="wrapper">
   <div>
     <h2>Mis direcciones</h2>
+
     <div class="content_address">
-      <button class="add_address" (click)="addAddresses()">
+      
+      <button class="add_address">
+        <lib-button
+          (onAction)="addAddresses()"
+        >
         Agregar direcciones
+        </lib-button>
       </button>
+
       <div class="col">
         <section class="row">
           <img src="/assets/logo.png" alt="">

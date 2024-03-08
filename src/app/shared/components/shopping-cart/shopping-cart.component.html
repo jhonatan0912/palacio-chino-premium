@@ -1,13 +1,36 @@
 <section class="wrapper">
-  <div class="title-close">
-    <div class="title">
-      Tu carrito
+  <div class="main_content">
+    
+    <div class="close-container">
+      <div class="close-button" (click)="dismiss()">
+        <ion-icon
+          name="close-outline"
+        />
+      </div>
     </div>
 
-    <div class="close-container" (click)="dismiss()">
-      <ion-icon
-        name="close-outline"
-      />
+    <div class="content_shopping-cart">
+      <div>
+        <p>El carrito de compras esta vacio</p>
+      </div>
+      <div>
+        <img src="/assets/logo.png" alt="">
+        <!-- <ion-icon class="cart-outline" name="cart-outline" /> -->
+      </div>
+      <div>
+        <p>Puedes volver a nuestra tienda virtual y agregar mas productos</p>
+      </div>
     </div>
+
+    <div class="button_order">
+      <div>
+        <lib-button
+          (onAction)="orderNow()"
+        >
+        ORDENAR AHORA
+        </lib-button>
+      </div>
+    </div>
+    
   </div>
 </section>
