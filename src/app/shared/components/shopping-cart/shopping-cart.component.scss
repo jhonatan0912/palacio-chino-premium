@@ -20,9 +20,60 @@
     border-radius: 50%;
     padding: .5rem;
     color: #fff;
+  padding: 1rem;
+
+  & .title-close {
     display: flex;
     justify-content: center;
     align-items: center;
+
+    & .title {
+      font-weight: 500;
+      font-size: 1.2rem;
+    }
+
+    & .close-container {
+      border-radius: 50%;
+      padding: .5rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+  }
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-top: 1rem;
+  }
+
+  .empty {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    flex-direction: column;
+    padding: 2rem;
+    border-radius: 5px;
+    font-weight: 700;
+    font-size: 1.2rem;
+  }
+
+  .footer {
+    &__total {
+      display: flex;
+      justify-content: space-between;
+      font-weight: bolder;
+      font-size: 1.5rem;
+    }
+
+    &__buttons {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+    }
   }
 
 }
@@ -53,4 +104,6 @@
 .title {
   font-weight: 500;
   font-size: 1.2rem;
+}
+
 }

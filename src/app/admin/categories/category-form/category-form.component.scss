@@ -20,20 +20,6 @@
       }
     }
 
-    input {
-      padding: 10px;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-      font-size: 1rem;
-
-      &[type='file'] {
-        all: unset;
-        visibility: hidden;
-      }
-
-      &.code {
-        cursor: not-allowed;
-      }
-    }
+    
   }
 }

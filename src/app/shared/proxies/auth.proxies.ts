@@ -1,6 +1,6 @@
 import { Injectable, inject } from '@angular/core';
 import { AppHttpService } from '@core/index';
-import { environment } from '@enviroments/environment.development';
+import { environment } from '@environments/environment';
 import { Observable, mergeMap, of } from 'rxjs';
 
 @Injectable({
@@ -36,16 +36,26 @@ export class AuthProxy {
   getSession(): Observable<UserAuthResponseDto> {
     return this.http.get(`${this.path}/session`).pipe(mergeMap((data: any) => of(new UserAuthResponseDto().fromJS(data))));
   }
+
+  refreshToken(refreshToken: string): Observable<AuthResponseDto> {
+    const body = {
+      refreshToken
+    };
+
+    return this.http.post(`${this.path}/refresh-token`, body).pipe(mergeMap((data: any) => of(new AuthResponseDto().fromJS(data))));
+  }
 }
 
 export class AuthResponseDto {
   user!: UserAuthResponseDto;
   token!: string;
+  refreshToken!: string;
 
   init(data: any): void {
     if (data) {
-      this.user = data.user;
+      this.user = data.user ? new UserAuthResponseDto().fromJS(data.user) : <any>undefined;
       this.token = data.token;
+      this.refreshToken = data.refreshToken;
     }
   }
 

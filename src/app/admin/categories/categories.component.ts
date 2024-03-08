@@ -3,6 +3,7 @@ import { FormsModule } from '@angular/forms';
 import { CategoriesProxy, CategoryDto } from '@shared/proxies/categories.proxies';
 import { AdminCategoryFormComponent } from './category-form/category-form.component';
 import { CategoryListComponent } from './category-list/category-list.component';
+import { CategoriesService } from '@shared/services/categories.service';
 
 
 @Component({
@@ -15,7 +16,7 @@ import { CategoryListComponent } from './category-list/category-list.component';
 })
 export class AdminCategoriesComponent implements OnInit {
 
-  private categoriesProxy = inject(CategoriesProxy);
+  private categoriesService = inject(CategoriesService);
 
   categories = signal<CategoryDto[]>([]);
 
@@ -24,15 +25,7 @@ export class AdminCategoriesComponent implements OnInit {
   }
 
   getCategories(): void {
-    this.categoriesProxy.getAll()
-      .subscribe({
-        next: (categories) => {
-          this.categories.set(categories);
-        },
-        error: (err) => {
-          console.error(err);
-        }
-      });
+    this.categories.set(this.categoriesService.categories());
   }
 
 }

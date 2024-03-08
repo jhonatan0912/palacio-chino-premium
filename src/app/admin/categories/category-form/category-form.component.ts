@@ -1,12 +1,12 @@
+import { CategoriesService } from '@shared/services/categories.service';
 import { Component, DestroyRef, inject } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { FormsModule } from '@angular/forms';
+import { IonIcon } from "@ionic/angular/standalone";
+import { ButtonComponent } from '@lib/button/button.component';
+import { ImageUploaderComponent } from '@shared/components/image-uploader/image-uploader.component';
 import { SlugPipe } from '@shared/pipes/slug.pipe';
 import { CategoriesProxy, getSlug, onFileChange } from '@shared/proxies/categories.proxies';
-import { CategoriesService } from '../../services/categories.service';
-import { IonIcon } from "@ionic/angular/standalone";
-import { ImageUploaderComponent } from './image-uploader/image-uploader.component';
-import { ButtonComponent } from '@lib/button/button.component';
 
 @Component({
   selector: 'category-form',

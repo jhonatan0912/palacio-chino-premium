@@ -1,13 +1,13 @@
-import { NgClass, NgOptimizedImage } from '@angular/common';
+import { NgClass } from '@angular/common';
 import { Component, EventEmitter, Output, input } from '@angular/core';
-import { CategoryIconPipe } from '@shared/pipes/categoryIcon.pipe';
+import { SrcImagePipe } from '@shared/pipes/srcImage.pipe';
 import { CategoryDto } from '@shared/proxies/categories.proxies';
 
 
 @Component({
   selector: 'category-menu',
   standalone: true,
-  imports: [NgClass, CategoryIconPipe],
+  imports: [NgClass, SrcImagePipe],
   templateUrl: './category-menu.component.html',
   styleUrls: ['./category-menu.component.scss']
 })

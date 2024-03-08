@@ -1,36 +1,69 @@
 <section class="wrapper">
-  <div class="main_content">
+
+  <div class="content">
+    @for (product of products(); track product.id) {
+    <shopping-cart-product
+      [product]="product"
+      [(quantity)]="product.quantity!" />
+    }@empty {
+      <div class="main_content">
     
-    <div class="close-container">
-      <div class="close-button" (click)="dismiss()">
-        <ion-icon
-          name="close-outline"
-        />
+        <div class="close-container">
+          <div class="close-button" (click)="dismiss()">
+            <ion-icon
+              name="close-outline"
+            />
+          </div>
+        </div>
+    
+        <div class="content_shopping-cart">
+          <div>
+            <p>El carrito de compras esta vacio</p>
+          </div>
+          <div>
+            <img src="/assets/logo.png" alt="">
+            <!-- <ion-icon class="cart-outline" name="cart-outline" /> -->
+          </div>
+          <div>
+            <p>Puedes volver a nuestra tienda virtual y agregar mas productos</p>
+          </div>
+        </div>
+    
+        <div class="button_order">
+          <div>
+            <lib-button
+              (onAction)="dismiss()"
+            >
+            ORDENAR AHORA
+            </lib-button>
+          </div>
+        </div>
+        
       </div>
-    </div>
+    }
 
-    <div class="content_shopping-cart">
-      <div>
-        <p>El carrito de compras esta vacio</p>
-      </div>
-      <div>
-        <img src="/assets/logo.png" alt="">
-        <!-- <ion-icon class="cart-outline" name="cart-outline" /> -->
-      </div>
-      <div>
-        <p>Puedes volver a nuestra tienda virtual y agregar mas productos</p>
-      </div>
-    </div>
+    @if (products().length >= 1) {
+    <section class="footer">
+      <div class="footer__total">
+        <div class="total-title">
+          Total
+        </div>
 
-    <div class="button_order">
-      <div>
-        <lib-button
-          (onAction)="orderNow()"
-        >
-        ORDENAR AHORA
+        <div class="total-price">
+          S/{{ total() | number: '1.2-2'}}
+        </div>
+      </div>
+
+      <div class="footer__buttons">
+        <lib-button (onAction)="onPay()">
+          Pagar
+        </lib-button>
+
+        <lib-button type="outline" (onAction)="dismiss()">
+          Seguir comprando
         </lib-button>
       </div>
-    </div>
-    
+    </section>
+    }
   </div>
 </section>

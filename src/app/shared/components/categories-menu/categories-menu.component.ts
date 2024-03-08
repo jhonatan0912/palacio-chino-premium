@@ -4,7 +4,7 @@ import { ViewComponent } from '@core/view-component';
 import { CategoriesProxy, CategoryDto } from '@shared/proxies/categories.proxies';
 import { CategoryMenuComponent } from './category-menu/category-menu.component';
 import { IonSkeletonText } from "@ionic/angular/standalone";
-import { CategoriesService } from '@admin/services/categories.service';
+import { CategoriesService } from '@shared/services/categories.service';
 
 @Component({
   selector: 'categories-menu',
@@ -15,9 +15,7 @@ import { CategoriesService } from '@admin/services/categories.service';
 })
 export class CategoriesMenuComponent extends ViewComponent implements OnInit {
 
-  private categoriesProxy = inject(CategoriesProxy);
   private categoriesService = inject(CategoriesService);
-  private destroyRef = inject(DestroyRef);
 
   categories = signal<CategoryDto[]>([]);
   selectedId!: string;
@@ -31,15 +29,8 @@ export class CategoriesMenuComponent extends ViewComponent implements OnInit {
   }
 
   getCategories(): void {
-    this.categoriesProxy.getAll()
-      .pipe(takeUntilDestroyed(this.destroyRef))
-      .subscribe({
-        next: (categories) => {
-          this.categories.set(categories);
-          this.categoriesService.categories.set(categories);
-          this.selectedId = this.categories()[0].id!;
-        }
-      });
+    this.categories.set(this.categoriesService.categories());
+    this.selectedId = this.categories()[0].id!;
   }
 
   navigateToCategory(id: string): void {

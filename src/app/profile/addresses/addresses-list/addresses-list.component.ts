@@ -11,8 +11,8 @@ import { ButtonComponent } from '@lib/button/button.component';
 })
 export class AddressesListComponent extends ViewComponent {
 
-  addAddresses(): void {
-    this.navigation.forward('/profile/register-address');
+  addAddresses() {
+    this.navigation.forward('/profile/addresses/add');
   }
 
 }

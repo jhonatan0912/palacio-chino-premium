@@ -1,0 +1,10 @@
+.shopping-cart {
+  --width: 350px;
+  --max-height: 500px;
+  overflow: scroll;
+
+  &::-webkit-scrollbar {
+    display: none;
+
+  }
+}

@@ -1,5 +1,7 @@
 import { DecimalPipe } from '@angular/common';
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output, inject, input } from '@angular/core';
+import { ProductDto } from '@shared/proxies/products.proxie';
+import { ShoppingCartService } from '@shared/services/shopping-cart.service';
 
 export interface ProductCardData {
   id: string;
@@ -17,6 +19,12 @@ export interface ProductCardData {
 })
 export class ProductCardComponent {
 
-  @Input() data!: ProductCardData;
+  private shoppingCartService = inject(ShoppingCartService);
+
+  product = input.required<ProductDto>();
+
+  onOrder(product: ProductDto): void {
+    this.shoppingCartService.addToCart(product);
+  }
 
 }

@@ -28,7 +28,7 @@ export class AdminCategoryFormModalComponent implements OnInit {
       .pipe(takeUntilDestroyed(this.destroyRef))
       .subscribe({
         next: (category) => {
-          console.log({ category });
+          
         },
         error: (err) => console.error(err)
       });

@@ -19,20 +19,26 @@
 
 // =======
 :host {
-   &.fill {
+   background-color: #DC5353;
+   border-radius: 8px;
+
+   &.button-fill {
       color: #fff;
       width: 100%;
       font-weight: 700;
       text-align: center;
    }
 
-   &.left {
-      justify-content: flex-start;
+   &.button-outline {
+      background: none;
+      border: 1px solid #DC5353;
+
+      &:hover {
+         background-color: #DC5353;
+         color: #fff;
+      }
    }
 
-   .right {
-      justify-content: flex-end;
-   }
 }
 
 .button {
@@ -42,6 +48,8 @@
    border-radius: 8px;
    text-align: center;
    background-color: var(--primary-red);
+   padding: 12px 8px;
+   text-align: center;
    display: flex;
    align-items: center;
    justify-content: center;
@@ -50,5 +58,6 @@
 
 .button:hover {
    background-color: var(--second-red);
+   border-radius: 8px;
 }
-// >>>>>>> 29f882c8ff09e8de4f2bd4c634c7630992431b79
+
