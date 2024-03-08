@@ -14,6 +14,10 @@ export class HeaderMobileComponent extends ViewComponent {
 
   shoppingCartService = inject(ShoppingCartService);
 
+  goHome(): void {
+    this.navigation.forward('/menu');
+  }
+
   onUser(): void {
     if (this.session.user) {
       this.navigation.forward('/profile');
