@@ -1,4 +1,5 @@
 import { Component, inject } from '@angular/core';
+import { ViewComponent } from '@core/view-component';
 import { IonIcon } from "@ionic/angular/standalone";
 import { ShoppingCartService } from '@shared/services/shopping-cart.service';
 
@@ -9,8 +10,15 @@ import { ShoppingCartService } from '@shared/services/shopping-cart.service';
   templateUrl: './header-mobile.component.html',
   styleUrls: ['./header-mobile.component.scss']
 })
-export class HeaderMobileComponent {
+export class HeaderMobileComponent extends ViewComponent {
 
   shoppingCartService = inject(ShoppingCartService);
 
+  onUser(): void {
+    if (this.session.user) {
+      this.navigation.forward('/profile');
+    } else {
+      this.navigation.forward('/auth/login');
+    }
+  }
 }

@@ -1,18 +1,16 @@
 <header>
-
-    <div class="option search">
-        <ion-icon name="search-outline" />
-    </div>
-
-    <div class="option logo">
-        <img src="/assets/logo.png" alt="Logo Palacio Chino Premium"
-            width="90px" height="90px" />
-    </div>
-
     <div class="option cart">
         <span class="cart-count">
             {{ shoppingCartService.cart().length }}
         </span>
         <ion-icon class="cart-outline" name="cart-outline" />
+    </div>
+
+    <div class="option logo">
+        <img src="/assets/logo.png" alt="Logo Palacio Chino Premium" />
+    </div>
+
+    <div class="option search" (click)="onUser()">
+        <ion-icon name="person-outline" />
     </div>
 </header>

@@ -2,7 +2,10 @@
    background-color: rgba(32, 32, 32, 1);
    position: relative;
    padding: 30px 0 15px 0;
+}
 
+.container__layout {
+   padding-inline: 10px;
 }
 
 .line-red-footer {
@@ -92,6 +95,7 @@
          }
       }
    }
+   
 
    .contend_footer_first,
    .contend_footer_second {
