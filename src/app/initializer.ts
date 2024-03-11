@@ -76,13 +76,14 @@ const setCart = (injector: Injector) => {
 export const appInitializer = (injector: Injector) => {
   const authService = injector.get(AuthService);
   const token = authService.getAuthToken();
+  const refreshToken = authService.getRefreshToken();
 
   return () => {
     return new Promise<void>((resolve) => {
       getCategories(injector);
       getProducts(injector);
       setCart(injector);
-      if (!token) return resolve();
+      if (!token && !refreshToken) return resolve();
 
       getSession(injector);
       resolve();
