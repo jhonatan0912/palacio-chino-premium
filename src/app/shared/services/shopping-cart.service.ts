@@ -44,6 +44,15 @@ export class ShoppingCartService {
     localStorage.setItem(SHOPPING_CART, JSON.stringify(this.cart()));
   }
 
+  update(product: ProductDto): void {
+    const productInCart = this.cart().find(p => p.id == product.id);
+    if (productInCart) {
+      productInCart.quantity = product.quantity;
+      this.cart.set([...this.cart()]);
+    }
+    localStorage.setItem(SHOPPING_CART, JSON.stringify(this.cart()));
+  }
+
   remove(product: ProductDto): void {
     const productInCart = this.cart().find(p => p.id == product.id);
     if (productInCart) {

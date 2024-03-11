@@ -21,11 +21,13 @@
           -
         </button>
         <input
+          quantityInput
           class="quantity-input"
           type="number"
           inputmode="decimal"
           [(ngModel)]="quantity"
-          readonly>
+          [(quantity)]="quantity"
+          (onValueChange)="onValueChange()">
         <button (click)="add()">
           +
         </button>
