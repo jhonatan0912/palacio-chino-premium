@@ -20,6 +20,7 @@ export class QuantityInputDirective {
       if (value < 0) return;
       if (value === 0) this.quantity.set(1);
 
+      this.quantity.set(value);
       this.onValueChange.emit();
     }
   }

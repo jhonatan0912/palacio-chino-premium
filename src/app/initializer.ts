@@ -8,7 +8,6 @@ import { ProductsProxy } from '@shared/proxies/products.proxie';
 import { CategoriesService } from '@shared/services/categories.service';
 import { ProductsService } from '@shared/services/products.service';
 import { ShoppingCartService } from '@shared/services/shopping-cart.service';
-import { tap } from 'rxjs';
 
 const getCategories = (injector: Injector): void => {
   const categoriesService = injector.get(CategoriesService);
