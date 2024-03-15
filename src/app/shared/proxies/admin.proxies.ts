@@ -2,6 +2,7 @@ import { Injectable, inject } from '@angular/core';
 import { AppHttpService } from '@core/index';
 import { environment } from '@environments/environment';
 import { Observable, map } from 'rxjs';
+import { OrderStatus, formatOrderStatus } from './orders.proxie';
 
 @Injectable({
   providedIn: 'root'
@@ -50,6 +51,9 @@ export class AdminGetOrderDto {
   id!: string;
   user!: GetOrdersResponseUserDto;
   products!: GetOrdersResponseProductDto[];
+  createdAt!: string;
+  status!: OrderStatus;
+  formatedStatus!: string;
   total!: number;
 
   init(data: any): void {
@@ -57,6 +61,9 @@ export class AdminGetOrderDto {
       this.id = data.id;
       this.user = data.user ? new GetOrdersResponseUserDto().fromJS(data.user) : <any>undefined;
       this.products = data.products ? data.products.map((i: any) => new GetOrdersResponseProductDto().fromJS(i)) : [];
+      this.createdAt = data.createdAt;
+      this.status = data.status;
+      this.formatedStatus = formatOrderStatus(data.status);
       this.total = data.total;
     }
   }

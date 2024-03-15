@@ -11,8 +11,16 @@
       </span>
     </p>
   </div>
+  <div class="order__date">
+    {{ order().createdAt | date:'medium' }}
+  </div>
   <div class="order__user">
     {{ order().user.name }}
     {{ order().user.email }}
+  </div>
+  <div class="order__status">
+    <span class="status__label {{ order().status}}">
+      {{ order().formatedStatus }}
+    </span>
   </div>
 </article>

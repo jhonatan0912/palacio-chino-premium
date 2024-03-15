@@ -3,6 +3,8 @@ import { AppHttpService } from '@core/index';
 import { environment } from '@environments/environment';
 import { Observable, mergeMap, of } from 'rxjs';
 
+export type OrderStatus = 'pending' | 'progress' | 'completed' | 'canceled';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -41,15 +43,22 @@ export class CreateOrderDto {
 export class CreateOrderResponseDto {
   user!: CreateOrderResponseUserDto;
   products!: CreateOrderDto[];
+  createdAt!: string;
+  status!: OrderStatus;
+  formatedStatus!: string;
   total!: number;
 
   init(data: any): void {
     if (data) {
-      this.user = data.user;
-      this.products = data.products;
+      this.user = data.user ? new CreateOrderResponseUserDto().fromJS(data.user) : <any>undefined;
+      this.products = data.products ? data.products.map((item: any) => new CreateOrderDto().fromJS(item)) : [];
+      this.createdAt = data.createdAt;
+      this.status = data.status;
+      this.formatedStatus = formatOrderStatus(data.status);
       this.total = data.total;
     }
   }
+
 
   fromJS(data: any): CreateOrderResponseDto {
     data = typeof data === 'object' ? data : {};
@@ -77,3 +86,10 @@ export class CreateOrderResponseUserDto {
     return result;
   }
 }
+
+export const formatOrderStatus = (status: OrderStatus): string => {
+  return status === 'pending'
+    ? 'Pendiente' : status === 'progress'
+      ? 'En progreso' : status === 'completed'
+        ? 'Completado' : 'Cancelado';
+};
