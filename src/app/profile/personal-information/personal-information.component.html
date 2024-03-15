@@ -2,7 +2,7 @@
    <h2>Mis datos</h2>
 
    <div class="inputs_form">
-      <input type="text" placeholder="Nombre">
+      <input type="text" placeholder="Nombre" [value]="session.user?.fullName">
       <div class="inputs_second">
          <input type="text" placeholder="Correo Electrónico">
          <input type="text" placeholder="Celular">
