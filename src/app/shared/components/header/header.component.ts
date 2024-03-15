@@ -64,7 +64,6 @@ export class HeaderComponent extends ViewComponent {
       component: ShoppingCartComponent,
       event,
       arrow: false,
-      showBackdrop: false,
       alignment: 'end',
       cssClass: ['shopping-cart']
     });
