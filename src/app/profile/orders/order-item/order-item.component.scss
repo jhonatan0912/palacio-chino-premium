@@ -1,0 +1,27 @@
+.order__item {
+  border: 1px solid black;
+  border-radius: 1rem;
+  display: flex;
+
+
+  &__data {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    padding: 1rem 0 1rem 1rem;
+    flex: 1;
+
+    img {
+      width: 70px;
+    }
+  }
+
+  &__details {
+    text-decoration: underline;
+    display: grid;
+    place-items: center;
+    cursor: pointer;
+    padding-inline: 1rem;
+    border-left: 1px solid black;
+  }
+}
