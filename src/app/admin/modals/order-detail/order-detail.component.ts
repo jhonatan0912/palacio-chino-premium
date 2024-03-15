@@ -1,4 +1,4 @@
-import { Component, OnInit, input } from '@angular/core';
+import { Component, input } from '@angular/core';
 import { AdminGetOrderDto } from '@shared/proxies/admin.proxies';
 
 @Component({
@@ -8,14 +8,9 @@ import { AdminGetOrderDto } from '@shared/proxies/admin.proxies';
   templateUrl: './order-detail.component.html',
   styleUrls: ['./order-detail.component.scss']
 })
-export class AdminOrderDetailComponent implements OnInit {
+export class AdminOrderDetailComponent {
 
   order = input.required<AdminGetOrderDto>();
 
   constructor() { }
-
-  ngOnInit() {
-    console.log(this.order());
-  }
-
 }

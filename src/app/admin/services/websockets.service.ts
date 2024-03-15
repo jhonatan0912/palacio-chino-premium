@@ -18,7 +18,7 @@ export class WebsocketsService {
 
   onOrder(): void {
     this.socket.on('newOrder', (order: any) => {
-      this.adminOrdersService.orders.update((prev) => [...prev, order]);
+      this.adminOrdersService.orders.update((prev) => [order, ...prev]);
       console.log(order);
     });
   }

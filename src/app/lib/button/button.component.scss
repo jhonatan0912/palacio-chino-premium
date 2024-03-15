@@ -1,8 +1,7 @@
-
-// =======
 :host {
    background-color: #DC5353;
    border-radius: 8px;
+   padding: 1rem .5rem;
 
    &.button-fill {
       color: #fff;
@@ -23,22 +22,21 @@
 
 }
 
-.button {
-   width: 100%;
-   // padding: 12px 8px;
-   padding: 12px 40px;
-   border-radius: 8px;
-   text-align: center;
-   background-color: var(--primary-red);
-   text-align: center;
-   display: flex;
-   align-items: center;
-   justify-content: center;
-   gap: .5rem;
-}
+// .button {
+//    width: 100%;
+//    // padding: 12px 8px;
+//    padding: 12px 40px;
+//    border-radius: 8px;
+//    text-align: center;
+//    background-color: var(--primary-red);
+//    text-align: center;
+//    display: flex;
+//    align-items: center;
+//    justify-content: center;
+//    gap: .5rem;
+// }
 
-.button:hover {
-   background-color: var(--second-red);
-   border-radius: 8px;
-}
-
+// .button:hover {
+//    background-color: var(--second-red);
+//    border-radius: 8px;
+// }
