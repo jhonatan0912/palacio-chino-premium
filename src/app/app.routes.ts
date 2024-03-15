@@ -77,6 +77,10 @@ export const routes: Routes = [
     loadComponent: () => import('./admin/admin.component').then(p => p.AdminComponent),
     children: [
       {
+        path: '',
+        loadComponent: () => import('@admin/dashboard/dashboard.component').then(p => p.DashboardComponent)
+      },
+      {
         path: 'categories',
         loadComponent: () => import('./admin/categories/categories.component').then(p => p.AdminCategoriesComponent)
       },
@@ -94,7 +98,7 @@ export const routes: Routes = [
       },
       {
         path: '',
-        redirectTo: 'categories',
+        redirectTo: '',
         pathMatch: 'full'
       }
     ]
