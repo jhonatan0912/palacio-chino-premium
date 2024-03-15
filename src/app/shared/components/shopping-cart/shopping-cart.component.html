@@ -4,9 +4,12 @@
       Tu carrito
     </div>
 
-    <div class="close-container" (click)="onDismiss()">
-      <ion-icon
-        name="close-outline" />
+    <div class="close-container">
+      <div class="close-button" (click)="onDismiss()">
+        <ion-icon
+          name="close-outline"
+        />
+      </div>
     </div>
   </div>
 
@@ -17,14 +20,6 @@
       [(quantity)]="product.quantity!" />
     }@empty {
       <div class="main_content">
-    
-        <div class="close-container">
-          <div class="close-button" (click)="onDismiss()">
-            <ion-icon
-              name="close-outline"
-            />
-          </div>
-        </div>
     
         <div class="content_shopping-cart">
           <div>
