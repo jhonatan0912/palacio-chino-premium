@@ -13,7 +13,7 @@ import { ProductsService } from '@shared/services/products.service';
   templateUrl: './products.component.html',
   styleUrls: ['./products.component.scss']
 })
-export class ProductsModalComponent {
+export class AdminProductsModalComponent {
 
   private productsService = inject(ProductsService);
   private productsProxy = inject(ProductsProxy);

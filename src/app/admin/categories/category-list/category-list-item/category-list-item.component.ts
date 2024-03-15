@@ -4,7 +4,7 @@ import { IonIcon } from "@ionic/angular/standalone";
 import { CategoriesProxy, CategoryDto } from '@shared/proxies/categories.proxies';
 import { CategoryListItemPopoverComponent } from './category-list-item-popover/category-list-item-popover.component';
 import { ViewComponent } from '@core/view-component';
-import { ProductsModalComponent } from '@admin/modals/products/products.component';
+import { AdminProductsModalComponent } from '@admin/modals/products/products.component';
 
 @Component({
   selector: 'category-list-item',
@@ -52,7 +52,7 @@ export class CategoryListItemComponent extends ViewComponent {
 
   openProductsModal(id: string): void {
     this.dialog.showWithData({
-      component: ProductsModalComponent,
+      component: AdminProductsModalComponent,
       componentProps: {
         categoryId: id
       }

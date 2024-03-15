@@ -1,0 +1,26 @@
+<article class="order__item" (click)="onAction()">
+  <div class="order__header">
+    <h2 class="order__id">N°:
+      <span class="order__id-value">
+        {{ order().id | slice: 0 : 10 }}
+      </span>
+    </h2>
+    <p class="order__total">Total:
+      <span class="order__total-value">
+        S/ {{ order().total | number: '1.2-2' }}
+      </span>
+    </p>
+  </div>
+  <div class="order__date">
+    {{ order().createdAt | date:'medium' }}
+  </div>
+  <div class="order__user">
+    {{ order().user.name }}
+    {{ order().user.email }}
+  </div>
+  <div class="order__status">
+    <span class="status__label {{ order().status}}">
+      {{ order().formatedStatus }}
+    </span>
+  </div>
+</article>

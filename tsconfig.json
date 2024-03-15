@@ -44,6 +44,9 @@
       ],
       "@profile/*": [
         "./src/app/profile/*"
+      ],
+      "@interceptors/*": [
+        "./src/app/interceptors/*"
       ]
     }
   },

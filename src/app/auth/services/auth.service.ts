@@ -26,6 +26,7 @@ export class AuthService {
 
   logout(): void {
     localStorage.removeItem(AUTH_TOKEN);
+    localStorage.removeItem(REFRESH_TOKEN);
   }
 
 }

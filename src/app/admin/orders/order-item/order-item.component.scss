@@ -1,0 +1,60 @@
+.order__item {
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  cursor: pointer;
+
+  &:hover {
+    scale: .95;
+  }
+
+  .order__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    gap: 1rem;
+
+    .order__id {
+      margin: 0;
+      font-size: 18px;
+    }
+
+    .order__total {
+      margin: 0;
+      font-size: 16px;
+      color: #075f07;
+      font-weight: 600;
+    }
+  }
+}
+
+.status__label {
+  color: #fff;
+  width: max-content;
+  border-radius: 5px;
+  padding: 4px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.pending {
+  background-color: #EEEEEE;
+  color: #616161;
+}
+
+.progress {
+  background-color: #F0F3FA;
+  color: #0869C2;
+}
+
+.completed {
+  background-color: #F1F9F1;
+  color: #3B873E;
+}
+
+.canceled {
+  background-color: #FFF0EF;
+  color: #D92D20;
+}

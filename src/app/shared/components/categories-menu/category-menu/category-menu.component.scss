@@ -4,11 +4,16 @@
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  gap: .5rem;
   padding: 10px 0;
   cursor: pointer;
   width: 90px;
-  height: 120px;
+  height: 90px;
+
+  &__image {
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+  }
 
   &__name {
     overflow: hidden;

@@ -1,14 +1,13 @@
 import { Injector } from '@angular/core';
 import { AuthService } from '@auth/services/auth.service';
 import { AppSessionService } from '@core/services/session.service';
-import { SHOPPING_CART } from '@core/utils/constants';
+import { ADMIN_TOKEN, SHOPPING_CART } from '@core/utils/constants';
 import { AuthProxy } from '@shared/proxies/auth.proxies';
 import { CategoriesProxy } from '@shared/proxies/categories.proxies';
 import { ProductsProxy } from '@shared/proxies/products.proxie';
 import { CategoriesService } from '@shared/services/categories.service';
 import { ProductsService } from '@shared/services/products.service';
 import { ShoppingCartService } from '@shared/services/shopping-cart.service';
-import { tap } from 'rxjs';
 
 const getCategories = (injector: Injector): void => {
   const categoriesService = injector.get(CategoriesService);
@@ -32,6 +31,12 @@ const getProducts = (injector: Injector): void => {
 
 const getSession = (injector: Injector) => {
   const authProxy = injector.get(AuthProxy);
+  const adminToken = localStorage.getItem(ADMIN_TOKEN);
+
+  if (adminToken) {
+    localStorage.removeItem(ADMIN_TOKEN);
+  }
+
   authProxy.getSession()
     .subscribe({
       next: (user) => {
@@ -76,13 +81,14 @@ const setCart = (injector: Injector) => {
 export const appInitializer = (injector: Injector) => {
   const authService = injector.get(AuthService);
   const token = authService.getAuthToken();
+  const refreshToken = authService.getRefreshToken();
 
   return () => {
     return new Promise<void>((resolve) => {
       getCategories(injector);
       getProducts(injector);
       setCart(injector);
-      if (!token) return resolve();
+      if (!token && !refreshToken) return resolve();
 
       getSession(injector);
       resolve();

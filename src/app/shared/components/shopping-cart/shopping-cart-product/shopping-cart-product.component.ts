@@ -1,5 +1,6 @@
 import { Component, inject, input, model } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { QuantityInputDirective } from '@shared/directives/quantityInput.directive';
 import { SrcImagePipe } from '@shared/pipes/srcImage.pipe';
 import { ProductDto } from '@shared/proxies/products.proxie';
 import { ShoppingCartService } from '@shared/services/shopping-cart.service';
@@ -7,7 +8,7 @@ import { ShoppingCartService } from '@shared/services/shopping-cart.service';
 @Component({
   selector: 'shopping-cart-product',
   standalone: true,
-  imports: [FormsModule, SrcImagePipe],
+  imports: [FormsModule, SrcImagePipe, QuantityInputDirective],
   templateUrl: './shopping-cart-product.component.html',
   styleUrls: ['./shopping-cart-product.component.scss']
 })
@@ -28,5 +29,9 @@ export class ShoppingCartProductComponent {
   add(): void {
     this.quantity.update((prev) => prev++);
     this.shoppingCartService.add(this.product());
+  }
+
+  onValueChange(): void {
+    this.shoppingCartService.update(this.product());
   }
 }

@@ -1,12 +1,12 @@
 import { DecimalPipe, JsonPipe } from '@angular/common';
-import { Component, OnInit, effect, inject, signal } from '@angular/core';
+import { Component, effect, inject, signal } from '@angular/core';
 import { ViewComponent } from '@core/view-component';
 import { IonIcon, PopoverController } from '@ionic/angular/standalone';
+import { ButtonComponent } from '@lib/button/button.component';
 import { ProductDto } from '@shared/proxies/products.proxie';
 import { ShoppingCartService } from '@shared/services/shopping-cart.service';
-import { ShoppingCartProductComponent } from './shopping-cart-product/shopping-cart-product.component';
-import { ButtonComponent } from '@lib/button/button.component';
 import { ShoppingCartFooterComponent } from './shopping-cart-footer/shopping-cart-footer.component';
+import { ShoppingCartProductComponent } from './shopping-cart-product/shopping-cart-product.component';
 
 @Component({
   selector: 'app-shopping-cart',
@@ -15,7 +15,7 @@ import { ShoppingCartFooterComponent } from './shopping-cart-footer/shopping-car
   templateUrl: './shopping-cart.component.html',
   styleUrls: ['./shopping-cart.component.scss']
 })
-export class ShoppingCartComponent extends ViewComponent implements OnInit {
+export class ShoppingCartComponent extends ViewComponent {
 
   private popoverCtrl = inject(PopoverController);
   private shoppingCartService = inject(ShoppingCartService);
@@ -31,14 +31,18 @@ export class ShoppingCartComponent extends ViewComponent implements OnInit {
     }, { allowSignalWrites: true });
   }
 
-  ngOnInit(): void {
-    console.log(this.shoppingCartService.cart());
-  }
-
   onDismiss(): void {
     this.popoverCtrl.dismiss('cancel');
   }
 
-  onPay(): void { }
+  onPay(): void {
+    if (!this.session.user) {
+      this.popoverCtrl.dismiss('cancel')
+        .then(() => this.navigation.forward('/auth/login'));
+
+    } else {
+      console.log(this.session.user);
+    }
+  }
 
 }

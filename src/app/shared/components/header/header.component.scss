@@ -28,27 +28,28 @@
       height: auto;
       display: flex;
       align-items: center;
+      font-weight: 600;
 
       &:hover {
-         font-weight: 600;
+         color: #000000cb;
       }
    }
 
-   .option:last-child {
-      align-items: center;
-      background-color: var(--primary-red);
-      border-radius: 20px;
-      color: #fff;
-      display: flex;
-      height: max-content;
-      justify-content: center;
-      padding: 10px 25px;
-      margin-block: auto;
-   }
+   // .option:last-child {
+   //    align-items: center;
+   //    background-color: var(--primary-red);
+   //    border-radius: 20px;
+   //    color: #fff;
+   //    display: flex;
+   //    height: max-content;
+   //    justify-content: center;
+   //    padding: 10px 25px;
+   //    margin-block: auto;
+   // }
 
-   .option:last-child:hover {
-      background-color: var(--primary-red);
-   }
+   // .option:last-child:hover {
+   //    background-color: var(--primary-red);
+   // }
 
 
 }
@@ -96,10 +97,10 @@ ion-icon {
    }
 }
 
-@media screen and (min-width: 768px) {
-   .option {
-      &:last-child {
-         display: block !important;
-      }
-   }
-}
+// @media screen and (min-width: 768px) {
+//    .option {
+//       &:last-child {
+//          display: block !important;
+//       }
+//    }
+// }
