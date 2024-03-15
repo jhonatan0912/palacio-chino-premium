@@ -1,4 +1,4 @@
-<article class="order__item">
+<article class="order__item" (click)="onAction()">
   <div class="order__header">
     <h2 class="order__id">N°:
       <span class="order__id-value">
@@ -12,6 +12,7 @@
     </p>
   </div>
   <div class="order__user">
-
+    {{ order().user.name }}
+    {{ order().user.email }}
   </div>
 </article>

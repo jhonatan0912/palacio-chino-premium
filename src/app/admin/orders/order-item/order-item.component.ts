@@ -1,5 +1,7 @@
+import { AdminOrderDetailComponent } from '@admin/modals/order-detail/order-detail.component';
 import { DecimalPipe, SlicePipe } from '@angular/common';
-import { Component, OnInit, input } from '@angular/core';
+import { Component, input } from '@angular/core';
+import { ViewComponent } from '@core/view-component';
 import { AdminGetOrderDto } from '@shared/proxies/admin.proxies';
 
 @Component({
@@ -9,13 +11,20 @@ import { AdminGetOrderDto } from '@shared/proxies/admin.proxies';
   templateUrl: './order-item.component.html',
   styleUrls: ['./order-item.component.scss']
 })
-export class AdminOrderItemComponent implements OnInit {
+export class AdminOrderItemComponent extends ViewComponent {
 
   order = input.required<AdminGetOrderDto>();
 
-  constructor() { }
-
-  ngOnInit() {
+  constructor() {
+    super();
   }
 
+  onAction(): void {
+    this.dialog.showWithData({
+      component: AdminOrderDetailComponent,
+      componentProps: {
+        order: this.order
+      }
+    });
+  }
 }

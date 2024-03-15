@@ -48,12 +48,14 @@ export class LoginDto {
 
 export class AdminGetOrderDto {
   id!: string;
+  user!: GetOrdersResponseUserDto;
   products!: GetOrdersResponseProductDto[];
   total!: number;
 
   init(data: any): void {
     if (data) {
       this.id = data.id;
+      this.user = data.user ? new GetOrdersResponseUserDto().fromJS(data.user) : <any>undefined;
       this.products = data.products ? data.products.map((i: any) => new GetOrdersResponseProductDto().fromJS(i)) : [];
       this.total = data.total;
     }
@@ -62,6 +64,25 @@ export class AdminGetOrderDto {
   fromJS(data: any): AdminGetOrderDto {
     data = typeof data === 'object' ? data : {};
     const result = new AdminGetOrderDto();
+    result.init(data);
+    return result;
+  }
+}
+
+export class GetOrdersResponseUserDto {
+  name!: string;
+  email!: string;
+
+  init(data: any): void {
+    if (data) {
+      this.name = data.name;
+      this.email = data.email;
+    }
+  }
+
+  fromJS(data: any): GetOrdersResponseUserDto {
+    data = typeof data === 'object' ? data : {};
+    const result = new GetOrdersResponseUserDto();
     result.init(data);
     return result;
   }
