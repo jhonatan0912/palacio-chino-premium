@@ -8,7 +8,11 @@ import { adminInterceptor, authInterceptor, errorInterceptor } from './intercept
 
 export const appConfig: ApplicationConfig = {
   providers: [
-    provideHttpClient(withInterceptors([authInterceptor, adminInterceptor, errorInterceptor])),
+    provideHttpClient(withInterceptors([
+      authInterceptor,
+      adminInterceptor,
+      errorInterceptor
+    ])),
     provideRouter(routes, withComponentInputBinding()),
     provideIonicAngular({
       mode: 'ios',

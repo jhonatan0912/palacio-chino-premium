@@ -1,7 +1,7 @@
 import { Injector } from '@angular/core';
 import { AuthService } from '@auth/services/auth.service';
 import { AppSessionService } from '@core/services/session.service';
-import { SHOPPING_CART } from '@core/utils/constants';
+import { ADMIN_TOKEN, SHOPPING_CART } from '@core/utils/constants';
 import { AuthProxy } from '@shared/proxies/auth.proxies';
 import { CategoriesProxy } from '@shared/proxies/categories.proxies';
 import { ProductsProxy } from '@shared/proxies/products.proxie';
@@ -31,6 +31,12 @@ const getProducts = (injector: Injector): void => {
 
 const getSession = (injector: Injector) => {
   const authProxy = injector.get(AuthProxy);
+  const adminToken = localStorage.getItem(ADMIN_TOKEN);
+
+  if (adminToken) {
+    localStorage.removeItem(ADMIN_TOKEN);
+  }
+
   authProxy.getSession()
     .subscribe({
       next: (user) => {
