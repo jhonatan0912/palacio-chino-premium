@@ -1,5 +1,6 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { ADMIN_TOKEN } from '@core/utils/constants';
 import { ViewComponent } from '@core/view-component';
 import { AdminProxy } from '@shared/proxies/admin.proxies';
 
@@ -29,7 +30,7 @@ export class AdminLoginComponent extends ViewComponent implements OnInit {
       this.password
     ).subscribe({
       next: (data) => {
-        localStorage.setItem('admin-token', data.token);
+        localStorage.setItem(ADMIN_TOKEN, data.token);
         this.navigation.forward('/admin-dashboard');
       },
       error: (error) => {

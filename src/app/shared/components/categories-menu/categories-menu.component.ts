@@ -1,4 +1,4 @@
-import { Component, DestroyRef, OnInit, inject, signal } from '@angular/core';
+import { Component, DestroyRef, OnInit, effect, inject, signal } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { ViewComponent } from '@core/view-component';
 import { CategoriesProxy, CategoryDto } from '@shared/proxies/categories.proxies';
@@ -13,7 +13,7 @@ import { CategoriesService } from '@shared/services/categories.service';
   templateUrl: './categories-menu.component.html',
   styleUrls: ['./categories-menu.component.scss'],
 })
-export class CategoriesMenuComponent extends ViewComponent implements OnInit {
+export class CategoriesMenuComponent extends ViewComponent  {
 
   private categoriesService = inject(CategoriesService);
 
@@ -22,15 +22,10 @@ export class CategoriesMenuComponent extends ViewComponent implements OnInit {
 
   constructor() {
     super();
-  }
-
-  ngOnInit(): void {
-    this.getCategories();
-  }
-
-  getCategories(): void {
-    this.categories.set(this.categoriesService.categories());
-    this.selectedId = this.categories()[0].id!;
+    effect(() => {
+      this.categories.set(this.categoriesService.categories());
+      this.selectedId = this.categories()[0].id!;
+    }, { allowSignalWrites: true });
   }
 
   navigateToCategory(id: string): void {

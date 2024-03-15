@@ -28,7 +28,6 @@ export class HeaderComponent extends ViewComponent {
     { name: 'PROMOCIONES', path: '' },
     { name: 'LOCAL', path: 'establishments' },
     { name: 'ZONAS DE REPARTO', path: 'delivery-zones' },
-    { name: 'Pedir online', path: '' },
   ];
 
   constructor() {
@@ -38,14 +37,14 @@ export class HeaderComponent extends ViewComponent {
       if (!id) return;
 
       this.options[0].path = `/category/${id}`;
-      this.options[3].path = `/category/${id}`;
+      this.options[2].path = `/category/${id}`;
 
       this.cartBadge.set(this.shoppingCartService.cart().length);
     }, { allowSignalWrites: true });
   }
 
   navigateToHome(): void {
-    this.navigation.forward('home');
+    this.navigation.forward('/');
   };
 
   onAuth(): void {

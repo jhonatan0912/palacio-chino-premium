@@ -5,6 +5,7 @@ import { IonIcon } from '@ionic/angular/standalone';
 import { AdminSidebarOptionComponent, SidebarOption } from './sidebar-option/sidebar-option.component';
 import { AdminSidebarExpandButtonComponent } from './sidebar-expand-button/sidebar-expand-button.component';
 import { ButtonComponent } from '@lib/button/button.component';
+import { ADMIN_TOKEN } from '@core/utils/constants';
 
 
 @Component({
@@ -50,7 +51,7 @@ export class SidebarComponent {
   }
 
   onLogout(): void {
-    localStorage.removeItem('admin-token');
+    localStorage.removeItem(ADMIN_TOKEN);
     this.navigation.forward('menu');
   }
 }

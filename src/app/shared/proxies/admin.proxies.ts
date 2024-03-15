@@ -21,10 +21,13 @@ export class AdminProxy {
     };
     return this.http.post(`${this.path}/login`, body).pipe(map((data: any) => new LoginDto().fromJS(data)));
   }
+
+  getOrders(): Observable<AdminGetOrderDto[]> {
+    return this.http.get(`${this.path}/orders`).pipe(map((data: any) => data.map((i: any) => new AdminGetOrderDto().fromJS(i))));
+  }
 }
 
 export class LoginDto {
-
   username!: string;
   token!: string;
 
@@ -41,4 +44,46 @@ export class LoginDto {
     result.init(data);
     return result;
   };
+}
+
+export class AdminGetOrderDto {
+  id!: string;
+  products!: GetOrdersResponseProductDto[];
+  total!: number;
+
+  init(data: any): void {
+    if (data) {
+      this.id = data.id;
+      this.products = data.products ? data.products.map((i: any) => new GetOrdersResponseProductDto().fromJS(i)) : [];
+      this.total = data.total;
+    }
+  }
+
+  fromJS(data: any): AdminGetOrderDto {
+    data = typeof data === 'object' ? data : {};
+    const result = new AdminGetOrderDto();
+    result.init(data);
+    return result;
+  }
+}
+
+export class GetOrdersResponseProductDto {
+  name!: string;
+  quantity!: number;
+  price!: number;
+
+  init(data: any): void {
+    if (data) {
+      this.name = data.name;
+      this.quantity = data.quantity;
+      this.price = data.price;
+    }
+  }
+
+  fromJS(data: any): GetOrdersResponseProductDto {
+    data = typeof data === 'object' ? data : {};
+    const result = new GetOrdersResponseProductDto();
+    result.init(data);
+    return result;
+  }
 }

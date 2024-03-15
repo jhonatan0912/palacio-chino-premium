@@ -1,11 +1,12 @@
-import { Injectable } from '@angular/core';
+import { Injectable, signal } from '@angular/core';
+import { AdminGetOrderDto } from '@shared/proxies/admin.proxies';
 
 @Injectable({
   providedIn: 'root'
 })
-export class OrdersService {
+export class AdminOrdersService {
 
 
-  // orders
+  orders = signal<AdminGetOrderDto[]>([]);
 
 }
