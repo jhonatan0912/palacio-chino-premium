@@ -1,6 +1,6 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { ADMIN_TOKEN } from '@core/utils/constants';
+import { ADMIN_TOKEN, AUTH_TOKEN, REFRESH_TOKEN } from '@core/utils/constants';
 import { ViewComponent } from '@core/view-component';
 import { AdminProxy } from '@shared/proxies/admin.proxies';
 
@@ -31,6 +31,8 @@ export class AdminLoginComponent extends ViewComponent implements OnInit {
     ).subscribe({
       next: (data) => {
         localStorage.setItem(ADMIN_TOKEN, data.token);
+        localStorage.removeItem(AUTH_TOKEN);
+        localStorage.removeItem(REFRESH_TOKEN);
         this.navigation.forward('/admin-dashboard');
       },
       error: (error) => {

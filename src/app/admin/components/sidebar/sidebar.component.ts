@@ -34,7 +34,7 @@ export class SidebarComponent {
   }
 
   options: SidebarOption[] = [
-    { id: 'dashboard', name: 'Dashboard', icon: '' },
+    { id: 'home', name: 'Dashboard', icon: '' },
     { id: 'categories', name: 'Categorias', icon: '' },
     { id: 'users', name: 'Usuarios', icon: '' },
     { id: 'products', name: 'Productos', icon: '' },

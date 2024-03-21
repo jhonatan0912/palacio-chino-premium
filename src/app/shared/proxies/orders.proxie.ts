@@ -43,7 +43,7 @@ export class CreateOrderDto {
 export class CreateOrderResponseDto {
   user!: CreateOrderResponseUserDto;
   products!: CreateOrderDto[];
-  createdAt!: string;
+  createdAt!: Date;
   status!: OrderStatus;
   formatedStatus!: string;
   total!: number;
