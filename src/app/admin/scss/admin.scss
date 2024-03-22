@@ -1,12 +1,18 @@
+.wrapper{
+  padding: 3rem;
+}
+
 .title {
-  margin-bottom: 20px;
-  font-size: 2.5rem;
+  // margin-bottom: 20px;
+  font-size: 2rem;
   font-weight: bold;
 }
 
 .content {
   display: flex;
-  gap: 2rem;
+  flex-direction: row;
+  gap: 10rem;
+  margin-top: 5rem;
 }
 
 

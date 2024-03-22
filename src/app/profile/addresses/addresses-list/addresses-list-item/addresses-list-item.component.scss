@@ -1,0 +1,64 @@
+ .addresses__item {
+   border: 1px solid black;
+   border-radius: 1rem;
+   display: flex;
+   gap: 50px;  
+ 
+ 
+   &__data {
+     display: flex;
+     align-items: center;
+     gap: 20px;
+     padding: 1rem;
+     flex: 1;
+ 
+      img {
+       width: 60px;
+      }
+
+      .text {
+         span {
+         font-weight: 600;
+         }
+      
+         p {
+         color: #737373;
+         }
+
+      }
+   }
+ 
+   &__details {
+     display: grid;
+     align-items: stretch;
+     justify-items: stretch;
+     text-align: center;
+     cursor: pointer;
+     border-left: 1px solid black;
+
+     .buttons{
+         padding-inline: 1rem;
+         display: flex;
+         justify-content: center;
+         align-items: center;
+     }
+
+     .buttons:nth-child(2) {
+      border-block: 1px solid black;
+    }
+
+    .buttons:hover{
+      background-color: rgb(75, 75, 75);
+      color: white;
+    }
+
+    .buttons:hover:first-child {
+      border-radius: 0 12px 0 0; 
+    }
+  
+    .buttons:hover:last-child {
+      border-radius: 0 0 12px 0; 
+    }
+
+   }
+ }

@@ -9,8 +9,9 @@
 .title{
   margin-bottom: 4rem;
 }
+
 .sub_title{
-  margin-top: 2rem;
+  margin-block: 2rem;
 }
 
 input, select, textarea{
@@ -25,7 +26,8 @@ input, select, textarea{
   display: flex;
   flex-direction: column;
   gap: 2rem;
-  // margin-top: 2rem;
+  // margin-top: 4rem;
+  // margin-bottom: 2rem;
 }
 
 .row{
@@ -34,10 +36,16 @@ input, select, textarea{
   gap: 80px;
 }
 
-.buttons{
+.content_buttons{
   display: flex;
   flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
   gap: 2rem;
+
+  .button{
+    width: 250px;
+  }
 }
 
 .button_return{

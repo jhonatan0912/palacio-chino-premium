@@ -1,7 +1,7 @@
 .main{
    display: flex;
    width: 100%;
-   height: 100vh;
+   min-height: 100vh;
 }
 
 .panel_back{
@@ -35,8 +35,7 @@
    display: flex;
    flex: 1 1 0%;
    align-items: center;
-   justify-content: center;
-   height: 100%;
+   justify-content: center;position: static; //nose para que es
 }
 
 .form{
@@ -49,9 +48,7 @@
 
    .title_form{
       text-align: center;
-      font-size: 24px;
       font-weight: 700;
-      // margin-bottom: 60px;
    }
 
    p{
@@ -83,6 +80,13 @@
    }
 }
 
+.button_login{
+   display: flex;
+   flex-direction: column;
+   align-items: stretch;
+   border-radius: 10px;
+}
+
 .register_button{
    display: flex;
    flex-direction: column;
@@ -91,10 +95,11 @@
    .button{
       border: 1px solid black;
       width: auto;
-      padding: 11px 8px;
-      border-radius: 6px;
+      padding: 1rem;
+      border-radius: 10px;
       text-align: center;
       cursor: pointer;
+      height: 52.5px;
    }
    
    .button:hover{

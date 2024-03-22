@@ -1,10 +1,8 @@
 .main-content {
   background: #ffffff;
-  height: 100%;
   display: flex;
   flex-direction: column;
-  // align-items: center;
-  // padding: .5rem;
+  gap: 60px;
   width: 100%;
 
   .information {
@@ -21,7 +19,6 @@
     width: 100%;
     align-items: center;
     gap: .9rem;
-    margin-top: 2rem;
 
     .option {
       font-size: 1.1rem;
@@ -34,9 +31,9 @@
     }
     
 
-    .btn-logout {
-      width: 100%;
-      margin-top: auto;
-    }
+  }
+  .btn-logout {
+    margin-top: auto;
+    cursor: pointer;
   }
 }

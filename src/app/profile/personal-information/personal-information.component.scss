@@ -29,7 +29,12 @@ input, select{
    padding: 10px 10px;
 }
 
-.button_save{
+.content_button{
    display: flex;
-   justify-content: center;
+   flex-direction: column;
+   align-items: center;
+
+   .button{
+      width: 200px;
+   }
 }

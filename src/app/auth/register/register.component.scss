@@ -1,7 +1,7 @@
 .main{
    display: flex;
    width: 100%;
-   height: 100vh;
+   min-height: 100vh;
 }
 
 .panel_back{
@@ -36,7 +36,6 @@
    flex: 1 1 0%;
    align-items: center;
    justify-content: center;
-   height: 100%;
 }
 
 .form{
@@ -49,7 +48,6 @@
 
    .title_form{
       text-align: center;
-      font-size: 24px;
       font-weight: 700;
       margin-bottom: 30px;
    }

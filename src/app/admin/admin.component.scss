@@ -1,6 +1,4 @@
 .layout {
-  width: 100vw;
-  height: 100vh;
   display: flex;
 
 }
@@ -12,13 +10,18 @@ app-admin-sidebar {
 
   &.expanded {
     width: 15%;
+    display: grid;
   }
 
 }
 
+.body{
+  padding: 20px;
+}
+
 .layout__content {
   flex: 1;
-  padding: 20px;
+  // padding: 20px;
 }
 
 @media screen and (min-width: 768px) {
