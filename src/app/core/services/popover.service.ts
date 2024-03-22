@@ -6,14 +6,14 @@ import { PopoverController, PopoverOptions } from '@ionic/angular/standalone';
 })
 export class AppPopoverService {
 
-  private readonly popoverCtrl = inject(PopoverController);
+  private readonly _popoverCtrl = inject(PopoverController);
 
   dismiss(data: any): void {
-    this.popoverCtrl.dismiss(data);
+    this._popoverCtrl.dismiss(data);
   }
 
   async showWithData(opts: PopoverOptions): Promise<any> {
-    const popover = await this.popoverCtrl.create(opts);
+    const popover = await this._popoverCtrl.create(opts);
     popover.present();
 
     const data = await popover.onDidDismiss();

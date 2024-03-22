@@ -1,8 +1,9 @@
+
 import { Injectable, inject } from '@angular/core';
 import { AppHttpService } from '@core/index';
+import { environment } from '@environments/environment';
 import { Observable, mergeMap, of } from 'rxjs';
 import { CategoryDto } from './categories.proxies';
-import { environment } from '@environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -53,7 +54,7 @@ export class ProductsProxy {
 
   }
 
-  getByCategory(idCategory: string, page: number = 1, pageSize: number = 10): Observable<ProductDto[]> {
+  getByCategory(idCategory: string, page: number = 1, pageSize: number = 10): Observable<GetAllProductsResponseDto> {
     let url = `${this.path}/getByCategory/${idCategory}`;
     if (page !== null && page !== undefined)
       url += `?page=${page}`;
@@ -61,7 +62,7 @@ export class ProductsProxy {
     if (pageSize !== null && pageSize !== undefined)
       url += `&pageSize=${pageSize}`;
 
-    return this.http.get(url).pipe(mergeMap((data: any) => of(data.map((item: any) => new ProductDto().fromJS(item)))));
+    return this.http.get(url).pipe(mergeMap((data: any) => of(new GetAllProductsResponseDto().fromJS(data))));
   }
 
   update(id: string, categoryId: string | null, image: string, name: string, price: number, description: string): Observable<void> {

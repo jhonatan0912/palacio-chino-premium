@@ -7,22 +7,22 @@ import { Observable } from 'rxjs';
 })
 export class AppHttpService {
 
-  private readonly http = inject(HttpClient);
+  private readonly _http = inject(HttpClient);
 
   get(url: string): Observable<any> {
-    return this.http.get(url);
+    return this._http.get(url);
   }
 
   post(url: string, body: any, options?: any): Observable<any> {
-    return this.http.post(url, body, options);
+    return this._http.post(url, body, options);
   }
 
   update(url: string, body: any): Observable<any> {
-    return this.http.patch(url, body);
+    return this._http.patch(url, body);
   }
 
   delete(url: string): Observable<any> {
-    return this.http.delete(url);
+    return this._http.delete(url);
   }
 
 }

@@ -7,13 +7,13 @@ import { NavController } from '@ionic/angular';
 })
 export class AppNavigationService {
 
-  private readonly navCtrl = inject(NavController);
+  private readonly _navCtrl = inject(NavController);
 
   forward(path: string, queryParams?: Params): void {
-    this.navCtrl.navigateForward(path, { queryParams });
+    this._navCtrl.navigateForward(path, { queryParams });
   }
 
   back(path: string, queryParams?: Params): void {
-    this.navCtrl.navigateBack(path, { queryParams });
+    this._navCtrl.navigateBack(path, { queryParams });
   }
 }

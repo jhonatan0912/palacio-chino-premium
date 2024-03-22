@@ -6,10 +6,10 @@ import { ModalController, ModalOptions } from '@ionic/angular/standalone';
 })
 export class AppDialogService {
 
-  private readonly modalCtrl = inject(ModalController);
+  private readonly _modalCtrl = inject(ModalController);
 
   async showWithData(opts: ModalOptions): Promise<any> {
-    const modal = await this.modalCtrl.create(opts);
+    const modal = await this._modalCtrl.create(opts);
     modal.present();
 
     const data = await modal.onDidDismiss();
@@ -19,6 +19,6 @@ export class AppDialogService {
   }
 
   dismiss(data: any): void {
-    this.modalCtrl.dismiss(data);
+    this._modalCtrl.dismiss(data);
   }
 }
