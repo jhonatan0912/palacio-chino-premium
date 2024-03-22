@@ -1,53 +1,55 @@
 <main class="main">
 
-   <section class="panel_back">
-     <auth-aside />
-     <div class="name-logo">
-         <img src="/assets/logo.png" alt="">
-         <h2>Palacio Chino <br>Premium</h2>
-     </div>
-     <div></div>
-   </section>
+  <section class="panel_back">
+    <auth-aside />
+    <div class="name-logo">
+      <img src="/assets/logo.png">
+      <h2>Palacio Chino <br>Premium</h2>
+    </div>
+  </section>
 
-   <section class="form-container">
+  <section class="form-container">
 
-     <div class="form shadow-2xl">
-       <h2 class="title_form">
-         Bienvenido
-       </h2>
+    <div class="form shadow-2xl">
+      <h2 class="title_form">
+        Bienvenido
+      </h2>
 
-       <div class="inputs_form">
-         <div class="form-input">
-            <span>Correo electrónico</span>
-            <input [(ngModel)]="email" type="email" placeholder="Correo electrónico">
-         </div>
+      <div class="inputs_form">
+        <div class="form-input">
+          <span>Correo electrónico</span>
+          <input
+            [(ngModel)]="email"
+            type="email"
+            placeholder="Correo electrónico">
+        </div>
 
-         <div class="form-input">
-            <span>Contraseña</span>
-            <input (keydown.enter)="onLogin()"  [(ngModel)]="password" type="password" placeholder="Contraseña">
-         </div>
-       </div>
+        <div class="form-input">
+          <span>Contraseña</span>
+          <input
+            (keydown.enter)="onLogin()"
+            [(ngModel)]="password"
+            type="password"
+            placeholder="Contraseña">
+        </div>
+      </div>
 
-       <div class="button_login">
-         <lib-button
-            class=""
-            (onAction)="onLogin()"
-           >
-           INICIAR SESIÓN
-          </lib-button>
-       </div>
+      <lib-button
+        class="button-center"
+        (onAction)="onLogin()">
+        INICIAR SESIÓN
+      </lib-button>
 
-       <p class="">¿Eres nuevo?</p>
+      <p class>¿Eres nuevo?</p>
 
-       <div class="register_button">
-         <button class="button active:scale-95" (click)="onAuth()">
-           REGÍSTRATE
-         </button>
-       </div>
+      <div class="register_button">
+        <button class="button active:scale-95" (click)="onAuth()">
+          REGÍSTRATE
+        </button>
+      </div>
 
-     </div>
+    </div>
 
-   </section>
+  </section>
 
-
- </main>
+</main>
