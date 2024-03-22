@@ -77,7 +77,7 @@ export const routes: Routes = [
     loadComponent: () => import('./admin/admin.component').then(p => p.AdminComponent),
     children: [
       {
-        path: '',
+        path: 'home',
         loadComponent: () => import('@admin/dashboard/dashboard.component').then(p => p.DashboardComponent)
       },
       {
@@ -98,7 +98,7 @@ export const routes: Routes = [
       },
       {
         path: '',
-        redirectTo: '',
+        redirectTo: 'home',
         pathMatch: 'full'
       }
     ]

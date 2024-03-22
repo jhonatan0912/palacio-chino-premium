@@ -1,6 +1,7 @@
 import { Injectable, inject } from '@angular/core';
 import { Socket, io } from 'socket.io-client';
 import { AdminOrdersService } from './orders.service';
+import { AdminGetOrderDto } from '@shared/proxies/admin.proxies';
 
 @Injectable()
 export class WebsocketsService {
@@ -17,9 +18,10 @@ export class WebsocketsService {
   }
 
   onOrder(): void {
-    this.socket.on('newOrder', (order: any) => {
+    this.socket.on('newOrder', (data: AdminGetOrderDto) => {
+      const order = new AdminGetOrderDto().fromJS(data);
       this.adminOrdersService.orders.update((prev) => [order, ...prev]);
-      console.log(order);
+      console.log(data);
     });
   }
 }
