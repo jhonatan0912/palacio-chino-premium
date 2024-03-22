@@ -1,6 +1,6 @@
 .wrapper {
   position: relative;
-  // height: 100vh; 
+  // height: 100vh;
   min-height: 100vh;
   color: white;
   background-color: rgb(34, 34, 34);
@@ -39,18 +39,6 @@
         cursor: pointer;
       }
 
-    }
-
-    &-footer {
-      margin-top: 2rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-
-      ion-icon[name="log-out-outline"] {
-        min-width: 24px;
-        min-height: 24px;
-      }
     }
   }
 }

@@ -1,6 +1,10 @@
 :host {
    background-color: var(--primary-red);
    border-radius: 8px;
+   display: flex;
+   flex-direction: row;
+   align-items: center;
+   text-align: center;
 
    &.button-fill {
       color: #fff;
@@ -8,7 +12,7 @@
       font-weight: 700;
       text-align: center;
       cursor: pointer;
-      padding: 1rem; //ver si funionana en los demas botones
+      padding: 1rem;
    }
 
    &.button-outline {
@@ -17,27 +21,18 @@
 
    }
 
+   &.button-center {
+      justify-content: center;
+   }
+
    &:hover {
       background-color: var(--second-red);
       color: #fff;
    }
 }
 
-// .button {
-//    width: 100%;
-//    // padding: 12px 8px;
-//    padding: 12px 40px;
-//    border-radius: 8px;
-//    text-align: center;
-//    background-color: var(--primary-red);
-//    text-align: center;
-//    display: flex;
-//    align-items: center;
-//    justify-content: center;
-//    gap: .5rem;
-// }
-
-// .button:hover {
-//    background-color: var(--second-red);
-//    border-radius: 8px;
-// }
+button {
+   display: flex;
+   gap: .5rem;
+   text-align: center;
+}

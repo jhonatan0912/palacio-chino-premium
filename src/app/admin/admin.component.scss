@@ -1,6 +1,8 @@
 .layout {
   display: flex;
-
+  width: 100vw;
+  height: 100vh;
+  overflow-x: hidden;
 }
 
 app-admin-sidebar {
@@ -15,13 +17,13 @@ app-admin-sidebar {
 
 }
 
-.body{
+.body {
   padding: 20px;
 }
 
 .layout__content {
   flex: 1;
-  // padding: 20px;
+  overflow-y: scroll;
 }
 
 @media screen and (min-width: 768px) {

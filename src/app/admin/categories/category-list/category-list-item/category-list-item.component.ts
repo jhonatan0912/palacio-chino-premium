@@ -30,22 +30,14 @@ export class CategoryListItemComponent extends ViewComponent {
       side: 'start',
       arrow: false,
       alignment: 'start',
+      showBackdrop: false,
     }).then((action) => {
       if (!action) return;
 
       switch (action) {
-        case 'edit':
-          this.onUpdate.emit(id);
-          break;
-        case 'delete':
-          this.handleDelete(id);
-          break;
-        case 'assign':
-          this.openProductsModal(id);
-          break;
-
-        default:
-          break;
+        case 'edit': return this.onUpdate.emit(id);
+        case 'delete': return this.handleDelete(id);
+        case 'assign': return this.openProductsModal(id);
       }
     });
   }

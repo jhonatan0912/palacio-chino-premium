@@ -7,8 +7,7 @@
     <div class="close-container">
       <div class="close-button" (click)="onDismiss()">
         <ion-icon
-          name="close-outline"
-        />
+          name="close-outline" />
       </div>
     </div>
   </div>
@@ -19,30 +18,7 @@
       [product]="product"
       [(quantity)]="product.quantity!" />
     }@empty {
-      <div class="main_content">
-    
-        <div class="content_shopping-cart">
-          <div>
-            <p>El carrito de compras esta vacio</p>
-          </div>
-          <div>
-            <img src="/assets/logo.png" alt="">
-            <!-- <ion-icon class="cart-outline" name="cart-outline" /> -->
-          </div>
-          <div>
-            <p>Puedes volver a nuestra tienda virtual y agregar mas productos</p>
-          </div>
-        </div>
-    
-        <div class="button_order">
-            <lib-button
-              (onAction)="onDismiss()"
-            >
-            ORDENAR AHORA
-            </lib-button>
-        </div>
-        
-      </div>
+    <shopping-cart-empty />
     }
 
     @if (products().length >= 1) {

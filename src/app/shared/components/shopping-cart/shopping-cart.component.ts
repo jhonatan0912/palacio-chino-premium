@@ -7,11 +7,12 @@ import { ProductDto } from '@shared/proxies/products.proxie';
 import { ShoppingCartService } from '@shared/services/shopping-cart.service';
 import { ShoppingCartFooterComponent } from './shopping-cart-footer/shopping-cart-footer.component';
 import { ShoppingCartProductComponent } from './shopping-cart-product/shopping-cart-product.component';
+import { ShoppingCartEmptyComponent } from './shopping-cart-empty/shopping-cart-empty.component';
 
 @Component({
   selector: 'app-shopping-cart',
   standalone: true,
-  imports: [IonIcon, JsonPipe, ShoppingCartProductComponent, DecimalPipe, ButtonComponent, ShoppingCartFooterComponent],
+  imports: [IonIcon, JsonPipe, ShoppingCartProductComponent, DecimalPipe, ButtonComponent, ShoppingCartFooterComponent, ShoppingCartEmptyComponent],
   templateUrl: './shopping-cart.component.html',
   styleUrls: ['./shopping-cart.component.scss']
 })

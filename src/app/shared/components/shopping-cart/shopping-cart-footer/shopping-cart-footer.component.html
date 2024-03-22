@@ -10,11 +10,16 @@
   </div>
 
   <div class="footer__buttons">
-    <lib-button (onAction)="onPay.emit()">
+    <lib-button
+      (onAction)="onPay.emit()"
+      class="button-center">
       Pagar
     </lib-button>
 
-    <lib-button type="outline" (onAction)="onDismiss.emit()">
+    <lib-button
+      (onAction)="onDismiss.emit()"
+      class="button-center"
+      type="outline">
       Seguir comprando
     </lib-button>
   </div>
