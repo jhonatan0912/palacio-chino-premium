@@ -4,11 +4,13 @@ import { QuantityInputDirective } from '@shared/directives/quantityInput.directi
 import { SrcImagePipe } from '@shared/pipes/srcImage.pipe';
 import { ProductDto } from '@shared/proxies/products.proxie';
 import { ShoppingCartService } from '@shared/services/shopping-cart.service';
+import { IonIcon } from "@ionic/angular/standalone";
+
 
 @Component({
   selector: 'shopping-cart-product',
   standalone: true,
-  imports: [FormsModule, SrcImagePipe, QuantityInputDirective],
+  imports: [IonIcon, FormsModule, SrcImagePipe, QuantityInputDirective],
   templateUrl: './shopping-cart-product.component.html',
   styleUrls: ['./shopping-cart-product.component.scss']
 })
@@ -18,6 +20,7 @@ export class ShoppingCartProductComponent {
 
   product = input.required<ProductDto>();
   quantity = model.required<number>();
+
 
   substract(): void {
     if (this.quantity() > 1) {
@@ -33,5 +36,9 @@ export class ShoppingCartProductComponent {
 
   onValueChange(): void {
     this.shoppingCartService.update(this.product());
+  }
+
+  onRemove(): void {
+    this.shoppingCartService.remove(this.product());
   }
 }

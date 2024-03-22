@@ -4,13 +4,23 @@
       [src]="product().image | srcImage"
       [alt]="product.name">
   </div>
+
   <section class="product__content">
-    <div class="name">
-      {{ product().name }}
+    <div class="name-delete">
+      <span>
+        {{ product().name }}
+      </span>
+      <ion-icon
+        (click)="onRemove()"
+        class="active:scale-95"
+        name="trash-outline"
+        color="danger" />
     </div>
+
     <div class="description">
       {{ product().description }}
     </div>
+
     <div class="price-quantity">
       <p class="total">
         S/{{ product().price * product().quantity!}}
