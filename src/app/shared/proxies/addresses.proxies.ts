@@ -1,5 +1,5 @@
 import { Injectable, inject } from '@angular/core';
-import { AppHttpService } from '@core/index';
+import { AppHttpService } from '@core/utils/index';
 import { environment } from '@environments/environment';
 import { Observable, mergeMap, of } from 'rxjs';
 
@@ -26,10 +26,22 @@ export class AddressesProxy {
 
     return this.http.post(this.path, body).pipe(mergeMap((data: any) => of(new CreateAddressResponseDto().fromJS(data))));
   }
+  update(id: string, district: string, type: string, street: string, number: string, phone: string, reference: string,): Observable<AddressDto> {
+    let url = `${this.path}/${id}`;
+    const body = {
+      district,
+      type,
+      street,
+      number,
+      phone,
+      reference,
+    };
+    return this.http.update(url, body).pipe(mergeMap((data: any) => of(new AddressDto(data).fromJS(data))));
+  };
 
   getAll(): Observable<AddressDto[]> {
-    return this.http.get(this.path).pipe(mergeMap((data: any) => of(data.map((item: any) => new AddressDto().fromJS(item)))));
-  }
+    return this.http.get(this.path).pipe(mergeMap((data: any) => of(data.map((item: any) => new AddressDto(data).fromJS(item)))));
+  };
 
   delete(id: string): Observable<DeleteResponseDto> {
     let url = `${this.path}/${id}`;
@@ -46,7 +58,7 @@ export class AddressDto {
   phone!: string;
   reference!: string;
 
-  init(data: any): void {
+  constructor(data: any) {
     if (data) {
       this.id = data.id ? data.id : <any>undefined;
       this.district = data.district;
@@ -58,9 +70,21 @@ export class AddressDto {
     }
   }
 
+  init(data: any): void {
+    if (data) {
+      this.id = data.id;
+      this.district = data.district;
+      this.type = data.type;
+      this.street = data.street;
+      this.number = data.number;
+      this.phone = data.phone;
+      this.reference = data.reference;
+    }
+  }
+
   fromJS(data: any): AddressDto {
     data = typeof data === 'object' ? data : {};
-    const result = new AddressDto();
+    const result = new AddressDto(data);
     result.init(data);
     return result;
   }
@@ -71,7 +95,7 @@ export class CreateAddressResponseDto {
 
   init(data: any): void {
     if (data) {
-      this.data = data.data ? new AddressDto().fromJS(data.data) : <any>undefined;
+      this.data = new AddressDto(data.data).fromJS(data.data);
     }
   }
 

@@ -51,8 +51,8 @@ export class CategoryComponent extends ViewComponent {
     this.productsProxy.getByCategory(id)
       .pipe(finalize(() => this.busy.set(false)))
       .subscribe({
-        next: (products) => {
-          this.products.set(products);
+        next: (res) => {
+          this.products.set(res.products);
         }
       });
   }
