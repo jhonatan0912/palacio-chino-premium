@@ -1,26 +1,5 @@
-.wrapper {
-   background: #fff;
-   border: 1px solid black;
-   padding: 40px;
-   border-radius: 1rem;
-}
-
-.title {
-   margin-bottom: 1.5rem;
-}
-
 .orders {
-
-   .content_orders {
-      display: flex;
-      flex-direction: column;
-      gap: 2rem;
-      height: 270px;
-      overflow: auto;
-      // padding-right: 2rem;
-      margin-top: 2rem;
-      box-shadow: 0 0 10px #0000008a;
-      border-radius: 1rem 0 0 1rem;
-      padding: 1rem 2rem;
-   }
+   display: flex;
+   flex-direction: column;
+   margin-top: 1rem;
 }

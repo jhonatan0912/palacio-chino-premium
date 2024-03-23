@@ -1,13 +1,17 @@
-import { Component, OnInit } from '@angular/core';
+import { DatePipe } from '@angular/common';
+import { Component, OnInit, input } from '@angular/core';
+import { GetOrderDto } from '@shared/proxies/orders.proxie';
 
 @Component({
   selector: 'order-item',
   standalone: true,
-  imports: [],
+  imports: [DatePipe],
   templateUrl: './order-item.component.html',
   styleUrls: ['./order-item.component.scss']
 })
 export class OrderItemComponent implements OnInit {
+
+  order = input.required<GetOrderDto>();
 
   constructor() { }
 

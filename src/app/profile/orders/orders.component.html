@@ -1,15 +1,11 @@
 <main class="wrapper">
-
-   <h2 class="title">Mis Pedidos</h2>
+   <h2 class="title">
+      Mis Pedidos
+   </h2>
 
    <section class="orders">
-      <p>13 de Julio del 2023</p>
-
-      <section class="content_orders scroll">
-         @for (order of [1,1,1]; track $index) {
-         <order-item />
-         }
-      </section>
+      @for (order of orders(); track order.id) {
+      <order-item [order]="order"/>
+      }
    </section>
-
 </main>
