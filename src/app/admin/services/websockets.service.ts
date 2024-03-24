@@ -11,7 +11,6 @@ export class AdminWebsocketsService {
   private readonly adminOrdersService = inject(AdminOrdersService);
 
   constructor() {
-    console.log(environment.api);
     this.socket = io(environment.api);
   }
 

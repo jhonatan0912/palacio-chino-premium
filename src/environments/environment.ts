@@ -1,4 +1,4 @@
 export const environment = {
-  production: true,
-  api: 'https://pc-backend-nest-production.up.railway.app'
+  production: false,
+  api: 'http://192.168.1.79:3000'
 };
