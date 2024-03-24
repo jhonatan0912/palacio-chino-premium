@@ -1,12 +1,11 @@
 <main class="wrapper">
-  
+
   <h2 class="title">
     Agregar dirección
   </h2>
 
-  <div class="col">
+  <section class="col">
     <div class="row">
-      <!-- District -->
       <select name="district" id="district">
         <option readonly disabled selected>Distrito</option>
         <option value="chilca">Chilca</option>
@@ -14,7 +13,6 @@
         <option value="el-tambo">El tambo</option>
       </select>
 
-      <!-- Place type -->
       <select name="type" id="type">
         <option readonly disabled selected>Tipo de lugar</option>
         <option value="1">1</option>
@@ -37,7 +35,7 @@
         placeholder="Referencia"></textarea>
     </div>
 
-  </div>
+  </section>
 
   <p class="sub_title">
     Tipo dirección
@@ -57,15 +55,15 @@
 
   <div class="content_buttons">
     <lib-button
-      class="button"
       (onAction)="addAddress()"
-    >
-    Agregar dirección
+      class="button">
+      Agregar dirección
     </lib-button>
 
-    <button class="button_return" (click)="goDashboard()">
+    <button
+      (click)="goDashboard()"
+      class="button_return">
       Volver
     </button>
   </div>
-
 </main>
