@@ -4,7 +4,7 @@ import { AdminOrdersService } from './orders.service';
 import { AdminGetOrderDto } from '@shared/proxies/admin.proxies';
 
 @Injectable()
-export class WebsocketsService {
+export class AdminWebsocketsService {
 
   private readonly socket: Socket;
   private readonly adminOrdersService = inject(AdminOrdersService);

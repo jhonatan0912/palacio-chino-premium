@@ -96,12 +96,14 @@ export class GetOrdersResponseUserDto {
 }
 
 export class GetOrdersResponseProductDto {
+  image!: string;
   name!: string;
   quantity!: number;
   price!: number;
 
   init(data: any): void {
     if (data) {
+      this.image = data.image;
       this.name = data.name;
       this.quantity = data.quantity;
       this.price = data.price;

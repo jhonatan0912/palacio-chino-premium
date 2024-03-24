@@ -1,0 +1,18 @@
+<div class="product">
+  <div class="product__image">
+    <img
+      [src]="product().image | srcImage"
+      [alt]="product().name" />
+  </div>
+  <div class="product__info">
+    <div class="product__info__name">
+      {{ product().name }}
+    </div>
+    <div class="product__info__quantity">
+      Cantidad: {{ product().quantity }}
+    </div>
+    <div class="product__info__price">
+      Precio: {{ product().price | number: '1.2-2' }}
+    </div>
+  </div>
+</div>
