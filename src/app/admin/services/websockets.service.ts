@@ -2,6 +2,7 @@ import { Injectable, inject } from '@angular/core';
 import { Socket, io } from 'socket.io-client';
 import { AdminOrdersService } from './orders.service';
 import { AdminGetOrderDto } from '@shared/proxies/admin.proxies';
+import { environment } from '@environments/environment.development';
 
 @Injectable()
 export class AdminWebsocketsService {
@@ -10,7 +11,7 @@ export class AdminWebsocketsService {
   private readonly adminOrdersService = inject(AdminOrdersService);
 
   constructor() {
-    this.socket = io('http://192.168.1.79:3000');
+    this.socket = io(environment.api);
   }
 
   init(): void {
