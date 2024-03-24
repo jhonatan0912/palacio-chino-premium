@@ -54,6 +54,10 @@ export const routes: Routes = [
     ]
   },
   {
+    path: 'checkout',
+    loadChildren:()=>import('@checkout/checkout.routes').then(r=>r.routes)
+  },
+  {
     path: 'admin',
     canActivate: [adminLoginGuard],
     loadComponent: () => import('@admin/login/login.component').then(p => p.AdminLoginComponent)

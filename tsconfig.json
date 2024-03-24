@@ -45,6 +45,9 @@
       "@profile/*": [
         "./src/app/profile/*"
       ],
+      "@checkout/*": [
+        "./src/app/checkout/*"
+      ],
       "@interceptors/*": [
         "./src/app/interceptors/*"
       ]

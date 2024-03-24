@@ -42,7 +42,8 @@ export class ShoppingCartComponent extends ViewComponent {
         .then(() => this.navigation.forward('/auth/login'));
 
     } else {
-      console.log(this.session.user);
+      this.popoverCtrl.dismiss('cancel')
+        .then(() => this.navigation.forward('/checkout/choose-address'));
     }
   }
 
