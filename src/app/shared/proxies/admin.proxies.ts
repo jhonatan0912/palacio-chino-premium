@@ -26,6 +26,16 @@ export class AdminProxy {
   getOrders(): Observable<AdminGetOrderDto[]> {
     return this.http.get(`${this.path}/orders`).pipe(map((data: any) => data.map((i: any) => new AdminGetOrderDto().fromJS(i))));
   }
+
+  changeOrderStatus(orderId: string, status: OrderStatus): Observable<void> {
+    const path = `${this.path}/update-order-status`;
+    const body = {
+      orderId,
+      status
+    };
+
+    return this.http.update(path, body)
+  }
 }
 
 export class LoginDto {

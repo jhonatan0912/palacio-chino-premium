@@ -1,0 +1,11 @@
+.states {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1rem;
+
+  .status__label {
+    width: 100%;
+    cursor: pointer;
+  }
+}
