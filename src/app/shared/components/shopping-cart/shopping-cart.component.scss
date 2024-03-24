@@ -1,11 +1,14 @@
 .wrapper {
-  padding: .5rem;
+  // padding: .5rem;
 }
 
 .title-close {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  border-bottom: 1px solid black;
+  padding-block: 20px;
+  padding-inline: 10px;
 
   & .title {
     font-weight: 500;
@@ -35,4 +38,6 @@
   flex-direction: column;
   gap: 1.5rem;
   margin-top: 1rem;
+  padding: 20px;
+  margin-top: 20px;
 }

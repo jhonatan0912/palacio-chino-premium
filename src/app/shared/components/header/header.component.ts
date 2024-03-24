@@ -28,6 +28,7 @@ export class HeaderComponent extends ViewComponent {
     { name: 'PROMOCIONES', path: '' },
     { name: 'LOCAL', path: 'establishments' },
     { name: 'ZONAS DE REPARTO', path: 'delivery-zones' },
+    { name: 'GALERY', path: 'galery' },
   ];
 
   constructor() {
