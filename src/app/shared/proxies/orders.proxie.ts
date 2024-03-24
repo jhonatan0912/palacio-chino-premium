@@ -1,6 +1,6 @@
 import { Injectable, inject } from '@angular/core';
 import { AppHttpService } from '@core/index';
-import { environment } from '@environments/environment';
+import { environment } from '@environments/environment.development';
 import { Observable, mergeMap, of } from 'rxjs';
 
 export type OrderStatus = 'pending' | 'progress' | 'completed' | 'canceled';

@@ -1,10 +1,10 @@
 import { DatePipe, DecimalPipe } from '@angular/common';
-import { Component, OnInit, inject, input } from '@angular/core';
+import { Component, inject, input } from '@angular/core';
+import { ViewComponent } from '@core/view-component';
 import { IonIcon } from "@ionic/angular/standalone";
 import { AdminGetOrderDto, AdminProxy } from '@shared/proxies/admin.proxies';
+import { OrderStatus, formatOrderStatus } from '@shared/proxies/orders.proxie';
 import { AdminOrderDetailProductComponent } from './order-detail-product/order-detail-product.component';
-import { ViewComponent } from '@core/view-component';
-import { OrderStatus, OrdersProxy, formatOrderStatus } from '@shared/proxies/orders.proxie';
 import { OrderDetailStatusPopoverComponent } from './order-detail-status-popover/order-detail-status-popover.component';
 
 @Component({
@@ -14,17 +14,15 @@ import { OrderDetailStatusPopoverComponent } from './order-detail-status-popover
   templateUrl: './order-detail.component.html',
   styleUrls: ['./order-detail.component.scss']
 })
-export class AdminOrderDetailComponent extends ViewComponent implements OnInit {
+export class AdminOrderDetailComponent extends ViewComponent {
 
   private readonly _adminProxy = inject(AdminProxy);
 
   order = input.required<AdminGetOrderDto>();
 
-  ngOnInit(): void {
-    console.log(this.order());
-  }
-
   onChangeStatus(event: Event): void {
+    if (this.order().status === 'canceled') return;
+    
     this.popup.showWithData({
       component: OrderDetailStatusPopoverComponent,
       event: event,

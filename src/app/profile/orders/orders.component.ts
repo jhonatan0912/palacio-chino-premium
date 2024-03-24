@@ -27,7 +27,6 @@ export class OrdersComponent implements OnInit {
       .subscribe({
         next: (orders) => {
           this.orders.set(orders)
-          console.log(orders);
         }
       });
   }

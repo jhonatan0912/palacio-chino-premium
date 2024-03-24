@@ -22,7 +22,6 @@ export class AdminWebsocketsService {
     this.socket.on('newOrder', (data: AdminGetOrderDto) => {
       const order = new AdminGetOrderDto().fromJS(data);
       this.adminOrdersService.orders.update((prev) => [order, ...prev]);
-      console.log(data);
     });
   }
 }
