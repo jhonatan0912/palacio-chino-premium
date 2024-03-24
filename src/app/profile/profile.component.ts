@@ -10,6 +10,7 @@ import { WebsocketsService } from './services/websockets.service';
   selector: 'app-profile',
   standalone: true,
   imports: [IonRouterOutlet, HeaderComponent, RouterOutlet, FooterComponent, SideMenuComponent],
+  providers: [WebsocketsService],
   templateUrl: './profile.component.html',
   styleUrls: ['./profile.component.scss'],
 })
