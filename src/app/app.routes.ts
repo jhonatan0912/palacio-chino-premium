@@ -1,6 +1,8 @@
 import { Routes } from '@angular/router';
 import { adminDashboardGuard } from './admin/guards/admin-auth.guard';
 import { adminLoginGuard } from './admin/guards/admin-login.guard';
+import { loginGuard } from '@auth/guards/login.guard';
+import { profileGuard } from '@auth/guards/profile.guard';
 
 export const routes: Routes = [
   {
@@ -32,13 +34,22 @@ export const routes: Routes = [
   },
   {
     path: 'profile',
+    canActivate: [profileGuard],
     loadChildren: () => import('./profile/profile.routes').then(r => r.routes)
   },
   {
     path: 'auth',
     children: [
-      { path: 'register', loadComponent: () => import('./auth/register/register.component').then(p => p.RegisterComponent) },
-      { path: 'login', loadComponent: () => import('./auth/login/login.component').then(p => p.LoginComponent) },
+      {
+        path: 'register',
+        canActivate: [loginGuard],
+        loadComponent: () => import('./auth/register/register.component').then(p => p.RegisterComponent)
+      },
+      {
+        path: 'login',
+        canActivate: [loginGuard],
+        loadComponent: () => import('./auth/login/login.component').then(p => p.LoginComponent)
+      },
       { path: '**', redirectTo: 'register', pathMatch: 'full' }
     ]
   },
