@@ -36,31 +36,7 @@ export const routes: Routes = [
   },
   {
     path: 'profile',
-    loadComponent: () => import('./profile/profile.component').then(p => p.ProfileComponent),
-    children: [
-      {
-        path: 'addresses',
-        children: [
-          {
-            path: '',
-            loadComponent: () => import('./profile/addresses/addresses.component').then(p => p.AddressesComponent),
-          },
-          {
-            path: 'add',
-            loadComponent: () => import('./profile/addresses/address-form/address-form.component').then(p => p.AddressFormComponent)
-          }
-        ]
-      },
-      {
-        path: 'orders',
-        loadComponent: () => import('./profile/orders/orders.component').then(p => p.OrdersComponent)
-      },
-      {
-        path: 'personal-information',
-        loadComponent: () => import('./profile/personal-information/personal-information.component').then(p => p.PersonalInformationComponent)
-      },
-      { path: '**', redirectTo: 'personal-information', pathMatch: 'full' }
-    ]
+    loadChildren: () => import('./profile/profile.routes').then(r => r.routes)
   },
   {
     path: 'auth',

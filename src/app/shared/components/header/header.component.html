@@ -36,9 +36,11 @@
       <div
         class="cart pointer"
         (click)="onCart($event)">
-        <span class="badge">
-          {{ cartBadge() }}
-        </span>
+        @if (cartBadge()) {
+          <span class="badge">
+            {{ cartBadge() }}
+          </span>
+        }
         <ion-icon class="cart-outline" name="cart-outline" />
       </div>
     </div>

@@ -1,12 +1,11 @@
 <article class="order__item">
-  <div class="order__item__data">
-    <img src="/assets/logo.png" alt="image-product">
-    <p>Chaufa Teriyaki Bañado en naranja </p>
-    <p>S/ 28.90</p>
-  </div>
-  <div class="order__item__details">
-    <button role="button">
-      Ver Detalles
-    </button>
-  </div>
+    <header class="order__header">
+        <h3 class="order__title">Pedido #{{ order().id }}</h3>
+        <p class="order__date">{{ order().createdAt| date : 'medium' }}</p>
+    </header>
+    <footer class="order__footer">
+        <span class="status__label {{ order().status }}">
+          {{ order().formatedStatus }}
+        </span>
+    </footer>
 </article>
