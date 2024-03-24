@@ -1,7 +1,7 @@
-import { Component, DestroyRef, Input, OnInit, inject, input } from '@angular/core';
-import { CategoriesProxy } from '@shared/proxies/categories.proxies';
-import { AdminCategoryFormComponent } from '../../categories/category-form/category-form.component';
+import { AdminCategoryFormComponent } from '@admin/pages/categories/category-form/category-form.component';
+import { Component, DestroyRef, Input, OnInit, inject } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import { CategoriesProxy } from '@shared/proxies/categories.proxies';
 
 @Component({
   selector: 'admin-category-form',
@@ -28,7 +28,7 @@ export class AdminCategoryFormModalComponent implements OnInit {
       .pipe(takeUntilDestroyed(this.destroyRef))
       .subscribe({
         next: (category) => {
-          
+
         },
         error: (err) => console.error(err)
       });

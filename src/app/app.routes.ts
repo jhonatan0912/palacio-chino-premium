@@ -35,7 +35,7 @@ export const routes: Routes = [
   {
     path: 'profile',
     canActivate: [profileGuard],
-    loadChildren: () => import('./profile/profile.routes').then(r => r.routes)
+    loadChildren: () => import('@profile/profile.routes').then(r => r.routes)
   },
   {
     path: 'auth',
@@ -43,12 +43,12 @@ export const routes: Routes = [
       {
         path: 'register',
         canActivate: [loginGuard],
-        loadComponent: () => import('./auth/register/register.component').then(p => p.RegisterComponent)
+        loadComponent: () => import('@auth/register/register.component').then(p => p.RegisterComponent)
       },
       {
         path: 'login',
         canActivate: [loginGuard],
-        loadComponent: () => import('./auth/login/login.component').then(p => p.LoginComponent)
+        loadComponent: () => import('@auth/login/login.component').then(p => p.LoginComponent)
       },
       { path: '**', redirectTo: 'register', pathMatch: 'full' }
     ]
@@ -56,32 +56,32 @@ export const routes: Routes = [
   {
     path: 'admin',
     canActivate: [adminLoginGuard],
-    loadComponent: () => import('./admin/login/login.component').then(p => p.AdminLoginComponent)
+    loadComponent: () => import('@admin/login/login.component').then(p => p.AdminLoginComponent)
   },
   {
     path: 'admin-dashboard',
     canActivate: [adminDashboardGuard],
-    loadComponent: () => import('./admin/admin.component').then(p => p.AdminComponent),
+    loadComponent: () => import('@admin/admin.component').then(p => p.AdminComponent),
     children: [
       {
         path: 'home',
-        loadComponent: () => import('@admin/dashboard/dashboard.component').then(p => p.DashboardComponent)
+        loadComponent: () => import('@admin/pages/dashboard/dashboard.component').then(p => p.DashboardComponent)
       },
       {
         path: 'categories',
-        loadComponent: () => import('./admin/categories/categories.component').then(p => p.AdminCategoriesComponent)
+        loadComponent: () => import('@admin/pages/categories/categories.component').then(p => p.AdminCategoriesComponent)
       },
       {
         path: 'users',
-        loadComponent: () => import('./admin/users/users.component').then(p => p.AdminUsersComponent)
+        loadComponent: () => import('@admin/pages/users/users.component').then(p => p.AdminUsersComponent)
       },
       {
         path: 'products',
-        loadComponent: () => import('./admin/products/products.component').then(p => p.ProductsComponent)
+        loadComponent: () => import('@admin/pages/products/products.component').then(p => p.ProductsComponent)
       },
       {
         path: 'orders',
-        loadComponent: () => import('./admin/orders/orders.component').then(p => p.OrdersComponent)
+        loadComponent: () => import('@admin/pages/orders/orders.component').then(p => p.OrdersComponent)
       },
       {
         path: '',

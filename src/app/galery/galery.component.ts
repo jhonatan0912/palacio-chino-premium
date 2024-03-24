@@ -7,9 +7,4 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './galery.component.html',
   styleUrls: ['./galery.component.scss']
 })
-export class GaleryComponent implements OnInit {
-
-  ngOnInit() {
-  }
-
-}
+export class GaleryComponent { }
