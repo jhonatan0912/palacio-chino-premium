@@ -2,7 +2,8 @@ import { Injectable, inject } from '@angular/core';
 import { Socket, io } from 'socket.io-client';
 import { AdminOrdersService } from './orders.service';
 import { AdminGetOrderDto } from '@shared/proxies/admin.proxies';
-import { environment } from '@environments/environment.development';
+import { environment } from '@environments/environment';
+
 
 @Injectable()
 export class AdminWebsocketsService {
