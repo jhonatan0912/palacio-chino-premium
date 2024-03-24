@@ -1,9 +1,6 @@
 import { inject } from '@angular/core';
-import { AppDialogService } from './services/dialog.service';
-import { AppNavigationService } from './services/navigation.service';
-import { AppPopoverService } from './services/popover.service';
-import { AppScreenService } from './services/screen.service';
-import { AppSessionService } from './services/session.service';
+import { AppDialogService, AppLocalizationService, AppNavigationService, AppNotifyService, AppPopoverService, AppScreenService, AppSessionService, AppTabService, AppThemeService } from '@core/index';
+
 
 export abstract class ViewComponent {
   dialog = inject(AppDialogService);
@@ -11,4 +8,8 @@ export abstract class ViewComponent {
   popup = inject(AppPopoverService);
   screen = inject(AppScreenService);
   session = inject(AppSessionService);
+  toolbar = inject(AppTabService);
+  notify = inject(AppNotifyService);
+  localization = inject(AppLocalizationService);
+  theme = inject(AppThemeService);
 }

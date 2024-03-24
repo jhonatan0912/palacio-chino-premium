@@ -1,14 +1,22 @@
 <section class="modal__container">
+
+  <div class="modal__header">
+    <h2>Productos</h2>
+    <ion-searchbar
+      [(ngModel)]="term"
+      placeholder="Buscar producto" />
+  </div>
+
   <table>
     <thead>
       <tr>
         <th>Nombre</th>
-        <th>Price</th>
-        <th>Category</th>
+        <th>Precio</th>
+        <th>Estado</th>
       </tr>
     </thead>
     <tbody>
-      @for (product of products(); track product.id) {
+      @for (product of products() | filter : term; track product.id) {
       <tr>
         <td>{{ product.name }}</td>
         <td>S/{{ product.price | number: '1.2-2' }}</td>

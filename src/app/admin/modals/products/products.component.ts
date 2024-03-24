@@ -1,7 +1,9 @@
 import { DecimalPipe } from "@angular/common";
 import { Component, DestroyRef, Input, inject, input, signal } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
-import { IonToggle, ToggleCustomEvent } from "@ionic/angular/standalone";
+import { FormsModule } from '@angular/forms';
+import { IonToggle, ToggleCustomEvent, IonSearchbar } from "@ionic/angular/standalone";
+import { FilterPipe } from '@shared/pipes/filter.pipe';
 import { CategoryDto } from '@shared/proxies/categories.proxies';
 import { ProductDto, ProductsProxy } from '@shared/proxies/products.proxie';
 import { ProductsService } from '@shared/services/products.service';
@@ -9,7 +11,7 @@ import { ProductsService } from '@shared/services/products.service';
 @Component({
   selector: 'app-products',
   standalone: true,
-  imports: [IonToggle, DecimalPipe],
+  imports: [IonSearchbar, IonToggle, DecimalPipe, FilterPipe, FormsModule],
   templateUrl: './products.component.html',
   styleUrls: ['./products.component.scss']
 })
@@ -20,6 +22,8 @@ export class AdminProductsModalComponent {
   private destroyRef = inject(DestroyRef);
 
   @Input() categoryId!: string;
+
+  term: string = '';
   products = signal<ProductDto[]>([]);
 
   ngOnInit() {
