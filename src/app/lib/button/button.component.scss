@@ -30,6 +30,10 @@
       background-color: var(--second-red);
       color: #fff;
    }
+
+   &:active {
+      scale: .95;
+   }
 }
 
 button {

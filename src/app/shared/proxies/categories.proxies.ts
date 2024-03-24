@@ -1,5 +1,5 @@
 import { Injectable, inject } from '@angular/core';
-import { AppHttpService } from '@core/services/http.service';
+import { AppHttpService } from '@core/index';
 import { environment } from '@environments/environment';
 import { Observable, mergeMap, of } from 'rxjs';
 

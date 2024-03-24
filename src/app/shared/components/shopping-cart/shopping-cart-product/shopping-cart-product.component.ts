@@ -5,12 +5,13 @@ import { SrcImagePipe } from '@shared/pipes/srcImage.pipe';
 import { ProductDto } from '@shared/proxies/products.proxie';
 import { ShoppingCartService } from '@shared/services/shopping-cart.service';
 import { IonIcon } from "@ionic/angular/standalone";
+import { DecimalPipe } from '@angular/common';
 
 
 @Component({
   selector: 'shopping-cart-product',
   standalone: true,
-  imports: [IonIcon, FormsModule, SrcImagePipe, QuantityInputDirective],
+  imports: [IonIcon, FormsModule, SrcImagePipe, QuantityInputDirective, DecimalPipe],
   templateUrl: './shopping-cart-product.component.html',
   styleUrls: ['./shopping-cart-product.component.scss']
 })
