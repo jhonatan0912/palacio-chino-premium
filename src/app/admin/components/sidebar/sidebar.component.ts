@@ -1,6 +1,6 @@
 import { NgClass } from '@angular/common';
-import { Component, EventEmitter, Input, Output, inject } from '@angular/core';
-import { AppNavigationService } from '@core/index';
+import { Component, EventEmitter, Input, OnInit, Output, inject } from '@angular/core';
+import { AppNavigationService, ViewComponent } from '@core/index';
 import { IonIcon } from '@ionic/angular/standalone';
 import { AdminSidebarOptionComponent, SidebarOption } from './sidebar-option/sidebar-option.component';
 import { AdminSidebarExpandButtonComponent } from './sidebar-expand-button/sidebar-expand-button.component';
@@ -15,9 +15,8 @@ import { ADMIN_TOKEN } from '@core/utils/constants';
   templateUrl: './sidebar.component.html',
   styleUrls: ['./sidebar.component.scss'],
 })
-export class SidebarComponent {
+export class SidebarComponent extends ViewComponent implements OnInit {
 
-  private navigation = inject(AppNavigationService);
   private _expanded: boolean = true;
 
   @Input() get expanded(): boolean {
@@ -33,6 +32,7 @@ export class SidebarComponent {
     }
   }
 
+  currentOptionId!: string;
   options: SidebarOption[] = [
     { id: 'home', name: 'Dashboard', icon: '' },
     { id: 'categories', name: 'Categorias', icon: '' },
@@ -40,13 +40,17 @@ export class SidebarComponent {
     { id: 'products', name: 'Productos', icon: '' },
     { id: 'orders', name: 'Ordenes', icon: '' },
   ];
-  currentOptionId: string = this.options[0].id;
+
+  ngOnInit(): void {
+    const path = window.location.pathname;
+    this.currentOptionId = path.split('/').pop() || this.options[0].id;
+  }
 
   onToggle(): void {
     this.expanded = !this.expanded;
   }
 
-  onOptionClicked(id: string): void {
+  onOptionSelected(id: string): void {
     this.currentOptionId = id;
     this.navigation.forward(`/admin-dashboard/${id}`);
   }
