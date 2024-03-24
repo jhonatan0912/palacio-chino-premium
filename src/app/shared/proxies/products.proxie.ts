@@ -55,7 +55,7 @@ export class ProductsProxy {
   }
 
   getByCategory(idCategory: string, page: number = 1, pageSize: number = 10): Observable<GetAllProductsResponseDto> {
-    let url = `${this.path}/getByCategory/${idCategory}`;
+    let url = `${this.path}/get-by-category/${idCategory}`;
     if (page !== null && page !== undefined)
       url += `?page=${page}`;
 

@@ -1,5 +1,5 @@
 .header{
-   background-image: url("/assets/banner-down.svg");
+   // background-image: url("/assets/banner-down.svg");
    background-position: center;
    background-repeat: no-repeat;
    background-size: cover;
@@ -13,7 +13,7 @@
       align-items: center;
       justify-content: space-between;
       padding: 20px;
-      background-color: rgba(35, 35, 35, 0.74);
+      background-color: rgba(0, 0, 0, 0.575);
 
       &__data{
          display: flex;
