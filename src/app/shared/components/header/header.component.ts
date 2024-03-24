@@ -27,7 +27,6 @@ export class HeaderComponent extends ViewComponent {
   options: HeaderOption[] = [
     { name: 'PROMOCIONES', path: '' },
     { name: 'LOCAL', path: 'establishments' },
-    { name: 'ZONAS DE REPARTO', path: 'delivery-zones' },
     { name: 'GALERY', path: 'galery' },
   ];
 
@@ -38,7 +37,6 @@ export class HeaderComponent extends ViewComponent {
       if (!id) return;
 
       this.options[0].path = `/category/${id}`;
-      this.options[2].path = `/category/${id}`;
 
       this.cartBadge.set(this.shoppingCartService.cart().length);
     }, { allowSignalWrites: true });

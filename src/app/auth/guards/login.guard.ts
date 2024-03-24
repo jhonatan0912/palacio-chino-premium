@@ -8,9 +8,8 @@ export const loginGuard: CanActivateFn = (): boolean => {
   const sessionService = inject(AppSessionService);
   const navigationService = inject(AppNavigationService);
 
-  if (!authService.getAuthToken() && !sessionService.user) {
+  if (!authService.getAuthToken() && !sessionService.user)
     return true;
-  }
 
   navigationService.forward('/profile');
   return false;

@@ -1,4 +1,4 @@
-import { Component, OnInit, inject } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { ADMIN_TOKEN, AUTH_TOKEN, REFRESH_TOKEN } from '@core/utils/constants';
 import { ViewComponent } from '@core/view-component';
@@ -11,7 +11,7 @@ import { AdminProxy } from '@shared/proxies/admin.proxies';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss'],
 })
-export class AdminLoginComponent extends ViewComponent implements OnInit {
+export class AdminLoginComponent extends ViewComponent  {
 
   private adminProxy = inject(AdminProxy);
 
@@ -21,8 +21,6 @@ export class AdminLoginComponent extends ViewComponent implements OnInit {
   constructor() {
     super();
   }
-
-  ngOnInit() { }
 
   onLogin(): void {
     this.adminProxy.login(
@@ -35,9 +33,6 @@ export class AdminLoginComponent extends ViewComponent implements OnInit {
         localStorage.removeItem(REFRESH_TOKEN);
         this.navigation.forward('/admin-dashboard');
       },
-      error: (error) => {
-        console.error(error);
-      }
     });
   }
 }
