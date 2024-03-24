@@ -1,6 +1,12 @@
-ion-searchbar {
-  --padding: 0;
-  padding: 0;
+.modal__header {
+  &__title {
+    text-transform: capitalize;
+  }
+
+  ion-searchbar {
+    --padding: 0;
+    padding: 0;
+  }
 }
 
 table {

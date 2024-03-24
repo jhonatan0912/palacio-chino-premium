@@ -65,14 +65,18 @@ export class ProductsProxy {
     return this.http.get(url).pipe(mergeMap((data: any) => of(new GetAllProductsResponseDto().fromJS(data))));
   }
 
-  update(id: string, categoryId: string | null, image: string, name: string, price: number, description: string): Observable<void> {
-    const url = `${this.path}/${id}`;
+  addCategory(id: string, categoryId: string): Observable<void> {
+    const url = `${this.path}/add-category/${id}`;
     const body = {
       categoryId,
-      image,
-      name,
-      price,
-      description
+    };
+    return this.http.update(url, body);
+  }
+
+  removeCategory(id: string, categoryId: string): Observable<void> {
+    const url = `${this.path}/remove-category/${id}`;
+    const body = {
+      categoryId
     };
     return this.http.update(url, body);
   }

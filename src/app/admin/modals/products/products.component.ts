@@ -19,9 +19,10 @@ export class AdminProductsModalComponent {
 
   private productsService = inject(ProductsService);
   private productsProxy = inject(ProductsProxy);
-  private destroyRef = inject(DestroyRef);
+  private _destroyRef = inject(DestroyRef);
 
   @Input() categoryId!: string;
+  @Input() category: string = '';
 
   term: string = '';
   products = signal<ProductDto[]>([]);
@@ -36,21 +37,27 @@ export class AdminProductsModalComponent {
 
   onChange(event: ToggleCustomEvent, product: ProductDto): void {
     const checked = event.detail.checked;
-    const categoryId = checked ? this.categoryId : null;
+    if (checked) {
+      this.addCategory(product);
+    } else {
+      this.removeCategory(product);
+    }
+  }
 
-    this.productsProxy.update(
+  addCategory(product: ProductDto): void {
+    this.productsProxy.addCategory(
       product.id!,
-      categoryId,
-      product.image,
-      product.name,
-      product.price,
-      product.description
-    ).pipe(
-      takeUntilDestroyed(this.destroyRef)
-    ).subscribe({
-      next: (res) => {
-      }
-    });
+      this.categoryId
+    ).pipe(takeUntilDestroyed(this._destroyRef))
+      .subscribe();
+  }
+
+  removeCategory(product: ProductDto): void {
+    this.productsProxy.removeCategory(
+      product.id!,
+      this.categoryId
+    ).pipe(takeUntilDestroyed(this._destroyRef))
+      .subscribe();
   }
 
   checked(categories: CategoryDto[]): boolean {

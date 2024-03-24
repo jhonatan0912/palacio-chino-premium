@@ -46,7 +46,8 @@ export class CategoryListItemComponent extends ViewComponent {
     this.dialog.showWithData({
       component: AdminProductsModalComponent,
       componentProps: {
-        categoryId: id
+        categoryId: id,
+        category: this.category().name
       }
     });
   }
