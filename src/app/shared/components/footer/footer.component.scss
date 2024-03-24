@@ -74,8 +74,10 @@
                gap: 20px;
                padding-top: 6px;
 
-               .img_follow__social {
-                  width: 24px;
+               ion-icon {
+                  &:hover {
+                     color: #a1a1aa;
+                  }
                }
             }
          }
