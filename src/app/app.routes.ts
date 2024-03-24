@@ -7,7 +7,7 @@ import { profileGuard } from '@auth/guards/profile.guard';
 export const routes: Routes = [
   {
     path: '',
-    loadComponent: () => import('./home/home.component').then(p => p.HomeComponent),
+    loadComponent: () => import('@home/home.component').then(p => p.HomeComponent),
     children: [
       {
         path: 'menu',
@@ -55,7 +55,8 @@ export const routes: Routes = [
   },
   {
     path: 'checkout',
-    loadChildren:()=>import('@checkout/checkout.routes').then(r=>r.routes)
+    canActivate: [profileGuard],
+    loadChildren: () => import('@checkout/checkout.routes').then(r => r.routes)
   },
   {
     path: 'admin',

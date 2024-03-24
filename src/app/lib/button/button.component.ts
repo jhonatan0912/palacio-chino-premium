@@ -1,5 +1,5 @@
 import { NgClass } from '@angular/common';
-import { Component, EventEmitter, Host, HostBinding, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Host, HostBinding, HostListener, Input, Output } from '@angular/core';
 
 export type ButtonType = 'fill' | 'outline' | 'link';
 
@@ -20,5 +20,10 @@ export class ButtonComponent {
   @HostBinding('class')
   protected get buttonType(): string {
     return `button-${this.type}`;
+  }
+
+  @HostListener('click')
+  onClick() {
+    this.onAction.emit();
   }
 }

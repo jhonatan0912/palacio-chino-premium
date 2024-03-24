@@ -39,6 +39,9 @@
       "@auth/*": [
         "./src/app/auth/*"
       ],
+      "@home/*": [
+        "./src/app/home/*"
+      ],
       "@admin/*": [
         "./src/app/admin/*"
       ],
