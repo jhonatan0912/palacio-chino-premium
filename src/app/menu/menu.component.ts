@@ -6,11 +6,12 @@ import { CategoriesMenuComponent } from '@shared/components/categories-menu/cate
 import { ProductDto, ProductsProxy } from '@shared/proxies/products.proxie';
 import { finalize } from 'rxjs/internal/operators/finalize';
 import { ProductCardComponent } from '../shared/components/product-card/product-card.component';
+import { StoreMapComponent } from "@shared/components/store-map/store-map.component";
 
 @Component({
   selector: 'app-menu',
   standalone: true,
-  imports: [IonSpinner, ProductCardComponent, CategoriesMenuComponent],
+  imports: [IonSpinner, ProductCardComponent, CategoriesMenuComponent, StoreMapComponent],
   templateUrl: './menu.component.html',
   styleUrl: './menu.component.scss'
 })

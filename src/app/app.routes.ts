@@ -24,6 +24,10 @@ export const routes: Routes = [
         loadComponent: () => import('./delivery-zones/delivery-zones.component').then(p => p.DeliveryZonesComponent)
       },
       {
+        path: 'galery',
+        loadComponent: () => import('./galery/galery.component').then(p => p.GaleryComponent)
+      },
+      {
         path: 'category/:id',
         loadComponent: () => import('./category/category.component').then(p => p.CategoryComponent)
       },

@@ -1,0 +1,123 @@
+.main_content{
+   margin-top: 117px;
+}
+
+.image_galery{
+   display: flex;
+   flex-direction: row;
+   justify-content: center;
+   height: 300px;
+   
+   img{
+      width: 33.3%;
+   }
+}
+
+
+.content_history{
+   margin-top: 80px;
+   display: flex;
+   flex-direction: row;
+   align-items: stretch;
+   gap: 100px;
+   
+   &__image{
+      width: 50%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+
+      img{
+         width: 170px;
+         height: 180px;
+      }
+
+      .img_1{
+         transform: rotate(30deg);
+         position: absolute;
+         top: -30px;
+         
+      }
+      .img_2{
+         left: 320px;
+         top: 80px;
+         position: absolute;
+         z-index: 1;
+      }
+      .img_3{
+         top: 90px;
+         left: 150px;
+         position: absolute;
+         transform: rotate(-30deg);
+         z-index: -1;
+      }
+   }
+
+   &__content{
+      width: 50%;
+
+      h2{
+         font-weight: 700;
+         font-size: 4rem !important;
+      }
+      #date{
+         margin-top: -40px;
+      }
+      .history_local{
+         margin-top: 1.5rem;
+      }
+   }
+
+}
+
+.owner_story{
+   margin-top: 150px;
+   display: flex;
+   flex-direction: row;
+   align-items: center;
+   background-color: #EBE7E1; 
+
+   &__content{
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 50%;
+      height: 450px;
+      padding: 60px;
+      gap: 60px;
+
+      h2{
+         font-size: 4rem !important;
+         font-weight: 700;
+      }
+
+      .button{
+         display: flex;
+         flex-direction: row;
+         align-items: center;
+         justify-content: space-between;
+
+         .line{
+            border: 1px solid black;
+            flex: 1;
+         }
+
+         &__menu{
+            padding-block: 10px;
+            padding-inline: 20px;
+         }
+
+         &__menu:hover{
+            background-color: rgb(29, 29, 29);
+            color: white;
+         }
+      }
+   }
+
+   img{
+      width: 50%;
+      height: 450px;
+   }
+}
