@@ -7,11 +7,13 @@ import { ImageUploaderComponent } from '@shared/components/image-uploader/image-
 import { onFileChange } from '@shared/proxies/categories.proxies';
 import { ProductsProxy } from '@shared/proxies/products.proxie';
 import { ProductsService } from '@shared/services/products.service';
+import { finalize } from 'rxjs';
+import { IonSpinner } from "@ionic/angular/standalone";
 
 @Component({
   selector: 'products-form',
   standalone: true,
-  imports: [ButtonComponent, ImageUploaderComponent, FormsModule, DecimalPipe],
+  imports: [IonSpinner, ButtonComponent, ImageUploaderComponent, FormsModule, DecimalPipe],
   templateUrl: './products-form.component.html',
   styleUrls: ['./products-form.component.scss'],
 })
@@ -21,6 +23,7 @@ export class ProductsFormComponent {
   private productsService = inject(ProductsService);
   private destroyRef = inject(DestroyRef);
 
+  busy: boolean = false;
   image: File | undefined;
   name: string = '';
   price: number = 0;
@@ -29,23 +32,22 @@ export class ProductsFormComponent {
   onCreate(): void {
     if (!this.image) return;
 
+    this.busy = true;
     this.productsProxy.create(
       this.image!,
       this.name,
       this.price,
       this.description
     ).pipe(
-      takeUntilDestroyed(this.destroyRef)
+      takeUntilDestroyed(this.destroyRef),
+      finalize(() => this.busy = false)
     ).subscribe({
       next: (product) => {
         this.productsService.products.update((prev) => [...prev, product]);
         this.resetForm();
       },
-      error: (err) => {
-        console.error('Error creating product', err);
-      }
     });
-  }
+  };
 
   onFileChange(event: File) {
     this.image = onFileChange(event);

@@ -1,15 +1,16 @@
-$header-height: 117px;
-
 .container__wrapper {
   display: flex;
   gap: 80px;
   justify-content: space-between;
   padding-top: 3rem;
+  height: calc(100vh - 117px);
 }
 
 .content {
   flex: 1;
   width: 900px;
+  overflow-y: scroll;
+  padding-inline: 1rem;
 }
 
 .side-menu {

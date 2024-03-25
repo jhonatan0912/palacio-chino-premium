@@ -1,4 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { ViewComponent } from '@core/view-component';
 import { ButtonComponent } from '@lib/button/button.component';
 
 @Component({
@@ -8,8 +9,4 @@ import { ButtonComponent } from '@lib/button/button.component';
   templateUrl: './shopping-cart-empty.component.html',
   styleUrls: ['./shopping-cart-empty.component.scss']
 })
-export class ShoppingCartEmptyComponent {
-
-  onDismiss = new EventEmitter<void>();
-
-}
+export class ShoppingCartEmptyComponent extends ViewComponent { }

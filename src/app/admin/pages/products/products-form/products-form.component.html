@@ -31,6 +31,10 @@
   </div>
 
   <lib-button class="button-center" (onAction)="onCreate()">
-    Crear
+    @if (busy) {
+    <ion-spinner name="crescent" />
+    }@else {
+    <span>Crear</span>
+    }
   </lib-button>
 </section>

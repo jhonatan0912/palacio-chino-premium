@@ -1,12 +1,13 @@
 .main-content {
   background: #ffffff;
+  border-radius: .5rem;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
   display: flex;
   flex-direction: column;
   gap: 60px;
-  width: 100%;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  height: 80%;
   padding: 1rem;
-  border-radius: .5rem;
+  width: 100%;
 
   .information {
     display: flex;

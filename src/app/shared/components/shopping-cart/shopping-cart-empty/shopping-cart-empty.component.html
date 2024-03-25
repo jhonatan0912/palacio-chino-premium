@@ -1,18 +1,21 @@
 <section class="empty">
 
   <div class="empty__content">
-    <h3 class="empty__content__title">El carrito de compras esta vacio</h3>
+    <h3 class="empty__content__title">
+      El carrito de compras esta vacio
+    </h3>
   </div>
 
+  <img
+    src="/assets/empty-cart.png"
+    alt="Empty status">
+
   <div>
-    <img src="./assets/empty-cart.png" alt="">
-  </div>
-  <div>
-    <p>Puedes volver a nuestra tienda virtual y agregar mas productos</p>
+    Puedes volver a nuestra tienda virtual y agregar mas productos
   </div>
 
   <lib-button
-    (onAction)="onDismiss.emit()"
+    (onAction)="popup.dismiss('cancel')"
     class="button-center">
     ORDENAR AHORA
   </lib-button>
