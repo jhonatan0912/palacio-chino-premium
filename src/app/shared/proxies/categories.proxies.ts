@@ -32,6 +32,15 @@ export class CategoriesProxy {
     return this.http.get(this.path).pipe(mergeMap((data: any) => of(data.map((item: any) => new CategoryDto().fromJS(item)))));
   }
 
+  update(id: string, icon: File | undefined, name: string, slug: string): Observable<CategoryDto> {
+    const form = new FormData();
+    if (icon) form.append('icon', icon);
+    form.append('name', name);
+    form.append('slug', slug);
+    
+    return this.http.update(`${this.path}/${id}`, form).pipe(mergeMap((data: any) => of(new CategoryDto().fromJS(data))));
+  }
+
   delete(id: string): Observable<void> {
     const url = `${this.path}/${id}`;
 
@@ -45,6 +54,10 @@ export class CategoryDto {
   slug!: string;
   icon!: string;
   name!: string;
+
+  constructor(data?: any) {
+    this.init(data);
+  }
 
   init(data: any): void {
     if (data) {

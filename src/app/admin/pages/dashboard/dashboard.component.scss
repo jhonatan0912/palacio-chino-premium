@@ -34,7 +34,7 @@
       background-size: cover;
       color: white;
       width: 100%;
-      border-radius: 50px;
+      border-radius: 1rem;
 
       &__content {
          background-color: rgba(35, 35, 35, 0.74);
@@ -44,7 +44,7 @@
          justify-content: center;
          gap: 60px;
          padding-block: 1rem;
-         border-radius: 50px;
+         border-radius: 1rem;
 
          img {
             width: 80px;

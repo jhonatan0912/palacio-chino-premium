@@ -35,7 +35,7 @@ export class CategoryListComponent extends ViewComponent implements OnInit {
     this.dialog.showWithData({
       component: AdminCategoryFormModalComponent,
       componentProps: {
-        categoryId: id
+        category: this.categoriesService.categories().find(c => c.id === id)
       }
     });
   }
