@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { ViewComponent } from '@core/view-component';
 import { IonIcon } from "@ionic/angular/standalone";
 
@@ -10,7 +10,9 @@ import { IonIcon } from "@ionic/angular/standalone";
   styleUrls: ['./title-modal.component.scss']
 })
 export class TitleModalComponent extends ViewComponent {
-  
+
+  @Output() onDismiss = new EventEmitter<void>();
+
   constructor() {
     super();
   }

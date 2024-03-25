@@ -1,0 +1,28 @@
+<section class="chat">
+  <title-modal (onDismiss)="onDismiss()">
+    Chat
+  </title-modal>
+  <div id="chat__history" class="chat__history scroll">
+    @for (message of aiService.messages(); track $index) {
+    <div class="message {{ message.role }}">
+      {{ message.message }}
+    </div>
+    }
+  </div>
+
+  <div class="chat__input">
+    <input
+      [(ngModel)]="prompt"
+      (keyup.enter)="onChat()"
+      type="text"
+      placeholder="Escribe un mensaje">
+
+    <button (click)="onChat()">
+      @if (busy) {
+      <ion-spinner name="crescent" />
+      }@else {
+      <ion-icon name="send" />
+      }
+    </button>
+  </div>
+</section>

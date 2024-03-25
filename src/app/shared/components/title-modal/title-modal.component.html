@@ -1,8 +1,8 @@
 <header class="title-close">
   <span class="title">
-    Detalle de pedido
+    <ng-content />
   </span>
   <ion-icon
-    (click)="dialog.dismiss('cancel')"
+    (click)="onDismiss.emit()"
     name="close-outline" />
 </header>
