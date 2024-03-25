@@ -25,5 +25,17 @@
     }@else{
     <ion-spinner name="dots" />
     }
+
+    <section class="buttons">
+        <lib-button
+          (onAction)="onAddAddress()"
+          type="outline">
+          Agregar dirección
+        </lib-button>
+
+        <lib-button (onAction)="onContinue()">
+          Finalizar compra
+        </lib-button>
+    </section>
   </div>
 </section>

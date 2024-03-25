@@ -9,6 +9,10 @@ export const routes: Routes = [
       {
         path: 'choose-address',
         loadComponent: () => import('@checkout/choose-address/choose-address.component').then(p => p.ChooseAddressComponent)
+      },
+      {
+        path: 'add-address',
+        loadComponent: () => import('@checkout/add-address/add-address.component').then(p => p.AddAddressComponent)
       }
     ]
   }

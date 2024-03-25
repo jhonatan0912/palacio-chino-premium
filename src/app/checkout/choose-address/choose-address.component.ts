@@ -2,6 +2,7 @@ import { Component, DestroyRef, OnInit, inject, signal } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { FormsModule } from '@angular/forms';
 import { IonRadioGroup, IonRadio, IonSpinner } from '@ionic/angular/standalone';
+import { ButtonComponent } from '@lib/button/button.component';
 import { AddressesService } from '@profile/services/addresses.service';
 import { AddressDto, AddressesProxy } from '@shared/proxies/addresses.proxies';
 import { finalize } from 'rxjs';
@@ -9,7 +10,7 @@ import { finalize } from 'rxjs';
 @Component({
   selector: 'app-choose-address',
   standalone: true,
-  imports: [IonSpinner, IonRadio, FormsModule, IonRadioGroup],
+  imports: [IonSpinner, IonRadio, FormsModule, IonRadioGroup, ButtonComponent],
   templateUrl: './choose-address.component.html',
   styleUrls: ['./choose-address.component.scss']
 })
@@ -57,5 +58,11 @@ export class ChooseAddressComponent implements OnInit {
 
   onSelect(address: AddressDto): void {
     this.address = address;
+  }
+
+  onAddAddress(): void { }
+
+  onContinue(): void {
+    if (!this.address.id) return;
   }
 }
