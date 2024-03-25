@@ -1,12 +1,6 @@
+<title-modal />
+
 <section class="modal__container">
-  <div class="title-close">
-    <span class="title">
-      Detalle de pedido
-    </span>
-    <ion-icon
-      (click)="dialog.dismiss('cancel')"
-      name="close-outline" />
-  </div>
   <div class="modal__content">
     <div class="modal__content__header">
       <div class="modal__content__header__item">
@@ -21,7 +15,8 @@
         <div class="modal__content__header__item__label">
           Estado
         </div>
-        <div (click)="onChangeStatus($event)" class="modal__content__header__item__value">
+        <div (click)="onChangeStatus($event)"
+          class="modal__content__header__item__value">
           <span class="status__label {{ order().status }}">
             {{ order().formatedStatus }}
           </span>
@@ -42,4 +37,6 @@
       }
     </div>
   </div>
+
+  <order-detail-client [order]="order()" />
 </section>

@@ -1,0 +1,34 @@
+<section class="modal__user">
+  <div class="modal__user__header">
+    <div class="modal__user__header__title">
+      Datos del cliente
+    </div>
+  </div>
+  <div class="modal__user__content">
+    <div class="modal__user__content__item">
+      <div class="modal__user__content__item__label">
+        Nombre
+      </div>
+      <div class="modal__user__content__item__value">
+        {{ order().user.name }}
+      </div>
+    </div>
+    <div class="modal__user__content__item">
+      <div class="modal__user__content__item__label">
+        Email
+      </div>
+      <div class="modal__user__content__item__value">
+        {{ order().user.email }}
+      </div>
+    </div>
+    <div class="modal__user__content__item">
+      <div class="modal__user__content__item__label">
+        Dirección
+      </div>
+      <div class="modal__user__content__item__value">
+        {{ order().address.street }}, {{ order().address.number }} - {{
+        order().address.district }}
+      </div>
+    </div>
+  </div>
+</section>

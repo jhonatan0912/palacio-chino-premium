@@ -34,7 +34,7 @@ export class AdminProxy {
       status
     };
 
-    return this.http.update(path, body)
+    return this.http.update(path, body);
   }
 }
 
@@ -61,8 +61,9 @@ export class AdminGetOrderDto {
   id!: string;
   user!: GetOrdersResponseUserDto;
   products!: GetOrdersResponseProductDto[];
-  createdAt!: string;
+  createdAt!: Date;
   status!: OrderStatus;
+  address!: GetOrdersResponseAddressDto;
   formatedStatus!: string;
   total!: number;
 
@@ -73,6 +74,7 @@ export class AdminGetOrderDto {
       this.products = data.products ? data.products.map((i: any) => new GetOrdersResponseProductDto().fromJS(i)) : [];
       this.createdAt = data.createdAt;
       this.status = data.status;
+      this.address = data.address ? new GetOrdersResponseAddressDto().fromJS(data.address) : <any>undefined;
       this.formatedStatus = formatOrderStatus(data.status);
       this.total = data.total;
     }
@@ -123,6 +125,35 @@ export class GetOrdersResponseProductDto {
   fromJS(data: any): GetOrdersResponseProductDto {
     data = typeof data === 'object' ? data : {};
     const result = new GetOrdersResponseProductDto();
+    result.init(data);
+    return result;
+  }
+}
+
+export class GetOrdersResponseAddressDto {
+  id!: string;
+  district!: string;
+  type!: string;
+  street!: string;
+  number!: string;
+  phone!: string;
+  reference!: string;
+
+  init(data: any): void {
+    if (data) {
+      this.id = data.id;
+      this.district = data.district;
+      this.type = data.type;
+      this.street = data.street;
+      this.number = data.number;
+      this.phone = data.phone;
+      this.reference = data.reference;
+    }
+  }
+
+  fromJS(data: any): GetOrdersResponseAddressDto {
+    data = typeof data === 'object' ? data : {};
+    const result = new GetOrdersResponseAddressDto();
     result.init(data);
     return result;
   }
