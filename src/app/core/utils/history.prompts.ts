@@ -11,6 +11,14 @@ export const history: Content[] = [
   },
   {
     role: 'user',
+    parts: [{ text: 'Ubicación?' }]
+  },
+  {
+    role: 'model',
+    parts: [{ text: 'Uruguay 908, Huancayo 12001' }]
+  },
+  {
+    role: 'user',
     parts: [{ text: '¿Cuál es la historia de la empresa Palacio Chino Premium?' }]
   },
   {

@@ -57,12 +57,15 @@ export class MenuComponent extends ViewComponent implements OnInit {
   }
 
   onOpenChat(event: Event): void {
+    if (!this.session.user) {
+      this.navigation.forward('/auth/login');
+      return;
+    }
     this.popup.showWithData({
       component: ChatPopoverComponent,
       event: event,
       arrow: false,
       side: 'top',
-      // backdropDismiss: false,
       showBackdrop: false,
       alignment: 'end',
       cssClass: ['chat-popover']
