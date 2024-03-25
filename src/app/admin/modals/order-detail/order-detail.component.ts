@@ -30,6 +30,8 @@ export class AdminOrderDetailComponent extends ViewComponent {
       event: event,
       arrow: false
     }).then((status: OrderStatus) => {
+      if (status === this.order().status) return;
+      
       this._adminProxy.changeOrderStatus(
         this.order().id,
         status

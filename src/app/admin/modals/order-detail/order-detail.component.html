@@ -2,7 +2,7 @@
 
 <section class="modal__container">
   <div class="modal__content">
-    <div class="modal__content__header">
+    <header class="modal__content__header">
       <div class="modal__content__header__item">
         <div class="modal__content__header__item__label">
           Fecha
@@ -30,7 +30,7 @@
           S/ {{ order().total| number: '1.2-2' }}
         </div>
       </div>
-    </div>
+    </header>
     <div class="modal__content__body">
       @for (product of order().products; track $index) {
       <admin-order-detail-product [product]="product" />
