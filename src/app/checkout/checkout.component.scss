@@ -1,0 +1,27 @@
+.checkout__container {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+
+  checkout-aside {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .checkout__container {
+
+    checkout-aside {
+      display: block;
+      width: 20%;
+    }
+
+    .checkout__content {
+      flex: 1;
+      background-image: url('/assets/background-auth.png');
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+  }
+
+}

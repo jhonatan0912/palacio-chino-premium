@@ -1,0 +1,10 @@
+.aside {
+  padding: 1rem;
+
+  & .breadcrums {
+    & .breadcrum {
+      font-weight: bold;
+      cursor: pointer;
+    }
+  }
+}
