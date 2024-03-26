@@ -1,22 +1,24 @@
 .wrapper {
   background: #fff;
-  // max-width: 30%;
-  border: 1px solid black;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   padding: 40px;
   border-radius: 1rem;
+  margin-top: .5rem;
+
+  .title {
+    margin-bottom: 4rem;
+  }
 }
 
-.title{
-  margin-bottom: 4rem;
-}
 
-.sub_title{
+.title {
   margin-block: 2rem;
 }
 
-input, select, textarea{
-  border: 1px solid black;
-  // border: 1px solid #6A6A6A;
+input,
+select,
+textarea {
+  border: 1px solid #ccc;
   border-radius: 10px;
   padding: 10px 10px;
   width: 100%;
@@ -26,29 +28,28 @@ input, select, textarea{
   display: flex;
   flex-direction: column;
   gap: 2rem;
-  // margin-top: 4rem;
-  // margin-bottom: 2rem;
 }
 
-.row{
+.row {
   display: flex;
   flex-direction: row;
   gap: 80px;
 }
 
-.content_buttons{
+.buttons {
   display: flex;
   flex-direction: row;
   align-items: stretch;
   justify-content: flex-start;
   gap: 2rem;
+  margin-top: 1rem;
 
-  .button{
+  .button {
     width: 250px;
   }
 }
 
-.button_return{
+.button_return {
   background-color: rgb(75, 75, 75);
   padding: auto;
   padding-left: 50px;
@@ -57,6 +58,6 @@ input, select, textarea{
   color: #fff;
 }
 
-.button_return:hover{
+.button_return:hover {
   background-color: rgba(35, 35, 35, 1);
 }

@@ -6,14 +6,14 @@
 
   <section class="col">
     <div class="row">
-      <select name="district" id="district">
+      <select class="cursor-pointer" name="district" id="district">
         <option readonly disabled selected>Distrito</option>
         <option value="chilca">Chilca</option>
         <option value="huancayo">Huancayo</option>
         <option value="el-tambo">El tambo</option>
       </select>
 
-      <select name="type" id="type">
+      <select class="cursor-pointer" name="type" id="type">
         <option readonly disabled selected>Tipo de lugar</option>
         <option value="1">1</option>
         <option value="2">2</option>
@@ -31,29 +31,19 @@
     </div>
 
     <div class="row">
-      <textarea name="reference" id="reference" cols="30" rows="5"
-        placeholder="Referencia"></textarea>
+      <textarea
+        name="reference"
+        id="reference"
+        cols="30"
+        rows="5"
+        placeholder="Referencia"
+        maxlength="200">
+      </textarea>
     </div>
 
   </section>
 
-  <p class="sub_title">
-    Tipo dirección
-  </p>
-
-  <div class="col">
-
-    <div class="row">
-      <div class="address_type">
-        <section class="select_address">
-
-        </section>
-      </div>
-    </div>
-
-  </div>
-
-  <div class="content_buttons">
+  <section class="buttons">
     <lib-button
       (onAction)="addAddress()"
       class="button">
@@ -61,9 +51,9 @@
     </lib-button>
 
     <button
-      (click)="goDashboard()"
+      (click)="onAddresses()"
       class="button_return">
       Volver
     </button>
-  </div>
+  </section>
 </main>

@@ -123,7 +123,6 @@
 
       img {
          display: none;
-         width: 28%;
       }
 
       store-map {
@@ -152,7 +151,7 @@
       &__map {
          img {
             display: block;
-            width: 40%;
+            width: 28%;
          }
 
          store-map {
@@ -163,15 +162,6 @@
 
 }
 
-
-
-
-
-@media (min-width: 768px) {
-   .cards-menu {
-      grid-template-columns: repeat(3, 1fr) !important;
-   }
-}
 
 @media screen and (min-width: 1024px) {
    .cards-menu {

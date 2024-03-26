@@ -13,9 +13,9 @@ interface Message {
 })
 export class AiService {
 
-  messages = signal<Message[]>([{
-    role: 'model', message: '¡Hola! ¿En qué puedo ayudarte hoy? 😊'
-  }]);
+  messages = signal<Message[]>([
+    { role: 'model', message: '¡Hola! ¿En qué puedo ayudarte hoy? 😊' },
+  ]);
 
   async onChat(msg: string): Promise<string> {
     const genAI = new GoogleGenerativeAI(environment.tokenAI);
