@@ -17,18 +17,22 @@
 
     .message {
       display: block;
-
       width: max-content;
       padding: .5rem;
       box-shadow: 0 0 5px #ccc;
       max-width: 200px;
+      color: #fff;
 
       &.user {
+        background: #007bff;
         margin-left: auto;
+        border-radius: .5rem .5rem 0 .5rem;
       }
 
       &.model {
+        background: #252525;
         margin-right: auto;
+        border-radius: .5rem .5rem .5rem 0;
       }
     }
   }

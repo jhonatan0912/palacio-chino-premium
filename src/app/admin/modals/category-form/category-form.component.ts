@@ -8,15 +8,17 @@ import { SlugPipe } from '@shared/pipes/slug.pipe';
 import { SrcImagePipe } from '@shared/pipes/srcImage.pipe';
 import { CategoriesProxy, CategoryDto, getSlug } from '@shared/proxies/categories.proxies';
 import { finalize } from 'rxjs';
+import { IonSpinner } from "@ionic/angular/standalone";
+import { ViewComponent } from '@core/view-component';
 
 @Component({
   selector: 'admin-category-form',
   standalone: true,
-  imports: [FormsModule, AdminCategoryFormComponent, TitleModalComponent, SrcImagePipe, SlugPipe, ButtonComponent],
+  imports: [IonSpinner, FormsModule, AdminCategoryFormComponent, TitleModalComponent, SrcImagePipe, SlugPipe, ButtonComponent],
   templateUrl: './category-form.component.html',
   styleUrls: ['./category-form.component.scss']
 })
-export class AdminCategoryFormModalComponent {
+export class AdminCategoryFormModalComponent extends ViewComponent {
 
   private readonly _categoriesProxy = inject(CategoriesProxy);
   private readonly _destroyRef = inject(DestroyRef);
@@ -24,6 +26,10 @@ export class AdminCategoryFormModalComponent {
   @Input() category!: CategoryDto;
 
   busy: boolean = false;
+
+  constructor() {
+    super();
+  }
 
   onUpdate(): void {
     this.busy = true;
@@ -38,8 +44,8 @@ export class AdminCategoryFormModalComponent {
       takeUntilDestroyed(this._destroyRef),
       finalize(() => this.busy = false)
     ).subscribe({
-      next: (res) => {
-        console.log(res);
+      next: () => {
+        this.dialog.dismiss('cancel');
       }
     });
   }

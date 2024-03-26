@@ -75,6 +75,11 @@ textarea {
   }
 }
 
+textarea {
+  resize: none;
+  field-sizing: content
+}
+
 input[type='number'] {
 
   &::-webkit-inner-spin-button,

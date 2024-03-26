@@ -1,5 +1,6 @@
 import { Injectable, signal } from '@angular/core';
 import { history } from '@core/utils/history.prompts';
+import { environment } from '@environments/environment';
 import { GoogleGenerativeAI } from '@google/generative-ai';
 
 interface Message {
@@ -12,10 +13,12 @@ interface Message {
 })
 export class AiService {
 
-  messages = signal<Message[]>([]);
+  messages = signal<Message[]>([{
+    role: 'model', message: '¡Hola! ¿En qué puedo ayudarte hoy? 😊'
+  }]);
 
   async onChat(msg: string): Promise<string> {
-    const genAI = new GoogleGenerativeAI('AIzaSyA1PWJkJ3qa5kN9ImCGGjEwiPiZ5o_a-Rc');
+    const genAI = new GoogleGenerativeAI(environment.tokenAI);
 
     const model = genAI.getGenerativeModel({ model: 'gemini-pro' });
     const chat = model.startChat({

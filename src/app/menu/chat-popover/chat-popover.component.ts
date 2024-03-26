@@ -37,11 +37,14 @@ export class ChatPopoverComponent extends ViewComponent implements AfterViewInit
   }
 
   async onChat(): Promise<void> {
+    if (this.prompt.trim().length === 0) return;
+    
     const message = this.prompt;
     this.aiService.messages.update((prev) => [...prev, { role: 'user', message }]);
     this.scroll();
     this.busy = true;
     this.prompt = '';
+
     await this.aiService.onChat(message)
       .then((res) => {
         this.busy = false;

@@ -32,7 +32,11 @@
     <lib-button
       (onAction)="onUpdate()"
       class="button-center">
-      Actualizar
+      @if (busy) {
+      <ion-spinner name="crescent" />
+      }@else {
+        Actualizar
+      }
     </lib-button>
   </form>
 </main>
