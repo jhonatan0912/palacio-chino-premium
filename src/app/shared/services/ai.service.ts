@@ -23,9 +23,6 @@ export class AiService {
     const model = genAI.getGenerativeModel({ model: 'gemini-pro' });
     const chat = model.startChat({
       history: history,
-      generationConfig: {
-        maxOutputTokens: 100
-      }
     });
 
     const result = await chat.sendMessage(msg);

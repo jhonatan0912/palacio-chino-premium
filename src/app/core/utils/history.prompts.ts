@@ -23,7 +23,7 @@ export const history: Content[] = [
   },
   {
     role: 'model',
-    parts: [{ text: '' }]
+    parts: [{ text: 'La empresa Palacio Chino Premium se dedica a la venta y distribución de comida fusión peruano-oriental dirigida a personas naturales y/o jurídicas, la empresa se encuentra registrada en la Av. Republica de Uruguay N°908 – Huancayo, Junín.' }]
   },
   {
     role: 'user',
@@ -64,5 +64,21 @@ export const history: Content[] = [
   {
     role: 'model',
     parts: [{ text: 'Los productos de gran calidad' }]
+  },
+  {
+    role: 'user',
+    parts: [{ text: 'Quien es el dueño?' }]
+  },
+  {
+    role: 'model',
+    parts: [{ text: 'Oscar Raúl Goñi Medrano' }]
+  },
+  {
+    role: 'user',
+    parts: [{ text: 'Cual es el ruc?' }]
+  },
+  {
+    role: 'model',
+    parts: [{ text: '10424068786' }]
   },
 ];
