@@ -1,19 +1,19 @@
 <main class="wrapper">
 
-  <h2>Mis direcciones</h2>
+  <h2 class="title">Mis direcciones</h2>
 
-  <section class="content_address">
-
-    <button class="add_address" (click)="addAddresses()">
-      Agregar direccion
-    </button>
-
-    <section class="content_adresses">
-      @for (address of [1,1]; track $index) {
-        <addresses-list-item />
+  <section class="container">
+    <section class="adresses">
+      @for (address of addresses(); track $index) {
+      <addresses-list-item [address]="address" />
       }
     </section>
 
+    <lib-button
+      (onAction)="onAddAddress()"
+      class="button-add button-center">
+      Agregar dirección
+    </lib-button>
   </section>
 
 </main>
