@@ -13,6 +13,7 @@ export class AppAlertService {
       color: 'success',
       message: message,
       duration: duration,
+      icon: 'checkmark-circle-outline',
       position: 'top',
       cssClass: ['alert']
     });
@@ -25,6 +26,7 @@ export class AppAlertService {
       color: 'primary',
       message: message,
       duration: duration,
+      icon: 'information-circle-outline',
       position: 'top',
       cssClass: ['alert']
     });
@@ -38,6 +40,7 @@ export class AppAlertService {
       color: 'warning',
       message: message,
       duration: duration,
+      icon: 'alert-circle-outline',
       position: 'top',
       cssClass: ['alert']
     });
@@ -50,6 +53,7 @@ export class AppAlertService {
       color: 'danger',
       message: message,
       duration: duration,
+      icon: 'alert-circle-outline',
       position: 'top',
       cssClass: ['alert']
     });
