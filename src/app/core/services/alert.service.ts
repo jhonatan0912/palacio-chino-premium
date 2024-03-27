@@ -1,10 +1,10 @@
 import { Injectable, inject } from '@angular/core';
-import { ToastController } from "@ionic/angular/standalone";
+import { ToastController } from '@ionic/angular';
 
 @Injectable({
   providedIn: 'root'
 })
-export class AppNotifyService {
+export class AppAlertService {
 
   private readonly _toastCtrl = inject(ToastController);
 
@@ -13,9 +13,10 @@ export class AppNotifyService {
       color: 'success',
       message: message,
       duration: duration,
-      position: 'bottom',
-      icon: 'checkmark-circle-outline',
+      position: 'top',
+      cssClass: ['alert']
     });
+
     toast.present();
   }
 
@@ -24,20 +25,23 @@ export class AppNotifyService {
       color: 'primary',
       message: message,
       duration: duration,
-      position: 'bottom',
-      icon: 'information-circle-outline',
+      position: 'top',
+      cssClass: ['alert']
     });
+
     toast.present();
   }
+
 
   async warning(message: string, duration: number): Promise<void> {
     const toast = await this._toastCtrl.create({
       color: 'warning',
       message: message,
       duration: duration,
-      position: 'bottom',
-      icon: 'alert-circle-outline',
+      position: 'top',
+      cssClass: ['alert']
     });
+
     toast.present();
   }
 
@@ -46,11 +50,10 @@ export class AppNotifyService {
       color: 'danger',
       message: message,
       duration: duration,
-      position: 'bottom',
-      icon: 'alert-circle-outline',
+      position: 'top',
+      cssClass: ['alert']
     });
 
     toast.present();
   }
-
 }
