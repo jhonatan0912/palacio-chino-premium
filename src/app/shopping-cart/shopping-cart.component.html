@@ -13,4 +13,18 @@
     <shopping-cart-product [product]="product" />
     }
   </section>
+
+  @if (products().length > 0) {
+  <fixed-footer>
+    <lib-button
+      (onAction)="onCheckout()"
+      [disabled]="busy">
+      @if(busy){
+      <ion-spinner name="crescent" />
+      }@else {
+      Pagar S/ {{ total() | number: '1.2-2'}}
+      }
+    </lib-button>
+  </fixed-footer>
+  }
 </main>

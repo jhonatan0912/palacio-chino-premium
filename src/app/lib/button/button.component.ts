@@ -12,8 +12,8 @@ export type ButtonType = 'fill' | 'outline' | 'link';
 })
 export class ButtonComponent {
 
-  @Input()
-  type: ButtonType = 'fill';
+  @Input() type: ButtonType = 'fill';
+  @Input() disabled: boolean = false;
 
   @Output() onAction: EventEmitter<void> = new EventEmitter<void>();
 

@@ -1,0 +1,26 @@
+<section class="modal__content">
+  <ion-radio-group class="addresses" [(ngModel)]="address.id">
+    @for (address of addresses(); track $index) {
+    <article class="address" (click)="onSelect(address)">
+      <ion-radio [value]="address.id" />
+      <div class="address__content">
+        <p class="bold">
+          {{ address.street }}, {{ address.number }} - {{ address.district }}
+        </p>
+        <p> {{ address.phone }} </p>
+        <p> {{ address.type }} </p>
+      </div>
+    </article>
+    }
+  </ion-radio-group>
+
+  <fixed-footer>
+    <ion-button
+      (click)="onConfirm()"
+      expand="block"
+      fill="outline"
+      color="dark">
+      Seleccionar
+    </ion-button>
+  </fixed-footer>
+</section>
