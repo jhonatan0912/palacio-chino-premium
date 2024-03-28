@@ -44,7 +44,11 @@
 
    <lib-button
       (onAction)="onRegister()">
+      @if (busy) {
+      <ion-spinner name="crescent" />
+      }@else {
       REGISTRARME
+      }
    </lib-button>
 
 </section>
