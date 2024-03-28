@@ -2,8 +2,6 @@
 
   <categories-menu />
 
-  <!-- start -->
-
   <section class="menu">
     <h2>EXPLORA NUESTRO MENÚ</h2>
     <h1 class="menu__title">
@@ -26,10 +24,8 @@
     </div>
   </section>
 
-  <!-- end -->
-
   <!-- PROMOTIONS -->
-  <div class="menu_promotions">
+  <section class="menu_promotions">
     <h2 class="title_menu">
       PROMOCIONES
     </h2>
@@ -52,7 +48,7 @@
       }
     </button>
     }
-  </div>
+  </section>
 
   <section class="banner">
     <div class="banner__content">
@@ -84,5 +80,6 @@
     </div>
   </section>
 
-  <menu-chat-button (click)="onOpenChat($event)"/>
+  <menu-chat-button
+    (click)="onOpenChat($event)" />
 </main>

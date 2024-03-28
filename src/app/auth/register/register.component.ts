@@ -1,17 +1,18 @@
 import { Component, DestroyRef, inject } from '@angular/core';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { FormsModule } from '@angular/forms';
+import { AuthTitleComponent } from '@auth/components/auth-title/auth-title.component';
 import { ViewComponent } from '@core/view-component';
 import { ButtonComponent } from '@lib/button/button.component';
-import { AsideComponent } from '../components/aside/aside.component';
 import { AuthProxy } from '@shared/proxies/auth.proxies';
+import { AuthAsideComponent } from '../components/aside/aside.component';
 import { AuthService } from '../services/auth.service';
-import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 
 
 @Component({
   selector: 'app-register',
   standalone: true,
-  imports: [AsideComponent, ButtonComponent, FormsModule],
+  imports: [AuthTitleComponent, AuthAsideComponent, ButtonComponent, FormsModule],
   templateUrl: './register.component.html',
   styleUrl: './register.component.scss'
 })
@@ -57,5 +58,9 @@ export class RegisterComponent extends ViewComponent {
 
   onAuth() {
     this.navigation.forward('/auth/login');
+  }
+
+  onBack(): void {
+    this.navigation.back('/menu');
   }
 }

@@ -6,6 +6,7 @@ export const routes: Routes = [
   {
     path: '',
     canActivate: [loginGuard],
+    loadComponent: () => import('@auth/auth.component').then(p => p.AuthComponent),
     children: [
       {
         path: 'register',

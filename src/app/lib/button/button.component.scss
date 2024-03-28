@@ -6,6 +6,7 @@
    align-items: center;
    text-align: center;
    justify-content: center;
+   padding: 1rem;
 
    &.button-fill {
       color: #fff;
@@ -13,13 +14,11 @@
       font-weight: 700;
       text-align: center;
       cursor: pointer;
-      padding: 1rem;
    }
 
    &.button-outline {
       background: none;
       border: 1px solid #DC5353;
-      padding: 1rem;
    }
 
    &.button-center {
@@ -36,7 +35,7 @@
    }
 }
 
-button {
+.button {
    display: flex;
    gap: .5rem;
    text-align: center;

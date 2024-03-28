@@ -1,0 +1,21 @@
+:host {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 1rem;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+
+  &__title {
+    font-weight: bold;
+  }
+
+  .virtual__box{
+    width: 24px;
+    height: 24px;
+  }
+}

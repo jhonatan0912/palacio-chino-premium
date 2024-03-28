@@ -1,0 +1,48 @@
+.auth__container {
+  width: 100vw;
+  height: 100vh;
+  display: grid;
+  place-content: center;
+  overflow: hidden;
+
+  .back{
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+  }
+
+  .aside-auth {
+    display: none;
+  }
+
+  .auth__content {
+    flex: 1;
+    height: 100%;
+  }
+}
+
+@media screen and (min-width: 768px) {
+
+  .auth__container {
+    display: flex;
+
+    .aside-auth {
+      display: block !important;
+      width: 25%;
+    }
+
+    .auth__content {
+      background-image: url('/assets/background-auth.png');
+      background-repeat: no-repeat;
+      background-size: cover;
+      display: grid;
+      place-content: center;
+    }
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .aside-auth {
+    width: 18% !important;
+  }
+}

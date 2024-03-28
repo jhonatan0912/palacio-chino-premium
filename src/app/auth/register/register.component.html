@@ -1,62 +1,50 @@
-<main class="main">
+<auth-title (onBack)="onBack()">
+   Registro
+</auth-title>
 
-   <section class="panel_back">
-     <auth-aside />
-     <div class="name-logo">
-         <img src="/assets/logo.png" alt="">
-         <h2>Palacio Chino <br>Premium</h2>
-     </div>
-     <div></div>
-   </section>
+<section class="form shadow-2xl">
+   <h2 class="form__title">
+      Registrate
+   </h2>
 
-   <section class="form-container">
+   <p class="text_extra">¿Ya tienes cuenta?
+      <span (click)="onAuth()">
+         Inicia Sesión
+      </span>
+   </p>
 
-     <div class="form shadow-2xl">
-       <h2 class="title_form">
-         Registrate
-       </h2>
-
-       <p class="text_extra">¿Ya tienes cuenta?
-         <span (click)="onAuth()" id="log_in">Inicia Sesión</span>
-      </p>
-
-      <div class="inputs_form">
-         <div class="form-input">
-            <span>Nombres completos</span>
-            <input [(ngModel)]="fullName" type="text" placeholder="Nombres">
-         </div>
-
-         <div class="form-input">
-            <span>Correo electrónico</span>
-            <input [(ngModel)]="email" type="email" placeholder="Correo electrónico">
-         </div>
-
-         <div class="form-input">
-            <span>Contraseña</span>
-            <input [(ngModel)]="password" type="password" placeholder="Contraseña">
-         </div>
-
-         <div class="form-input">
-            <span>Confirmar Contraseña</span>
-            <input (keydown.enter)="onRegister()" [(ngModel)]="passwordConfirm" type="password" placeholder="Confirmar Contraseña">
-         </div>
+   <div class="inputs_form">
+      <div class="form-input">
+         <span>Nombres completos</span>
+         <input [(ngModel)]="fullName" type="text" placeholder="Nombres">
       </div>
 
-      <p class="text_extra" id="data">Al registrarse autoriza el tratamiento de sus
-         <span>datos personales</span>
-      </p>
-
-      <div class="button_register">
-         <lib-button
-            (onAction)="onRegister()"
-         >
-         REGISTRARME
-         </lib-button>
+      <div class="form-input">
+         <span>Correo electrónico</span>
+         <input [(ngModel)]="email" type="email"
+            placeholder="Correo electrónico">
       </div>
 
-     </div>
+      <div class="form-input">
+         <span>Contraseña</span>
+         <input [(ngModel)]="password" type="password" placeholder="Contraseña">
+      </div>
 
-   </section>
+      <div class="form-input">
+         <span>Confirmar Contraseña</span>
+         <input (keydown.enter)="onRegister()" [(ngModel)]="passwordConfirm"
+            type="password" placeholder="Confirmar Contraseña">
+      </div>
+   </div>
 
+   <p class="text__extra">Al registrarse autoriza el tratamiento de
+      sus
+      <span>datos personales</span>
+   </p>
 
- </main>
+   <lib-button
+      (onAction)="onRegister()">
+      REGISTRARME
+   </lib-button>
+
+</section>
