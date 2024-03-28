@@ -55,5 +55,9 @@ export const routes: Routes = [
     path: 'admin-dashboard',
     loadChildren: () => import('@admin/admin.routes').then(r => r.routes)
   },
+  {
+    path: 'shopping-cart',
+    loadComponent: () => import('@shopping-cart/shopping-cart.component').then(p => p.ShoppingCartComponent)
+  },
   { path: '**', redirectTo: '', pathMatch: 'full' },
 ];

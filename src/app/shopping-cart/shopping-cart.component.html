@@ -1,0 +1,16 @@
+<header class="header">
+  <ion-icon (click)="onBack()" name="arrow-back-outline" />
+  <span class="title">
+    Carrito de compras
+  </span>
+  <span class="virtual__box"></span>
+</header>
+
+<main class="shopping-cart__container">
+
+  <section class="products">
+    @for (product of products(); track product.id) {
+    <shopping-cart-product [product]="product" />
+    }
+  </section>
+</main>
