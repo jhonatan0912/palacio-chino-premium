@@ -1,10 +1,10 @@
-<main class="wrapper">
-  <app-header />
+<app-header class="header" />
 
-  <div class="container__wrapper container__layout">
-    <div class="content scroll">
+<main class="profile__container">
+  <section class="profile__wraper">
+    <profile-side-menu class="side-menu" />
+    <section class="profile__content scroll">
       <router-outlet />
-    </div>
-    <profile-side-menu class="side-menu"/>
-  </div>
+    </section>
+  </section>
 </main>

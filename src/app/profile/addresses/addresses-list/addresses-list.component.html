@@ -6,6 +6,8 @@
     <section class="adresses">
       @for (address of addresses(); track $index) {
       <addresses-list-item [address]="address" />
+      }@empty {
+      <p class="empty">No tienes direcciones guardadas</p>
       }
     </section>
 

@@ -1,3 +1,9 @@
+:host {
+   z-index: 50;
+   background-color: white;
+   box-shadow: 0 10px 25px -5px rgb(0 0 0 / 0.1)
+}
+
 .content_navbar {
    display: flex;
    justify-content: space-between;
@@ -33,27 +39,9 @@
       }
    }
 
-   .option:hover{
+   .option:hover {
       font-weight: 600;
    }
-
-   // .option:last-child {
-   //    align-items: center;
-   //    background-color: var(--primary-red);
-   //    border-radius: 20px;
-   //    color: #fff;
-   //    display: flex;
-   //    height: max-content;
-   //    justify-content: center;
-   //    padding: 10px 25px;
-   //    margin-block: auto;
-   // }
-
-   // .option:last-child:hover {
-   //    background-color: var(--primary-red);
-   // }
-
-
 }
 
 .login-cart {
@@ -101,11 +89,3 @@ ion-icon {
       margin-top: .5rem;
    }
 }
-
-// @media screen and (min-width: 768px) {
-//    .option {
-//       &:last-child {
-//          display: block !important;
-//       }
-//    }
-// }
