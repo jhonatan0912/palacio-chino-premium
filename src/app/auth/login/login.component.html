@@ -9,7 +9,11 @@
 
   <section class="inputs__form">
     <div class="form__input">
-      <label for="email">Correo electrónico</label>
+      <label
+        class="form__label"
+        for="email">
+        Correo electrónico
+      </label>
       <input
         [(ngModel)]="email"
         id="email"
@@ -18,7 +22,11 @@
     </div>
 
     <div class="form__input">
-      <label for="password">Contraseña</label>
+      <label
+        class="form__label"
+        for="password">
+        Contraseña
+      </label>
       <input
         (keydown.enter)="onLogin()"
         [(ngModel)]="password"

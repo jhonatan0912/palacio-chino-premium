@@ -99,6 +99,10 @@
 }
 
 @media screen and (min-width:768px) {
+   .footer {
+      padding-bottom: 1rem;
+   }
+
    .contend_footer_first {
       display: flex !important;
       flex-direction: row !important;
