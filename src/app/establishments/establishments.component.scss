@@ -1,5 +1,5 @@
 main {
-   margin-top: 240px;
+   margin-top: 5rem;
 }
 
 .info_local {
@@ -27,8 +27,7 @@ main {
    }
 
    .content_info {
-      background-color: white;
-      border: 1px solid black;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
       border-radius: 30px;
       padding: 30px 60px;
       text-align: center;
