@@ -15,7 +15,6 @@
    flex-direction: column;
    gap: 20px;
    margin-top: 50px;
-   margin-bottom: 40px;
 
    .form__input {
       display: flex;
@@ -34,7 +33,7 @@
 .form__extra {
    display: flex;
    flex-direction: column;
-   gap: .5rem;
+   gap: 1rem;
    justify-content: center;
 
    &__new {
