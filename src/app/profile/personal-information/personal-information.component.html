@@ -2,26 +2,35 @@
    <h2>Mis datos</h2>
 
    <div class="inputs_form">
-      <input type="text" placeholder="Nombre" [value]="session.user?.fullName">
+      <input
+         type="text"
+         placeholder="Nombre"
+         [(ngModel)]="fullName">
       <div class="inputs_second">
-         <input type="text" placeholder="Correo Electrónico">
-         <input type="text" placeholder="Celular">
-         <select name="" id="">
-            <option value="dni">DNI</option>
-            <option value="ruc">RUC</option>
-            <option value="ce">CE</option>
-         </select>
-         <input type="text" placeholder="Documento">
+         <input
+            type="text"
+            placeholder="Correo Electrónico"
+            [(ngModel)]="email">
+
+         <input
+            type="tel"
+            placeholder="Celular"
+            [maxlength]="9"
+            [readonly]="phone !== ''"
+            [(ngModel)]="phone">
       </div>
    </div>
 
-   <div class="content_button">
-      <lib-button
-         class="button"
-         (onAction)="save()"
-      >
-      GUARDAR
-      </lib-button>
-   </div>
-   
+   @if (valueChanges()) {
+   <lib-button
+      (onAction)="onUpdate()"
+      [disabled]="busy"
+      class="button content_button">
+      @if (busy) {
+      <ion-spinner name="crescent" />
+      }@else {
+      Actualizar
+      }
+   </lib-button>
+   }
 </div>

@@ -15,6 +15,7 @@ export class AppNotifyService {
       duration: duration,
       position: 'bottom',
       icon: 'checkmark-circle-outline',
+      cssClass: ['notify']
     });
     toast.present();
   }
@@ -26,6 +27,7 @@ export class AppNotifyService {
       duration: duration,
       position: 'bottom',
       icon: 'information-circle-outline',
+      cssClass: ['notify']
     });
     toast.present();
   }
@@ -37,6 +39,7 @@ export class AppNotifyService {
       duration: duration,
       position: 'bottom',
       icon: 'alert-circle-outline',
+      cssClass: ['notify']
     });
     toast.present();
   }
@@ -48,6 +51,7 @@ export class AppNotifyService {
       duration: duration,
       position: 'bottom',
       icon: 'alert-circle-outline',
+      cssClass: ['notify']
     });
 
     toast.present();
