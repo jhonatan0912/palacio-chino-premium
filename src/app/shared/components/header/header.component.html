@@ -6,7 +6,7 @@
         src="/assets/logo.png"
         alt="Logo Palacio Chino Premium"
         width="90px"
-        height="90px"/>
+        height="90px" />
 
       <ul class="options">
         @for (option of options; track $index) {
@@ -25,11 +25,9 @@
         (click)="onAuth()">
         <ion-icon name="person-outline" />
         @if (!session.user) {
-        <p>
-          Iniciar sesión
-        </p>
+        Iniciar sesión
         }@else {
-        {{ session.user.fullName }}
+        <span class="username">{{ session.user.fullName }}</span>
         }
       </div>
 
@@ -37,9 +35,9 @@
         class="cart pointer"
         (click)="onCart($event)">
         @if (cartBadge()) {
-          <span class="badge">
-            {{ cartBadge() }}
-          </span>
+        <span class="badge">
+          {{ cartBadge() }}
+        </span>
         }
         <ion-icon class="cart-outline" name="cart-outline" />
       </div>

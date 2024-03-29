@@ -53,6 +53,14 @@
       display: flex;
       align-items: center;
       gap: .5rem;
+
+      .username {
+         text-transform: capitalize;
+         max-width: 100px;
+         overflow: hidden;
+         text-overflow: ellipsis;
+         white-space: nowrap;
+      }
    }
 
    .cart {
