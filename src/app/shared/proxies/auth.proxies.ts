@@ -54,6 +54,11 @@ export class AuthProxy {
 
     return this.http.post(`${this.path}/refresh-token`, body).pipe(mergeMap((data: any) => of(new AuthResponseDto().fromJS(data))));
   }
+
+  deleteAccount(): Observable<void> {
+    const url = `${this.path}/delete-account`;
+    return this.http.delete(url);
+  }
 }
 
 export class AuthResponseDto {
