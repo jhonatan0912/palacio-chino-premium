@@ -27,3 +27,11 @@ admin-order-detail {
     background: #fff;
   }
 }
+
+ion-modal {
+  &.delete-account {
+    --width: 90%;
+    --height: auto;
+    --border-radius: 1rem;
+  }
+}

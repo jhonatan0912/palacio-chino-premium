@@ -3,6 +3,7 @@ import { RouterOutlet } from '@angular/router';
 import { ViewComponent } from '@core/view-component';
 import { IonIcon, IonItemOptions } from "@ionic/angular/standalone";
 import { HeaderMobileComponent } from '@shared/components/header-mobile/header-mobile.component';
+import { DeleteAccountModalComponent } from '@shared/modals';
 
 @Component({
   standalone: true,
@@ -33,11 +34,18 @@ export class ProfileMobileComponent extends ViewComponent {
       name: 'Eliminar cuenta',
       icon: 'alert-circle-outline',
       class: 'text-delete',
-      method: () => this.navigation.forward('')
+      method: () => this.onDeleteAccount()
     },
   ];
 
   constructor() {
     super();
+  }
+
+  onDeleteAccount(): void {
+    this.dialog.showWithData({
+      component: DeleteAccountModalComponent,
+      cssClass: ['delete-account']
+    })
   }
 }

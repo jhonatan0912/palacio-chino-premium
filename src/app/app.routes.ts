@@ -3,9 +3,9 @@ import { profileGuard } from '@auth/guards/profile.guard';
 import { adminLoginGuard } from './admin/guards/admin-login.guard';
 
 export const profileRoutes = (): LoadChildrenCallback => {
-  return window.innerWidth > 768 ?
-    () => import('@profile/profile.routes').then(r => r.routes) :
-    () => import('@profile/profile-mobile.routes').then(r => r.routes);
+  return window.innerWidth < 768
+    ? () => import('@profile/profile-mobile.routes').then(r => r.routes)
+    : () => import('@profile/profile.routes').then(r => r.routes);
 };
 
 export const routes: Routes = [
