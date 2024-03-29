@@ -2,15 +2,19 @@ import { Injectable, inject } from '@angular/core';
 import { Socket, io } from 'socket.io-client';
 import { AdminOrdersService } from './orders.service';
 import { AdminGetOrderDto } from '@shared/proxies/admin.proxies';
+import { environment } from '@environments/environment';
+import { AppAlertService } from '@core/index';
+
 
 @Injectable()
-export class WebsocketsService {
+export class AdminWebsocketsService {
 
-  private readonly socket: Socket;
-  private readonly adminOrdersService = inject(AdminOrdersService);
+  private readonly _socket: Socket;
+  private readonly _adminOrdersService = inject(AdminOrdersService);
+  private readonly _alertService = inject(AppAlertService);
 
   constructor() {
-    this.socket = io('http://192.168.1.79:3000');
+    this._socket = io(environment.api);
   }
 
   init(): void {
@@ -18,10 +22,20 @@ export class WebsocketsService {
   }
 
   onOrder(): void {
-    this.socket.on('newOrder', (data: AdminGetOrderDto) => {
-      const order = new AdminGetOrderDto().fromJS(data);
-      this.adminOrdersService.orders.update((prev) => [order, ...prev]);
-      console.log(data);
+    this._socket.on('newOrder', (data: AdminGetOrderDto) => {
+      const { street, number, district } = data.address;
+      const message = `Nuevo pedido de: ${data.user.name}. ${street} ${number}, ${district}`;
+      this.presentAlert(message);
+      this.updateOrders(data);
     });
+  }
+
+  private presentAlert(message: string): void {
+    this._alertService.success(message, 3000);
+  }
+
+  private updateOrders(order: AdminGetOrderDto): void {
+    order = new AdminGetOrderDto().fromJS(order);
+    this._adminOrdersService.orders.update((prev) => [order, ...prev]);
   }
 }

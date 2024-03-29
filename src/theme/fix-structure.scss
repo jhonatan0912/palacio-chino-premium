@@ -1,9 +1,9 @@
 * {
-  font-family: Helvetica;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-size: 15px;
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
 }
 
 body {
@@ -32,6 +32,28 @@ ion-icon {
   cursor: pointer;
 }
 
+ion-radio {
+  --border-color: #000;
+  border: 1px solid #000;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  place-content: center;
+
+  &::part(container) {
+    margin: auto;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+  }
+
+  &::part(mark) {
+    border-width: 0px 0.150rem 0.150rem 0px;
+    border-color: #000;
+    width: 6px;
+  }
+}
+
 h2 {
   font-size: 1.125rem !important;
 }
@@ -51,6 +73,11 @@ textarea {
   &.code {
     cursor: not-allowed;
   }
+}
+
+textarea {
+  resize: none;
+  field-sizing: content
 }
 
 input[type='number'] {

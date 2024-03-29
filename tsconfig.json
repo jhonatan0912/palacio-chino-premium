@@ -27,6 +27,9 @@
       "@environments/*": [
         "./src/environments/*"
       ],
+      "@interceptors/*": [
+        "./src/app/interceptors/*"
+      ],
       "@core/*": [
         "./src/app/core/*"
       ],
@@ -39,15 +42,21 @@
       "@auth/*": [
         "./src/app/auth/*"
       ],
+      "@home/*": [
+        "./src/app/home/*"
+      ],
       "@admin/*": [
         "./src/app/admin/*"
       ],
       "@profile/*": [
         "./src/app/profile/*"
       ],
-      "@interceptors/*": [
-        "./src/app/interceptors/*"
-      ]
+      "@checkout/*": [
+        "./src/app/checkout/*"
+      ],
+      "@shopping-cart/*": [
+        "./src/app/shopping-cart/*"
+      ],
     }
   },
   "angularCompilerOptions": {

@@ -3,6 +3,9 @@
 }
 
 .scroll {
+  overflow-x: hidden;
+  padding: 0;
+
   &::-webkit-scrollbar {
     width: 5px;
     display: block;

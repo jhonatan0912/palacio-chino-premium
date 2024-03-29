@@ -1,3 +1,42 @@
-<div class="modal__container">
-  <category-form class="form" />
-</div>
+<title-modal>
+  Editar categoría
+</title-modal>
+
+<main class="modal__container scroll">
+  <form action class="modal__container__form">
+    <div class="preview">
+      <img [src]="category.icon | srcImage" [alt]="category.name">
+    </div>
+
+    <div class="form-group">
+      <label for="name">Nombre: </label>
+      <input
+        type="text"
+        id="name"
+        name="name"
+        [(ngModel)]="category.name"
+        required>
+    </div>
+
+    <div class="form-group">
+      <label for="slug">Slug: </label>
+      <input
+        type="text"
+        id="slug"
+        name="slug"
+        [value]="category.name | slug"
+        required
+        readonly>
+    </div>
+
+    <lib-button
+      (onAction)="onUpdate()"
+      class="button-center">
+      @if (busy) {
+      <ion-spinner name="crescent" />
+      }@else {
+        Actualizar
+      }
+    </lib-button>
+  </form>
+</main>

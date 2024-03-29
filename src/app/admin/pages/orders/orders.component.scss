@@ -1,0 +1,13 @@
+@import './../../scss/admin.scss';
+
+.orders {
+  display: grid;
+}
+
+@media screen and (min-width: 768px) {
+  .orders {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+  }
+
+}

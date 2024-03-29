@@ -3,13 +3,13 @@ import { ViewComponent } from '@core/view-component';
 import { IonIcon } from '@ionic/angular/standalone';
 
 @Component({
-  selector: 'auth-aside',
+  selector: 'aside-auth',
   standalone: true,
   imports: [IonIcon],
   templateUrl: './aside.component.html',
   styleUrl: './aside.component.scss'
 })
-export class AsideComponent extends ViewComponent {
+export class AuthAsideComponent extends ViewComponent {
 
   navigateToHome() {
     this.navigation.forward('/');

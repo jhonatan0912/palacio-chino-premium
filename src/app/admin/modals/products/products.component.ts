@@ -1,7 +1,9 @@
 import { DecimalPipe } from "@angular/common";
 import { Component, DestroyRef, Input, inject, input, signal } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
-import { IonToggle, ToggleCustomEvent } from "@ionic/angular/standalone";
+import { FormsModule } from '@angular/forms';
+import { IonToggle, ToggleCustomEvent, IonSearchbar } from "@ionic/angular/standalone";
+import { FilterPipe } from '@shared/pipes/filter.pipe';
 import { CategoryDto } from '@shared/proxies/categories.proxies';
 import { ProductDto, ProductsProxy } from '@shared/proxies/products.proxie';
 import { ProductsService } from '@shared/services/products.service';
@@ -9,7 +11,7 @@ import { ProductsService } from '@shared/services/products.service';
 @Component({
   selector: 'app-products',
   standalone: true,
-  imports: [IonToggle, DecimalPipe],
+  imports: [IonSearchbar, IonToggle, DecimalPipe, FilterPipe, FormsModule],
   templateUrl: './products.component.html',
   styleUrls: ['./products.component.scss']
 })
@@ -17,9 +19,12 @@ export class AdminProductsModalComponent {
 
   private productsService = inject(ProductsService);
   private productsProxy = inject(ProductsProxy);
-  private destroyRef = inject(DestroyRef);
+  private _destroyRef = inject(DestroyRef);
 
   @Input() categoryId!: string;
+  @Input() category: string = '';
+
+  term: string = '';
   products = signal<ProductDto[]>([]);
 
   ngOnInit() {
@@ -32,21 +37,27 @@ export class AdminProductsModalComponent {
 
   onChange(event: ToggleCustomEvent, product: ProductDto): void {
     const checked = event.detail.checked;
-    const categoryId = checked ? this.categoryId : null;
+    if (checked) {
+      this.addCategory(product);
+    } else {
+      this.removeCategory(product);
+    }
+  }
 
-    this.productsProxy.update(
+  addCategory(product: ProductDto): void {
+    this.productsProxy.addCategory(
       product.id!,
-      categoryId,
-      product.image,
-      product.name,
-      product.price,
-      product.description
-    ).pipe(
-      takeUntilDestroyed(this.destroyRef)
-    ).subscribe({
-      next: (res) => {
-      }
-    });
+      this.categoryId
+    ).pipe(takeUntilDestroyed(this._destroyRef))
+      .subscribe();
+  }
+
+  removeCategory(product: ProductDto): void {
+    this.productsProxy.removeCategory(
+      product.id!,
+      this.categoryId
+    ).pipe(takeUntilDestroyed(this._destroyRef))
+      .subscribe();
   }
 
   checked(categories: CategoryDto[]): boolean {

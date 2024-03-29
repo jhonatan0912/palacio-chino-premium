@@ -1,0 +1,28 @@
+.product {
+  display: flex;
+  margin-bottom: 10px;
+
+  &__image {
+    img {
+      max-width: 100px;
+      max-height: 100px;
+      border-radius: 8px;
+    }
+  }
+
+  &__info {
+    margin-left: 10px;
+
+    &__name {
+      font-weight: bold;
+    }
+
+    &__quantity {
+      font-style: italic;
+    }
+
+    &__price {
+      font-weight: bold;
+    }
+  }
+}

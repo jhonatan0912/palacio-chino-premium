@@ -1,0 +1,23 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  width: 300px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, .1);
+  padding: 2rem;
+  border-radius: 10px;
+}
+
+.row {
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+}
+
+.product_view {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  border: 1px solid black;
+  padding: 2rem;
+}

@@ -1,4 +1,4 @@
-<section class="wrapper scroll">
+<section class="wrapper">
   <div class="title-close">
     <div class="title">
       Tu carrito
@@ -18,7 +18,7 @@
       [product]="product"
       [(quantity)]="product.quantity!" />
     }@empty {
-    <shopping-cart-empty (onDismiss)="onDismiss()" />
+    <shopping-cart-empty />
     }
 
     @if (products().length >= 1) {

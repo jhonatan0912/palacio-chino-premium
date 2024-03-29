@@ -1,8 +1,44 @@
+<title-modal (onDismiss)="dialog.dismiss('cancel')">
+  Detalle de pedido
+</title-modal>
+
 <section class="modal__container">
-  <div class="title">
-    Detalle de pedido
-  </div>
   <div class="modal__content">
-    awfawf
+    <header class="modal__content__header">
+      <div class="modal__content__header__item">
+        <div class="modal__content__header__item__label">
+          Fecha
+        </div>
+        <div class="modal__content__header__item__value">
+          {{ order().createdAt | date: 'short' }}
+        </div>
+      </div>
+      <div class="modal__content__header__item">
+        <div class="modal__content__header__item__label">
+          Estado
+        </div>
+        <div (click)="onChangeStatus($event)"
+          class="modal__content__header__item__value">
+          <span class="status__label {{ order().status }}">
+            {{ order().formatedStatus }}
+          </span>
+        </div>
+      </div>
+      <div class="modal__content__header__item">
+        <div class="modal__content__header__item__label">
+          Total
+        </div>
+        <div class="modal__content__header__item__value">
+          S/ {{ order().total| number: '1.2-2' }}
+        </div>
+      </div>
+    </header>
+    <div class="modal__content__body">
+      @for (product of order().products; track $index) {
+      <admin-order-detail-product [product]="product" />
+      }
+    </div>
   </div>
+
+  <order-detail-client [order]="order()" />
 </section>

@@ -1,4 +1,5 @@
 export const environment = {
-  production: false,
-  api: 'http://localhost:3000'
+  production: true,
+  api: 'https://pc-backend-nest-production.up.railway.app',
+  tokenAI: 'AIzaSyABoZDqISFUF_L_cpZ1DqXFM2W8KhxBy6E'
 };

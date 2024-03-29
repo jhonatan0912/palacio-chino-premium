@@ -1,9 +1,7 @@
-<main class="home_content">
+<main class="home__container">
 
   <categories-menu />
 
-  <!-- start -->
-  
   <section class="menu">
     <h2>EXPLORA NUESTRO MENÚ</h2>
     <h1 class="menu__title">
@@ -26,10 +24,8 @@
     </div>
   </section>
 
-  <!-- end -->
-
   <!-- PROMOTIONS -->
-  <div class="menu_promotions">
+  <section class="menu_promotions">
     <h2 class="title_menu">
       PROMOCIONES
     </h2>
@@ -52,7 +48,7 @@
       }
     </button>
     }
-  </div>
+  </section>
 
   <section class="banner">
     <div class="banner__content">
@@ -62,7 +58,8 @@
         Sencillo.
       </h2>
       <p>Llevamos los sabores del Oriente a tu plato.</p>
-      <p>Abierto desde el almueerzo hasta ....... cada plato que servimos esta hecho a mano con amor y corazon desde nuestro resturante en .......</p>
+      <p>Abierto desde el almueerzo hasta ....... cada plato que servimos esta
+        hecho a mano con amor y corazon desde nuestro resturante en .......</p>
     </div>
     <div class="banner__image">
       <img src="/assets/logo.png" alt="image-logo">
@@ -70,11 +67,19 @@
   </section>
 
   <section class="local">
-    <h2>NUESTRO LOCAL</h2>
+    <h2 class="local__title">NUESTRO LOCAL</h2>
     <div class="local__map">
       <img src="/assets/empty-image.png" alt="image-local">
-      <store-map></store-map>
+      @defer (on viewport) {
+      <store-map />
+      }@placeholder {
+      <ion-spinner name="crescent" />
+      }@loading {
+      <ion-spinner name="crescent" />
+      }
     </div>
   </section>
 
+  <menu-chat-button
+    (click)="onOpenChat($event)" />
 </main>

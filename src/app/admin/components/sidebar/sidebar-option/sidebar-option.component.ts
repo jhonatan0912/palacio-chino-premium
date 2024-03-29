@@ -22,5 +22,5 @@ export class AdminSidebarOptionComponent {
 
   currentOptionId = input.required<string>();
 
-  @Output() onOptionClicked = new EventEmitter<string>();
+  @Output() onOptionSelected = new EventEmitter<string>();
 }

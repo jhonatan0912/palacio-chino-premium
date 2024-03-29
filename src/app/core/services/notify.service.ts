@@ -1,7 +1,5 @@
 import { Injectable, inject } from '@angular/core';
 import { ToastController } from "@ionic/angular/standalone";
-import { addIcons } from 'ionicons';
-import { alertCircleOutline, checkmarkCircleOutline, informationCircleOutline } from 'ionicons/icons';
 
 @Injectable({
   providedIn: 'root'
@@ -9,10 +7,6 @@ import { alertCircleOutline, checkmarkCircleOutline, informationCircleOutline } 
 export class AppNotifyService {
 
   private readonly _toastCtrl = inject(ToastController);
-
-  constructor() {
-    addIcons({ alertCircleOutline, checkmarkCircleOutline, informationCircleOutline });
-  }
 
   async success(message: string, duration: number): Promise<void> {
     const toast = await this._toastCtrl.create({

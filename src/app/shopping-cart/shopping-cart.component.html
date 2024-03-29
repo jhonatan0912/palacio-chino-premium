@@ -1,0 +1,30 @@
+<header class="header">
+  <ion-icon (click)="onBack()" name="arrow-back-outline" />
+  <span class="title">
+    Carrito de compras
+  </span>
+  <span class="virtual__box"></span>
+</header>
+
+<main class="shopping-cart__container">
+
+  <section class="products">
+    @for (product of products(); track product.id) {
+    <shopping-cart-product [product]="product" />
+    }
+  </section>
+
+  @if (products().length > 0) {
+  <fixed-footer>
+    <lib-button
+      (onAction)="onCheckout()"
+      [disabled]="busy">
+      @if(busy){
+      <ion-spinner name="crescent" />
+      }@else {
+      Pagar S/ {{ total() | number: '1.2-2'}}
+      }
+    </lib-button>
+  </fixed-footer>
+  }
+</main>

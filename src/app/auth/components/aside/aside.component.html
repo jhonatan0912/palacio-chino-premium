@@ -1,8 +1,15 @@
-<section>
-
-  <div (click)="navigateToHome()" class="back-container">
+<aside class="aside">
+  <section
+    (click)="navigateToHome()"
+    class="button__back">
     <ion-icon name="chevron-back-outline" />
-    <p>REGRESAR</p>
-  </div>
+    <span>REGRESAR</span>
+  </section>
 
-</section>
+  <section class="aside__logo">
+    <img src="/assets/logo.png" alt="Logo Palacio Chino Premium" />
+    <p class="aside__logo__label">
+      Palacio Chino Premium
+    </p>
+  </section>
+</aside>

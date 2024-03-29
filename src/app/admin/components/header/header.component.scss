@@ -1,44 +1,41 @@
-.header{
-   background-image: url("/assets/banner-down.svg");
+.header {
    background-position: center;
    background-repeat: no-repeat;
    background-size: cover;
    color: white;
-   height: 200px;
 
-
-   &__content{
+   &__content {
       display: flex;
       flex-direction: row;
       align-items: center;
       justify-content: space-between;
       padding: 20px;
-      background-color: rgba(35, 35, 35, 0.74);
+      background-color: rgba(0, 0, 0, 0.575);
 
-      &__data{
+      &__data {
          display: flex;
          flex-direction: row;
          align-items: center;
          gap: 4rem;
 
-         .items_data{
+         .items_data {
             display: flex;
             flex-direction: column;
             align-items: center;
             gap: 0.5 rem;
 
-            h2{
+            h2 {
                font-size: 2rem !important;
                font-weight: 700;
             }
 
-            &__title{
+            &__title {
                display: flex;
                flex-direction: row;
                align-items: center;
                gap: 0.5rem;
 
-               img{
+               img {
                   width: 30px;
                   display: inline;
                   filter: invert(1);

@@ -1,0 +1,11 @@
+<header class="header">
+  <ion-icon
+    (click)="onBack.emit()"
+    name="arrow-back-outline" />
+
+  <span class="header__title">
+    <ng-content />
+  </span>
+
+  <span class="virtual__box"></span>
+</header>

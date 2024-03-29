@@ -27,7 +27,7 @@ export class HeaderComponent extends ViewComponent {
   options: HeaderOption[] = [
     { name: 'PROMOCIONES', path: '' },
     { name: 'LOCAL', path: 'establishments' },
-    { name: 'GALERY', path: 'galery' },
+    { name: 'GALERÍA', path: 'galery' },
   ];
 
   constructor() {

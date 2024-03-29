@@ -1,34 +1,25 @@
 .wrapper {
   background: #fff;
-  border: 1px solid black;
   padding: 40px;
   border-radius: 1rem;
-}
 
-.add_address {
-  background-color: #F23545;
-  color: #fff;
-  width: auto;
-  padding: 16px 50px;
-  border-radius: 10px;
-  text-align: center;
-  cursor: pointer;
-}
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin-top: 1rem;
 
-.add_address:hover {
-  background-color: #ef1628;
-}
+    .adresses {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      width: 100%;
+    }
+  }
 
-.content_address {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-top: 3rem;
-}
-
-.content_adresses {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-  margin-top: 3rem;
+  .button-add {
+    width: max-content;
+    margin-top: 1rem;
+  }
 }

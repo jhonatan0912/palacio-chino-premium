@@ -7,11 +7,13 @@ import { ProductDto, ProductsProxy } from '@shared/proxies/products.proxie';
 import { finalize } from 'rxjs/internal/operators/finalize';
 import { ProductCardComponent } from '../shared/components/product-card/product-card.component';
 import { StoreMapComponent } from "@shared/components/store-map/store-map.component";
+import { MenuChatButtonComponent } from './menu-chat-button/menu-chat-button.component';
+import { ChatPopoverComponent } from './chat-popover/chat-popover.component';
 
 @Component({
   selector: 'app-menu',
   standalone: true,
-  imports: [IonSpinner, ProductCardComponent, CategoriesMenuComponent, StoreMapComponent],
+  imports: [IonSpinner, ProductCardComponent, CategoriesMenuComponent, StoreMapComponent, MenuChatButtonComponent],
   templateUrl: './menu.component.html',
   styleUrl: './menu.component.scss'
 })
@@ -52,5 +54,21 @@ export class MenuComponent extends ViewComponent implements OnInit {
           this.promotions.set([...this.promotions(), ...res.products]);
         }
       });
+  }
+
+  onOpenChat(event: Event): void {
+    if (!this.session.user) {
+      this.navigation.forward('/auth/login');
+      return;
+    }
+    this.popup.showWithData({
+      component: ChatPopoverComponent,
+      event: event,
+      arrow: false,
+      side: 'top',
+      showBackdrop: false,
+      alignment: 'end',
+      cssClass: ['chat-popover']
+    });
   }
 }

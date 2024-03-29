@@ -1,20 +1,22 @@
-<article class="addresses__item">
-   <div class="addresses__item__data">
-     <img src="/assets/logo.png" alt="image-addresses">
-     <div class="text">
-      <span>Novia</span>
-      <p>Jirón Inca Ripac, Chilca</p>
-     </div>
-   </div>
-   <div class="addresses__item__details">
-     <button class="buttons" role="button">
-       Ver Detalles
-     </button>
-     <button class="buttons" role="button">
-      Editar
+<article class="address__item">
+  <div class="address__item__details">
+    <span>
+      {{ address().street }}, {{ address().number }} - {{ address().district }}
+    </span>
+    <span>
+      {{ address().type }}
+    </span>
+  </div>
+  <div class="address__item__options">
+    <button
+      class="address__item__options__button"
+      (click)="onEdit(address().id!)">
+      <ion-icon name="create-outline" color="primary" />
     </button>
-    <button class="buttons" role="button">
-      Eliminar
+    <button
+      class="address__item__options__button"
+      (click)="onDelete()">
+      <ion-icon name="trash-outline" color="danger" />
     </button>
-   </div>
- </article>
+  </div>
+</article>

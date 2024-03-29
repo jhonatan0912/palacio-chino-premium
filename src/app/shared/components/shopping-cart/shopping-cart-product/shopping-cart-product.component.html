@@ -19,12 +19,11 @@
 
     <div class="description">
       {{ product().description }}
-      Lorem ipsum dolor sit amet consectetur, adipisicing elit.
     </div>
 
     <div class="price-quantity">
       <p class="total">
-        S/{{ product().price * product().quantity!}}
+        S/ {{ product().price * product().quantity! | number: '1.2-2'}}
       </p>
 
       <div class="quantity-container">

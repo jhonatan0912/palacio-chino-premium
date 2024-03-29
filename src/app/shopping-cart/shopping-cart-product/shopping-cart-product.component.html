@@ -1,0 +1,31 @@
+<article class="product">
+  <div class="product__image">
+    <img [src]="product().image | srcImage" [alt]="product().name">
+  </div>
+
+  <section class="product__details">
+    <h2>{{ product().name }}</h2>
+    <div class="price-total">
+      <p>S/ {{ product().price | number: '1.2-2' }}</p>
+      <p>S/ {{ product().price * product().quantity! | number: '1.2-2' }}</p>
+    </div>
+
+    <div class="quantity-delete">
+      <div class="quantity">
+        <button role="button" (click)="decreaseQuantity()">
+          -
+        </button>
+        <input
+          type="number"
+          [value]="product().quantity"
+          readonly>
+        <button role="button" (click)="increaseQuantity()">
+          +
+        </button>
+      </div>
+      <button (click)="removeProduct()">
+        <ion-icon name="trash-outline" color="danger" />
+      </button>
+    </div>
+  </section>
+</article>
