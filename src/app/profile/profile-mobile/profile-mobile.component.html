@@ -1,6 +1,15 @@
 <header-mobile />
 
 <main class="container">
+  <section class="username">
+    <span class="fullname">
+      {{ session.user?.fullName }}
+    </span>
+    <span class="email">
+      ( {{ session.user?.email }} )
+    </span>
+  </section>
+
   <section class="options">
     @for (option of options; track $index) {
     <div

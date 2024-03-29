@@ -16,24 +16,27 @@ export class ProfileMobileComponent extends ViewComponent {
 
   options = [
     {
-      id: '',
       name: 'Pedidos',
       icon: 'pricetags-outline',
       class: '',
       method: () => this.navigation.forward('/profile/orders')
     },
     {
-      id: '',
       name: 'Direcciones',
       icon: 'map-outline',
       class: '',
       method: () => this.navigation.forward('/profile/addresses')
     },
     {
-      id: '',
+      name: 'Cerrar sesión',
+      icon: 'log-out-outline',
+      class: 'text-delete',
+      method: () => this.navigation.forward('/profile/addresses')
+    },
+    {
       name: 'Eliminar cuenta',
       icon: 'alert-circle-outline',
-      class: 'text-delete',
+      class: 'text-delete mt-auto	justify-center',
       method: () => this.onDeleteAccount()
     },
   ];
