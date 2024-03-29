@@ -1,23 +1,30 @@
 import { Component, DestroyRef, OnInit, inject, signal } from '@angular/core';
-import { OrderItemComponent } from './order-item/order-item.component';
-import { GetOrderDto, OrdersProxy } from '@shared/proxies/orders.proxie';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { OrdersService } from '@profile/services/orders.service';
+import { GetOrderDto, OrdersProxy } from '@shared/proxies/orders.proxie';
+import { OrderItemComponent } from './order-item/order-item.component';
+import { HeaderMobileComponent } from '@shared/components/header-mobile/header-mobile.component';
+import { IonIcon } from "@ionic/angular/standalone";
+import { ViewComponent } from '@core/view-component';
 
 @Component({
   selector: 'app-orders',
   standalone: true,
-  imports: [OrderItemComponent],
+  imports: [IonIcon, HeaderMobileComponent, OrderItemComponent],
   templateUrl: './orders.component.html',
   styleUrl: './orders.component.scss'
 })
-export class OrdersComponent implements OnInit {
+export class OrdersComponent extends ViewComponent implements OnInit {
 
   private readonly _ordersProxy = inject(OrdersProxy);
   private readonly _ordersService = inject(OrdersService);
   private readonly _destroyRef = inject(DestroyRef);
 
   orders = signal<GetOrderDto[]>([]);
+
+  constructor() {
+    super();
+  }
 
   ngOnInit(): void {
     this.onGetAll();
@@ -37,6 +44,10 @@ export class OrdersComponent implements OnInit {
           }
         });
     }
+  }
+
+  onBack(): void {
+    this.navigation.back('/profile');
   }
 
 }

@@ -1,8 +1,12 @@
-import { Routes } from '@angular/router';
-import { adminDashboardGuard } from './admin/guards/admin-auth.guard';
-import { adminLoginGuard } from './admin/guards/admin-login.guard';
-import { loginGuard } from '@auth/guards/login.guard';
+import { LoadChildrenCallback, Routes } from '@angular/router';
 import { profileGuard } from '@auth/guards/profile.guard';
+import { adminLoginGuard } from './admin/guards/admin-login.guard';
+
+export const profileRoutes = (): LoadChildrenCallback => {
+  return window.innerWidth > 768 ?
+    () => import('@profile/profile.routes').then(r => r.routes) :
+    () => import('@profile/profile-mobile.routes').then(r => r.routes);
+};
 
 export const routes: Routes = [
   {
@@ -35,7 +39,7 @@ export const routes: Routes = [
   {
     path: 'profile',
     canActivate: [profileGuard],
-    loadChildren: () => import('@profile/profile.routes').then(r => r.routes)
+    loadChildren: profileRoutes()
   },
   {
     path: 'auth',

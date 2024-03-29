@@ -1,14 +1,16 @@
 import { Component, OnInit, inject, signal } from '@angular/core';
 import { ViewComponent } from '@core/view-component';
+import { IonIcon } from "@ionic/angular/standalone";
 import { ButtonComponent } from '@lib/button/button.component';
-import { AddressesListItemComponent } from "./addresses-list-item/addresses-list-item.component";
-import { AddressDto, AddressesProxy } from '@shared/proxies/addresses.proxies';
 import { AddressesService } from '@profile/services/addresses.service';
+import { HeaderMobileComponent } from '@shared/components/header-mobile/header-mobile.component';
+import { AddressDto, AddressesProxy } from '@shared/proxies/addresses.proxies';
+import { AddressesListItemComponent } from "./addresses-list-item/addresses-list-item.component";
 
 @Component({
   selector: 'addresses-list',
   standalone: true,
-  imports: [ButtonComponent, AddressesListItemComponent],
+  imports: [IonIcon, HeaderMobileComponent, ButtonComponent, AddressesListItemComponent],
   templateUrl: './addresses-list.component.html',
   styleUrls: ['./addresses-list.component.scss']
 })
@@ -42,4 +44,7 @@ export class AddressesListComponent extends ViewComponent implements OnInit {
     this.navigation.forward('/profile/addresses/add');
   }
 
+  onBack(): void {
+    this.navigation.back('/profile');
+  }
 }

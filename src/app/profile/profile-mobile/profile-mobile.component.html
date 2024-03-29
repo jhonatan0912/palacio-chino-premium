@@ -1,0 +1,14 @@
+<header-mobile />
+
+<main class="container">
+  <section class="options">
+    @for (option of options; track $index) {
+    <div
+      (click)="option.method()"
+      class="option {{ option.class }}">
+      <ion-icon [name]="option.icon" />
+      {{ option.name }}
+    </div>
+    }
+  </section>
+</main>
