@@ -9,6 +9,7 @@ import { AuthService } from '../services/auth.service';
 import { AuthTitleComponent } from '@auth/components/auth-title/auth-title.component';
 import { finalize } from 'rxjs';
 import { IonSpinner } from "@ionic/angular/standalone";
+import { isValidField } from '@core/utils/valid-field';
 
 @Component({
   selector: 'app-login',
@@ -28,7 +29,9 @@ export class LoginComponent extends ViewComponent {
   password: string = '';
 
   onLogin(): void {
+    if (!this.areValidFields()) return;
     this.busy = true;
+
     this._authProxy.login(
       this.email,
       this.password
@@ -46,6 +49,13 @@ export class LoginComponent extends ViewComponent {
         console.error(err.message);
       }
     });
+  }
+
+  areValidFields(): boolean {
+    return (
+      this.email.length > 5 &&
+      this.password.length > 5
+    );
   }
 
   onAuth() {
