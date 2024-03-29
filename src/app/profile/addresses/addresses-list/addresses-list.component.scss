@@ -1,12 +1,10 @@
 .wrapper {
   background: #fff;
-  padding: 40px;
   border-radius: 1rem;
 
   .container {
     display: flex;
     flex-direction: column;
-    align-items: center;
     width: 100%;
     margin-top: 1rem;
 
@@ -20,6 +18,6 @@
 
   .button-add {
     width: max-content;
-    margin-top: 1rem;
+    margin-top: 2rem;
   }
 }
