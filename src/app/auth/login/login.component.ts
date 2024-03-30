@@ -10,6 +10,7 @@ import { AuthTitleComponent } from '@auth/components/auth-title/auth-title.compo
 import { finalize } from 'rxjs';
 import { IonSpinner } from "@ionic/angular/standalone";
 import { isValidField } from '@core/utils/valid-field';
+import { Screen } from '@core/index';
 
 @Component({
   selector: 'app-login',
@@ -43,7 +44,7 @@ export class LoginComponent extends ViewComponent {
         this.session.setUser(res.user);
         this._authService.setAuthToken(res.token);
         this._authService.setRefreshToken(res.refreshToken);
-        this.navigation.forward('home');
+        this.navigation.forward('/profile')
       },
       error: (err) => {
         console.error(err.message);
