@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { AuthService } from '@auth/services/auth.service';
 import { ViewComponent } from '@core/view-component';
 import { IonIcon, IonItemOptions } from "@ionic/angular/standalone";
 import { HeaderMobileComponent } from '@shared/components/header-mobile/header-mobile.component';
@@ -13,6 +14,7 @@ import { DeleteAccountModalComponent } from '@shared/modals';
 })
 export class ProfileMobileComponent extends ViewComponent {
 
+  private readonly _authService = inject(AuthService);
 
   options = [
     {
@@ -31,7 +33,7 @@ export class ProfileMobileComponent extends ViewComponent {
       name: 'Cerrar sesión',
       icon: 'log-out-outline',
       class: 'text-delete',
-      method: () => this.navigation.forward('/profile/addresses')
+      method: () => this.onLogout()
     },
     {
       name: 'Eliminar cuenta',
@@ -49,6 +51,12 @@ export class ProfileMobileComponent extends ViewComponent {
     this.dialog.showWithData({
       component: DeleteAccountModalComponent,
       cssClass: ['delete-account']
-    })
+    });
+  }
+
+  onLogout(): void {
+    this._authService.logout();
+    this.session.clear();
+    this.navigation.forward('/home');
   }
 }

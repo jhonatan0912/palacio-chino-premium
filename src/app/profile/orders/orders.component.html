@@ -13,7 +13,9 @@
       @for (order of orders(); track order.id) {
       <order-item [order]="order" />
       }@empty {
-      <p class="empty">No tienes pedidos</p>
+      <p class="empty">
+         No tienes pedidos
+      </p>
       }
    </section>
 </main>
