@@ -37,10 +37,6 @@
       font-size: 14px;
    }
 
-   .button:hover {
-      background-color: rgb(67, 67, 67);
-      color: #eeeeee;
-   }
 
 }
 
@@ -50,6 +46,11 @@
 
       &__image {
          border-radius: 5px 5px 0 0;
+      }
+
+      .button:hover {
+         background-color: rgb(67, 67, 67);
+         color: #eeeeee;
       }
    }
 }

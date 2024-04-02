@@ -3,19 +3,20 @@ import { Component, effect, inject, signal } from '@angular/core';
 import { ViewComponent } from '@core/view-component';
 import { IonIcon, IonSpinner } from "@ionic/angular/standalone";
 import { ButtonComponent } from '@lib/button/button.component';
+import { OrdersService } from '@profile/services/orders.service';
 import { FixedFooterComponent } from '@shared/components/fixed-footer/fixed-footer.component';
+import { CreateOrderDto, OrdersProxy } from '@shared/proxies/orders.proxie';
 import { ProductDto } from '@shared/proxies/products.proxie';
 import { ShoppingCartService } from '@shared/services/shopping-cart.service';
-import { ShoppingCartProductComponent } from './shopping-cart-product/shopping-cart-product.component';
-import { CreateOrderDto, OrdersProxy } from '@shared/proxies/orders.proxie';
+import { finalize } from 'rxjs/internal/operators/finalize';
 import { ShoppingCartAdressModalComponent } from './shopping-cart-adress-modal/shopping-cart-adress-modal.component';
-import { OrdersService } from '@profile/services/orders.service';
-import { finalize } from 'rxjs';
+import { ShoppingCartEmptyComponent } from './shopping-cart-empty/shopping-cart-empty.component';
+import { ShoppingCartProductComponent } from './shopping-cart-product/shopping-cart-product.component';
 
 @Component({
   selector: 'shopping-cart',
   standalone: true,
-  imports: [IonIcon, IonSpinner, ShoppingCartProductComponent, FixedFooterComponent, ButtonComponent, DecimalPipe],
+  imports: [IonIcon, IonSpinner, ShoppingCartProductComponent, FixedFooterComponent, ButtonComponent, DecimalPipe, ShoppingCartEmptyComponent],
   templateUrl: './shopping-cart.component.html',
   styleUrls: ['./shopping-cart.component.scss']
 })
