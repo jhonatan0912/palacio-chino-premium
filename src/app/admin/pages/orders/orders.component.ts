@@ -15,6 +15,7 @@ export class OrdersComponent implements OnInit {
 
   private adminProxy = inject(AdminProxy);
   private destroyRef = inject(DestroyRef);
+
   adminOrdersService = inject(AdminOrdersService);
 
   ngOnInit() {
