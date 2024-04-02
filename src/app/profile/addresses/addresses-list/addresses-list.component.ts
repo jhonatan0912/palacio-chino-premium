@@ -6,6 +6,7 @@ import { AddressesService } from '@profile/services/addresses.service';
 import { HeaderMobileComponent } from '@shared/components/header-mobile/header-mobile.component';
 import { AddressesListItemComponent } from "./addresses-list-item/addresses-list-item.component";
 import { AddressDto, AddressesProxy } from '@shared/proxies';
+import { finalize } from 'rxjs';
 
 @Component({
   selector: 'addresses-list',
@@ -19,6 +20,7 @@ export class AddressesListComponent extends ViewComponent implements OnInit {
   private readonly _addressesProxy = inject(AddressesProxy);
   private readonly _addressesService = inject(AddressesService);
 
+  busy: boolean = false;
   addresses = signal<AddressDto[]>([]);
 
   ngOnInit(): void {
@@ -38,6 +40,22 @@ export class AddressesListComponent extends ViewComponent implements OnInit {
           }
         });
     }
+  }
+
+  onDelete(id: string): void {
+    this.busy = true;
+    this._addressesProxy.delete(id)
+      .pipe(
+        finalize(() => this.busy = false)
+      ).subscribe({
+        next: () => {
+          this.addresses.set(this.addresses().filter(x => x.id !== id));
+          this._addressesService.addresses.set(this._addressesService.addresses().filter(x => x.id !== id));
+        },
+        error: (err) => {
+          this.notify.error(err.message, 1500);
+        }
+      });
   }
 
   onAddAddress(): void {

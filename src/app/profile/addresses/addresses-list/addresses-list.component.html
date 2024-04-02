@@ -12,7 +12,10 @@
   <section class="container">
     <section class="adresses">
       @for (address of addresses(); track $index) {
-      <addresses-list-item [address]="address" />
+      <addresses-list-item
+        [address]="address"
+        (onDelete)="onDelete($event)"
+        [(busy)]="busy" />
       }@empty {
       <p class="empty">No tienes direcciones guardadas</p>
       }

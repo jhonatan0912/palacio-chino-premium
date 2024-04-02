@@ -1,9 +1,7 @@
-import { Component, inject, input } from '@angular/core';
+import { Component, input, model, output } from '@angular/core';
 import { ViewComponent } from '@core/view-component';
 import { IonIcon, IonSpinner } from "@ionic/angular/standalone";
-import { AddressesService } from '@profile/services/addresses.service';
-import { AddressDto, AddressesProxy } from '@shared/proxies';
-import { finalize } from 'rxjs';
+import { AddressDto } from '@shared/proxies';
 
 @Component({
   selector: 'addresses-list-item',
@@ -14,11 +12,10 @@ import { finalize } from 'rxjs';
 })
 export class AddressesListItemComponent extends ViewComponent {
 
-  private readonly _addressesProxy = inject(AddressesProxy);
-  private readonly _addressesService = inject(AddressesService);
-
-  busy: boolean = false;
   address = input.required<AddressDto>();
+  busy = model.required<boolean>();
+
+  onDelete = output<string>();
 
   constructor() {
     super();
@@ -27,19 +24,4 @@ export class AddressesListItemComponent extends ViewComponent {
   onEdit(id: string): void {
     this.navigation.forward('/profile/addresses/form/edit', { id });
   }
-
-  onDelete(): void {
-    this.busy = true;
-    this._addressesProxy.delete(this.address().id!)
-      .pipe(finalize(() => this.busy = false))
-      .subscribe({
-        next: (response) => {
-          this._addressesService.addresses.update((prev) => prev.filter(address => address.id !== response.id));
-        },
-        error: (err) => {
-          this.notify.error(err.message, 1500);
-        }
-      });
-  }
-
 }
