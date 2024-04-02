@@ -43,6 +43,7 @@ export class LoginComponent extends ViewComponent {
         this._authService.setAuthToken(res.token);
         this._authService.setRefreshToken(res.refreshToken);
         this.navigation.forward('/profile');
+        window.location.reload();
       },
       error: (err) => {
         console.error(err.message);

@@ -4,13 +4,14 @@ import { ViewComponent } from '@core/view-component';
 import { ButtonComponent } from '@lib/button/button.component';
 import { AddressesService } from '@profile/services/addresses.service';
 import { AddressesProxy } from '@shared/proxies';
-import { finalize } from 'rxjs';
+import { finalize } from 'rxjs/internal/operators/finalize';
 import { IonFab, IonSpinner } from "@ionic/angular/standalone";
+import { InputValidatorDirective } from '@core/directives/inputValidator.directive';
 
 @Component({
   selector: 'address-form',
   standalone: true,
-  imports: [IonSpinner, IonFab, ButtonComponent, ReactiveFormsModule],
+  imports: [IonSpinner, IonFab, ButtonComponent, ReactiveFormsModule, InputValidatorDirective],
   templateUrl: './address-form.component.html',
   styleUrls: ['./address-form.component.scss']
 })
