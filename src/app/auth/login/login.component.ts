@@ -1,16 +1,14 @@
 import { Component, DestroyRef, inject } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { FormsModule } from '@angular/forms';
+import { AuthTitleComponent } from '@auth/components/auth-title/auth-title.component';
 import { ViewComponent } from '@core/view-component';
+import { IonSpinner } from "@ionic/angular/standalone";
 import { ButtonComponent } from '@lib/button/button.component';
-import { AuthProxy } from '@shared/proxies/auth.proxies';
+import { finalize } from 'rxjs/internal/operators/finalize';
 import { AuthAsideComponent } from '../components/aside/aside.component';
 import { AuthService } from '../services/auth.service';
-import { AuthTitleComponent } from '@auth/components/auth-title/auth-title.component';
-import { finalize } from 'rxjs';
-import { IonSpinner } from "@ionic/angular/standalone";
-import { isValidField } from '@core/utils/valid-field';
-import { Screen } from '@core/index';
+import { AuthProxy } from '@shared/proxies';
 
 @Component({
   selector: 'app-login',
@@ -44,7 +42,7 @@ export class LoginComponent extends ViewComponent {
         this.session.setUser(res.user);
         this._authService.setAuthToken(res.token);
         this._authService.setRefreshToken(res.refreshToken);
-        this.navigation.forward('/profile')
+        this.navigation.forward('/profile');
       },
       error: (err) => {
         console.error(err.message);

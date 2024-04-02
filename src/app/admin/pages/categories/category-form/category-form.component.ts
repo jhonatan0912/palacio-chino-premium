@@ -6,8 +6,8 @@ import { IonIcon, IonSpinner } from "@ionic/angular/standalone";
 import { ButtonComponent } from '@lib/button/button.component';
 import { ImageUploaderComponent } from '@shared/components/image-uploader/image-uploader.component';
 import { SlugPipe } from '@shared/pipes/slug.pipe';
-import { CategoriesProxy, getSlug, onFileChange } from '@shared/proxies/categories.proxies';
 import { finalize } from 'rxjs';
+import { CategoriesProxy, getSlug, onFileChange } from '@shared/proxies';
 
 @Component({
   selector: 'category-form',

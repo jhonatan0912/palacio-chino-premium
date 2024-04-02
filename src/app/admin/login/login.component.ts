@@ -3,7 +3,7 @@ import { FormsModule } from '@angular/forms';
 import { ADMIN_TOKEN, AUTH_TOKEN, REFRESH_TOKEN } from '@core/utils/constants';
 import { ViewComponent } from '@core/view-component';
 import { IonSpinner } from "@ionic/angular/standalone";
-import { AdminProxy } from '@shared/proxies/admin.proxies';
+import { AdminProxy } from '@shared/proxies';
 import { finalize } from 'rxjs';
 
 @Component({

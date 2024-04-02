@@ -2,10 +2,10 @@ import { Component, inject, input, model } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { QuantityInputDirective } from '@shared/directives/quantityInput.directive';
 import { SrcImagePipe } from '@shared/pipes/srcImage.pipe';
-import { ProductDto } from '@shared/proxies/products.proxie';
 import { ShoppingCartService } from '@shared/services/shopping-cart.service';
 import { IonIcon } from "@ionic/angular/standalone";
 import { DecimalPipe } from '@angular/common';
+import { ProductDto } from '@shared/proxies';
 
 
 @Component({

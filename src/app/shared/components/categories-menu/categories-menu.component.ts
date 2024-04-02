@@ -1,10 +1,9 @@
-import { Component, DestroyRef, OnInit, effect, inject, signal } from '@angular/core';
-import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import { Component, effect, inject, signal } from '@angular/core';
 import { ViewComponent } from '@core/view-component';
-import { CategoriesProxy, CategoryDto } from '@shared/proxies/categories.proxies';
-import { CategoryMenuComponent } from './category-menu/category-menu.component';
 import { IonSkeletonText } from "@ionic/angular/standalone";
+import { CategoryDto } from '@shared/proxies';
 import { CategoriesService } from '@shared/services/categories.service';
+import { CategoryMenuComponent } from './category-menu/category-menu.component';
 
 @Component({
   selector: 'categories-menu',

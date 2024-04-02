@@ -1,8 +1,8 @@
-import { Component, OnInit, inject, input } from '@angular/core';
+import { Component, inject, input } from '@angular/core';
 import { ViewComponent } from '@core/view-component';
 import { IonIcon, IonSpinner } from "@ionic/angular/standalone";
 import { AddressesService } from '@profile/services/addresses.service';
-import { AddressDto, AddressesProxy } from '@shared/proxies/addresses.proxies';
+import { AddressDto, AddressesProxy } from '@shared/proxies';
 import { finalize } from 'rxjs';
 
 @Component({

@@ -2,7 +2,7 @@ import { AdminOrderDetailComponent } from '@admin/modals/order-detail/order-deta
 import { DatePipe, DecimalPipe, SlicePipe } from '@angular/common';
 import { Component, input } from '@angular/core';
 import { ViewComponent } from '@core/view-component';
-import { AdminGetOrderDto } from '@shared/proxies/admin.proxies';
+import { AdminGetOrderDto } from '@shared/proxies';
 
 @Component({
   selector: 'admin-order-item',

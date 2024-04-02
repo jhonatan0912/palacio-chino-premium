@@ -2,13 +2,12 @@ import { DecimalPipe } from '@angular/common';
 import { Component, DestroyRef, inject } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { FormsModule } from '@angular/forms';
+import { IonSpinner } from "@ionic/angular/standalone";
 import { ButtonComponent } from '@lib/button/button.component';
 import { ImageUploaderComponent } from '@shared/components/image-uploader/image-uploader.component';
-import { onFileChange } from '@shared/proxies/categories.proxies';
-import { ProductsProxy } from '@shared/proxies/products.proxie';
+import { ProductsProxy, onFileChange } from '@shared/proxies';
 import { ProductsService } from '@shared/services/products.service';
-import { finalize } from 'rxjs';
-import { IonSpinner } from "@ionic/angular/standalone";
+import { finalize } from 'rxjs/internal/operators/finalize';
 
 @Component({
   selector: 'products-form',

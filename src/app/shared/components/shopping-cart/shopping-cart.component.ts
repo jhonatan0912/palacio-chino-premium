@@ -3,11 +3,11 @@ import { Component, effect, inject, signal } from '@angular/core';
 import { ViewComponent } from '@core/view-component';
 import { IonIcon, PopoverController } from '@ionic/angular/standalone';
 import { ButtonComponent } from '@lib/button/button.component';
-import { ProductDto } from '@shared/proxies/products.proxie';
 import { ShoppingCartService } from '@shared/services/shopping-cart.service';
 import { ShoppingCartFooterComponent } from './shopping-cart-footer/shopping-cart-footer.component';
 import { ShoppingCartProductComponent } from './shopping-cart-product/shopping-cart-product.component';
 import { ShoppingCartEmptyComponent } from './shopping-cart-empty/shopping-cart-empty.component';
+import { ProductDto } from '@shared/proxies';
 
 @Component({
   selector: 'app-shopping-cart',

@@ -4,8 +4,8 @@ import { FormsModule } from '@angular/forms';
 import { IonRadioGroup, IonRadio, IonSpinner } from '@ionic/angular/standalone';
 import { ButtonComponent } from '@lib/button/button.component';
 import { AddressesService } from '@profile/services/addresses.service';
-import { AddressDto, AddressesProxy } from '@shared/proxies/addresses.proxies';
-import { finalize } from 'rxjs';
+import { AddressDto, AddressesProxy } from '@shared/proxies';
+import { finalize } from 'rxjs/internal/operators/finalize';
 
 @Component({
   selector: 'app-choose-address',

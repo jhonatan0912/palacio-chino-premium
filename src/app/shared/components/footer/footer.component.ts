@@ -1,6 +1,6 @@
 import { Component, OnInit, inject, signal } from '@angular/core';
 import { IonicModule } from '@ionic/angular';
-import { CategoryDto } from '@shared/proxies/categories.proxies';
+import { CategoryDto } from '@shared/proxies';
 import { CategoriesService } from '@shared/services/categories.service';
 
 @Component({

@@ -4,8 +4,8 @@ import { IonIcon } from "@ionic/angular/standalone";
 import { ButtonComponent } from '@lib/button/button.component';
 import { AddressesService } from '@profile/services/addresses.service';
 import { HeaderMobileComponent } from '@shared/components/header-mobile/header-mobile.component';
-import { AddressDto, AddressesProxy } from '@shared/proxies/addresses.proxies';
 import { AddressesListItemComponent } from "./addresses-list-item/addresses-list-item.component";
+import { AddressDto, AddressesProxy } from '@shared/proxies';
 
 @Component({
   selector: 'addresses-list',

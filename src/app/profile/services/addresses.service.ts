@@ -1,5 +1,5 @@
 import { Injectable, signal } from '@angular/core';
-import { AddressDto } from '@shared/proxies/addresses.proxies';
+import { AddressDto } from '@shared/proxies';
 
 @Injectable({
   providedIn: 'root'

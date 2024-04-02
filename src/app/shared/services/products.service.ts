@@ -1,5 +1,5 @@
 import { Injectable, signal } from '@angular/core';
-import { ProductDto } from '@shared/proxies/products.proxie';
+import { ProductDto } from '@shared/proxies';
 import { Subject } from 'rxjs';
 
 @Injectable({

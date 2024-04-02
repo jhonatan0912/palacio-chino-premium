@@ -2,12 +2,11 @@ import { DatePipe, DecimalPipe } from '@angular/common';
 import { Component, inject, input } from '@angular/core';
 import { ViewComponent } from '@core/view-component';
 import { IonIcon } from "@ionic/angular/standalone";
-import { AdminGetOrderDto, AdminProxy } from '@shared/proxies/admin.proxies';
-import { OrderStatus, formatOrderStatus } from '@shared/proxies/orders.proxie';
 import { AdminOrderDetailProductComponent } from './order-detail-product/order-detail-product.component';
 import { OrderDetailStatusPopoverComponent } from './order-detail-status-popover/order-detail-status-popover.component';
 import { TitleModalComponent } from '@shared/components/title-modal/title-modal.component';
 import { OrderDetailClientComponent } from './order-detail-client/order-detail-client.component';
+import { AdminGetOrderDto, AdminProxy, OrderStatus, formatOrderStatus } from '@shared/proxies';
 
 @Component({
   selector: 'admin-order-detail',
@@ -31,7 +30,7 @@ export class AdminOrderDetailComponent extends ViewComponent {
       arrow: false
     }).then((status: OrderStatus) => {
       if (status === this.order().status) return;
-      
+
       this._adminProxy.changeOrderStatus(
         this.order().id,
         status

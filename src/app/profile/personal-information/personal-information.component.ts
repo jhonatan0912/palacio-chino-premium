@@ -2,10 +2,10 @@ import { Component, OnInit, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { ViewComponent } from '@core/view-component';
 import { ButtonComponent } from '@lib/button/button.component';
-import { AuthProxy } from '@shared/proxies/auth.proxies';
-import { finalize } from 'rxjs';
+import { finalize } from 'rxjs/internal/operators/finalize';
 import { IonSpinner } from "@ionic/angular/standalone";
 import { NgClass } from '@angular/common';
+import { AuthProxy } from '@shared/proxies';
 
 @Component({
   selector: 'app-personal-information',

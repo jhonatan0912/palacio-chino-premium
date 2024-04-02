@@ -1,10 +1,10 @@
-import { Component, DestroyRef, EventEmitter, Input, Output, inject, input } from '@angular/core';
-import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
-import { IonIcon } from "@ionic/angular/standalone";
-import { CategoriesProxy, CategoryDto } from '@shared/proxies/categories.proxies';
-import { CategoryListItemPopoverComponent } from './category-list-item-popover/category-list-item-popover.component';
-import { ViewComponent } from '@core/view-component';
 import { AdminProductsModalComponent } from '@admin/modals/products/products.component';
+import { Component, DestroyRef, EventEmitter, Output, inject, input } from '@angular/core';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import { ViewComponent } from '@core/view-component';
+import { IonIcon } from "@ionic/angular/standalone";
+import { CategoriesProxy, CategoryDto } from '@shared/proxies';
+import { CategoryListItemPopoverComponent } from './category-list-item-popover/category-list-item-popover.component';
 
 @Component({
   selector: 'category-list-item',
@@ -15,8 +15,8 @@ import { AdminProductsModalComponent } from '@admin/modals/products/products.com
 })
 export class CategoryListItemComponent extends ViewComponent {
 
-  private categoriesProxy = inject(CategoriesProxy);
-  private deleteDestroyRef = inject(DestroyRef);
+  private readonly _categoriesProxy = inject(CategoriesProxy);
+  private readonly _deleteDestroyRef = inject(DestroyRef);
 
   category = input.required<CategoryDto>();
 
@@ -53,8 +53,8 @@ export class CategoryListItemComponent extends ViewComponent {
   }
 
   handleDelete(id: string): void {
-    this.categoriesProxy.delete(id)
-      .pipe(takeUntilDestroyed(this.deleteDestroyRef))
+    this._categoriesProxy.delete(id)
+      .pipe(takeUntilDestroyed(this._deleteDestroyRef))
       .subscribe({
         next: () => {
           this.onDelete.emit(id);

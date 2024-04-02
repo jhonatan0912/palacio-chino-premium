@@ -4,8 +4,7 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { FormsModule } from '@angular/forms';
 import { IonSearchbar, IonToggle, ToggleCustomEvent } from "@ionic/angular/standalone";
 import { FilterPipe } from '@shared/pipes/filter.pipe';
-import { CategoryDto } from '@shared/proxies/categories.proxies';
-import { ProductDto, ProductsProxy } from '@shared/proxies/products.proxie';
+import { CategoryDto, ProductDto, ProductsProxy } from '@shared/proxies';
 
 @Component({
   selector: 'app-products',

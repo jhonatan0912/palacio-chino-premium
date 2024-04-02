@@ -1,11 +1,11 @@
 import { Component, DestroyRef, OnInit, inject, signal } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { OrdersService } from '@profile/services/orders.service';
-import { GetOrderDto, OrdersProxy } from '@shared/proxies/orders.proxie';
 import { OrderItemComponent } from './order-item/order-item.component';
 import { HeaderMobileComponent } from '@shared/components/header-mobile/header-mobile.component';
 import { IonIcon } from "@ionic/angular/standalone";
 import { ViewComponent } from '@core/view-component';
+import { GetOrderDto, OrdersProxy } from '@shared/proxies';
 
 @Component({
   selector: 'app-orders',

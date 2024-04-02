@@ -1,11 +1,11 @@
 import { Component, DestroyRef, OnInit, inject, input } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { IonIcon } from '@ionic/angular/standalone';
-import { CategoryDto } from '@shared/proxies/categories.proxies';
 import { ViewComponent } from '@core/view-component';
 import { CategoriesService } from '@shared/services/categories.service';
 import { AdminCategoryFormModalComponent } from '@admin/modals/category-form/category-form.component';
 import { CategoryListItemComponent } from './category-list-item/category-list-item.component';
+import { CategoryDto } from '@shared/proxies';
 
 @Component({
   selector: 'category-list',

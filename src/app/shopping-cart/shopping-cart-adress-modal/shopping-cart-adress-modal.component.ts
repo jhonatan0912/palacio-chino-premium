@@ -1,11 +1,11 @@
 import { Component, DestroyRef, OnInit, effect, inject, signal } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { AddressesService } from '@profile/services/addresses.service';
-import { AddressDto, AddressesProxy } from '@shared/proxies/addresses.proxies';
 import { IonRadioGroup, IonRadio, IonButton } from "@ionic/angular/standalone";
 import { FormsModule } from '@angular/forms';
 import { FixedFooterComponent } from '@shared/components/fixed-footer/fixed-footer.component';
 import { ViewComponent } from '@core/index';
+import { AddressDto, AddressesProxy } from '@shared/proxies';
 
 @Component({
   selector: 'shopping-cart-adress-modal',
