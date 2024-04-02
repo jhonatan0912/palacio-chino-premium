@@ -16,7 +16,11 @@
     <button
       class="address__item__options__button"
       (click)="onDelete()">
+      @if (busy) {
+      <ion-spinner name="crescent" />
+      }@else {
       <ion-icon name="trash-outline" color="danger" />
+      }
     </button>
   </div>
 </article>
