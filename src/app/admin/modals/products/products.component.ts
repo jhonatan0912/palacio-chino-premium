@@ -1,12 +1,11 @@
 import { DecimalPipe } from "@angular/common";
-import { Component, DestroyRef, Input, inject, input, signal } from '@angular/core';
+import { Component, DestroyRef, Input, inject, signal } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { FormsModule } from '@angular/forms';
-import { IonToggle, ToggleCustomEvent, IonSearchbar } from "@ionic/angular/standalone";
+import { IonSearchbar, IonToggle, ToggleCustomEvent } from "@ionic/angular/standalone";
 import { FilterPipe } from '@shared/pipes/filter.pipe';
 import { CategoryDto } from '@shared/proxies/categories.proxies';
 import { ProductDto, ProductsProxy } from '@shared/proxies/products.proxie';
-import { ProductsService } from '@shared/services/products.service';
 
 @Component({
   selector: 'app-products',
@@ -17,9 +16,8 @@ import { ProductsService } from '@shared/services/products.service';
 })
 export class AdminProductsModalComponent {
 
-  private productsService = inject(ProductsService);
-  private productsProxy = inject(ProductsProxy);
-  private _destroyRef = inject(DestroyRef);
+  private readonly _productsProxy = inject(ProductsProxy);
+  private readonly _destroyRef = inject(DestroyRef);
 
   @Input() categoryId!: string;
   @Input() category: string = '';
@@ -28,11 +26,19 @@ export class AdminProductsModalComponent {
   products = signal<ProductDto[]>([]);
 
   ngOnInit() {
-    this.getProducts();
+    this.onGetProducts();
   }
 
-  getProducts(): void {
-    this.products.set(this.productsService.products());
+  onGetProducts(page: number = 1, limit: number = 30): void {
+    this._productsProxy.getAll(
+      page,
+      limit
+    ).pipe(takeUntilDestroyed(this._destroyRef))
+      .subscribe({
+        next: (res) => {
+          this.products.set(res.products);
+        }
+      });
   }
 
   onChange(event: ToggleCustomEvent, product: ProductDto): void {
@@ -45,7 +51,7 @@ export class AdminProductsModalComponent {
   }
 
   addCategory(product: ProductDto): void {
-    this.productsProxy.addCategory(
+    this._productsProxy.addCategory(
       product.id!,
       this.categoryId
     ).pipe(takeUntilDestroyed(this._destroyRef))
@@ -53,7 +59,7 @@ export class AdminProductsModalComponent {
   }
 
   removeCategory(product: ProductDto): void {
-    this.productsProxy.removeCategory(
+    this._productsProxy.removeCategory(
       product.id!,
       this.categoryId
     ).pipe(takeUntilDestroyed(this._destroyRef))

@@ -90,6 +90,10 @@ input[type='number'] {
   }
 }
 
+button {
+  user-select: none;
+}
+
 @media screen and (min-width: 768px) and (max-width: 1023px) {
   h2 {
     font-size: 1.25rem !important;

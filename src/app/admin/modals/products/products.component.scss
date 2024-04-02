@@ -1,34 +1,38 @@
-.modal__header {
-  &__title {
-    text-transform: capitalize;
-  }
+.modal__container {
+  padding: 1rem;
 
-  ion-searchbar {
-    --padding: 0;
-    padding: 0;
-  }
-}
+  .modal__header {
+    &__title {
+      text-transform: capitalize;
+    }
 
-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-bottom: 20px;
-
-  thead {
-    background-color: #f2f2f2;
-
-    th {
-      padding: 10px;
-      text-align: left;
+    ion-searchbar {
+      --padding: 0;
+      padding: 0;
     }
   }
 
-  tbody {
-    tr {
-      border-bottom: 1px solid #f2f2f2;
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
 
-      td {
+    thead {
+      background-color: #f2f2f2;
+
+      th {
         padding: 10px;
+        text-align: left;
+      }
+    }
+
+    tbody {
+      tr {
+        border-bottom: 1px solid #f2f2f2;
+
+        td {
+          padding: 10px;
+        }
       }
     }
   }
