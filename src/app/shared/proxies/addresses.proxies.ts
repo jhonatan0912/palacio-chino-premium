@@ -26,6 +26,7 @@ export class AddressesProxy {
 
     return this.http.post(this.path, body).pipe(mergeMap((data: any) => of(new CreateAddressResponseDto().fromJS(data))));
   }
+  
   update(id: string, district: string, type: string, street: string, number: string, phone: string, reference: string,): Observable<AddressDto> {
     let url = `${this.path}/${id}`;
     const body = {

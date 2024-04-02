@@ -12,6 +12,7 @@
 
 admin-order-detail {
   overflow-y: scroll;
+  justify-content: flex-start !important;
 
   &::-webkit-scrollbar {
     width: 5px;

@@ -4,30 +4,38 @@
     Agregar dirección
   </h2>
 
-  <section class="col">
+  <form class="col" [formGroup]="form">
     <div class="row">
-      <select class="cursor-pointer" name="district" id="district">
+      <select class="cursor-pointer" formControlName="district" id="district">
         <option readonly disabled selected>Distrito</option>
         <option value="chilca">Chilca</option>
         <option value="huancayo">Huancayo</option>
         <option value="el-tambo">El tambo</option>
       </select>
 
-      <select class="cursor-pointer" name="type" id="type">
+      <select class="cursor-pointer" formControlName="type" id="type">
         <option readonly disabled selected>Tipo de lugar</option>
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
+        <option value="casa">Casa</option>
+        <option value="departamento">Departamento</option>
+        <option value="hospedaje">Hospedaje</option>
       </select>
     </div>
 
     <div class="row">
-      <input type="text" placeholder="Calle">
+      <input type="text" placeholder="Calle" formControlName="street">
     </div>
 
     <div class="row">
-      <input type="number" placeholder="Número de casa">
-      <input type="tel" placeholder="Celular">
+      <input
+        type="string"
+        placeholder="Número de casa"
+        formControlName="number">
+
+      <input
+        type="tel"
+        placeholder="Celular"
+        formControlName="phone"
+        maxlength="9">
     </div>
 
     <div class="row">
@@ -37,17 +45,22 @@
         cols="30"
         rows="5"
         placeholder="Referencia"
-        maxlength="200">
+        maxlength="200"
+        formControlName="reference">
       </textarea>
     </div>
 
-  </section>
+  </form>
 
   <section class="buttons">
     <lib-button
       (onAction)="addAddress()"
       class="button">
+      @if(busy){
+      <ion-spinner name="crescent" />
+      }@else {
       Agregar dirección
+      }
     </lib-button>
 
     <button

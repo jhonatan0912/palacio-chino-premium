@@ -27,15 +27,19 @@
     }
 
     <section class="buttons">
-        <lib-button
-          (onAction)="onAddAddress()"
-          type="outline">
-          Agregar dirección
-        </lib-button>
+      <lib-button
+        (onAction)="onAddAddress()"
+        type="outline">
+        Agregar dirección
+      </lib-button>
 
-        <lib-button (onAction)="onContinue()">
-          Finalizar compra
-        </lib-button>
+      <lib-button (onAction)="onContinue()">
+        @if (createOrderBusy) {
+        <ion-spinner name="crescent" />
+        }@else {
+        Finalizar compra
+        }
+      </lib-button>
     </section>
   </div>
 </section>
