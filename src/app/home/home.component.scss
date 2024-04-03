@@ -6,9 +6,17 @@ app-header {
 @media screen and (min-width: 768px) {
   app-header {
     display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
   }
 
   header-mobile {
     display: none;
+  }
+
+  .container__layout {
+    padding-top: 5rem;
   }
 }

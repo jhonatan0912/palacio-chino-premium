@@ -4,8 +4,7 @@ import { ViewComponent } from '@core/view-component';
 import { IonicModule } from '@ionic/angular';
 import { CategoriesMenuComponent } from '@shared/components/categories-menu/categories-menu.component';
 import { ProductCardComponent } from '@shared/components/product-card/product-card.component';
-import { CategoriesProxy, CategoryDto } from '@shared/proxies/categories.proxies';
-import { ProductDto, ProductsProxy } from '@shared/proxies/products.proxie';
+import { CategoriesProxy, CategoryDto, ProductDto, ProductsProxy } from '@shared/proxies';
 import { finalize } from 'rxjs/internal/operators/finalize';
 import { CategorySkeletonComponent } from './category-skeleton/category-skeleton.component';
 

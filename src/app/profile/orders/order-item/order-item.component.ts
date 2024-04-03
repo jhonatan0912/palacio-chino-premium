@@ -1,6 +1,6 @@
 import { DatePipe } from '@angular/common';
 import { Component, OnInit, input } from '@angular/core';
-import { GetOrderDto } from '@shared/proxies/orders.proxie';
+import { GetOrderDto } from '@shared/proxies';
 
 @Component({
   selector: 'order-item',

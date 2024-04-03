@@ -1,7 +1,7 @@
 import { DecimalPipe } from '@angular/common';
 import { Component, input } from '@angular/core';
 import { SrcImagePipe } from '@shared/pipes/srcImage.pipe';
-import { GetOrdersResponseProductDto } from '@shared/proxies/admin.proxies';
+import { GetOrdersResponseProductDto } from '@shared/proxies';
 
 @Component({
   selector: 'admin-order-detail-product',

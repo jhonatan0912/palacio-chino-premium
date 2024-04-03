@@ -1,4 +1,4 @@
-import { Route, Routes } from '@angular/router';
+import { Routes } from '@angular/router';
 
 export const routes: Routes = [
   {
@@ -22,11 +22,15 @@ export const routes: Routes = [
         path: 'orders',
         loadComponent: () => import('./orders/orders.component').then(p => p.OrdersComponent)
       },
-      // {
-      //   path: 'personal-information',
-      //   loadComponent: () => import('./personal-information/personal-information.component').then(p => p.PersonalInformationComponent)
-      // },
-      // { path: '**', redirectTo: 'personal-information', pathMatch: 'full' }
+      {
+        path: 'personal-information',
+        loadComponent: () => import('./personal-information/personal-information.component').then(p => p.PersonalInformationComponent)
+      },
+      {
+        path: '**',
+        redirectTo: 'orders',
+        pathMatch: 'full'
+      }
     ]
   }
 ];

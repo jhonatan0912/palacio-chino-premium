@@ -1,0 +1,33 @@
+.modal__container {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  text-align: center;
+
+  & .title {
+    font-weight: bold;
+    font-size: 1.4rem;
+  }
+
+  & .modal__buttons {
+    display: flex;
+    gap: 1rem;
+
+    & .modal__button {
+      width: 50%;
+      padding: .6rem;
+      border-radius: .5rem;
+      text-align: center;
+
+      &.cancel {
+        border: 2px solid #000;
+      }
+
+      &.confirm {
+        background: var(--primary-red);
+        color: #fff;
+      }
+    }
+  }
+}

@@ -1,13 +1,12 @@
 main {
-   // margin-top: 240px;
-   margin-top: 3rem;
+   margin-top: 5rem;
 }
 
 .info_local {
    h2 {
       font-weight: 700;
       width: fit-content;
-      // border-bottom: 1px solid black;
+      border-bottom: 1px solid black;
       margin: auto;
       margin-bottom: 80px;
       padding: 0 20px;
@@ -16,23 +15,19 @@ main {
 
 .content_info_local {
    display: flex;
-   align-items: center;
+   align-items: stretch;
    justify-content: space-evenly;
 
    .image_local {
       width: 550px;
-      height: 500px;
 
       img {
          width: 100%;
-         height: 100%;
-         border-radius: 30px;
       }
    }
 
    .content_info {
-      background-color: white;
-      border: 1px solid black;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
       border-radius: 30px;
       padding: 30px 60px;
       text-align: center;
@@ -70,7 +65,7 @@ main {
    h2 {
       font-weight: 700;
       width: fit-content;
-      // border-bottom: 1px solid black;
+      border-bottom: 1px solid black;
       margin: auto;
       margin-bottom: 80px;
       padding: 0 20px;

@@ -6,10 +6,10 @@ import { ButtonComponent } from '@lib/button/button.component';
 import { TitleModalComponent } from '@shared/components/title-modal/title-modal.component';
 import { SlugPipe } from '@shared/pipes/slug.pipe';
 import { SrcImagePipe } from '@shared/pipes/srcImage.pipe';
-import { CategoriesProxy, CategoryDto, getSlug } from '@shared/proxies/categories.proxies';
 import { finalize } from 'rxjs';
 import { IonSpinner } from "@ionic/angular/standalone";
 import { ViewComponent } from '@core/view-component';
+import { CategoriesProxy, CategoryDto, getSlug } from '@shared/proxies';
 
 @Component({
   selector: 'admin-category-form',

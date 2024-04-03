@@ -42,7 +42,7 @@ export class ProductsProxy {
     return this.http.get(url).pipe(mergeMap((data: any) => of(new GetAllProductsResponseDto().fromJS(data))));
   }
 
-  getPromotions(page: number = 0, limit: number = 10): Observable<GetAllProductsResponseDto> {
+  getPromotions(page: number = 0, limit: number = 30): Observable<GetAllProductsResponseDto> {
     let url = `${this.path}/promotions`;
     if (page !== null && page !== undefined)
       url += `?page=${page}`;
@@ -54,7 +54,7 @@ export class ProductsProxy {
 
   }
 
-  getByCategory(idCategory: string, page: number = 1, pageSize: number = 10): Observable<GetAllProductsResponseDto> {
+  getByCategory(idCategory: string, page: number = 1, pageSize: number = 30): Observable<GetAllProductsResponseDto> {
     let url = `${this.path}/get-by-category/${idCategory}`;
     if (page !== null && page !== undefined)
       url += `?page=${page}`;

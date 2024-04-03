@@ -4,11 +4,11 @@ import { FormsModule } from '@angular/forms';
 import { AuthTitleComponent } from '@auth/components/auth-title/auth-title.component';
 import { ViewComponent } from '@core/view-component';
 import { ButtonComponent } from '@lib/button/button.component';
-import { AuthProxy } from '@shared/proxies/auth.proxies';
 import { AuthAsideComponent } from '../components/aside/aside.component';
 import { AuthService } from '../services/auth.service';
 import { finalize } from 'rxjs';
 import { IonSpinner } from "@ionic/angular/standalone";
+import { AuthProxy } from '@shared/proxies';
 
 @Component({
   selector: 'app-register',
@@ -19,9 +19,9 @@ import { IonSpinner } from "@ionic/angular/standalone";
 })
 export class RegisterComponent extends ViewComponent {
 
-  private authProxy = inject(AuthProxy);
-  private authService = inject(AuthService);
-  private destroyRef = inject(DestroyRef);
+  private readonly _authProxy = inject(AuthProxy);
+  private readonly _authService = inject(AuthService);
+  private readonly _destroyRef = inject(DestroyRef);
 
   busy: boolean = false;
   fullName: string = '';
@@ -33,17 +33,18 @@ export class RegisterComponent extends ViewComponent {
     if (this.isInvalidFields()) return;
     this.busy = true;
 
-    this.authProxy.register(
+    this._authProxy.register(
       this.fullName,
       this.email,
       this.password
     ).pipe(
-      takeUntilDestroyed(this.destroyRef),
+      takeUntilDestroyed(this._destroyRef),
       finalize(() => this.busy = false)
     ).subscribe({
       next: (res) => {
         this.session.setUser(res.user);
-        this.authService.setAuthToken(res.token);
+        this._authService.setAuthToken(res.token);
+        this._authService.setRefreshToken(res.refreshToken);
         this.navigation.forward('/dashboard');
       },
       error: (err) => {

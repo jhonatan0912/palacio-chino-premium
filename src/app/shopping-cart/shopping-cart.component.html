@@ -11,6 +11,8 @@
   <section class="products">
     @for (product of products(); track product.id) {
     <shopping-cart-product [product]="product" />
+    }@empty {
+    <shopping-cart-empty />
     }
   </section>
 

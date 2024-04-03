@@ -2,6 +2,7 @@ import { Injectable, inject } from '@angular/core';
 import { environment } from '@environments/environment';
 import { Socket, io } from 'socket.io-client';
 import { OrdersService } from './orders.service';
+import { formatOrderStatus } from '@shared/proxies';
 
 @Injectable()
 export class WebsocketsService {
@@ -22,6 +23,7 @@ export class WebsocketsService {
       const order = this.ordersService.orders().find(order => order.id === data.id);
       if (!order) return;
       order.status = data.status;
+      order.formatedStatus = formatOrderStatus(data.status);
     });
   }
 }

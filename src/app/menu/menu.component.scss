@@ -71,28 +71,28 @@
       }
    }
 
-   & .local {
-      margin-top: 100px;
+   // & .local {
+   //    margin-top: 100px;
 
-      &__title {
-         font-size: 4rem !important;
-         font-weight: 700;
-      }
+   //    &__title {
+   //       font-size: 4rem !important;
+   //       font-weight: 700;
+   //    }
 
-      &__map {
-         display: flex;
-         flex-direction: row;
-         margin-top: 3rem;
+   //    &__map {
+   //       display: flex;
+   //       flex-direction: row;
+   //       margin-top: 3rem;
 
-         img {
-            display: none;
-         }
+   //       img {
+   //          display: none;
+   //       }
 
-         store-map {
-            width: 100%;
-         }
-      }
-   }
+   //       store-map {
+   //          width: 100%;
+   //       }
+   //    }
+   // }
 }
 
 // .menu {
@@ -149,22 +149,22 @@ menu-chat-button {
       display: flex;
    }
 
-   .local {
-      h2 {
-         font-size: 5rem !important;
-      }
+   // .local {
+   //    h2 {
+   //       font-size: 5rem !important;
+   //    }
 
-      &__map {
-         img {
-            display: block;
-            width: 28%;
-         }
+   //    &__map {
+   //       img {
+   //          display: block;
+   //          width: 28%;
+   //       }
 
-         store-map {
-            width: 72%;
-         }
-      }
-   }
+   //       store-map {
+   //          width: 72%;
+   //       }
+   //    }
+   // }
 
    menu-chat-button {
       display: grid;

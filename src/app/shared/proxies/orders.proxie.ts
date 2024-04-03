@@ -218,6 +218,6 @@ export class OrderDetailAddressDto {
 export const formatOrderStatus = (status: OrderStatus): string => {
   return status === 'pending'
     ? 'Pendiente' : status === 'progress'
-      ? 'En progreso' : status === 'completed'
+      ? 'En preparación' : status === 'completed'
         ? 'Completado' : 'Cancelado';
 };

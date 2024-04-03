@@ -3,7 +3,7 @@ import { Component, inject, model } from '@angular/core';
 import { IonIcon } from "@ionic/angular/standalone";
 import { QuantityInputDirective } from '@shared/directives/quantityInput.directive';
 import { SrcImagePipe } from '@shared/pipes/srcImage.pipe';
-import { ProductDto } from '@shared/proxies/products.proxie';
+import { ProductDto } from '@shared/proxies';
 import { ShoppingCartService } from '@shared/services/shopping-cart.service';
 
 @Component({

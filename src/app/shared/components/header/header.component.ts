@@ -25,7 +25,6 @@ export class HeaderComponent extends ViewComponent {
 
   cartBadge = signal<number | null>(null);
   options: HeaderOption[] = [
-    { name: 'PROMOCIONES', path: '' },
     { name: 'LOCAL', path: 'establishments' },
     { name: 'GALERÍA', path: 'galery' },
   ];
@@ -33,11 +32,6 @@ export class HeaderComponent extends ViewComponent {
   constructor() {
     super();
     effect(() => {
-      const id = this.categoriesService.categories()[0]?.id;
-      if (!id) return;
-
-      this.options[0].path = `/category/${id}`;
-
       this.cartBadge.set(this.shoppingCartService.cart().length);
     }, { allowSignalWrites: true });
   }

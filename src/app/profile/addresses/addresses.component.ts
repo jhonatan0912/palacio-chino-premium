@@ -9,6 +9,4 @@ import { AddressFormComponent } from './address-form/address-form.component';
   templateUrl: './addresses.component.html',
   styleUrl: './addresses.component.scss'
 })
-export class AddressesComponent {
-
-}
+export class AddressesComponent { }

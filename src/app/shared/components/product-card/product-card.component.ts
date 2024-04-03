@@ -1,6 +1,6 @@
 import { DecimalPipe } from '@angular/common';
-import { Component, EventEmitter, Input, Output, inject, input } from '@angular/core';
-import { ProductDto } from '@shared/proxies/products.proxie';
+import { Component, inject, input } from '@angular/core';
+import { ProductDto } from '@shared/proxies';
 import { ShoppingCartService } from '@shared/services/shopping-cart.service';
 
 export interface ProductCardData {

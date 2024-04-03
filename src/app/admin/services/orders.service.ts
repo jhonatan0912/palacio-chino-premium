@@ -1,5 +1,5 @@
 import { Injectable, signal } from '@angular/core';
-import { AdminGetOrderDto } from '@shared/proxies/admin.proxies';
+import { AdminGetOrderDto } from '@shared/proxies';
 
 @Injectable({
   providedIn: 'root'

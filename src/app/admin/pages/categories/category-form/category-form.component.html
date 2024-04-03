@@ -22,7 +22,11 @@
 
   <lib-button
     (onAction)="addCategory()"
-    class="button-center">  
+    class="button-center">
+    @if (busy) {
+    <ion-spinner name="crescent" />
+    }@else {
     Agregar
+    }
   </lib-button>
 </div>

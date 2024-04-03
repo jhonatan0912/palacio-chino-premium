@@ -33,6 +33,16 @@ export class AuthProxy {
     return this.http.post(`${this.path}/login`, body).pipe(mergeMap((data: any) => of(new AuthResponseDto().fromJS(data))));
   }
 
+  updateInfo(fullName: string, email: string, phone: string): Observable<UserAuthResponseDto> {
+    const url = `${this.path}/update-info`;
+    const body = {
+      fullName,
+      email,
+      phone
+    };
+    return this.http.update(url, body).pipe(mergeMap((data: any) => of(new UserAuthResponseDto().fromJS(data))));
+  }
+
   getSession(): Observable<UserAuthResponseDto> {
     return this.http.get(`${this.path}/session`).pipe(mergeMap((data: any) => of(new UserAuthResponseDto().fromJS(data))));
   }
@@ -43,6 +53,11 @@ export class AuthProxy {
     };
 
     return this.http.post(`${this.path}/refresh-token`, body).pipe(mergeMap((data: any) => of(new AuthResponseDto().fromJS(data))));
+  }
+
+  deleteAccount(): Observable<void> {
+    const url = `${this.path}/delete-account`;
+    return this.http.delete(url);
   }
 }
 
@@ -70,6 +85,7 @@ export class AuthResponseDto {
 export class UserAuthResponseDto {
   fullName!: string;
   email!: string;
+  phone!: string;
   id!: string;
   isActive!: string;
   role!: string;
@@ -78,6 +94,7 @@ export class UserAuthResponseDto {
     if (data) {
       this.fullName = data.fullName;
       this.email = data.email;
+      this.phone = data.phone;
       this.id = data.id;
       this.isActive = data.isActive;
       this.role = data.role;

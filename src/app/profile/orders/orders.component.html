@@ -1,5 +1,11 @@
+<header-mobile />
+
 <main class="wrapper">
    <h2 class="title">
+      <ion-icon
+         (click)="onBack()"
+         class="icon-back"
+         name="arrow-back-outline" />
       Mis Pedidos
    </h2>
 
@@ -7,7 +13,9 @@
       @for (order of orders(); track order.id) {
       <order-item [order]="order" />
       }@empty {
-      <p class="empty">No tienes pedidos</p>
+      <p class="empty">
+         No tienes pedidos
+      </p>
       }
    </section>
 </main>

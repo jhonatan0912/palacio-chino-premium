@@ -3,12 +3,12 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { ViewComponent } from '@core/view-component';
 import { IonSpinner } from "@ionic/angular/standalone";
 import { CategoriesMenuComponent } from '@shared/components/categories-menu/categories-menu.component';
-import { ProductDto, ProductsProxy } from '@shared/proxies/products.proxie';
 import { finalize } from 'rxjs/internal/operators/finalize';
 import { ProductCardComponent } from '../shared/components/product-card/product-card.component';
 import { StoreMapComponent } from "@shared/components/store-map/store-map.component";
 import { MenuChatButtonComponent } from './menu-chat-button/menu-chat-button.component';
 import { ChatPopoverComponent } from './chat-popover/chat-popover.component';
+import { ProductDto, ProductsProxy } from '@shared/proxies';
 
 @Component({
   selector: 'app-menu',

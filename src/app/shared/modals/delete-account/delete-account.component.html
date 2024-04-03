@@ -1,0 +1,25 @@
+<section class="modal__container">
+  <h1 class="title">
+    ¿Seguro que quieres eliminar tu cuenta?
+  </h1>
+  <p class="label">
+    Esta acción no se puede deshacer. Esto eliminará permanentemente tu cuenta y
+    todos tus datos.
+  </p>
+  <div class="modal__buttons">
+    <button
+      (click)="dialog.dismiss('cancel')"
+      class="modal__button cancel">
+      Cancelar
+    </button>
+    <button
+      (click)="onDeleteAccount()"
+      class="modal__button confirm">
+      @if (busy) {
+      <ion-spinner name="crescent" />
+      }@else {
+      Eliminar
+      }
+    </button>
+  </div>
+</section>

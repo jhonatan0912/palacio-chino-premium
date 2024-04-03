@@ -14,9 +14,14 @@
       required>
 
     <button
+      (click)="onLogin()"
       type="button"
-      (click)="onLogin()">
+      [disabled]="busy">
+      @if (busy) {
+      <ion-spinner name="crescent" />
+      }@else {
       Iniciar sesión
+      }
     </button>
   </form>
 </main>

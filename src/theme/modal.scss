@@ -12,6 +12,7 @@
 
 admin-order-detail {
   overflow-y: scroll;
+  justify-content: flex-start !important;
 
   &::-webkit-scrollbar {
     width: 5px;
@@ -25,5 +26,13 @@ admin-order-detail {
 
   &::-webkit-scrollbar-track {
     background: #fff;
+  }
+}
+
+ion-modal {
+  &.delete-account {
+    --width: 90%;
+    --height: auto;
+    --border-radius: 1rem;
   }
 }

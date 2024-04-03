@@ -1,8 +1,8 @@
 import { AdminOrdersService } from '@admin/services/orders.service';
 import { Component, DestroyRef, OnInit, inject } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
-import { AdminProxy } from '@shared/proxies/admin.proxies';
 import { AdminOrderItemComponent } from './order-item/order-item.component';
+import { AdminProxy } from '@shared/proxies';
 
 @Component({
   selector: 'app-orders',
@@ -15,6 +15,7 @@ export class OrdersComponent implements OnInit {
 
   private adminProxy = inject(AdminProxy);
   private destroyRef = inject(DestroyRef);
+
   adminOrdersService = inject(AdminOrdersService);
 
   ngOnInit() {

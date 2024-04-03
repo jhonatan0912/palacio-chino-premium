@@ -1,0 +1,23 @@
+<header-mobile />
+
+<main class="container">
+  <section class="username">
+    <span class="fullname">
+      {{ session.user?.fullName }}
+    </span>
+    <span class="email">
+      ( {{ session.user?.email }} )
+    </span>
+  </section>
+
+  <section class="options">
+    @for (option of options; track $index) {
+    <div
+      (click)="option.method()"
+      class="option {{ option.class }}">
+      <ion-icon [name]="option.icon" />
+      {{ option.name }}
+    </div>
+    }
+  </section>
+</main>

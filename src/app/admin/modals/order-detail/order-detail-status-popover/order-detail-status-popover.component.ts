@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ViewComponent } from '@core/view-component';
-import { OrderStatus } from '@shared/proxies/orders.proxie';
+import { OrderStatus } from '@shared/proxies';
 
 interface StateOption {
   id: OrderStatus,
