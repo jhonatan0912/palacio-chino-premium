@@ -175,10 +175,16 @@ menu-chat-button {
 
 @media screen and (min-width: 1024px) {
    .cards-menu {
-      grid-template-columns: repeat(5, 1fr) !important;
+      grid-template-columns: repeat(4, 1fr) !important;
    }
 
    .banner_down {
       display: block;
+   }
+}
+
+@media screen and (min-width: 1440px) {
+   .cards-menu {
+      grid-template-columns: repeat(5, 1fr) !important;
    }
 }
