@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
 import { ViewComponent } from '@core/view-component';
+import { IonIcon } from '@ionic/angular/standalone';
 
 @Component({
   selector: 'checkout-aside',
   standalone: true,
-  imports: [],
+  imports: [IonIcon],
   templateUrl: './aside.component.html',
   styleUrls: ['./aside.component.scss']
 })

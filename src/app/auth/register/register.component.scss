@@ -1,4 +1,5 @@
 .form {
+   width: 400px;
    padding: 30px 40px;
    border-radius: 20px;
    background-color: #fff;
@@ -35,21 +36,29 @@
    font-weight: 200;
    text-align: center;
    font-size: 13px;
-   cursor: pointer;
-
 
    span {
       text-decoration: underline;
       color: #F23545;
       font-size: 13px;
       font-weight: 600;
+      cursor: pointer;
    }
 }
 
-.button_register {
-   display: flex;
-   flex-direction: column;
-   align-items: stretch;
+.info{
+   font-weight: 200;
+   text-align: center;
+   font-size: 13px;
+   padding-inline: 1rem;
+   margin-bottom: 2rem;
+   
+
+   span{
+      color: #F23545;
+      font-size: 13px;
+      font-weight: 600;
+   }
 }
 
 

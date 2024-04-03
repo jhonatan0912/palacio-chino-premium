@@ -29,16 +29,17 @@
     <div></div>
   </section>
 
+  <lib-button
+    (onAction)="onLogin()"
+    [disabled]="busy">
+    @if (busy) {
+    <ion-spinner name="crescent" />
+    }@else {
+    INICIAR SESIÓN
+    }
+  </lib-button>
+  
   <section class="form__extra">
-    <lib-button
-      (onAction)="onLogin()"
-      [disabled]="busy">
-      @if (busy) {
-      <ion-spinner name="crescent" />
-      }@else {
-      INICIAR SESIÓN
-      }
-    </lib-button>
 
     <p class="form__extra__new">¿Eres nuevo?</p>
 

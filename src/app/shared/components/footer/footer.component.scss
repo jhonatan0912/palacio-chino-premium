@@ -3,7 +3,7 @@
    position: relative;
    padding: 30px 0 15px 0;
    margin-top: 50px;
-   padding-bottom: 4.5rem;
+   // padding-bottom: 4.5rem;
 
    .line-red-footer {
       background-color: #DC5353;
@@ -20,11 +20,13 @@
       .contend_footer_first {
          display: flex;
          justify-content: space-between;
-         flex-direction: column;
+         gap: 100px;
 
          .logo {
-            width: 90px;
-            margin-bottom: 16px;
+            width: 170px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
 
             img {
                width: 100%;
@@ -33,7 +35,7 @@
 
          .options {
             display: flex;
-            flex-direction: column;
+            
 
             .option {
                margin-top: 16px;
@@ -76,6 +78,9 @@
                padding-top: 6px;
 
                ion-icon {
+
+                  // width: 100px;
+
                   &:hover {
                      color: #a1a1aa;
                   }
@@ -87,7 +92,7 @@
       .contend_footer_second {
          display: flex;
          justify-content: space-between;
-         padding-top: 2rem;
+         padding-top: 3rem;
          flex-direction: column;
          text-align: center;
       }
@@ -107,14 +112,15 @@
    .options {
       flex: 1 !important;
       flex-direction: row !important;
-      justify-content: center !important;
+      // justify-content: center !important;
+      justify-content: space-between;
       gap: 3.5rem;
    }
 
-   .payment_methods,
-   .follow_us {
-      margin-left: 32px;
-   }
+   // .payment_methods,
+   // .follow_us {
+   //    margin-left: 32px;
+   // }
 
    .title {
       padding-bottom: 1rem;

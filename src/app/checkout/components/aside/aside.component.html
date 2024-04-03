@@ -1,5 +1,17 @@
 <aside class="aside">
-  <section class="breadcrums">
-    <span class="breadcrum" (click)="onBack()">Regresar</span>
+
+  <section
+    (click)="onBack()"
+    class="button__back">
+    <ion-icon name="chevron-back-outline" />
+    <span>Regresar</span>
   </section>
+
+  <section class="aside__logo">
+    <img src="/assets/logo.png" alt="Logo Palacio Chino Premium" />
+    <p class="aside__logo__label">
+      Palacio Chino Premium
+    </p>
+  </section>
+
 </aside>

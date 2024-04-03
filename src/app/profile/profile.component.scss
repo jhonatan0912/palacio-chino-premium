@@ -12,12 +12,17 @@
     margin: auto;
     display: flex;
     height: 100%;
-    padding-top: 2rem;
+    padding-block: 2rem;
+    // margin-bottom: 2rem;
   }
 
   .profile__content {
     flex: 1;
-    height: 100%;
+    height: fit-content;
+    // height: 100%;
+    padding: 40px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 1rem;
   }
 }
 
@@ -28,16 +33,16 @@
   }
 
   .profile__wraper {
-    gap: 1rem;
+    gap: 2rem;
 
     .side-menu {
       width: 250px;
     }
 
-    .profile__content {
-      padding-inline: .5rem;
-      padding-bottom: 1rem;
-    }
+    // .profile__content {
+    //   padding-inline: .5rem;
+    //   padding-bottom: 1rem;
+    // }
   }
 
 }

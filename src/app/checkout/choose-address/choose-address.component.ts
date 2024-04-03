@@ -1,4 +1,5 @@
 import { Component, DestroyRef, OnInit, inject, signal } from '@angular/core';
+import { ViewComponent } from '@core/view-component';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { FormsModule } from '@angular/forms';
 import { IonRadioGroup, IonRadio, IonSpinner } from '@ionic/angular/standalone';
@@ -14,7 +15,7 @@ import { finalize } from 'rxjs';
   templateUrl: './choose-address.component.html',
   styleUrls: ['./choose-address.component.scss']
 })
-export class ChooseAddressComponent implements OnInit {
+export class ChooseAddressComponent extends ViewComponent{
 
   private readonly _addressesProxy = inject(AddressesProxy);
   private readonly _addressesService = inject(AddressesService);
@@ -60,7 +61,9 @@ export class ChooseAddressComponent implements OnInit {
     this.address = address;
   }
 
-  onAddAddress(): void { }
+  onAddAddress(): void { 
+    // this.navigation.forward('/add-address');
+  }
 
   onContinue(): void {
     if (!this.address.id) return;
