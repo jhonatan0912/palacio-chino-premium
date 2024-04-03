@@ -50,6 +50,7 @@ export class ShoppingCartComponent extends ViewComponent {
     this.dialog.showWithData({
       component: ShoppingCartAdressModalComponent
     }).then((address) => {
+      if (!address) return;
       this.onOrder(address.id);
     });
   }

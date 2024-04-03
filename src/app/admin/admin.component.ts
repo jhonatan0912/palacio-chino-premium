@@ -3,11 +3,12 @@ import { Component, OnInit, inject } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { AdminWebsocketsService } from './services/websockets.service';
+import { IonTitle } from "@ionic/angular/standalone";
 
 @Component({
   selector: 'app-admin',
   standalone: true,
-  imports: [RouterOutlet, SidebarComponent, NgClass],
+  imports: [IonTitle, RouterOutlet, SidebarComponent, NgClass],
   providers: [AdminWebsocketsService],
   templateUrl: './admin.component.html',
   styleUrls: ['./admin.component.scss'],

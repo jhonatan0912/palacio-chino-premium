@@ -1,9 +1,28 @@
-.layout {
+.mobile__layout {
+  width: 100%;
+  height: 100%;
   display: flex;
-  width: 100vw;
-  height: 100vh;
-  overflow-x: hidden;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  font-weight: bold;
+
+  &__icon {
+    font-size: 4rem;
+  }
+
+  &__label {
+    font-size: 1.5rem;
+    text-align: center;
+    padding-inline: 1rem;
+  }
 }
+
+.layout {
+  display: none;
+}
+
 
 app-admin-sidebar {
   width: 11%;
@@ -17,7 +36,7 @@ app-admin-sidebar {
 
 }
 
-.title{
+.title {
   font-size: 2rem;
   font-weight: bolder;
   margin-bottom: 20px;
@@ -33,6 +52,17 @@ app-admin-sidebar {
 }
 
 @media screen and (min-width: 768px) {
+  .mobile__layout {
+    display: none;
+  }
+
+  .layout {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    overflow-x: hidden;
+  }
+
   app-admin-sidebar {
     display: block;
   }
