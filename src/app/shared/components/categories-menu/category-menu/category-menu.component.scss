@@ -6,21 +6,20 @@
   }
 
   &__name {
-    font-weight: bold;
+    font-weight: 500;
     text-wrap: nowrap;
   }
 }
 
 @media screen and (min-width: 768px) {
   .category {
-    width: 100px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
     padding: 10px 0;
     cursor: pointer;
-    width: 90px;
+    width: 150px;
     height: 90px;
 
     &__image {
@@ -45,6 +44,7 @@
       background-color: #D9B536;
       border-radius: 10px;
       color: white;
+      // transition: all 250ms ease-out;
     }
 
   }

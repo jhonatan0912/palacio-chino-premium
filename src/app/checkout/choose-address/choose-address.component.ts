@@ -72,7 +72,7 @@ export class ChooseAddressComponent extends ViewComponent implements OnInit {
   }
 
   onAddAddress(): void {
-    // this.navigation.forward('/add-address');
+    this.navigation.forward('/profile/adresses/add');
   }
 
   onContinue(): void {
