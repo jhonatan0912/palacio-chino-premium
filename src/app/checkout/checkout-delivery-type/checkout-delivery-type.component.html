@@ -1,0 +1,37 @@
+<section class="delivery__type">
+  <h4 class="title">
+    Tipo de entrega
+  </h4>
+
+  <section class="delivery__types">
+    @for (option of deliveryTypeOptions; track $index) {
+    <div
+      (click)="onSelectDeliveryType(option.id)"
+      class="option"
+      aria-label="Seleccionar método de pago"
+      [ngClass]="{'selected' : option.id === deliveryTypeId}">
+      {{ option.name }}
+    </div>
+    }
+  </section>
+
+  @if (deliveryTypeId === 'delivery') {
+  <section class="payment__method">
+    <h4 class="title">
+      Método de pago
+    </h4>
+    <div class="payment__methods">
+      @for (paymentMethod of paymentMethods; track $index) {
+      <button
+        (click)="onSelectPaymentMethod(paymentMethod.id)"
+        class="option"
+        aria-label="Seleccionar método de pago"
+        [ngClass]="{'selected' : paymentMethod.id === paymentMethodId}">
+        {{ paymentMethod.name }}
+      </button>
+      }
+    </div>
+  </section>
+  }
+
+</section>

@@ -1,0 +1,49 @@
+.delivery__type {
+  display: flex;
+  flex-direction: column;
+
+  .title {
+    font-weight: bold;
+    margin-bottom: .5rem;
+  }
+
+  .delivery__types,
+  .payment__methods {
+    display: flex;
+    border: 1px solid var(--primary-red);
+    border-radius: .5rem;
+    justify-content: space-between;
+
+    .option {
+      width: 50%;
+      padding: .5rem 1rem;
+      font-weight: bold;
+      cursor: pointer;
+      text-align: center;
+
+      &:first-child {
+        border-right: 1px solid var(--primary-red);
+      }
+
+      &.selected {
+        background: var(--primary-red);
+        color: #fff;
+
+        &:first-child {
+          border-radius: .5rem 0 0 .5rem;
+        }
+
+        &:last-child {
+          border-radius: 0 .5rem .5rem 0;
+        }
+      }
+    }
+  }
+
+  .payment__method {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+    margin-top: 2rem;
+  }
+}

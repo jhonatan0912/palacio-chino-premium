@@ -3,12 +3,25 @@
 
   <section class="checkout__content">
     <section class="checkout__content__detail">
-      <h3 class="font-bold">
+      <h3 class="title">
         Detalles de pedido
       </h3>
 
       <checkout-address
         [(address)]="address" />
+
+      <checkout-delivery-type />
+
+      <lib-button
+        (onAction)="onConfirm()"
+        aria-label="Confirmar"
+        class="button-center">
+        @if (busy) {
+        <ion-spinner name="crescent" />
+        }@else {
+        Confirmar
+        }
+      </lib-button>
     </section>
   </section>
 </main>
