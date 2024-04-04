@@ -30,5 +30,24 @@
         order().address.district }}
       </div>
     </div>
+    <div class="modal__user__content__item">
+      <div class="modal__user__content__item__label">
+        Tipo de pedido
+      </div>
+      <div class="modal__user__content__item__value">
+        {{ order().formatedDeliveryType}}
+      </div>
+    </div>
+
+    @if (order().deliveryType === 'delivery') {
+    <div class="modal__user__content__item">
+      <div class="modal__user__content__item__label">
+        Método de pago
+      </div>
+      <div class="modal__user__content__item__value">
+        {{ order().formatedPaymentMethod }}
+      </div>
+    </div>
+    }
   </div>
 </section>

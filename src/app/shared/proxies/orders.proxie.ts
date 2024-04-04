@@ -4,6 +4,8 @@ import { environment } from '@environments/environment';
 import { Observable, mergeMap, of } from 'rxjs';
 
 export type OrderStatus = 'pending' | 'progress' | 'completed' | 'canceled';
+export type DeliveryType = 'delivery' | 'pickup';
+export type PaymentMethod = 'cash' | 'card';
 
 @Injectable({
   providedIn: 'root'
@@ -15,10 +17,12 @@ export class OrdersProxy {
     return `${environment.api}/api/v1/orders`;
   }
 
-  create(products: CreateOrderDto[], addressId: string): Observable<GetOrderDto> {
+  create(products: CreateOrderDto[], addressId: string, deliveryType: DeliveryType, paymentMethod: PaymentMethod | null): Observable<GetOrderDto> {
     const body = {
       products: products,
-      addressId: addressId
+      addressId: addressId,
+      deliveryType: deliveryType,
+      paymentMethod: paymentMethod
     };
 
     return this.http.post(`${this.path}`, body).pipe(mergeMap((data: any) => of(new GetOrderDto().fromJS(data))));

@@ -1,9 +1,9 @@
 import { NgClass } from '@angular/common';
 import { Component } from '@angular/core';
 import { IonRadio } from "@ionic/angular/standalone";
+import { DeliveryType, PaymentMethod } from '@shared/proxies';
 
-export type DeliveryType = 'delivery' | 'pickup';
-export type PaymentMethod = 'cash' | 'card';
+
 
 interface DeliveryOption {
   id: DeliveryType;

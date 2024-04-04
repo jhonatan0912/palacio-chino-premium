@@ -10,6 +10,18 @@
 
 }
 
+ion-modal {
+  .ion-page {
+    justify-content: flex-start !important;
+  }
+
+  &.delete-account {
+    --width: 90%;
+    --height: auto;
+    --border-radius: 1rem;
+  }
+}
+
 admin-order-detail {
   overflow-y: scroll;
   justify-content: flex-start !important;
@@ -26,17 +38,5 @@ admin-order-detail {
 
   &::-webkit-scrollbar-track {
     background: #fff;
-  }
-}
-
-ion-modal {
-  .ion-page {
-    all: unset;
-  }
-
-  &.delete-account {
-    --width: 90%;
-    --height: auto;
-    --border-radius: 1rem;
   }
 }

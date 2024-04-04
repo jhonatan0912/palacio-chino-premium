@@ -1,15 +1,15 @@
 import { Component, inject } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { AddressDto, CreateOrderDto, OrdersProxy } from '@shared/proxies';
-import { CheckoutAddressComponent } from './checkout-address/checkout-address.component';
-import { CheckoutDeliveryTypeComponent, DeliveryType, PaymentMethod } from './checkout-delivery-type/checkout-delivery-type.component';
-import { AsideComponent } from './components/aside/aside.component';
-import { ButtonComponent } from '@lib/button/button.component';
-import { ShoppingCartService } from '@shared/services/shopping-cart.service';
-import { finalize } from 'rxjs';
-import { OrdersService } from '@profile/services/orders.service';
 import { ViewComponent } from '@core/view-component';
 import { IonSpinner } from "@ionic/angular/standalone";
+import { ButtonComponent } from '@lib/button/button.component';
+import { OrdersService } from '@profile/services/orders.service';
+import { AddressDto, CreateOrderDto, DeliveryType, OrdersProxy, PaymentMethod } from '@shared/proxies';
+import { ShoppingCartService } from '@shared/services/shopping-cart.service';
+import { finalize } from 'rxjs';
+import { CheckoutAddressComponent } from './checkout-address/checkout-address.component';
+import { CheckoutDeliveryTypeComponent } from './checkout-delivery-type/checkout-delivery-type.component';
+import { AsideComponent } from './components/aside/aside.component';
 
 @Component({
   selector: 'app-checkout',
@@ -25,7 +25,7 @@ export class CheckoutComponent extends ViewComponent {
   private readonly _shoppingCartService = inject(ShoppingCartService);
 
   deliveryType: DeliveryType = 'delivery';
-  paymentMethod: PaymentMethod = 'cash';
+  paymentMethod: PaymentMethod | null = null;
 
   busy: boolean = false;
   address: AddressDto = new AddressDto({
@@ -54,7 +54,9 @@ export class CheckoutComponent extends ViewComponent {
     this.busy = true;
     this._ordersProxy.create(
       orders,
-      this.address.id
+      this.address.id,
+      this.deliveryType,
+      this.paymentMethod
     ).pipe(finalize(() => this.busy = false))
       .subscribe({
         next: (res) => {

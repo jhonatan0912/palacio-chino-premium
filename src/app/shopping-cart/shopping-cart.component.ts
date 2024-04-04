@@ -65,7 +65,9 @@ export class ShoppingCartComponent extends ViewComponent {
     this.busy = true;
     this._ordersProxy.create(
       orders,
-      addressId
+      addressId,
+      'pickup',
+      null
     ).pipe(finalize(() => this.busy = false))
       .subscribe({
         next: (res) => {

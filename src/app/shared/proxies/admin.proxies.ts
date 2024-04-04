@@ -2,7 +2,7 @@ import { Injectable, inject } from '@angular/core';
 import { AppHttpService } from '@core/index';
 import { environment } from '@environments/environment';
 import { Observable, map } from 'rxjs';
-import { OrderStatus, formatOrderStatus } from './orders.proxie';
+import { DeliveryType, OrderStatus, PaymentMethod, formatOrderStatus } from './orders.proxie';
 
 @Injectable({
   providedIn: 'root'
@@ -65,6 +65,10 @@ export class AdminGetOrderDto {
   status!: OrderStatus;
   address!: GetOrdersResponseAddressDto;
   formatedStatus!: string;
+  deliveryType!: DeliveryType;
+  formatedDeliveryType!: string;
+  paymentMethod!: PaymentMethod;
+  formatedPaymentMethod!: string;
   total!: number;
 
   init(data: any): void {
@@ -76,8 +80,20 @@ export class AdminGetOrderDto {
       this.status = data.status;
       this.address = data.address ? new GetOrdersResponseAddressDto().fromJS(data.address) : <any>undefined;
       this.formatedStatus = formatOrderStatus(data.status);
+      this.deliveryType = data.deliveryType;
+      this.formatedDeliveryType = this.formatDeliveryType(data.deliveryType);
+      this.paymentMethod = data.paymentMethod;
+      this.formatedPaymentMethod = this.formatPaymentMethod(data.paymentMethod);
       this.total = data.total;
     }
+  }
+
+  private formatDeliveryType(deliveryType: DeliveryType): string {
+    return deliveryType === 'pickup' ? 'Recojo en tienda' : 'Delivery';
+  }
+
+  private formatPaymentMethod(paymentMethod: PaymentMethod): string {
+    return paymentMethod === 'cash' ? 'Efectivo' : 'Tarjeta';
   }
 
   fromJS(data: any): AdminGetOrderDto {
