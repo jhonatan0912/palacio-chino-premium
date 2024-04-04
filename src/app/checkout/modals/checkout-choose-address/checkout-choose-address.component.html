@@ -1,0 +1,31 @@
+<title-modal (onDismiss)="dialog.dismiss('cancel')">
+  Seleccionar dirección
+</title-modal>
+
+<section class="modal__container">
+  @if (!busy) {
+  <ion-radio-group class="addresses" [(ngModel)]="address.id">
+    @for (address of addresses(); track $index) {
+    <article class="address" (click)="onSelect(address)">
+      <ion-radio [id]="'address__' + address.id" [value]="address.id" />
+      <div class="address__content">
+        <p class="bold">
+          {{ address.street }}, {{ address.number }} - {{ address.district }}
+        </p>
+        <p> {{ address.phone }} </p>
+        <p> {{ address.type }} </p>
+      </div>
+    </article>
+    }@empty {
+    <p class="empty">
+      No hay direcciones registradas
+    </p>
+    <button (click)="onAddAddress()" aria-label="Crear dirección">
+      Crear dirección
+    </button>
+    }
+  </ion-radio-group>
+  }@else{
+  <ion-spinner name="dots" />
+  }
+</section>

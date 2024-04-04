@@ -1,0 +1,16 @@
+<h4 class="title">
+  Dirección:
+</h4>
+
+<p (click)="onSelectAddress()" class="address">
+  @if (address().id) {
+  <span class="selected__address">
+    <ion-icon name="location-outline" />
+    {{ address().street }}, {{ address().number }} - {{ address().district }}
+  </span>
+  }@else {
+  <span class="empty__address">
+    Seleccionar dirección
+  </span>
+  }
+</p>

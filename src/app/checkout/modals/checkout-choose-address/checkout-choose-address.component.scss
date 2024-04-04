@@ -1,0 +1,28 @@
+.modal__container {
+  padding: 1rem;
+
+  .addresses {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+    .address {
+      display: flex;
+      gap: 1rem;
+      cursor: pointer;
+      box-shadow: 0 0 10px rgba(0, 0, 0, .1);
+      border-radius: 1rem;
+      padding: .5rem;
+
+      &:active {
+        scale: .98;
+      }
+
+      &__content {
+        display: flex;
+        flex-direction: column;
+        gap: .5rem;
+      }
+    }
+  }
+}

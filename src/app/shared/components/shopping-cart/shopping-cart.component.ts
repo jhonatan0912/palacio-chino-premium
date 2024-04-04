@@ -43,7 +43,7 @@ export class ShoppingCartComponent extends ViewComponent {
 
     } else {
       this.popoverCtrl.dismiss('cancel')
-        .then(() => this.navigation.forward('/checkout/choose-address'));
+        .then(() => this.navigation.forward('/checkout'));
     }
   }
 

@@ -30,6 +30,10 @@ admin-order-detail {
 }
 
 ion-modal {
+  .ion-page {
+    all: unset;
+  }
+
   &.delete-account {
     --width: 90%;
     --height: auto;

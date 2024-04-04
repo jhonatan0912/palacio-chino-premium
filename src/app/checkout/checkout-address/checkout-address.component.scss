@@ -1,0 +1,19 @@
+.title {
+  font-weight: bold;
+  margin-bottom: .5rem;
+}
+
+.address {
+  cursor: pointer;
+
+  .selected__address {
+    font-weight: 500;
+    display: flex;
+    gap: .5rem;
+    align-items: center;
+  }
+
+  .empty__address {
+    color: #00000099;
+  }
+}

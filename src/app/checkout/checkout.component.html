@@ -1,7 +1,14 @@
-<main class="checkout__container">
+<main class="checkout">
   <checkout-aside />
 
   <section class="checkout__content">
-    <router-outlet />
+    <section class="checkout__content__detail">
+      <h3 class="font-bold">
+        Detalles de pedido
+      </h3>
+
+      <checkout-address
+        [(address)]="address" />
+    </section>
   </section>
 </main>
