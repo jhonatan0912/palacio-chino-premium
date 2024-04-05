@@ -5,8 +5,8 @@
         (click)="navigateToHome()"
         src="/assets/logo.png"
         alt="Logo Palacio Chino Premium"
-        width="90px"
-        height="90px" />
+        width="90"
+        height="90" />
 
       <ul class="options">
         @for (option of options; track $index) {
@@ -27,7 +27,9 @@
         @if (!session.user) {
         Iniciar sesión
         }@else {
-        <span class="username">{{ session.user.fullName }}</span>
+        <span class="username">
+          {{ session.user.fullName }}
+        </span>
         }
       </div>
 
@@ -37,8 +39,13 @@
           {{ cartBadge() }}
         </span>
         }
-        <ion-icon class="cart-outline" name="cart-outline" />
-        <span (click)="onCart($event)" class="virtual__box"></span>
+        <ion-icon
+          class="cart-outline"
+          name="cart-outline" />
+        <span
+          (click)="onCart($event)"
+          class="virtual__box">
+        </span>
       </div>
     </div>
   </nav>

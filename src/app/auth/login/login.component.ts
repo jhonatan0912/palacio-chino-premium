@@ -40,8 +40,7 @@ export class LoginComponent extends ViewComponent {
     ).subscribe({
       next: (res) => {
         this.session.setUser(res.user);
-        this._authService.setAuthToken(res.token);
-        this._authService.setRefreshToken(res.refreshToken);
+        this._authService.setTokens(res.token, res.refreshToken);
         this.navigation.forward('/profile');
         window.location.reload();
       },
