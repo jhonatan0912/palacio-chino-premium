@@ -54,13 +54,13 @@ export class ProductsProxy {
 
   }
 
-  getByCategory(idCategory: string, page: number = 1, pageSize: number = 30): Observable<GetAllProductsResponseDto> {
+  getByCategory(idCategory: string, page: number = 1, limit: number = 10): Observable<GetAllProductsResponseDto> {
     let url = `${this.path}/get-by-category/${idCategory}`;
     if (page !== null && page !== undefined)
       url += `?page=${page}`;
 
-    if (pageSize !== null && pageSize !== undefined)
-      url += `&pageSize=${pageSize}`;
+    if (limit !== null && limit !== undefined)
+      url += `&limit=${limit}`;
 
     return this.http.get(url).pipe(mergeMap((data: any) => of(new GetAllProductsResponseDto().fromJS(data))));
   }
