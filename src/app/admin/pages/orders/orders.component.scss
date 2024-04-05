@@ -1,20 +1,11 @@
 @import './../../scss/admin.scss';
 
 .orders {
-  display: grid;
-}
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
 
-@media screen and (min-width: 768px) {
-  .orders {
-    grid-template-columns: repeat(4, 1fr);
-    gap: 1rem;
+  .order__item {
+    max-width: 260px;
   }
-
-}
-
-@media screen and (min-width: 1024px) {
-  .orders {
-    grid-template-columns: repeat(5, 1fr);
-  }
-
 }

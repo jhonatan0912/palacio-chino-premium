@@ -7,7 +7,9 @@
       <div class="content">
         <section class="orders">
           @for (order of adminOrdersService.orders(); track order.id) {
-          <admin-order-item [order]="order" />
+          <admin-order-item
+            class="order__item"
+            [order]="order" />
           }
         </section>
       </div>
