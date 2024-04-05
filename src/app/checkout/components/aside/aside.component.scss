@@ -4,14 +4,12 @@
   flex-direction: column;
   height: 100%;
 
-  & .breadcrums {
-    & .breadcrum {
-      font-weight: bold;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      gap: .5rem;
-    }
+  & .button__back {
+    display: flex;
+    gap: .5rem;
+    align-items: center;
+    ;
+    cursor: pointer;
   }
 
   & .branch {
