@@ -15,17 +15,15 @@
    }
 
    .container__layout {
-      // padding-inline: 10px;
 
       .contend_footer_first {
          display: flex;
          justify-content: space-between;
          flex-direction: column;
-         gap: 90px;
+
 
          .logo {
             width: 150px;
-            // margin-bottom: 16px;
             margin-block: auto;
 
             img {
@@ -78,7 +76,8 @@
                padding-top: 6px;
 
                ion-icon {
-                  font-size: 40px;
+                  font-size: 32px;
+
                   &:hover {
                      color: #a1a1aa;
                   }
@@ -109,8 +108,8 @@
    .contend_footer_first {
       display: flex !important;
       flex-direction: row !important;
-      // max-width: 1100px;
       margin: auto;
+      gap: 90px;
    }
 
    .options {
@@ -118,11 +117,6 @@
       flex-direction: row !important;
       justify-content: center !important;
       gap: 3.5rem;
-   }
-
-   .payment_methods,
-   .follow_us {
-      // margin-left: 32px;
    }
 
    .title {
