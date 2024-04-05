@@ -7,6 +7,7 @@ import { ProductCardComponent } from '@shared/components/product-card/product-ca
 import { CategoriesProxy, CategoryDto, ProductDto, ProductsProxy } from '@shared/proxies';
 import { finalize } from 'rxjs/internal/operators/finalize';
 import { CategorySkeletonComponent } from './category-skeleton/category-skeleton.component';
+import { CategoriesService } from '@shared/services/categories.service';
 
 @Component({
   selector: 'app-category',
@@ -17,41 +18,36 @@ import { CategorySkeletonComponent } from './category-skeleton/category-skeleton
 })
 export class CategoryComponent extends ViewComponent {
 
-  private categoriesProxy = inject(CategoriesProxy);
-  private productsProxy = inject(ProductsProxy);
-  private destroyRef = inject(DestroyRef);
+  private readonly _categoriesService = inject(CategoriesService);
+  private readonly _productsProxy = inject(ProductsProxy);
 
   id = input.required<string>();
-  category: WritableSignal<CategoryDto | undefined> = signal(undefined);
   products = signal<ProductDto[]>([]);
+  category = signal<CategoryDto | undefined>(undefined);
+  page: number = 1;
+  lastPage: number = 1;
   busy = signal<boolean>(false);
 
   constructor() {
     super();
     effect(() => {
-      this.getCategoryInfo(this.id());
-      this.getProductsByCategory(this.id());
+      this.getProductsByCategory();
+      this.category.set(this._categoriesService.categories().find(c => c.id === this.id()));
     }, { allowSignalWrites: true });
   }
 
-  getCategoryInfo(id: string): void {
-    this.categoriesProxy.get(id)
-      .pipe(
-        takeUntilDestroyed(this.destroyRef)
-      ).subscribe({
-        next: (category) => {
-          this.category.set(category);
-        }
-      });
-  }
 
-  getProductsByCategory(id: string): void {
+  getProductsByCategory(): void {
+    if (this.page > this.lastPage) return;
+
     this.busy.set(true);
-    this.productsProxy.getByCategory(id)
+    this._productsProxy.getByCategory(this.id())
       .pipe(finalize(() => this.busy.set(false)))
       .subscribe({
         next: (res) => {
-          this.products.set(res.products);
+          this.page += 1;
+          this.lastPage = res.meta.lastPage;
+          this.products.update((prev) => [...prev, ...res.products]);
         }
       });
   }
