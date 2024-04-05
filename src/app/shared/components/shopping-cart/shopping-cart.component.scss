@@ -4,7 +4,6 @@
   align-items: center;
   padding-block: 15px;
   padding-inline: 10px;
-  border-bottom: 1px solid black;
 
   & .title {
     font-weight: 500;
@@ -16,7 +15,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #F23545;
 
     .close-button {
       width: 30px;
@@ -25,7 +23,6 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      filter: invert(1);
     }
   }
 }
