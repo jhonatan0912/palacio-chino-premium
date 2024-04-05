@@ -5,7 +5,7 @@ import { IonIcon } from "@ionic/angular/standalone";
 @Component({
   selector: 'checkout-aside',
   standalone: true,
-  imports: [IonIcon, ],
+  imports: [IonIcon],
   templateUrl: './aside.component.html',
   styleUrls: ['./aside.component.scss']
 })

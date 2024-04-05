@@ -1,7 +1,7 @@
 .wrapper {
   background: #fff;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  padding: 40px;
+  // box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  // padding: 40px;
   border-radius: 1rem;
   margin-top: .5rem;
 
@@ -11,13 +11,9 @@
 }
 
 
-.title {
-  margin-block: 2rem;
-}
-
 input,
 select,
-textarea {
+textarea{
   border: 1px solid #ccc;
   border-radius: 10px;
   padding: 10px 10px;
@@ -42,7 +38,7 @@ textarea {
   align-items: stretch;
   justify-content: flex-start;
   gap: 2rem;
-  margin-top: 1rem;
+  margin-top: 2rem;
 
   .button {
     width: 250px;

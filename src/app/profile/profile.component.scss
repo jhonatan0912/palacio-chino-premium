@@ -18,6 +18,9 @@
   .profile__content {
     flex: 1;
     height: 100%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 1.5rem;
+    border-radius: 1rem;
   }
 }
 
@@ -35,8 +38,8 @@
     }
 
     .profile__content {
-      padding-inline: .5rem;
-      padding-bottom: 1rem;
+      // padding-inline: .5rem;
+      // padding-bottom: 1rem;
     }
   }
 

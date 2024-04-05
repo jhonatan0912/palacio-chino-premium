@@ -20,9 +20,8 @@ export class FooterComponent implements OnInit {
   ];
 
   information = [
-    { name: 'Sobre nosotros' },
+    { name: 'Galeria' },
     { name: 'Nuestro local' },
-    { name: 'Zonas de reparto' },
     { name: 'Contáctanos' },
   ];
 
