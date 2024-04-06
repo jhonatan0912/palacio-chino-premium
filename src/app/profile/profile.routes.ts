@@ -15,7 +15,11 @@ export const routes: Routes = [
           {
             path: 'add',
             loadComponent: () => import('./addresses/address-form/address-form.component').then(p => p.AddressFormComponent)
-          }
+          },
+          {
+            path: 'form/:action',
+            loadComponent: () => import('./addresses/address-form/address-form.component').then(p => p.AddressFormComponent)
+          },
         ]
       },
       {

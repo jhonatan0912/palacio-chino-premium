@@ -1,7 +1,7 @@
 <article class="address__item">
   <div class="address__item__details">
     <span>
-      {{ address().street }}, {{ address().number }} - {{ address().district }}
+      {{ address().street }}, {{ address().number }} - <span class="district">{{ address().district }}</span>
     </span>
     <span>
       {{ address().type }}

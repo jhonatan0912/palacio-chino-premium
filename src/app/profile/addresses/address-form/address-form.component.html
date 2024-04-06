@@ -1,7 +1,7 @@
 <main class="wrapper">
 
   <h2 class="title">
-    Agregar dirección
+    {{ title }} dirección
   </h2>
 
   <form class="col" [formGroup]="form">
@@ -62,12 +62,12 @@
 
   <section class="buttons">
     <lib-button
-      (onAction)="addAddress()"
+      (onAction)="onSubmit()"
       class="button">
       @if(busy){
       <ion-spinner name="crescent" />
       }@else {
-      Agregar dirección
+      {{ title }} dirección
       }
     </lib-button>
 
