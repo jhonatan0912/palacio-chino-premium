@@ -127,6 +127,10 @@ export class OrderDetailDto {
   createdAt!: Date;
   status!: OrderStatus;
   formatedStatus!: string;
+  deliveryType!: DeliveryType;
+  formatedDeliveryType!: string;
+  paymentMethod!: PaymentMethod;
+  formatedPaymentMethod!: string;
   total!: number;
 
   init(data: any): void {
@@ -138,6 +142,10 @@ export class OrderDetailDto {
       this.createdAt = data.createdAt;
       this.status = data.status;
       this.formatedStatus = formatOrderStatus(data.status);
+      this.deliveryType = data.deliveryType;
+      this.formatedDeliveryType = data.deliveryType === 'delivery' ? 'Delivery' : 'Recojo en tienda';
+      this.paymentMethod = data.paymentMethod;
+      this.formatedPaymentMethod = data.paymentMethod === 'cash' ? 'Efectivo' : 'Tarjeta';
       this.total = data.total;
     }
   }

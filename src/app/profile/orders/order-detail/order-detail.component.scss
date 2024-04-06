@@ -23,6 +23,10 @@
 
   &__title {
     font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer;
+    user-select: none;
   }
 
   &__content {
@@ -38,7 +42,14 @@
     display: none;
   }
 
+  .title {
+    ion-icon {
+      display: none;
+    }
+  }
+
   .container__detail {
     margin-top: 0;
+    padding: 0;
   }
 }
