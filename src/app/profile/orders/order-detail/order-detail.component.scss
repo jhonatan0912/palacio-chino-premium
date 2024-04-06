@@ -1,0 +1,22 @@
+.bold {
+  font-weight: bold;
+}
+
+.row {
+  margin-top: 1rem;
+}
+
+.products {
+  margin-top: 1rem;
+
+  &__title {
+    font-weight: bold;
+  }
+
+  &__content {
+    margin-top: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: .9rem;
+  }
+}

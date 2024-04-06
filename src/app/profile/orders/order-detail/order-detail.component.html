@@ -1,3 +1,31 @@
-<p>
-  order-detail works!
-</p>
+<section>
+  <h2 class="title">
+    Detalle de pedido
+  </h2>
+
+  <div class="row">
+    <span class="bold">Estado:</span>
+    <span class="status__label {{ order().status }}">
+      {{ order().formatedStatus }}
+    </span>
+  </div>
+
+  @if(order().address){
+  <div class="row">
+    <span class="bold">Dirección:</span>
+    <span>
+      {{ order().address.street }}, {{ order().address.number }} - {{
+      order().address.district}}
+    </span>
+  </div>
+  }
+
+  <section class="products">
+    <p class="products__title">Productos</p>
+    <div class="products__content">
+      @for (product of order().products; track $index) {
+      <order-detail-product [product]="product" />
+      }
+    </div>
+  </section>
+</section>

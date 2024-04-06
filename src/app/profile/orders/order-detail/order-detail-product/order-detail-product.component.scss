@@ -1,0 +1,29 @@
+.product {
+  display: flex;
+  gap: 1rem;
+
+  &__image {
+    width: 80px;
+    height: 80px;
+    border-radius: 5px;
+    object-fit: cover;
+  }
+
+  &__content {
+    flex: 1;
+
+    &__resume {
+      margin-top: 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: .5rem;
+    }
+
+    &__price,
+    &__quantity,
+    &__total {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+}
