@@ -6,11 +6,13 @@ import { HeaderMobileComponent } from '@shared/components/header-mobile/header-m
 import { IonIcon } from "@ionic/angular/standalone";
 import { ViewComponent } from '@core/view-component';
 import { GetOrderDto, OrdersProxy } from '@shared/proxies';
+import { WebsocketsService } from '@profile/services/websockets.service';
 
 @Component({
   selector: 'app-orders',
   standalone: true,
   imports: [IonIcon, HeaderMobileComponent, OrderItemComponent],
+  providers: [WebsocketsService],
   templateUrl: './orders.component.html',
   styleUrl: './orders.component.scss'
 })
@@ -19,11 +21,15 @@ export class OrdersComponent extends ViewComponent implements OnInit {
   private readonly _ordersProxy = inject(OrdersProxy);
   private readonly _ordersService = inject(OrdersService);
   private readonly _destroyRef = inject(DestroyRef);
+  private readonly _websocketsService = inject(WebsocketsService);
 
   orders = signal<GetOrderDto[]>([]);
 
   constructor() {
     super();
+    if (this.screen.screen === 'mobile') {
+      this._websocketsService.init();
+    }
   }
 
   ngOnInit(): void {
