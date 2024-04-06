@@ -67,6 +67,6 @@ export class RegisterComponent extends ViewComponent {
   }
 
   onBack(): void {
-    this.navigation.back('/menu');
+    this.navigation.back('/');
   }
 }

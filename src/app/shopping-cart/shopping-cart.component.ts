@@ -41,6 +41,6 @@ export class ShoppingCartComponent extends ViewComponent {
   }
 
   onBack(): void {
-    this.navigation.back('/menu');
+    this.navigation.back('/');
   }
 }

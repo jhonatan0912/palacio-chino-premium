@@ -17,6 +17,6 @@ export class EstablishmentsComponent extends ViewComponent {
   }
 
   onHome(): void {
-    this.navigation.forward('/menu');
+    this.navigation.forward('/');
   }
 }
