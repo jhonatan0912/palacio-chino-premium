@@ -20,15 +20,10 @@
          display: flex;
          justify-content: space-between;
          flex-direction: column;
-
+         padding: 1rem;
 
          .logo {
-            width: 150px;
-            margin-block: auto;
-
-            img {
-               width: 100%;
-            }
+            display: none;
          }
 
          .options {
@@ -110,6 +105,13 @@
       flex-direction: row !important;
       margin: auto;
       gap: 90px;
+      padding: 0;
+
+      .logo {
+         display: block !important;
+         width: 130px;
+         height: 130px;
+      }
    }
 
    .options {
