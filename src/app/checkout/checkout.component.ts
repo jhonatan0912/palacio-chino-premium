@@ -6,15 +6,17 @@ import { ButtonComponent } from '@lib/button/button.component';
 import { OrdersService } from '@profile/services/orders.service';
 import { AddressDto, CreateOrderDto, DeliveryType, OrdersProxy, PaymentMethod } from '@shared/proxies';
 import { ShoppingCartService } from '@shared/services/shopping-cart.service';
-import { finalize } from 'rxjs';
+import { finalize } from 'rxjs/internal/operators/finalize';
 import { CheckoutAddressComponent } from './checkout-address/checkout-address.component';
 import { CheckoutDeliveryTypeComponent } from './checkout-delivery-type/checkout-delivery-type.component';
 import { AsideComponent } from './components/aside/aside.component';
+import { TitleMobileComponent } from '@shared/components/auth-title/auth-title.component';
+import { FixedFooterComponent } from '@shared/components/fixed-footer/fixed-footer.component';
 
 @Component({
   selector: 'app-checkout',
   standalone: true,
-  imports: [IonSpinner, RouterOutlet, AsideComponent, CheckoutAddressComponent, CheckoutDeliveryTypeComponent, ButtonComponent],
+  imports: [IonSpinner, RouterOutlet, AsideComponent, CheckoutAddressComponent, CheckoutDeliveryTypeComponent, ButtonComponent, TitleMobileComponent, FixedFooterComponent],
   templateUrl: './checkout.component.html',
   styleUrls: ['./checkout.component.scss']
 })

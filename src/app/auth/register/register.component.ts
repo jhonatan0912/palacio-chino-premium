@@ -1,7 +1,7 @@
 import { Component, DestroyRef, inject } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { FormsModule } from '@angular/forms';
-import { AuthTitleComponent } from '@auth/components/auth-title/auth-title.component';
+import { TitleMobileComponent } from '@shared/components/auth-title/auth-title.component';
 import { ViewComponent } from '@core/view-component';
 import { ButtonComponent } from '@lib/button/button.component';
 import { AuthAsideComponent } from '../components/aside/aside.component';
@@ -13,7 +13,7 @@ import { AuthProxy } from '@shared/proxies';
 @Component({
   selector: 'app-register',
   standalone: true,
-  imports: [IonSpinner, AuthTitleComponent, AuthAsideComponent, ButtonComponent, FormsModule],
+  imports: [IonSpinner, TitleMobileComponent, AuthAsideComponent, ButtonComponent, FormsModule],
   templateUrl: './register.component.html',
   styleUrl: './register.component.scss'
 })

@@ -1,7 +1,7 @@
 import { Component, DestroyRef, inject } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { FormsModule } from '@angular/forms';
-import { AuthTitleComponent } from '@auth/components/auth-title/auth-title.component';
+import { TitleMobileComponent } from '@shared/components/auth-title/auth-title.component';
 import { ViewComponent } from '@core/view-component';
 import { IonSpinner } from "@ionic/angular/standalone";
 import { ButtonComponent } from '@lib/button/button.component';
@@ -13,7 +13,7 @@ import { AuthProxy } from '@shared/proxies';
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [IonSpinner, AuthAsideComponent, AuthTitleComponent, ButtonComponent, FormsModule],
+  imports: [IonSpinner, AuthAsideComponent, TitleMobileComponent, ButtonComponent, FormsModule],
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss'
 })
@@ -26,6 +26,7 @@ export class LoginComponent extends ViewComponent {
   busy: boolean = false;
   email: string = '';
   password: string = '';
+  errors: string[] = [];
 
   onLogin(): void {
     if (!this.areValidFields()) return;
@@ -45,7 +46,13 @@ export class LoginComponent extends ViewComponent {
         window.location.reload();
       },
       error: (err) => {
-        console.error(err.message);
+        if (!Array.isArray(err.message)) {
+          this.errors.push(err.message);
+          setTimeout(() => this.errors = [], 1500);
+          return;
+        };
+        this.errors = err.message;
+        setTimeout(() => this.errors = [], 1500);
       }
     });
   }

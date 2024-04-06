@@ -52,7 +52,7 @@
    font-size: 13px;
    padding-inline: 1rem;
    margin-bottom: 2rem;
-   
+
 
    span{
       color: #F23545;
@@ -63,7 +63,7 @@
 
 
 @media screen and (min-width: 768px) {
-   auth-title {
+   title-mobile {
       display: none;
    }
 }

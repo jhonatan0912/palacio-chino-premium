@@ -1,8 +1,8 @@
-<auth-title (onBack)="onBack()">
+<title-mobile (onBack)="onBack()">
   Login
-</auth-title>
+</title-mobile>
 
-<section class="form shadow-2xl">
+<section class="form">
   <h2 class="form__title">
     Bienvenido
   </h2>
@@ -46,7 +46,15 @@
     INICIAR SESIÓN
     }
   </lib-button>
-  
+
+  <section class="errors">
+    @for (error of errors; track $index) {
+    <span class="text-red-600">
+      {{ error }}
+    </span>
+    }
+  </section>
+
   <section class="form__extra">
 
     <p class="form__extra__new">¿Eres nuevo?</p>
