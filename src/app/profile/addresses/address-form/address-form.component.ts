@@ -1,18 +1,20 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
+import { InputValidatorDirective } from '@core/directives/inputValidator.directive';
 import { ViewComponent } from '@core/view-component';
+import { IonFab, IonSpinner, IonIcon } from "@ionic/angular/standalone";
 import { ButtonComponent } from '@lib/button/button.component';
 import { AddressesService } from '@profile/services/addresses.service';
+import { FixedFooterComponent } from '@shared/components/fixed-footer/fixed-footer.component';
+import { HeaderMobileComponent } from '@shared/components/header-mobile/header-mobile.component';
 import { AddressDto, AddressesProxy } from '@shared/proxies';
 import { finalize } from 'rxjs/internal/operators/finalize';
-import { IonFab, IonSpinner } from "@ionic/angular/standalone";
-import { InputValidatorDirective } from '@core/directives/inputValidator.directive';
-import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'address-form',
   standalone: true,
-  imports: [IonSpinner, IonFab, ButtonComponent, ReactiveFormsModule, InputValidatorDirective],
+  imports: [IonIcon, IonSpinner, IonFab, ButtonComponent, ReactiveFormsModule, InputValidatorDirective, HeaderMobileComponent, FixedFooterComponent],
   templateUrl: './address-form.component.html',
   styleUrls: ['./address-form.component.scss']
 })

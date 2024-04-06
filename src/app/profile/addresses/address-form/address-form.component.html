@@ -1,6 +1,11 @@
+<header-mobile />
+
 <main class="wrapper">
 
   <h2 class="title">
+    <ion-icon
+      (click)="onBack()"
+      name="arrow-back-outline" />
     {{ title }} dirección
   </h2>
 
@@ -73,8 +78,20 @@
 
     <button
       (click)="onAddresses()"
-      class="button_return">
+      class="button__return">
       Volver
     </button>
   </section>
 </main>
+
+<fixed-footer>
+  <lib-button
+    (onAction)="onSubmit()"
+    class="button">
+    @if(busy){
+    <ion-spinner name="crescent" />
+    }@else {
+    {{ title }} dirección
+    }
+  </lib-button>
+</fixed-footer>
