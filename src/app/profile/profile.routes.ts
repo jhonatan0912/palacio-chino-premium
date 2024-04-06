@@ -24,7 +24,11 @@ export const routes: Routes = [
       },
       {
         path: 'orders',
-        loadComponent: () => import('./orders/orders.component').then(p => p.OrdersComponent)
+        loadComponent: () => import('./orders/orders.component').then(p => p.OrdersComponent),
+      },
+      {
+        path: 'order-detail/:id',
+        loadComponent: () => import('./orders/order-detail/order-detail.component').then(p => p.OrderDetailComponent)
       },
       {
         path: 'personal-information',
