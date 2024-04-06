@@ -7,7 +7,7 @@
     </p>
   </div>
   <div class="order__date">
-    {{ order().createdAt | date:'medium' }}
+    {{ order().createdAt | date:'dd/mm/YYYY hh:mm a' }}
   </div>
   <div class="order__user">
     {{ order().user.name }}
