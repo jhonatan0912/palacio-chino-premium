@@ -3,7 +3,7 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { FormsModule } from '@angular/forms';
 import { TitleMobileComponent } from '@shared/components/auth-title/auth-title.component';
 import { ViewComponent } from '@core/view-component';
-import { IonSpinner } from "@ionic/angular/standalone";
+import { IonSpinner, IonIcon } from "@ionic/angular/standalone";
 import { ButtonComponent } from '@lib/button/button.component';
 import { finalize } from 'rxjs/internal/operators/finalize';
 import { AuthAsideComponent } from '../components/aside/aside.component';
@@ -13,7 +13,7 @@ import { AuthProxy } from '@shared/proxies';
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [IonSpinner, AuthAsideComponent, TitleMobileComponent, ButtonComponent, FormsModule],
+  imports: [IonIcon, IonSpinner, AuthAsideComponent, TitleMobileComponent, ButtonComponent, FormsModule],
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss'
 })
@@ -27,6 +27,7 @@ export class LoginComponent extends ViewComponent {
   email: string = '';
   password: string = '';
   errors: string[] = [];
+  inputType: 'password' | 'text' = 'password';
 
   onLogin(): void {
     if (!this.areValidFields()) return;
@@ -62,6 +63,12 @@ export class LoginComponent extends ViewComponent {
       this.email.length > 5 &&
       this.password.length > 5
     );
+  }
+
+  onToggleInputType(): void {
+    this.inputType = this.inputType === 'password'
+    ? 'text'
+    : 'password';
   }
 
   onAuth() {

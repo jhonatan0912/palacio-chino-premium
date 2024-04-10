@@ -21,7 +21,7 @@
         type="email">
     </div>
 
-    <div class="form__input">
+    <div class="form__input password">
       <label
         class="form__label"
         for="password">
@@ -32,7 +32,11 @@
         [(ngModel)]="password"
         id="password"
         placeholder="Contraseña"
-        type="password">
+        [type]="inputType">
+      <ion-icon
+        class="icon"
+        (click)="onToggleInputType()"
+        name="{{ inputType === 'password' ? 'eye-off-outline' : 'eye-outline'}}" />
     </div>
     <div></div>
   </section>
@@ -57,7 +61,9 @@
 
   <section class="form__extra">
 
-    <p class="form__extra__new">¿Eres nuevo?</p>
+    <p class="form__extra__new">
+      ¿Eres nuevo?
+    </p>
 
     <button
       (click)="onAuth()"

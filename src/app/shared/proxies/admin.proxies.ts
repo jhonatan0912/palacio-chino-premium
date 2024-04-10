@@ -99,11 +99,13 @@ export class AdminGetOrderDto {
 export class GetOrdersResponseUserDto {
   name!: string;
   email!: string;
+  phone!: string;
 
   init(data: any): void {
     if (data) {
       this.name = data.name;
       this.email = data.email;
+      this.phone = data.phone;
     }
   }
 
