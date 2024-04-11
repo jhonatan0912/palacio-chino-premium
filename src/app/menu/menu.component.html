@@ -1,27 +1,24 @@
 <main class="home__container">
 
-  <categories-menu />
+  <section class="slider__static">
+    <div class="slider__static__content">
+      <h2>Tus platos<br>Favoritos</h2>
+      <p>los encuentras aquí</p>
+      <lib-button
+        (onAction)="order()"
+        [disabled]="busy">
+        @if (busy) {
+        <ion-spinner name="crescent" />
+        }@else {
+        ORDENAR
+        }
+      </lib-button>
+    </div>
+  </section>
 
   <section class="menu">
-    <h2>EXPLORA NUESTRO MENÚ</h2>
-    <h1 class="menu__title">
-      PALACIO CHINO<br>
-      PREMIUM.
-    </h1>
-    <div class="menu__cards">
-      <article class="menu__cards__items">
-        <img src="/assets/empty-image.png" alt="image-product">
-        <div class="menu_title">
-          Combos
-        </div>
-      </article>
-      <article class="menu__cards__items">
-        <img src="/assets/empty-image.png" alt="image-product">
-        <div class="menu_title">
-          Combos
-        </div>
-      </article>
-    </div>
+    <h2 class="menu__title">MENÚ</h2>
+    <categories-menu />
   </section>
 
   <!-- PROMOTIONS -->
@@ -66,7 +63,7 @@
     </div>
   </section>
 
-  <!-- <section class="local">
+  <section class="local">
     <h2 class="local__title">NUESTRO LOCAL</h2>
     <div class="local__map">
       <img src="/assets/empty-image.png" alt="image-local">
@@ -78,7 +75,7 @@
       <ion-spinner name="crescent" />
       }
     </div>
-  </section> -->
+  </section>
 
   <menu-chat-button
     (click)="onOpenChat($event)" />

@@ -15,7 +15,9 @@
   }
 
   &__icon {
-    font-size: 4rem;
+    img{
+      width: 200px;
+    }
   }
 
   &__title {

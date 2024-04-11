@@ -5,6 +5,7 @@ import { IonSpinner } from "@ionic/angular/standalone";
 import { CategoriesMenuComponent } from '@shared/components/categories-menu/categories-menu.component';
 import { finalize } from 'rxjs/internal/operators/finalize';
 import { ProductCardComponent } from '../shared/components/product-card/product-card.component';
+import { ButtonComponent } from '@lib/button/button.component';
 import { StoreMapComponent } from "@shared/components/store-map/store-map.component";
 import { MenuChatButtonComponent } from './menu-chat-button/menu-chat-button.component';
 import { ChatPopoverComponent } from './chat-popover/chat-popover.component';
@@ -13,7 +14,7 @@ import { ProductDto, ProductsProxy } from '@shared/proxies';
 @Component({
   selector: 'app-menu',
   standalone: true,
-  imports: [IonSpinner, ProductCardComponent, CategoriesMenuComponent, StoreMapComponent, MenuChatButtonComponent],
+  imports: [IonSpinner, ProductCardComponent, CategoriesMenuComponent, ButtonComponent, StoreMapComponent, MenuChatButtonComponent],
   templateUrl: './menu.component.html',
   styleUrl: './menu.component.scss'
 })
@@ -71,4 +72,9 @@ export class MenuComponent extends ViewComponent implements OnInit {
       cssClass: ['chat-popover']
     });
   }
+
+  order():void{
+
+  }
+
 }

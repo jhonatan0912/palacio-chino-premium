@@ -6,7 +6,7 @@
   <section class="product__details">
     <h2>{{ product().name }}</h2>
     <div class="price-total">
-      <p>S/ {{ product().price | number: '1.2-2' }}</p>
+      <!-- <p>S/ {{ product().price | number: '1.2-2' }}</p> -->
       <p>S/ {{ product().price * product().quantity! | number: '1.2-2' }}</p>
     </div>
 
@@ -23,8 +23,8 @@
           +
         </button>
       </div>
-      <button (click)="removeProduct()">
-        <ion-icon name="trash-outline" color="danger" />
+      <button class="button_delete" (click)="removeProduct()">
+        <ion-icon name="trash-outline" color="danger" />  
       </button>
     </div>
   </section>

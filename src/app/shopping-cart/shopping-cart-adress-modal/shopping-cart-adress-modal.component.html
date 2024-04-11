@@ -1,3 +1,6 @@
+<div class="title">
+  Seleccionar dirección
+</div>
 <section class="modal__content">
   <ion-radio-group class="addresses" [(ngModel)]="address.id">
     @for (address of addresses(); track $index) {
@@ -22,9 +25,9 @@
     <ion-button
       (click)="onConfirm()"
       expand="block"
-      fill="outline"
       color="dark">
       Seleccionar
     </ion-button>
+    <!-- fill="outline" -->
   </fixed-footer>
 </section>

@@ -1,6 +1,9 @@
 .product {
   display: flex;
   gap: 1rem;
+  // border-block: 1px solid black;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+  padding: 1rem;
 
   &__image {
     min-width: 80px;
@@ -22,6 +25,11 @@
     flex: 1;
     flex-direction: column;
     gap: 1rem;
+
+    h2{
+      font-size: 1rem !important;
+      font-weight: 600;
+    }
 
     & .price-total {
       display: flex;
@@ -51,10 +59,38 @@
         }
 
         input {
-          width: 60px;
+          width: 40px;
           text-align: center;
+          padding: 5px !important;
         }
       }
+
+      .button_delete{
+        display: grid;
+        align-items: center;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 501px) {
+  .product{
+    gap: 3rem;
+    border-radius: 1rem;
+    .product__image{
+      max-width: 110px;
+      max-height: 110px;
+    }
+  }
+  .price-total{
+    margin-top: 10px;
+  }
+  .quantity-delete{
+    gap: 2rem;
+  }
+  .quantity{
+    input{
+      width: 60px !important;
     }
   }
 }

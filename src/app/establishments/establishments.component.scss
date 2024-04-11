@@ -1,25 +1,26 @@
 main {
-   margin-top: 5rem;
+   margin-top: 3rem;
+   padding-inline: 1rem;
 }
 
 .info_local {
    h2 {
       font-weight: 700;
       width: fit-content;
-      border-bottom: 1px solid black;
       margin: auto;
-      margin-bottom: 80px;
-      padding: 0 20px;
+      margin-bottom: 50px;
    }
 }
 
 .content_info_local {
    display: flex;
+   flex-direction: column;
    align-items: stretch;
    justify-content: space-evenly;
+   gap: 3rem;
 
    .image_local {
-      width: 550px;
+      width: 100%;
 
       img {
          width: 100%;
@@ -29,7 +30,7 @@ main {
    .content_info {
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
       border-radius: 30px;
-      padding: 30px 60px;
+      padding: 2rem 1rem;
       text-align: center;
 
       p {
@@ -59,15 +60,47 @@ main {
 }
 
 .how_to_get {
-   margin-top: 150px;
-   margin-bottom: 100px;
+   margin-top: 5rem;
 
    h2 {
       font-weight: 700;
       width: fit-content;
-      border-bottom: 1px solid black;
       margin: auto;
-      margin-bottom: 80px;
-      padding: 0 20px;
+      margin-bottom: 50px;
    }
+}
+
+
+@media screen and (min-width: 501px) {
+   main{
+      padding-inline: 0 !important;
+   }
+}
+
+@media screen and (min-width: 768px) {
+ .content_info_local{
+   flex-direction: row;
+   align-items: center;
+
+   .image_local{
+      width: 50%; 
+   }
+ }
+
+}
+
+@media screen and (min-width: 1024px) {
+   .image_local{
+      width: 460px !important;
+   }
+   .content_info{
+      padding: 2rem 4rem !important;
+   }
+   h2{
+      margin-bottom: 5rem !important;
+   }
+}
+
+@media screen and (min-width: 1360px) {
+
 }
