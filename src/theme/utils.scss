@@ -24,3 +24,18 @@
 .text-delete {
   color: #ff0000;
 }
+
+
+.load-more {
+  border: 2px solid #000;
+  padding: 8px 16px;
+  border-radius: 5px;
+  margin-inline: auto;
+  display: block;
+  margin-block: 2rem;
+
+  &:hover {
+    background-color: #000;
+    color: white;
+  }
+}

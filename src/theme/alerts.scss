@@ -1,8 +1,10 @@
-ion-toast {
-  width: calc(100vw - 15px);
+@media screen and (min-width: 768px) {
+  ion-toast {
+    width: calc(100vw - 15px);
 
-  &.alert {
-    --min-width: 300px;
-    --start: 1;
+    &.alert {
+      --min-width: 300px;
+      --start: 1;
+    }
   }
 }

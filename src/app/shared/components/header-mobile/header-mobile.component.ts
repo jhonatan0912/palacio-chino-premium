@@ -19,7 +19,7 @@ export class HeaderMobileComponent extends ViewComponent {
   }
 
   onHome(): void {
-    this.navigation.forward('/menu');
+    this.navigation.forward('/');
   }
 
   onUser(): void {

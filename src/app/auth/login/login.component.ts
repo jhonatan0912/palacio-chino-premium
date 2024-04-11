@@ -1,9 +1,9 @@
 import { Component, DestroyRef, inject } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { FormsModule } from '@angular/forms';
-import { AuthTitleComponent } from '@auth/components/auth-title/auth-title.component';
+import { TitleMobileComponent } from '@shared/components/auth-title/auth-title.component';
 import { ViewComponent } from '@core/view-component';
-import { IonSpinner } from "@ionic/angular/standalone";
+import { IonSpinner, IonIcon } from "@ionic/angular/standalone";
 import { ButtonComponent } from '@lib/button/button.component';
 import { finalize } from 'rxjs/internal/operators/finalize';
 import { AuthAsideComponent } from '../components/aside/aside.component';
@@ -13,7 +13,7 @@ import { AuthProxy } from '@shared/proxies';
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [IonSpinner, AuthAsideComponent, AuthTitleComponent, ButtonComponent, FormsModule],
+  imports: [IonIcon, IonSpinner, AuthAsideComponent, TitleMobileComponent, ButtonComponent, FormsModule],
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss'
 })
@@ -26,6 +26,8 @@ export class LoginComponent extends ViewComponent {
   busy: boolean = false;
   email: string = '';
   password: string = '';
+  errors: string[] = [];
+  inputType: 'password' | 'text' = 'password';
 
   onLogin(): void {
     if (!this.areValidFields()) return;
@@ -40,13 +42,18 @@ export class LoginComponent extends ViewComponent {
     ).subscribe({
       next: (res) => {
         this.session.setUser(res.user);
-        this._authService.setAuthToken(res.token);
-        this._authService.setRefreshToken(res.refreshToken);
+        this._authService.setTokens(res.token, res.refreshToken);
         this.navigation.forward('/profile');
         window.location.reload();
       },
       error: (err) => {
-        console.error(err.message);
+        if (!Array.isArray(err.message)) {
+          this.errors.push(err.message);
+          setTimeout(() => this.errors = [], 1500);
+          return;
+        };
+        this.errors = err.message;
+        setTimeout(() => this.errors = [], 1500);
       }
     });
   }
@@ -58,11 +65,17 @@ export class LoginComponent extends ViewComponent {
     );
   }
 
+  onToggleInputType(): void {
+    this.inputType = this.inputType === 'password'
+    ? 'text'
+    : 'password';
+  }
+
   onAuth() {
     this.navigation.forward('/auth/register');
   }
 
   onBack(): void {
-    this.navigation.back('/menu');
+    this.navigation.back('/');
   }
 }

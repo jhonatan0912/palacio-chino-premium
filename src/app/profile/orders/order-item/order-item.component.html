@@ -1,7 +1,9 @@
 <article class="order__item">
     <header class="order__header">
         <h3 class="order__title">Pedido #{{ order().id }}</h3>
-        <p class="order__date">{{ order().createdAt| date : 'medium' }}</p>
+        <p class="order__date">
+            {{ order().createdAt| date : 'dd/mm/YYYY hh:mm a' }}
+        </p>
     </header>
     <footer class="order__footer">
         <span class="status__label {{ order().status }}">

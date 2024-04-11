@@ -81,19 +81,11 @@ export class AdminGetOrderDto {
       this.address = data.address ? new GetOrdersResponseAddressDto().fromJS(data.address) : <any>undefined;
       this.formatedStatus = formatOrderStatus(data.status);
       this.deliveryType = data.deliveryType;
-      this.formatedDeliveryType = this.formatDeliveryType(data.deliveryType);
+      this.formatedDeliveryType = data.deliveryType === 'delivery' ? 'Delivery' : 'Recojo en tienda';
       this.paymentMethod = data.paymentMethod;
-      this.formatedPaymentMethod = this.formatPaymentMethod(data.paymentMethod);
+      this.formatedPaymentMethod = data.paymentMethod === 'cash' ? 'Efectivo' : 'Tarjeta';
       this.total = data.total;
     }
-  }
-
-  private formatDeliveryType(deliveryType: DeliveryType): string {
-    return deliveryType === 'pickup' ? 'Recojo en tienda' : 'Delivery';
-  }
-
-  private formatPaymentMethod(paymentMethod: PaymentMethod): string {
-    return paymentMethod === 'cash' ? 'Efectivo' : 'Tarjeta';
   }
 
   fromJS(data: any): AdminGetOrderDto {
@@ -107,11 +99,13 @@ export class AdminGetOrderDto {
 export class GetOrdersResponseUserDto {
   name!: string;
   email!: string;
+  phone!: string;
 
   init(data: any): void {
     if (data) {
       this.name = data.name;
       this.email = data.email;
+      this.phone = data.phone;
     }
   }
 

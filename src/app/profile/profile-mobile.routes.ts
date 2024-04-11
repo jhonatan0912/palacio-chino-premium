@@ -10,17 +10,19 @@ export const routes: Routes = [
     loadComponent: () => import('@profile/orders/orders.component').then(p => p.OrdersComponent)
   },
   {
+    path: 'order-detail/:id',
+    loadComponent: () => import('./orders/order-detail/order-detail.component').then(p => p.OrderDetailComponent)
+  },
+  {
     path: 'addresses',
     loadComponent: () => import('@profile/addresses/addresses.component').then(p => p.AddressesComponent),
-    // children: [
-    //   {
-    //     path: 'list',
-    //     loadComponent: () => import('@profile/addresses/add/add.component').then(p => p.AddComponent)
-    //   },
-    //   {
-    //     path: 'form/:action',
-    //     loadComponent: () => import('@profile/addresses/edit/edit.component').then(p => p.EditComponent)
-    //   }
-    // ]
+  },
+  {
+    path: 'addresses/add',
+    loadComponent: () => import('./addresses/address-form/address-form.component').then(p => p.AddressFormComponent)
+  },
+  {
+    path: 'addresses/form/:action',
+    loadComponent: () => import('./addresses/address-form/address-form.component').then(p => p.AddressFormComponent)
   }
 ];

@@ -1,0 +1,26 @@
+<article class="product">
+  <img
+    class="product__image"
+    [src]="product().image | srcImage"
+    [alt]="product().name">
+
+  <div class="product__content">
+    <p class="product__content__name">
+      {{ product().name }}
+    </p>
+    <div class="product__content__resume">
+      <p class="product__content__price">
+        <span class="bold">Precio: </span>
+        <span>S/ {{ product().price | number: '1.2-2' }}</span>
+      </p>
+      <p class="product__content__quantity">
+        <span class="bold">Cantidad: </span>
+        <span>{{ product().quantity }}</span>
+      </p>
+      <p class="product__content__total">
+        <span class="bold">Total: </span>
+        <span>S/ {{ product().price * product().quantity | number: '1.2-2' }}</span>
+      </p>
+    </div>
+  </div>
+</article>

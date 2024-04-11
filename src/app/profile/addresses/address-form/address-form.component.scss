@@ -1,19 +1,24 @@
 .wrapper {
   background: #fff;
-  // box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  // padding: 40px;
   border-radius: 1rem;
-  margin-top: .5rem;
+  margin-top: var(--header-mobile);
+  padding: 1rem;
 
   .title {
-    margin-bottom: 4rem;
+    margin-bottom: 2rem;
+    display: flex;
+    font-weight: 700;
+
+    ion-icon[name="arrow-back-outline"] {
+      margin-right: .5rem;
+    }
   }
 }
 
 
 input,
 select,
-textarea{
+textarea {
   border: 1px solid #ccc;
   border-radius: 10px;
   padding: 10px 10px;
@@ -29,31 +34,59 @@ textarea{
 .row {
   display: flex;
   flex-direction: row;
-  gap: 80px;
+  gap: .5rem;
 }
 
 .buttons {
-  display: flex;
-  flex-direction: row;
-  align-items: stretch;
-  justify-content: flex-start;
-  gap: 2rem;
-  margin-top: 2rem;
+  display: none;
+}
 
-  .button {
-    width: 250px;
+
+@media screen and (min-width: 768px) {
+  header-mobile {
+    display: none;
   }
-}
 
-.button_return {
-  background-color: rgb(75, 75, 75);
-  padding: auto;
-  padding-left: 50px;
-  padding-right: 50px;
-  border-radius: 6px;
-  color: #fff;
-}
+  .wrapper {
+    margin-top: 0;
+    padding: 0;
+  }
 
-.button_return:hover {
-  background-color: rgba(35, 35, 35, 1);
+  .title {
+    margin-bottom: 0;
+
+    ion-icon[name="arrow-back-outline"] {
+      display: none;
+    }
+  }
+
+  .buttons {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    justify-content: flex-start;
+    gap: 2rem;
+    margin-top: 2rem;
+
+    .button {
+      width: 250px;
+    }
+  }
+
+  .button__return {
+    background-color: rgb(75, 75, 75);
+    padding: auto;
+    padding-left: 50px;
+    padding-right: 50px;
+    border-radius: 6px;
+    color: #fff;
+
+    &:hover {
+      background-color: rgba(35, 35, 35, 1);
+    }
+  }
+
+  fixed-footer {
+    display: none;
+  }
 }

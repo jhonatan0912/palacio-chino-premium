@@ -1,3 +1,7 @@
+<title-mobile (onBack)="onBack()">
+  Detalles de pedido
+</title-mobile>
+
 <main class="checkout">
   <checkout-aside />
 
@@ -14,6 +18,7 @@
 
       <lib-button
         (onAction)="onConfirm()"
+        [disabled]="busy || !address.id"
         aria-label="Confirmar"
         class="button-center">
         @if (busy) {
@@ -25,3 +30,17 @@
     </section>
   </section>
 </main>
+
+<fixed-footer>
+  <lib-button
+    (onAction)="onConfirm()"
+    [disabled]="busy || !address.id"
+    aria-label="Confirmar"
+    class="button-center">
+    @if (busy) {
+    <ion-spinner name="crescent" />
+    }@else {
+    Finalizar compra
+    }
+  </lib-button>
+</fixed-footer>

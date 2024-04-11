@@ -1,7 +1,8 @@
+<title-modal (onDismiss)="onDismiss()">
+  Chat
+</title-modal>
+
 <section class="chat">
-  <title-modal (onDismiss)="onDismiss()">
-    Chat
-  </title-modal>
   <div id="chat__history" class="chat__history scroll">
     @for (message of aiService.messages(); track $index) {
     <div class="message {{ message.role }}">

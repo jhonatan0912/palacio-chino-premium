@@ -14,6 +14,11 @@ export class AuthService {
     localStorage.setItem(REFRESH_TOKEN, refreshToken);
   }
 
+  setTokens(authToken: string, refreshToken: string): void {
+    this.setAuthToken(authToken);
+    this.setRefreshToken(refreshToken);
+  }
+
   getAuthToken(): string | undefined {
     const token = localStorage.getItem(AUTH_TOKEN);
     return token ? token : undefined;

@@ -7,6 +7,10 @@
   border-radius: .5rem;
   cursor: pointer;
 
+  &:hover {
+    scale: .99;
+  }
+
   & .order__title {
     font-weight: bold;
     font-size: 1.1rem;

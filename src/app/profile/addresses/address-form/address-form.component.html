@@ -1,7 +1,12 @@
+<header-mobile />
+
 <main class="wrapper">
 
   <h2 class="title">
-    Agregar dirección
+    <ion-icon
+      (click)="onBack()"
+      name="arrow-back-outline" />
+    {{ title }} dirección
   </h2>
 
   <form class="col" [formGroup]="form">
@@ -62,19 +67,31 @@
 
   <section class="buttons">
     <lib-button
-      (onAction)="addAddress()"
+      (onAction)="onSubmit()"
       class="button">
       @if(busy){
       <ion-spinner name="crescent" />
       }@else {
-      Agregar dirección
+      {{ title }} dirección
       }
     </lib-button>
 
     <button
       (click)="onAddresses()"
-      class="button_return">
+      class="button__return">
       Volver
     </button>
   </section>
 </main>
+
+<fixed-footer>
+  <lib-button
+    (onAction)="onSubmit()"
+    class="button">
+    @if(busy){
+    <ion-spinner name="crescent" />
+    }@else {
+    {{ title }} dirección
+    }
+  </lib-button>
+</fixed-footer>
