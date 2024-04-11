@@ -18,7 +18,7 @@
           <p class="title pointer">MENÚ</p>
           <ul class="list">
             @for (category of categories(); track category.id) {
-            <li class="pointer capitalize hover:text-zinc-400">
+            <li class="capitalize pointer hover:text-zinc-400">
               {{ category.name }}
             </li>
             }
@@ -30,7 +30,9 @@
           <p class="title pointer">MI CUENTA</p>
           <ul class="list">
             @for (item of account; track $index) {
-            <li class="pointer hover:text-zinc-400">
+            <li
+              (click)="item.method()"
+              class="pointer hover:text-zinc-400">
               {{ item.name }}
             </li>
             }
