@@ -1,53 +1,19 @@
-//phone
-
 .home__container {
 
-   .slider__static{
-      background-image: url("/assets/banner-down.svg");
-      background-position: center;
-      background-repeat: no-repeat;
-      background-size:cover;
-      display: flex;
-      flex-direction: row;
-      justify-content: center;
-      padding: 3rem;
-
-      &__content{
-         text-align: center;
-         color: white;
-         display: flex;
-         flex-direction: column;
-         gap: 1rem;
-
-         h2{
-            font-weight: 700;
-            // font-size: 2rem !important;
-         }
-
-      }
+   & .menu {
+      display: none;
    }
-
-
-   .menu {
-      margin-top: 5rem;
-      &__title{
-         text-align: center;
-      }
-   }
-
 
    & .menu_promotions {
       margin-block: 3rem;
-      margin-top: 5rem;
-      padding-inline: 1rem;
 
       .title_menu {
          font-weight: bold;
          text-align: center;
-         // border-bottom: 1px solid black;
+         border-bottom: 1px solid black;
          width: fit-content;
          margin: auto;
-            
+         padding: 0 40px;
       }
 
       .cards-menu {
@@ -61,20 +27,21 @@
    & .banner {
       background-image: url("/assets/banner-down.svg");
       display: flex;
-      flex-direction: column;
+      flex-direction: row;
       align-items: center;
       justify-content: space-between;
       gap: 3rem;
-      padding: 2rem;
+      padding: 3rem;
       color: white;
-      // border-top-left-radius: 3rem;
-      // border-bottom-right-radius: 3rem;
+      border-top-left-radius: 3rem;
+      border-bottom-right-radius: 3rem;
+      display: none;
 
       &__content {
          display: flex;
          flex-direction: column;
          gap: 3rem;
-         
+         width: 60%;
 
          h2 {
             font-weight: 700;
@@ -85,108 +52,32 @@
       &__image {
 
          img {
-            width: 150px;
+            width: 200px;
          }
       }
    }
 
-   
-   & .local {
-      margin-top: 100px;
-      padding-inline: 1rem;
-
-      &__title {
-         font-size: 3rem !important;
-         font-weight: 700;
-      }
-
-      &__map {
-         display: flex;
-         flex-direction: row;
-         margin-top: 3rem;
-
-         img {
-            display: none;
-         }
-
-         store-map {
-            width: 100%;
-         }
-      }
-   }
-   
 }
 
 menu-chat-button {
    display: none;
 }
 
-
-
-//RESPONSIVE
-
-
-@media screen and (min-width: 501px) {
-   .menu_promotions {
-      padding-inline: 0 !important;
-      .cards-menu {
-         gap: 4rem !important;
-      }
-   }
-
-   .local{
-      padding-inline: 0 !important;
-   }
-
-}
-
-
 @media screen and (min-width: 768px) {
-   .cards-menu {
-      grid-template-columns: repeat(3, 1fr) !important;
-   }
-
-   .slider__static{
-      justify-content: flex-start !important;
-      padding: 5rem !important;
-
-      &__content{
-         h2{
-            font-size: 2rem !important;
-         }
-      }
-   }
-   .menu_promotions{
-      margin-top: 10rem ;
-      padding-inline: 0 !important;
-   }
-
-   .banner{
-      flex-direction: row !important;
-      padding: 3rem !important;
-      border-top-left-radius: 3rem ;
-      border-bottom-right-radius: 3rem ;
-
-      &__content{
-         width: 60% !important;
-
-      }
-
-      &__image{
-         img{
-            width: 200px !important;
-         }
+   .menu_promotions {
+      .cards-menu {
+         grid-template-columns: repeat(3, 1fr);
       }
    }
 
-   .local{
-      padding-inline: 0 !important;
+   .banner {
+      padding: 5rem;
+      display: flex;
    }
 
    menu-chat-button {
-      display: grid;
+      display: grid !important;
    }
-
 
 }
 
@@ -196,25 +87,21 @@ menu-chat-button {
       grid-template-columns: repeat(4, 1fr) !important;
    }
 
-   .local {
-
-      &__map {
-         img {
-            display: block !important;
-            width: 28% !important;
-         }
-
-         store-map {
-            width: 72% !important;
-         }
-      }
+   .banner_down {
+      display: block;
    }
 
+   menu-chat-button {
+      display: grid !important;
+   }
 }
 
-
-@media screen and (min-width: 1640px) {
+@media screen and (min-width: 1440px) {
    .cards-menu {
       grid-template-columns: repeat(5, 1fr) !important;
+   }
+
+   menu-chat-button {
+      display: grid !important;
    }
 }

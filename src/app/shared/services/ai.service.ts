@@ -20,7 +20,9 @@ export class AiService {
   async onChat(msg: string): Promise<string> {
     const genAI = new GoogleGenerativeAI(environment.tokenAI);
 
-    const model = genAI.getGenerativeModel({ model: 'gemini-pro' });
+    const model = genAI.getGenerativeModel({
+      model: 'gemini-pro',
+    });
     const chat = model.startChat({
       history: history,
     });
@@ -28,7 +30,6 @@ export class AiService {
     const result = await chat.sendMessage(msg);
     const response = result.response;
     const text = response.text();
-    console.log(text);
     return text;
   }
 

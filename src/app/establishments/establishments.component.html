@@ -12,10 +12,8 @@
             <p>11: 00am - 10:00pm</p>
             <h3>RECOJO EN TIENDA: </h3>
             <p>11:00am - 9:30pm</p>
-            <h3>DELIVERY WEB/CALL:</h3>
-            <p>11:00am - 10:00pm</p>
             <button (click)="onHome()">
-               Ordenar pedido
+               Ordenar
             </button>
          </div>
       </div>
@@ -25,13 +23,13 @@
       <h2>COMO LLEGAR</h2>
       <div class="map">
          @defer (on viewport) {
-            <store-map />
+         <store-map />
          }@placeholder {
-            <div>Loading</div>
+         <div>Loading</div>
          }@loading {
-            Loading...
+         Loading...
          }
-       </div>
+      </div>
    </section>
 
 </main>

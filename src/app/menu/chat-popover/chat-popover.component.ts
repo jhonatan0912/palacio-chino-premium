@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, inject } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, inject, viewChild } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { ViewComponent } from '@core/view-component';
 import { IonIcon, IonSpinner } from "@ionic/angular/standalone";
@@ -19,6 +19,8 @@ interface Message {
 })
 export class ChatPopoverComponent extends ViewComponent implements AfterViewInit {
 
+  input = viewChild.required<ElementRef<HTMLInputElement>>('input');
+
   aiService = inject(AiService);
 
   busy: boolean = false;
@@ -30,26 +32,29 @@ export class ChatPopoverComponent extends ViewComponent implements AfterViewInit
 
   ngAfterViewInit(): void {
     setTimeout(() => this.scroll(), 100);
+    setTimeout(() => this.input().nativeElement.focus(), 1000);
   }
 
   onDismiss(): void {
     this.popup.dismiss('cancel');
   }
 
-  async onChat(): Promise<void> {
+  onChat(): void {
     if (this.prompt.trim().length === 0) return;
-    
+
     const message = this.prompt;
     this.aiService.messages.update((prev) => [...prev, { role: 'user', message }]);
-    this.scroll();
-    this.busy = true;
     this.prompt = '';
+    setTimeout(() => this.scroll(), 0);
+    this.busy = true;
 
-    await this.aiService.onChat(message)
+    this.aiService.onChat(message)
       .then((res) => {
-        this.busy = false;
         this.aiService.messages.update((prev) => [...prev, { role: 'model', message: res }]);
-        this.scroll();
+        setTimeout(() => this.scroll(), 500);
+      })
+      .finally(() => {
+        this.busy = false;
       });
   }
 

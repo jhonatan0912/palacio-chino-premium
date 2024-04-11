@@ -1,12 +1,9 @@
 .menu {
    display: flex;
-   flex-direction: row;
-   flex-wrap: wrap;
-   justify-content: center;
    gap: 1rem;
-   margin-top: 3rem;
    overflow-x: scroll;
-   // padding-inline: 10px;
+   padding-inline: 10px;
+   margin-top: 1rem;
 
    &::-webkit-scrollbar {
       display: none;
@@ -19,18 +16,12 @@
    border-radius: .5rem;
 }
 
-
-@media screen and (min-width: 501px) {
-   .menu{
-      gap: 2rem;
-   }
-}
-
-
-@media screen and (min-width: 768px) {
+@media (min-width: 768px) {
    .menu {
+      justify-content: center;
       gap: 3rem;
       margin-top: 5rem;
       overflow: hidden;
+      padding-inline: 0;
    }
 }

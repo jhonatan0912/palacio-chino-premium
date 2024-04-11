@@ -13,6 +13,7 @@
 
   <div class="chat__input">
     <input
+      #input
       [(ngModel)]="prompt"
       (keyup.enter)="onChat()"
       type="text"

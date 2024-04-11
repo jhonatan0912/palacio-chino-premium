@@ -10,7 +10,8 @@
 
   <section class="products">
     @for (product of products(); track product.id) {
-    <shopping-cart-product [product]="product" />
+    <shopping-cart-product
+      [product]="product" />
     }@empty {
     <shopping-cart-empty />
     }
@@ -23,7 +24,7 @@
       [disabled]="busy">
       @if(busy){
       <ion-spinner name="crescent" />
-      }@else { 
+      }@else {
       Pagar S/ {{ total() | number: '1.2-2'}}
       }
     </lib-button>

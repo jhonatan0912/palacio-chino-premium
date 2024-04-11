@@ -1,25 +1,6 @@
 <main class="home__container">
 
-  <section class="slider__static">
-    <div class="slider__static__content">
-      <h2>Tus platos<br>Favoritos</h2>
-      <p>los encuentras aquí</p>
-      <lib-button
-        (onAction)="order()"
-        [disabled]="busy">
-        @if (busy) {
-        <ion-spinner name="crescent" />
-        }@else {
-        ORDENAR
-        }
-      </lib-button>
-    </div>
-  </section>
-
-  <section class="menu">
-    <h2 class="menu__title">MENÚ</h2>
-    <categories-menu />
-  </section>
+  <categories-menu />
 
   <!-- PROMOTIONS -->
   <section class="menu_promotions">
@@ -45,36 +26,6 @@
       }
     </button>
     }
-  </section>
-
-  <section class="banner">
-    <div class="banner__content">
-      <h2>
-        Fresco.<br>
-        Auténtico.<br>
-        Sencillo.
-      </h2>
-      <p>Llevamos los sabores del Oriente a tu plato.</p>
-      <p>Abierto desde el almueerzo hasta ....... cada plato que servimos esta
-        hecho a mano con amor y corazon desde nuestro resturante en .......</p>
-    </div>
-    <div class="banner__image">
-      <img src="/assets/logo.png" alt="image-logo">
-    </div>
-  </section>
-
-  <section class="local">
-    <h2 class="local__title">NUESTRO LOCAL</h2>
-    <div class="local__map">
-      <img src="/assets/empty-image.png" alt="image-local">
-      @defer (on viewport) {
-      <store-map />
-      }@placeholder {
-      <ion-spinner name="crescent" />
-      }@loading {
-      <ion-spinner name="crescent" />
-      }
-    </div>
   </section>
 
   <menu-chat-button

@@ -3,7 +3,15 @@ import { Content } from '@google/generative-ai';
 export const history: Content[] = [
   {
     role: 'user',
-    parts: [{ text: '¿Qué productos o servicios ofrece Palacio Chino Premium?' }]
+    parts: [{ text: 'Todo lo que hablaremos será acerca de la empresa Palacio Chino Premium, si te hago otras preguntas, responde que no puedes contestar cosas ajenas a la empresa.' }]
+  },
+  {
+    role: 'model',
+    parts: [{ text: 'Ok.' }]
+  },
+  {
+    role: 'user',
+    parts: [{ text: '¿Qué productos o servicios ofrece' }]
   },
   {
     role: 'model',
@@ -19,7 +27,7 @@ export const history: Content[] = [
   },
   {
     role: 'user',
-    parts: [{ text: '¿Cuál es la historia de la empresa Palacio Chino Premium?' }]
+    parts: [{ text: '¿Cuál es la historia de la empresa' }]
   },
   {
     role: 'model',
@@ -27,7 +35,7 @@ export const history: Content[] = [
   },
   {
     role: 'user',
-    parts: [{ text: '¿Cuántos años lleva Palacio Chino Premium operando en Huancayo?' }]
+    parts: [{ text: '¿Cuántos años operando?' }]
   },
   {
     role: 'model',
@@ -35,7 +43,7 @@ export const history: Content[] = [
   },
   {
     role: 'user',
-    parts: [{ text: '¿Cuál es el horario de atención de Palacio Chino Premium?' }]
+    parts: [{ text: '¿Cuál es el horario de atención' }]
   },
   {
     role: 'model',
@@ -51,7 +59,7 @@ export const history: Content[] = [
   },
   {
     role: 'user',
-    parts: [{ text: '¿Qué tipo de clientes suele atraer Palacio Chino Premium?' }]
+    parts: [{ text: '¿Qué tipo de clientes suele atraer' }]
   },
   {
     role: 'model',
