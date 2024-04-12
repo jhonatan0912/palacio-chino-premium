@@ -3,6 +3,7 @@ import { AppHttpService } from '@core/index';
 import { environment } from '@environments/environment';
 import { Observable, map } from 'rxjs';
 import { DeliveryType, OrderStatus, PaymentMethod, formatOrderStatus } from './orders.proxie';
+import { ProductDto } from './products.proxie';
 
 @Injectable({
   providedIn: 'root'
@@ -16,15 +17,22 @@ export class AdminProxy {
   }
 
   login(username: string, password: string): Observable<LoginDto> {
+    const url = `${this.path}/login`;
     const body = {
       username,
       password
     };
-    return this.http.post(`${this.path}/login`, body).pipe(map((data: any) => new LoginDto().fromJS(data)));
+    return this.http.post(url, body).pipe(map((data: any) => new LoginDto().fromJS(data)));
   }
 
   getOrders(): Observable<AdminGetOrderDto[]> {
-    return this.http.get(`${this.path}/orders`).pipe(map((data: any) => data.map((i: any) => new AdminGetOrderDto().fromJS(i))));
+    const url = `${this.path}/orders`;
+    return this.http.get(url).pipe(map((data: any) => data.map((i: any) => new AdminGetOrderDto().fromJS(i))));
+  }
+
+  getProducts(): Observable<ProductDto[]> {
+    const url = `${this.path}/products`;
+    return this.http.get(url).pipe(map((data: any) => data.map((i: any) => new ProductDto().fromJS(i))));
   }
 
   changeOrderStatus(orderId: string, status: OrderStatus): Observable<void> {

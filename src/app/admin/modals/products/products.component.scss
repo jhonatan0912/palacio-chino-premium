@@ -1,16 +1,19 @@
+.modal__header {
+  padding: 1rem;
+
+  &__title {
+    text-transform: capitalize;
+  }
+
+  ion-searchbar {
+    --padding: 0;
+    padding: 0;
+  }
+}
+
 .modal__container {
   padding: 1rem;
 
-  .modal__header {
-    &__title {
-      text-transform: capitalize;
-    }
-
-    ion-searchbar {
-      --padding: 0;
-      padding: 0;
-    }
-  }
 
   table {
     width: 100%;
