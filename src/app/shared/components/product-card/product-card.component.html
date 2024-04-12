@@ -1,10 +1,10 @@
 <section class="card">
   <img
     class="card__image"
-    src="/assets/product-image.png"
-    width="200px"
-    height="160px"
-    alt="Product Image" />
+    [src]="product().image | srcImage"
+    width="200"
+    height="160"
+    [alt]="product().name" />
 
   <div class="card-content">
     <p class="text-content">
