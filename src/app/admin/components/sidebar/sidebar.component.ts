@@ -36,7 +36,7 @@ export class SidebarComponent extends ViewComponent implements OnInit {
   options: SidebarOption[] = [
     { id: 'home', name: 'Dashboard', icon: '' },
     { id: 'categories', name: 'Categorias', icon: '' },
-    { id: 'users', name: 'Usuarios', icon: '' },
+    // { id: 'users', name: 'Usuarios', icon: '' },
     { id: 'products', name: 'Productos', icon: '' },
     { id: 'orders', name: 'Ordenes', icon: '' },
   ];
