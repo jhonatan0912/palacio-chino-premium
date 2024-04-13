@@ -8,9 +8,9 @@
     (onChange)="onChange($event)" />
 
   <button
-    (click)="onUpdate()"
+    (click)="onUpdateIcon()"
     class="button__update"
-    [disabled]="!image()">
+    [disabled]="!icon()">
     @if (busy) {
     <ion-spinner name="crescent" />
     }@else {

@@ -5,6 +5,7 @@ import { ViewComponent } from '@core/view-component';
 import { IonIcon } from "@ionic/angular/standalone";
 import { CategoriesProxy, CategoryDto } from '@shared/proxies';
 import { CategoryListItemPopoverComponent } from './category-list-item-popover/category-list-item-popover.component';
+import { EditCategoryImageComponent } from '@admin/modals/edit-category-image/edit-category-image.component';
 
 @Component({
   selector: 'category-list-item',
@@ -38,6 +39,7 @@ export class CategoryListItemComponent extends ViewComponent {
         case 'edit': return this.onUpdate.emit(id);
         case 'delete': return this.handleDelete(id);
         case 'assign': return this.openProductsModal(id);
+        case 'change-icon': return this.onEditImage(id);
       }
     });
   }
@@ -48,6 +50,15 @@ export class CategoryListItemComponent extends ViewComponent {
       componentProps: {
         categoryId: id,
         category: this.category().name
+      }
+    });
+  }
+
+  onEditImage(id: string): void {
+    this.dialog.showWithData({
+      component: EditCategoryImageComponent,
+      componentProps: {
+        id: id
       }
     });
   }

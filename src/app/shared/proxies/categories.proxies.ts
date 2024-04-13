@@ -37,8 +37,18 @@ export class CategoriesProxy {
     if (icon) form.append('icon', icon);
     form.append('name', name);
     form.append('slug', slug);
-    
+
     return this.http.update(`${this.path}/${id}`, form).pipe(mergeMap((data: any) => of(new CategoryDto().fromJS(data))));
+  }
+
+  updateIcon(id: string, icon: File | undefined): Observable<CategoryDto> {
+    const url = `${this.path}/update-icon/${id}`;
+    const form = new FormData();
+
+    if (icon)
+      form.append('icon', icon);
+
+    return this.http.update(url, form).pipe(mergeMap((data: any) => of(new CategoryDto().fromJS(data))));
   }
 
   delete(id: string): Observable<void> {

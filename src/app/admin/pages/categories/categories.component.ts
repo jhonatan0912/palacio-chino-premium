@@ -16,7 +16,7 @@ import { CategoriesProxy, CategoryDto } from '@shared/proxies';
 })
 export class AdminCategoriesComponent implements OnInit {
 
-  private categoriesService = inject(CategoriesService);
+  private readonly _categoriesService = inject(CategoriesService);
 
   categories = signal<CategoryDto[]>([]);
 
@@ -25,7 +25,7 @@ export class AdminCategoriesComponent implements OnInit {
   }
 
   getCategories(): void {
-    this.categories.set(this.categoriesService.categories());
+    this.categories.set(this._categoriesService.categories());
   }
 
 }
