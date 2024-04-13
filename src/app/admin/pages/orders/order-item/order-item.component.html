@@ -10,8 +10,8 @@
     {{ order().createdAt | date:'dd/mm/YYYY hh:mm a' }}
   </div>
   <div class="order__user">
-    {{ order().user.name }}
-    {{ order().user.email }}
+    <span>{{ order().user.name }}</span>
+    <span>{{ order().user.email }}</span>
   </div>
   <div class="order__status">
     <span class="status__label {{ order().status}}">

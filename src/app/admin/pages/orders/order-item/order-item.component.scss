@@ -1,6 +1,9 @@
+:host {
+  height: fit-content;
+}
+
 .order__item {
   padding: 20px;
-  margin-bottom: 20px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   border-radius: 10px;
   cursor: pointer;
@@ -21,6 +24,11 @@
       color: #075f07;
       font-weight: 600;
     }
+  }
+
+  .order__user {
+    display: flex;
+    flex-direction: column;
   }
 }
 

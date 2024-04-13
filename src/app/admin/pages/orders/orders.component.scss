@@ -1,11 +1,9 @@
 @import './../../scss/admin.scss';
 
 .orders {
+  gap: 1.5rem;
+  max-height: calc(100vh - 68px);
   display: flex;
   flex-wrap: wrap;
-  gap: 1.5rem;
-
-  .order__item {
-    max-width: 260px;
-  }
+  padding-bottom: 3rem;
 }

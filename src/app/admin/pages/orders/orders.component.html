@@ -1,18 +1,16 @@
-<main>
-  <div class="row">
-    <div class="col-md-12">
-      <div class="title">
-        Pedidos
-      </div>
-      <div class="content">
-        <section class="orders">
-          @for (order of adminOrdersService.orders(); track order.id) {
-          <admin-order-item
-            class="order__item"
-            [order]="order" />
-          }
-        </section>
-      </div>
+<main class="row">
+  <div class="col-md-12">
+    <div class="title">
+      Pedidos
+    </div>
+    <div class="content">
+      <section class="orders scroll">
+        @for (order of adminOrdersService.orders(); track order.id) {
+        <admin-order-item
+          class="order__item"
+          [order]="order" />
+        }
+      </section>
     </div>
   </div>
 </main>
