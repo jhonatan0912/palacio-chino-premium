@@ -39,8 +39,8 @@ export class EditCategoryImageComponent extends ViewComponent implements OnInit 
       this.icon()
     ).pipe(finalize(() => this.busy = false))
       .subscribe({
-        next: (res) => {
-          this.dialog.dismiss(res);
+        next: (category) => {
+          this.dialog.dismiss(category);
         }
       });
   }
