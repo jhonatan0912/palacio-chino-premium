@@ -1,0 +1,16 @@
+<article class="product">
+  <img
+    class="product__image"
+    [src]="product().image | srcImage"
+    [alt]="product().name">
+
+  <section class="product__content">
+    <span class="product__name">{{ product().name }}</span>
+  </section>
+
+  <section class="product__options">
+    <button (click)="onEditImage.emit(product())" class="btn__edit">
+      Editar imagen
+    </button>
+  </section>
+</article>

@@ -81,6 +81,15 @@ export class ProductsProxy {
     return this.http.update(url, body);
   }
 
+  updateImage(id: string, image: File | undefined): Observable<ProductDto> {
+    const url = `${this.path}/update-image/${id}`;
+    const form = new FormData();
+    if (image)
+      form.append('image', image);
+
+    return this.http.update(url, form).pipe(mergeMap((data: any) => of(new ProductDto().fromJS(data))));
+  }
+
   delete(id: string): Observable<void> {
     const url = `${this.path}/${id}`;
 

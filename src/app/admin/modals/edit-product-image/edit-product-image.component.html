@@ -1,0 +1,19 @@
+<title-modal (onDismiss)="dialog.dismiss('cancel')">
+  Editar imagen
+</title-modal>
+
+<section>
+  <image-uploader
+    (onChange)="onChange($event)" />
+
+  <button
+    (click)="onUpdate()"
+    class="button__update"
+    [disabled]="!image()">
+    @if (busy) {
+    <ion-spinner name="crescent" />
+    }@else {
+    Aceptar
+    }
+  </button>
+</section>
