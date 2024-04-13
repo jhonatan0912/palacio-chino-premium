@@ -42,6 +42,11 @@ export class ProductsProxy {
     return this.http.get(url).pipe(mergeMap((data: any) => of(new GetAllProductsResponseDto().fromJS(data))));
   }
 
+  getForPrompt(): Observable<ProductDto[]> {
+    const url = `${this.path}/history-prompt`;
+    return this.http.get(url).pipe(mergeMap((data: any) => of(data.map((item: any) => new ProductDto().fromJS(item)))));
+  }
+
   getPromotions(page: number = 0, limit: number = 30): Observable<GetAllProductsResponseDto> {
     let url = `${this.path}/promotions`;
     if (page !== null && page !== undefined)

@@ -72,9 +72,4 @@ export class MenuComponent extends ViewComponent implements OnInit {
       cssClass: ['chat-popover']
     });
   }
-
-  order():void{
-
-  }
-
 }
