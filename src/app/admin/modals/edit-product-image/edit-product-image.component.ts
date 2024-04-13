@@ -35,8 +35,8 @@ export class EditProductImageComponent extends ViewComponent {
       this.image()
     ).pipe(finalize(() => this.busy = false))
       .subscribe({
-        next: () => {
-          this.dialog.dismiss(this.product);
+        next: (product) => {
+          this.dialog.dismiss(product);
         }
       });
   }

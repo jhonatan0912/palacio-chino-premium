@@ -1,7 +1,6 @@
 <section class="products__list">
   @for (product of products(); track $index) {
   <admin-product-item
-    (onEditImage)="onEditImage($event)"
     [product]="product" />
   }
 </section>
