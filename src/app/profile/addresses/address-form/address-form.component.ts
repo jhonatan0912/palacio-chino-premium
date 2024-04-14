@@ -47,7 +47,6 @@ export class AddressFormComponent extends ViewComponent implements OnInit {
         next: ({ id }) => {
           if (!id) return;
           const { id: _, ...rest } = this._addressesService.addresses().find(address => address.id === id) as AddressDto;
-          console.log(rest);
           this.form.setValue(rest);
         }
       });

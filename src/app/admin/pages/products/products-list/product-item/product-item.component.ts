@@ -27,8 +27,6 @@ export class ProductItemComponent extends ViewComponent {
       }
     }).then(res => {
       if (!res || res === 'cancel') return;
-      console.log('Product', this.product());
-      console.log('Response', res);
       this.product.set(res);
     });
   }

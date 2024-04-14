@@ -1,3 +1,4 @@
+import { CheckedPipe } from '@admin/pipes/checked.pipe';
 import { AdminProductsService } from '@admin/services/products.service';
 import { DecimalPipe } from "@angular/common";
 import { Component, DestroyRef, Input, computed, inject, signal } from '@angular/core';
@@ -10,7 +11,7 @@ import { CategoryDto, ProductDto, ProductsProxy } from '@shared/proxies';
 @Component({
   selector: 'app-products',
   standalone: true,
-  imports: [IonSearchbar, IonToggle, DecimalPipe, FilterPipe, FormsModule],
+  imports: [IonSearchbar, IonToggle, DecimalPipe, FilterPipe, FormsModule, CheckedPipe],
   templateUrl: './products.component.html',
   styleUrls: ['./products.component.scss']
 })
@@ -57,9 +58,5 @@ export class AdminProductsModalComponent {
       this.categoryId
     ).pipe(takeUntilDestroyed(this._destroyRef))
       .subscribe();
-  }
-
-  checked(categories: CategoryDto[]): boolean {
-    return categories.some((category) => category.id === this.categoryId);
   }
 }

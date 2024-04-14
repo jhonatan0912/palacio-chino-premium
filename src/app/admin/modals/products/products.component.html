@@ -23,7 +23,7 @@
         <td>S/{{ product.price | number: '1.2-2' }}</td>
         <td>
           <ion-toggle
-            [checked]="checked(product.categories)"
+            [checked]="product.categories | checked : categoryId"
             (ionChange)="onChange($event,product)" />
         </td>
       </tr>

@@ -14,18 +14,18 @@
     <app-product-card
       [product]="product" />
     }
+    }
+  </div>
+  @if (page <= lastPage && products().length > 0) {
+  <button
+    role="button"
+    (click)="getProductsByCategory(id(),false)"
+    class="load-more">
+    @if (busy()) {
+    <ion-spinner name="crescent" />
+    }@else {
+    Ver más
+    }
+  </button>
   }
-</div>
-@if (page <= lastPage && products().length > 0) {
-<button
-  role="button"
-  (click)="getProductsByCategory()"
-  class="load-more">
-  @if (busy()) {
-  <ion-spinner name="crescent" />
-  }@else {
-  Ver más
-  }
-</button>
-}
 </main>

@@ -1,10 +1,10 @@
-import { Component, Input, OnInit, inject, signal } from '@angular/core';
+import { Component, Input, inject, signal } from '@angular/core';
 import { ViewComponent } from '@core/view-component';
+import { IonSpinner } from "@ionic/angular/standalone";
 import { ImageUploaderComponent } from '@shared/components/image-uploader/image-uploader.component';
 import { TitleModalComponent } from '@shared/components/title-modal/title-modal.component';
 import { CategoriesProxy, onFileChange } from '@shared/proxies';
 import { finalize } from 'rxjs';
-import { IonSpinner } from "@ionic/angular/standalone";
 
 @Component({
   selector: 'edit-category-image',
@@ -13,7 +13,7 @@ import { IonSpinner } from "@ionic/angular/standalone";
   templateUrl: './edit-category-image.component.html',
   styleUrls: ['./edit-category-image.component.scss']
 })
-export class EditCategoryImageComponent extends ViewComponent implements OnInit {
+export class EditCategoryImageComponent extends ViewComponent {
 
   private readonly _categoriesProxy = inject(CategoriesProxy);
 
@@ -24,10 +24,6 @@ export class EditCategoryImageComponent extends ViewComponent implements OnInit 
 
   constructor() {
     super();
-  }
-
-  ngOnInit() {
-    console.log({ id: this.id });
   }
 
   onUpdateIcon(): void {
