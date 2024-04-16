@@ -1,5 +1,6 @@
 import { DecimalPipe, SlicePipe } from '@angular/common';
 import { Component, inject, input } from '@angular/core';
+import { SliceTextPipe } from '@shared/pipes/sliceText.pipe';
 import { SrcImagePipe } from '@shared/pipes/srcImage.pipe';
 import { ProductDto } from '@shared/proxies';
 import { ShoppingCartService } from '@shared/services/shopping-cart.service';
@@ -14,7 +15,7 @@ export interface ProductCardData {
 @Component({
   selector: 'app-product-card',
   standalone: true,
-  imports: [DecimalPipe, SrcImagePipe, SlicePipe],
+  imports: [DecimalPipe, SrcImagePipe, SliceTextPipe],
   templateUrl: './product-card.component.html',
   styleUrl: './product-card.component.scss'
 })
