@@ -8,7 +8,7 @@
 
   <div class="card-content">
     <p class="text-content">
-      {{ product().name }}
+      {{ product().name | slice: 0:20 }}
     </p>
     <p class="price">
       S/ {{ product().price| number: '1.2-2' }}
