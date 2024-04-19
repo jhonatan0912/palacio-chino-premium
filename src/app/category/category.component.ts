@@ -1,14 +1,13 @@
-import { Component, DestroyRef, OnInit, WritableSignal, computed, effect, inject, input, signal } from '@angular/core';
-import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
-import { ViewComponent } from '@core/view-component';
+import { Component, OnInit, computed, inject, signal } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 import { CategoriesMenuComponent } from '@shared/components/categories-menu/categories-menu.component';
 import { ProductCardComponent } from '@shared/components/product-card/product-card.component';
-import { CategoriesProxy, CategoryDto, ProductDto, ProductsProxy } from '@shared/proxies';
+import { CategoriesService } from '@shared/services/categories.service';
+import { ViewComponent } from 'pc-core';
+import { CategoryDto, ProductDto, ProductsProxy } from 'pc-proxies';
 import { finalize } from 'rxjs/internal/operators/finalize';
 import { CategorySkeletonComponent } from './category-skeleton/category-skeleton.component';
-import { CategoriesService } from '@shared/services/categories.service';
-import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-category',

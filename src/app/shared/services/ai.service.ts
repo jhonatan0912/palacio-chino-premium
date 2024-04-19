@@ -1,8 +1,8 @@
 import { Injectable, inject, signal } from '@angular/core';
-import { history } from '@core/utils/history.prompts';
 import { environment } from '@environments/environment';
 import { GoogleGenerativeAI, Content } from '@google/generative-ai';
-import { ProductsProxy } from '@shared/proxies';
+import { history } from 'pc-core';
+import { ProductsProxy } from 'pc-proxies';
 
 interface Message {
   role: 'user' | 'model';

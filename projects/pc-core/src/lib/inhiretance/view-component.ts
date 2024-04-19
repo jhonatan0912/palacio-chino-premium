@@ -1,5 +1,5 @@
 import { inject } from '@angular/core';
-import { AppAlertService, AppDialogService, AppLocalizationService, AppNavigationService, AppNotifyService, AppPopoverService, AppScreenService, AppSessionService, AppTabService, AppThemeService } from '@core/index';
+import { AppAlertService, AppDialogService, AppLocalizationService, AppNavigationService, AppNotifyService, AppPopoverService, AppScreenService, AppSessionService, AppTabService, AppThemeService } from "./../services";
 
 
 export abstract class ViewComponent {

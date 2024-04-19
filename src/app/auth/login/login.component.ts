@@ -2,13 +2,13 @@ import { Component, DestroyRef, inject } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { FormsModule } from '@angular/forms';
 import { TitleMobileComponent } from '@shared/components/auth-title/auth-title.component';
-import { ViewComponent } from '@core/view-component';
+import { ViewComponent } from 'pc-core';
 import { IonSpinner, IonIcon } from "@ionic/angular/standalone";
 import { ButtonComponent } from '@lib/button/button.component';
 import { finalize } from 'rxjs/internal/operators/finalize';
-import { AuthProxy } from '@shared/proxies';
 import { AuthService } from '@auth/services/auth.service';
 import { AuthAsideComponent } from '@auth/components/aside/aside.component';
+import { AuthProxy } from 'pc-proxies';
 
 @Component({
   selector: 'app-login',
@@ -67,8 +67,8 @@ export class LoginComponent extends ViewComponent {
 
   onToggleInputType(): void {
     this.inputType = this.inputType === 'password'
-    ? 'text'
-    : 'password';
+      ? 'text'
+      : 'password';
   }
 
   onAuth() {

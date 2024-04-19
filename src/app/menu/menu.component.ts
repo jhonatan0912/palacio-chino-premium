@@ -1,15 +1,15 @@
 import { Component, DestroyRef, OnInit, inject, signal } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
-import { ViewComponent } from '@core/view-component';
 import { IonSpinner } from "@ionic/angular/standalone";
+import { ButtonComponent } from '@lib/button/button.component';
 import { CategoriesMenuComponent } from '@shared/components/categories-menu/categories-menu.component';
+import { StoreMapComponent } from "@shared/components/store-map/store-map.component";
+import { ViewComponent } from 'pc-core';
+import { ProductDto, ProductsProxy } from 'pc-proxies';
 import { finalize } from 'rxjs/internal/operators/finalize';
 import { ProductCardComponent } from '../shared/components/product-card/product-card.component';
-import { ButtonComponent } from '@lib/button/button.component';
-import { StoreMapComponent } from "@shared/components/store-map/store-map.component";
-import { MenuChatButtonComponent } from './menu-chat-button/menu-chat-button.component';
 import { ChatPopoverComponent } from './chat-popover/chat-popover.component';
-import { ProductDto, ProductsProxy } from '@shared/proxies';
+import { MenuChatButtonComponent } from './menu-chat-button/menu-chat-button.component';
 
 @Component({
   selector: 'app-menu',

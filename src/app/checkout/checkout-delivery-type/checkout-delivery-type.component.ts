@@ -1,7 +1,7 @@
 import { NgClass } from '@angular/common';
 import { Component } from '@angular/core';
 import { IonRadio } from "@ionic/angular/standalone";
-import { DeliveryType, PaymentMethod } from '@shared/proxies';
+import { DeliveryType, PaymentMethod } from 'pc-proxies';
 
 
 

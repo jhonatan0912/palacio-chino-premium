@@ -1,14 +1,14 @@
 import { Component, DestroyRef, inject } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { FormsModule } from '@angular/forms';
-import { TitleMobileComponent } from '@shared/components/auth-title/auth-title.component';
-import { ViewComponent } from '@core/view-component';
+import { IonSpinner } from "@ionic/angular/standalone";
 import { ButtonComponent } from '@lib/button/button.component';
+import { TitleMobileComponent } from '@shared/components/auth-title/auth-title.component';
+import { ViewComponent } from 'pc-core';
+import { AuthProxy } from 'pc-proxies';
+import { finalize } from 'rxjs';
 import { AuthAsideComponent } from '../components/aside/aside.component';
 import { AuthService } from '../services/auth.service';
-import { finalize } from 'rxjs';
-import { IonSpinner } from "@ionic/angular/standalone";
-import { AuthProxy } from '@shared/proxies';
 
 @Component({
   selector: 'app-register',

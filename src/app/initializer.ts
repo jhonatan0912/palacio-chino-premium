@@ -1,11 +1,10 @@
 import { Injector } from '@angular/core';
 import { AuthService } from '@auth/services/auth.service';
-import { AppSessionService } from '@core/services/session.service';
-import { ADMIN_TOKEN, SHOPPING_CART } from '@core/utils/constants';
-import { AuthProxy, CategoriesProxy, ProductsProxy } from '@shared/proxies';
 import { CategoriesService } from '@shared/services/categories.service';
 import { ProductsService } from '@shared/services/products.service';
 import { ShoppingCartService } from '@shared/services/shopping-cart.service';
+import { ADMIN_TOKEN, AppSessionService, SHOPPING_CART } from 'pc-core';
+import { AuthProxy, CategoriesProxy, ProductsProxy } from 'pc-proxies';
 
 const getCategories = (injector: Injector): void => {
   const categoriesService = injector.get(CategoriesService);

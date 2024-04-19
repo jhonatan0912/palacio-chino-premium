@@ -1,6 +1,6 @@
 import { Injectable, signal } from '@angular/core';
-import { SHOPPING_CART } from '@core/utils/constants';
-import { ProductDto } from '@shared/proxies';
+import { SHOPPING_CART } from 'pc-core';
+import { ProductDto } from 'pc-proxies';
 
 @Injectable({
   providedIn: 'root'

@@ -1,5 +1,5 @@
 import { Injectable } from "@angular/core";
-import { UserAuthResponseDto } from '@shared/proxies';
+import { UserAuthResponseDto } from 'pc-proxies';
 
 @Injectable({ providedIn: 'root' })
 export class AppSessionService {

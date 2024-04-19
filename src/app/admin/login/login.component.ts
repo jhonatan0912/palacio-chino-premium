@@ -1,10 +1,9 @@
 import { Component, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { ADMIN_TOKEN, AUTH_TOKEN, REFRESH_TOKEN } from '@core/utils/constants';
-import { ViewComponent } from '@core/view-component';
+import { ADMIN_TOKEN, AUTH_TOKEN, REFRESH_TOKEN, ViewComponent } from 'pc-core';
 import { IonSpinner } from "@ionic/angular/standalone";
-import { AdminProxy } from '@shared/proxies';
 import { finalize } from 'rxjs';
+import { AdminProxy } from 'pc-proxies';
 
 @Component({
   selector: 'app-login',

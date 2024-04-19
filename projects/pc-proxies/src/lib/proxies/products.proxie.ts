@@ -1,9 +1,9 @@
 
-import { Injectable, inject } from '@angular/core';
-import { AppHttpService } from '@core/index';
-import { environment } from '@environments/environment';
+import { Inject, Injectable, inject } from '@angular/core';
+import { AppHttpService } from 'pc-core';
 import { Observable, mergeMap, of } from 'rxjs';
 import { CategoryDto } from './categories.proxies';
+import { Environment } from '../interfaces';
 
 @Injectable({
   providedIn: 'root'
@@ -12,8 +12,10 @@ export class ProductsProxy {
 
   private http = inject(AppHttpService);
 
+  constructor(@Inject('environment') private environment: Environment) { }
+
   get path(): string {
-    return `${environment.api}/api/v1/products`;
+    return `${this.environment.api}/api/v1/products`;
   }
 
   create(image: File, name: string, price: number, description: string): Observable<ProductDto> {

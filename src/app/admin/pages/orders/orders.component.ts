@@ -2,7 +2,7 @@ import { AdminOrdersService } from '@admin/services/orders.service';
 import { Component, DestroyRef, OnInit, inject } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { AdminOrderItemComponent } from './order-item/order-item.component';
-import { AdminProxy } from '@shared/proxies';
+import { AdminProxy } from 'pc-proxies';
 
 @Component({
   selector: 'app-orders',

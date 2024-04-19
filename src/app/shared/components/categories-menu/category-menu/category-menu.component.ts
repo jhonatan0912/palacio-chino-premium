@@ -1,7 +1,7 @@
 import { NgClass } from '@angular/common';
 import { Component, EventEmitter, Output, input } from '@angular/core';
 import { SrcImagePipe } from '@shared/pipes/srcImage.pipe';
-import { CategoryDto } from '@shared/proxies';
+import { CategoryDto } from 'pc-proxies';
 
 
 @Component({

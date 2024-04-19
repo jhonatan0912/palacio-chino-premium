@@ -1,9 +1,9 @@
 import { Component, effect, inject, signal } from '@angular/core';
-import { ViewComponent } from '@core/view-component';
 import { IonIcon } from '@ionic/angular/standalone';
 import { CategoriesService } from '@shared/services/categories.service';
 import { ShoppingCartService } from '@shared/services/shopping-cart.service';
 import { ShoppingCartComponent } from '../shopping-cart/shopping-cart.component';
+import { ViewComponent } from 'pc-core';
 
 
 interface HeaderOption {

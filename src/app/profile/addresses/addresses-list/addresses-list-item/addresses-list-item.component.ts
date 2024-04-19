@@ -1,7 +1,7 @@
 import { Component, input, model, output } from '@angular/core';
-import { ViewComponent } from '@core/view-component';
 import { IonIcon, IonSpinner } from "@ionic/angular/standalone";
-import { AddressDto } from '@shared/proxies';
+import { ViewComponent } from 'pc-core';
+import { AddressDto } from 'pc-proxies';
 
 @Component({
   selector: 'addresses-list-item',

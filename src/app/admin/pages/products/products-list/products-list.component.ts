@@ -1,8 +1,8 @@
 import { AdminProductsService } from '@admin/services/products.service';
 import { Component, computed, inject } from '@angular/core';
-import { ViewComponent } from '@core/view-component';
-import { ProductDto } from '@shared/proxies';
+import { ViewComponent } from 'pc-core';
 import { ProductItemComponent } from './product-item/product-item.component';
+import { ProductDto } from 'pc-proxies';
 
 @Component({
   selector: 'admin-products-list',

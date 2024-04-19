@@ -57,6 +57,12 @@
       "@shopping-cart/*": [
         "./src/app/shopping-cart/*"
       ],
+      // "pc-core": [
+      //   "./dist/pc-core"
+      // ],
+      // "pc-proxies": [
+      //   "./dist/pc-proxies"
+      // ],
     }
   },
   "angularCompilerOptions": {

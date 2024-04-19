@@ -1,11 +1,10 @@
 import { NgClass } from '@angular/common';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { ViewComponent } from '@core/index';
-import { ADMIN_TOKEN } from '@core/utils/constants';
 import { IonIcon } from '@ionic/angular/standalone';
 import { ButtonComponent } from '@lib/button/button.component';
 import { AdminSidebarExpandButtonComponent } from './sidebar-expand-button/sidebar-expand-button.component';
 import { AdminSidebarOptionComponent, SidebarOption } from './sidebar-option/sidebar-option.component';
+import { ADMIN_TOKEN, ViewComponent } from 'pc-core';
 
 
 @Component({

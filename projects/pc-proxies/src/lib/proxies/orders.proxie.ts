@@ -1,7 +1,7 @@
-import { Injectable, inject } from '@angular/core';
-import { AppHttpService } from '@core/index';
-import { environment } from '@environments/environment';
+import { Inject, Injectable, inject } from '@angular/core';
+import { AppHttpService } from 'pc-core';
 import { Observable, mergeMap, of } from 'rxjs';
+import { Environment } from '../interfaces';
 
 export type OrderStatus = 'pending' | 'progress' | 'completed' | 'canceled';
 export type DeliveryType = 'delivery' | 'pickup';
@@ -13,8 +13,10 @@ export type PaymentMethod = 'cash' | 'card';
 export class OrdersProxy {
   private http = inject(AppHttpService);
 
+  constructor(@Inject('environment') private environment: Environment) { }
+
   get path(): string {
-    return `${environment.api}/api/v1/orders`;
+    return `${this.environment.api}/api/v1/orders`;
   }
 
   create(products: CreateOrderDto[], addressId: string, deliveryType: DeliveryType, paymentMethod: PaymentMethod | null): Observable<GetOrderDto> {

@@ -1,7 +1,7 @@
 import { inject } from '@angular/core';
 import { CanActivateFn } from '@angular/router';
 import { AuthService } from '@auth/services/auth.service';
-import { AppNavigationService, AppSessionService } from '@core/index';
+import { AppNavigationService, AppSessionService } from 'pc-core';
 
 export const profileGuard: CanActivateFn = (): boolean => {
   const authService = inject(AuthService);

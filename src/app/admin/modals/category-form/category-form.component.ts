@@ -8,8 +8,8 @@ import { SlugPipe } from '@shared/pipes/slug.pipe';
 import { SrcImagePipe } from '@shared/pipes/srcImage.pipe';
 import { finalize } from 'rxjs';
 import { IonSpinner } from "@ionic/angular/standalone";
-import { ViewComponent } from '@core/view-component';
-import { CategoriesProxy, CategoryDto, getSlug } from '@shared/proxies';
+import { ViewComponent } from 'pc-core';
+import { CategoriesProxy, CategoryDto, getSlug } from 'pc-proxies';
 
 @Component({
   selector: 'admin-category-form',

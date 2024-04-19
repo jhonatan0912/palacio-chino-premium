@@ -1,10 +1,10 @@
 import { Component, OnInit, model } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { CheckoutChooseAddressComponent } from '@checkout/modals/checkout-choose-address/checkout-choose-address.component';
-import { ViewComponent } from '@core/view-component';
+import { ViewComponent } from 'pc-core';
 import { IonRadio, IonRadioGroup, IonSpinner, IonIcon } from '@ionic/angular/standalone';
 import { ButtonComponent } from '@lib/button/button.component';
-import { AddressDto } from '@shared/proxies';
+import { AddressDto } from 'pc-proxies';
 
 @Component({
   selector: 'checkout-address',

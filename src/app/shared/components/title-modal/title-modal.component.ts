@@ -1,6 +1,6 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { ViewComponent } from '@core/view-component';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { IonIcon } from "@ionic/angular/standalone";
+import { ViewComponent } from 'pc-core';
 
 @Component({
   selector: 'title-modal',

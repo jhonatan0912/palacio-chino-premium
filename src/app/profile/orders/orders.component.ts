@@ -4,9 +4,9 @@ import { OrdersService } from '@profile/services/orders.service';
 import { OrderItemComponent } from './order-item/order-item.component';
 import { HeaderMobileComponent } from '@shared/components/header-mobile/header-mobile.component';
 import { IonIcon } from "@ionic/angular/standalone";
-import { ViewComponent } from '@core/view-component';
-import { GetOrderDto, OrdersProxy } from '@shared/proxies';
 import { WebsocketsService } from '@profile/services/websockets.service';
+import { ViewComponent } from 'pc-core';
+import { GetOrderDto, OrdersProxy } from 'pc-proxies';
 
 @Component({
   selector: 'app-orders',

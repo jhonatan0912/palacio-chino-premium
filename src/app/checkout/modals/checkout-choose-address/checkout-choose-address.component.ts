@@ -1,11 +1,11 @@
 import { Component, DestroyRef, Input, OnInit, inject, signal } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { FormsModule } from '@angular/forms';
-import { ViewComponent } from '@core/view-component';
 import { IonRadio, IonSpinner, IonRadioGroup } from "@ionic/angular/standalone";
 import { AddressesService } from '@profile/services/addresses.service';
 import { TitleModalComponent } from '@shared/components/title-modal/title-modal.component';
-import { AddressDto, AddressesProxy } from '@shared/proxies';
+import { ViewComponent } from 'pc-core';
+import { AddressDto, AddressesProxy } from 'pc-proxies';
 import { finalize } from 'rxjs/internal/operators/finalize';
 
 @Component({

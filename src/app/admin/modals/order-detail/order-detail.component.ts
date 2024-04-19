@@ -1,12 +1,12 @@
 import { DatePipe, DecimalPipe } from '@angular/common';
 import { Component, inject, input } from '@angular/core';
-import { ViewComponent } from '@core/view-component';
+import { ViewComponent } from 'pc-core';
 import { IonIcon } from "@ionic/angular/standalone";
 import { AdminOrderDetailProductComponent } from './order-detail-product/order-detail-product.component';
 import { OrderDetailStatusPopoverComponent } from './order-detail-status-popover/order-detail-status-popover.component';
 import { TitleModalComponent } from '@shared/components/title-modal/title-modal.component';
 import { OrderDetailClientComponent } from './order-detail-client/order-detail-client.component';
-import { AdminGetOrderDto, AdminProxy, OrderStatus, formatOrderStatus } from '@shared/proxies';
+import { AdminGetOrderDto, AdminProxy, OrderStatus, formatOrderStatus } from 'pc-proxies';
 
 @Component({
   selector: 'admin-order-detail',

@@ -1,7 +1,7 @@
-import { Injectable, inject } from '@angular/core';
-import { AppHttpService } from '@core/index';
-import { environment } from '@environments/environment';
+import { Inject, Injectable, inject } from '@angular/core';
+import { AppHttpService } from 'pc-core';
 import { Observable, mergeMap, of } from 'rxjs';
+import { Environment } from '../interfaces';
 
 @Injectable({
   providedIn: 'root'
@@ -10,8 +10,10 @@ export class AuthProxy {
 
   private http = inject(AppHttpService);
 
+  constructor(@Inject('environment') private environment: Environment) { }
+
   get path(): string {
-    return `${environment.api}/api/v1/auth`;
+    return `${this.environment.api}/api/v1/auth`;
   }
 
   register(fullName: string, email: string, password: string): Observable<AuthResponseDto> {

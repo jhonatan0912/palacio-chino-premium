@@ -1,7 +1,7 @@
 import { DatePipe } from '@angular/common';
 import { Component, HostListener, input } from '@angular/core';
-import { ViewComponent } from '@core/view-component';
-import { GetOrderDto } from '@shared/proxies';
+import { ViewComponent } from 'pc-core';
+import { GetOrderDto } from 'pc-proxies';
 
 @Component({
   selector: 'order-item',

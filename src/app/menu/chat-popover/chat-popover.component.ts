@@ -1,9 +1,9 @@
 import { AfterViewInit, Component, ElementRef, inject, viewChild } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { ViewComponent } from '@core/view-component';
 import { IonIcon, IonSpinner } from "@ionic/angular/standalone";
 import { TitleModalComponent } from '@shared/components/title-modal/title-modal.component';
 import { AiService } from '@shared/services/ai.service';
+import { ViewComponent } from 'pc-core';
 
 interface Message {
   role: 'user' | 'model';

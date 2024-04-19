@@ -1,8 +1,8 @@
 import { Component, inject } from '@angular/core';
 import { AuthService } from '@auth/services/auth.service';
-import { ViewComponent } from '@core/index';
 import { IonIcon, IonSpinner } from "@ionic/angular/standalone";
-import { AuthProxy } from '@shared/proxies';
+import { ViewComponent } from 'pc-core';
+import { AuthProxy } from 'pc-proxies';
 import { finalize } from 'rxjs';
 
 @Component({

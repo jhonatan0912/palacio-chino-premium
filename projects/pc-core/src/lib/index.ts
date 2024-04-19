@@ -9,4 +9,7 @@ export * from './services/session.service';
 export * from './services/tab.service';
 export * from './services/theme.service';
 export * from './services/alert.service';
-export * from './view-component';
+export * from './inhiretance/view-component';
+export * from './utils';
+export * from './directives';
+export * from './services/types'

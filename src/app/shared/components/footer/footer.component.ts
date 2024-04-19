@@ -1,8 +1,8 @@
 import { Component, OnInit, inject, signal } from '@angular/core';
-import { ViewComponent } from '@core/view-component';
 import { IonicModule } from '@ionic/angular';
-import { CategoryDto } from '@shared/proxies';
 import { CategoriesService } from '@shared/services/categories.service';
+import { ViewComponent } from 'pc-core';
+import { CategoryDto } from 'pc-proxies';
 
 @Component({
   selector: 'app-footer',

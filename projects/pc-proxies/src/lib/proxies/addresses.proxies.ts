@@ -1,7 +1,7 @@
-import { Injectable, inject } from '@angular/core';
-import { AppHttpService } from '@core/index';
-import { environment } from '@environments/environment';
+import { Inject, Injectable, inject } from '@angular/core';
+import { AppHttpService } from 'pc-core';
 import { Observable, mergeMap, of } from 'rxjs';
+import { Environment } from "./../interfaces";
 
 @Injectable({
   providedIn: 'root',
@@ -10,8 +10,10 @@ export class AddressesProxy {
 
   private http = inject(AppHttpService);
 
+  constructor(@Inject('environment') private environment: Environment) { }
+
   get path(): string {
-    return `${environment.api}/api/v1/addresses`;
+    return `${this.environment.api}/api/v1/addresses`;
   }
 
   create(district: string, type: string, street: string, number: string, phone: string, reference: string): Observable<CreateAddressResponseDto> {
@@ -26,7 +28,7 @@ export class AddressesProxy {
 
     return this.http.post(this.path, body).pipe(mergeMap((data: any) => of(new CreateAddressResponseDto().fromJS(data))));
   }
-  
+
   update(id: string, district: string, type: string, street: string, number: string, phone: string, reference: string,): Observable<AddressDto> {
     let url = `${this.path}/${id}`;
     const body = {

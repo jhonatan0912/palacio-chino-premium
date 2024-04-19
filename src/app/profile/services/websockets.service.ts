@@ -2,7 +2,7 @@ import { Injectable, inject } from '@angular/core';
 import { environment } from '@environments/environment';
 import { Socket, io } from 'socket.io-client';
 import { OrdersService } from './orders.service';
-import { OrderDetailDto, formatOrderStatus } from '@shared/proxies';
+import { OrderDetailDto, formatOrderStatus } from 'pc-proxies';
 
 @Injectable()
 export class WebsocketsService {

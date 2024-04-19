@@ -4,10 +4,12 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "dev": "ng serve -o",
+    "dev": "yarn && ng serve -o",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "build:core": "cd ./projects/pc-core/ && ng build pc-core --configuration production && cd C:/Users/JHONATAN/OneDrive/Escritorio/PP/pc-frontend-angular/dist/pc-core && npm publish",
+    "build:proxies": "cd ./projects/pc-proxies/ && ng build pc-proxies --configuration production && cd  C:/Users/JHONATAN/OneDrive/Escritorio/PP/pc-frontend-angular/dist/pc-proxies && npm publish"
   },
   "private": true,
   "dependencies": {
@@ -21,6 +23,8 @@
     "@angular/router": "^17.2.1",
     "@google/generative-ai": "^0.3.1",
     "@ionic/angular": "^7.6.1",
+    "pc-core": "^0.0.6",
+    "pc-proxies": "^0.0.4",
     "rxjs": "~7.8.0",
     "socket.io-client": "^4.7.4",
     "tslib": "^2.3.0",
@@ -39,6 +43,7 @@
     "karma-coverage": "~2.2.0",
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.1.0",
+    "ng-packagr": "^17.3.0",
     "postcss": "^8.4.32",
     "tailwindcss": "^3.3.5",
     "typescript": "~5.2.2"

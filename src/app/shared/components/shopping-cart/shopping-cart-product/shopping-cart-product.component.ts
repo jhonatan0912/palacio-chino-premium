@@ -5,7 +5,7 @@ import { SrcImagePipe } from '@shared/pipes/srcImage.pipe';
 import { ShoppingCartService } from '@shared/services/shopping-cart.service';
 import { IonIcon } from "@ionic/angular/standalone";
 import { DecimalPipe } from '@angular/common';
-import { ProductDto } from '@shared/proxies';
+import { ProductDto } from 'pc-proxies';
 
 
 @Component({

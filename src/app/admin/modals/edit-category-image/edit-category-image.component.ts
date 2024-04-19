@@ -1,9 +1,9 @@
 import { Component, Input, inject, signal } from '@angular/core';
-import { ViewComponent } from '@core/view-component';
+import { ViewComponent } from 'pc-core';
 import { IonSpinner } from "@ionic/angular/standalone";
 import { ImageUploaderComponent } from '@shared/components/image-uploader/image-uploader.component';
 import { TitleModalComponent } from '@shared/components/title-modal/title-modal.component';
-import { CategoriesProxy, onFileChange } from '@shared/proxies';
+import { CategoriesProxy, onFileChange } from 'pc-proxies';
 import { finalize } from 'rxjs';
 
 @Component({

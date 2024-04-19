@@ -1,9 +1,9 @@
 import { Component, effect, inject, signal } from '@angular/core';
-import { ViewComponent } from '@core/view-component';
 import { IonSkeletonText } from "@ionic/angular/standalone";
-import { CategoryDto } from '@shared/proxies';
 import { CategoriesService } from '@shared/services/categories.service';
 import { CategoryMenuComponent } from './category-menu/category-menu.component';
+import { ViewComponent } from 'pc-core';
+import { CategoryDto } from 'pc-proxies';
 
 @Component({
   selector: 'categories-menu',
@@ -12,7 +12,7 @@ import { CategoryMenuComponent } from './category-menu/category-menu.component';
   templateUrl: './categories-menu.component.html',
   styleUrls: ['./categories-menu.component.scss'],
 })
-export class CategoriesMenuComponent extends ViewComponent  {
+export class CategoriesMenuComponent extends ViewComponent {
 
   private categoriesService = inject(CategoriesService);
 

@@ -1,9 +1,9 @@
-import { Injectable, inject } from '@angular/core';
-import { AppHttpService } from '@core/index';
-import { environment } from '@environments/environment';
+import { Inject, Injectable, inject } from '@angular/core';
+import { AppHttpService } from 'pc-core';
 import { Observable, map } from 'rxjs';
 import { DeliveryType, OrderStatus, PaymentMethod, formatOrderStatus } from './orders.proxie';
 import { ProductDto } from './products.proxie';
+import { Environment } from '../interfaces';
 
 @Injectable({
   providedIn: 'root'
@@ -12,8 +12,10 @@ export class AdminProxy {
 
   private http = inject(AppHttpService);
 
+  constructor(@Inject('environment') private environment: Environment) { }
+
   get path(): string {
-    return `${environment.api}/api/v1/admin`;
+    return `${this.environment.api}/api/v1/admin`;
   }
 
   login(username: string, password: string): Observable<LoginDto> {

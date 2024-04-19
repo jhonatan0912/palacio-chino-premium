@@ -1,9 +1,9 @@
 import { AdminProductsModalComponent } from '@admin/modals/products/products.component';
 import { Component, DestroyRef, EventEmitter, Output, inject, input } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
-import { ViewComponent } from '@core/view-component';
+import { ViewComponent } from 'pc-core';
 import { IonIcon } from "@ionic/angular/standalone";
-import { CategoriesProxy, CategoryDto } from '@shared/proxies';
+import { CategoriesProxy, CategoryDto } from 'pc-proxies';
 import { CategoryListItemPopoverComponent } from './category-list-item-popover/category-list-item-popover.component';
 import { EditCategoryImageComponent } from '@admin/modals/edit-category-image/edit-category-image.component';
 

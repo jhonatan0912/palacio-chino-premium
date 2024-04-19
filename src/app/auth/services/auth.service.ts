@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { AUTH_TOKEN, REFRESH_TOKEN } from '@core/utils/constants';
+import { AUTH_TOKEN, REFRESH_TOKEN } from 'pc-core';
 
 @Injectable({
   providedIn: 'root'

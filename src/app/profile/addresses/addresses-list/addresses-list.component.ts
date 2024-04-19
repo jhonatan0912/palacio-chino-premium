@@ -1,12 +1,12 @@
 import { Component, OnInit, inject, signal } from '@angular/core';
-import { ViewComponent } from '@core/view-component';
 import { IonIcon } from "@ionic/angular/standalone";
 import { ButtonComponent } from '@lib/button/button.component';
 import { AddressesService } from '@profile/services/addresses.service';
 import { HeaderMobileComponent } from '@shared/components/header-mobile/header-mobile.component';
-import { AddressesListItemComponent } from "./addresses-list-item/addresses-list-item.component";
-import { AddressDto, AddressesProxy } from '@shared/proxies';
+import { ViewComponent } from 'pc-core';
+import { AddressDto, AddressesProxy } from 'pc-proxies';
 import { finalize } from 'rxjs';
+import { AddressesListItemComponent } from "./addresses-list-item/addresses-list-item.component";
 
 @Component({
   selector: 'addresses-list',

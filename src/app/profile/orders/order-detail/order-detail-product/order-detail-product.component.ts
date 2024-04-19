@@ -1,7 +1,7 @@
 import { DecimalPipe } from '@angular/common';
 import { Component, input } from '@angular/core';
 import { SrcImagePipe } from '@shared/pipes/srcImage.pipe';
-import { OrderDetailProductDto } from '@shared/proxies/orders.proxie';
+import { OrderDetailProductDto } from 'pc-proxies';
 
 @Component({
   selector: 'order-detail-product',
@@ -10,7 +10,7 @@ import { OrderDetailProductDto } from '@shared/proxies/orders.proxie';
   templateUrl: './order-detail-product.component.html',
   styleUrls: ['./order-detail-product.component.scss']
 })
-export class OrderDetailProductComponent  {
+export class OrderDetailProductComponent {
 
   product = input.required<OrderDetailProductDto>();
 }

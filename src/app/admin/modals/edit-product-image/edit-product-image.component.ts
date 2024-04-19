@@ -1,7 +1,7 @@
 import { Component, Input, OnInit, inject, input, signal } from '@angular/core';
-import { ViewComponent } from '@core/view-component';
+import { ViewComponent } from 'pc-core';
 import { ImageUploaderComponent } from '@shared/components/image-uploader/image-uploader.component';
-import { ProductDto, ProductsProxy, onFileChange } from '@shared/proxies';
+import { ProductDto, ProductsProxy, onFileChange } from 'pc-proxies';
 import { IonIcon, IonSpinner } from "@ionic/angular/standalone";
 import { finalize } from 'rxjs/internal/operators/finalize';
 import { TitleModalComponent } from "@shared/components/title-modal/title-modal.component";

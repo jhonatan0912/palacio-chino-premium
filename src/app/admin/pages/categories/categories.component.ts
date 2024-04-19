@@ -3,7 +3,7 @@ import { FormsModule } from '@angular/forms';
 import { AdminCategoryFormComponent } from './category-form/category-form.component';
 import { CategoryListComponent } from './category-list/category-list.component';
 import { CategoriesService } from '@shared/services/categories.service';
-import { CategoriesProxy, CategoryDto } from '@shared/proxies';
+import { CategoriesProxy, CategoryDto } from 'pc-proxies';
 
 
 @Component({

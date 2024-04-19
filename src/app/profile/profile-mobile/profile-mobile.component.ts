@@ -1,10 +1,10 @@
 import { Component, inject } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { AuthService } from '@auth/services/auth.service';
-import { ViewComponent } from '@core/view-component';
 import { IonIcon, IonItemOptions } from "@ionic/angular/standalone";
 import { HeaderMobileComponent } from '@shared/components/header-mobile/header-mobile.component';
 import { DeleteAccountModalComponent } from '@shared/modals';
+import { ViewComponent } from 'pc-core';
 
 @Component({
   standalone: true,

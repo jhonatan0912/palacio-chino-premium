@@ -2,11 +2,11 @@ import { NgClass } from '@angular/common';
 import { Component, DestroyRef, OnInit, inject, signal } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { ActivatedRoute } from '@angular/router';
-import { ViewComponent } from '@core/view-component';
 import { IonIcon } from '@ionic/angular/standalone';
 import { WebsocketsService } from '@profile/services/websockets.service';
 import { HeaderMobileComponent } from '@shared/components/header-mobile/header-mobile.component';
-import { OrderDetailDto, OrdersProxy } from '@shared/proxies';
+import { ViewComponent } from 'pc-core';
+import { OrderDetailDto, OrdersProxy } from 'pc-proxies';
 import { OrderDetailProductComponent } from './order-detail-product/order-detail-product.component';
 
 @Component({

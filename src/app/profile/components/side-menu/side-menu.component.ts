@@ -1,8 +1,8 @@
 import { Component, inject } from '@angular/core';
 import { AuthService } from '@auth/services/auth.service';
-import { ViewComponent } from '@core/view-component';
 import { IonButton, IonIcon } from '@ionic/angular/standalone';
 import { ButtonComponent } from '@lib/button/button.component';
+import { ViewComponent } from 'pc-core';
 
 interface SideMenuOption {
   id: string;

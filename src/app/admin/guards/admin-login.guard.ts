@@ -1,8 +1,6 @@
 import { inject } from '@angular/core';
 import { CanActivateFn } from '@angular/router';
-import { AppNavigationService } from '@core/index';
-import { ADMIN_TOKEN } from '@core/utils/constants';
-import { isValidJwtToken } from '@core/utils/is-valid-jwt-token';
+import { ADMIN_TOKEN, AppNavigationService, isValidJwtToken } from 'pc-core';
 
 export const adminLoginGuard: CanActivateFn = (route, state) => {
   const navigation = inject(AppNavigationService);

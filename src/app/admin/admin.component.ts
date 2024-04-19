@@ -5,7 +5,7 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { AdminWebsocketsService } from './services/websockets.service';
 import { IonTitle } from "@ionic/angular/standalone";
 import { AdminProductsService } from './services/products.service';
-import { AdminProxy } from '@shared/proxies';
+import { AdminProxy } from 'pc-proxies';
 
 @Component({
   selector: 'app-admin',

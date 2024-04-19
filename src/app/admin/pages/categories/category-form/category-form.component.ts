@@ -7,7 +7,7 @@ import { ButtonComponent } from '@lib/button/button.component';
 import { ImageUploaderComponent } from '@shared/components/image-uploader/image-uploader.component';
 import { SlugPipe } from '@shared/pipes/slug.pipe';
 import { finalize } from 'rxjs';
-import { CategoriesProxy, getSlug, onFileChange } from '@shared/proxies';
+import { CategoriesProxy, getSlug, onFileChange } from 'pc-proxies';
 
 @Component({
   selector: 'category-form',

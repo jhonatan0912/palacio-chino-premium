@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
-import { AdminCategoryActions } from '@core/services/types';
-import { ViewComponent } from '@core/view-component';
+import { AdminCategoryActions, ViewComponent } from 'pc-core';
 
 
 @Component({

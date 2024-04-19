@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
-// import { MenuComponent } from '../menu/menu.component';
 import { ProductCardComponent, ProductCardData } from '../shared/components/product-card/product-card.component';
-import { ViewComponent } from '@core/view-component';
+import { ViewComponent } from 'pc-core';
 
 
 @Component({

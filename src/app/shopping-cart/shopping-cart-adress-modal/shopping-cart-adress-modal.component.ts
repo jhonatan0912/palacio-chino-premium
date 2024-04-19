@@ -5,7 +5,7 @@ import { IonRadioGroup, IonRadio, IonButton } from "@ionic/angular/standalone";
 import { FormsModule } from '@angular/forms';
 import { FixedFooterComponent } from '@shared/components/fixed-footer/fixed-footer.component';
 import { ViewComponent } from '@core/index';
-import { AddressDto, AddressesProxy } from '@shared/proxies';
+import { AddressDto, AddressesProxy } from '../../../../projects/pc-proxies/src/lib/proxies/proxies';
 
 @Component({
   selector: 'shopping-cart-adress-modal',

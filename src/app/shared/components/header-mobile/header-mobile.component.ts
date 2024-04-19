@@ -1,7 +1,7 @@
 import { Component, inject } from '@angular/core';
-import { ViewComponent } from '@core/view-component';
 import { IonIcon } from "@ionic/angular/standalone";
 import { ShoppingCartService } from '@shared/services/shopping-cart.service';
+import { ViewComponent } from 'pc-core';
 
 @Component({
   selector: 'header-mobile',

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ViewComponent } from '@core/view-component';
+import { ViewComponent } from 'pc-core';
 import { IonIcon } from '@ionic/angular/standalone';
 
 @Component({

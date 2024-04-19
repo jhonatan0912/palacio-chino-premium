@@ -1,5 +1,5 @@
 import { Component, input } from '@angular/core';
-import { AdminGetOrderDto } from '@shared/proxies';
+import { AdminGetOrderDto } from 'pc-proxies';
 
 @Component({
   selector: 'order-detail-client',

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { ViewComponent } from '@core/view-component';
+import { ViewComponent } from 'pc-core';
 import { FooterComponent } from '@shared/components/footer/footer.component';
 import { HeaderMobileComponent } from '@shared/components/header-mobile/header-mobile.component';
 import { HeaderComponent } from '@shared/components/header/header.component';

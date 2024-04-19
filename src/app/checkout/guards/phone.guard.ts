@@ -1,6 +1,6 @@
 import { inject } from '@angular/core';
 import { CanActivateFn } from '@angular/router';
-import { AppNavigationService, AppNotifyService, AppSessionService } from '@core/index';
+import { AppNavigationService, AppNotifyService, AppSessionService } from 'pc-core';
 
 
 export const phoneGuard: CanActivateFn = (): boolean => {

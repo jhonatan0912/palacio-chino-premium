@@ -1,8 +1,8 @@
 import { EditProductImageComponent } from '@admin/modals/edit-product-image/edit-product-image.component';
 import { Component, model } from '@angular/core';
-import { ViewComponent } from '@core/view-component';
+import { ViewComponent } from 'pc-core';
 import { SrcImagePipe } from '@shared/pipes/srcImage.pipe';
-import { ProductDto } from '@shared/proxies';
+import { ProductDto } from 'pc-proxies';
 
 @Component({
   selector: 'admin-product-item',

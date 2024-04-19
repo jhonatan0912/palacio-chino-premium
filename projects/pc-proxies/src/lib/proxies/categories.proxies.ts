@@ -1,7 +1,7 @@
-import { Injectable, inject } from '@angular/core';
-import { AppHttpService } from '@core/index';
-import { environment } from '@environments/environment';
+import { Inject, Injectable, inject } from '@angular/core';
+import { AppHttpService } from 'pc-core';
 import { Observable, mergeMap, of } from 'rxjs';
+import { Environment } from '../interfaces';
 
 
 @Injectable({
@@ -11,8 +11,10 @@ export class CategoriesProxy {
 
   private http = inject(AppHttpService);
 
+  constructor(@Inject('environment') private environment: Environment) { }
+
   get path(): string {
-    return `${environment.api}/api/v1/categories`;
+    return `${this.environment.api}/api/v1/categories`;
   }
 
   create(icon: File, name: string, slug: string): Observable<CategoryDto> {
@@ -29,6 +31,7 @@ export class CategoriesProxy {
   }
 
   getAll(): Observable<CategoryDto[]> {
+    console.log(this.path);
     return this.http.get(this.path).pipe(mergeMap((data: any) => of(data.map((item: any) => new CategoryDto().fromJS(item)))));
   }
 

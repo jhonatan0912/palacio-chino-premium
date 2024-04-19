@@ -1,6 +1,6 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { ViewComponent } from '@core/view-component';
+import { Component } from '@angular/core';
 import { ButtonComponent } from '@lib/button/button.component';
+import { ViewComponent } from 'pc-core';
 
 @Component({
   selector: 'shopping-cart-empty',
@@ -9,4 +9,9 @@ import { ButtonComponent } from '@lib/button/button.component';
   templateUrl: './shopping-cart-empty.component.html',
   styleUrls: ['./shopping-cart-empty.component.scss']
 })
-export class ShoppingCartEmptyComponent extends ViewComponent { }
+export class ShoppingCartEmptyComponent extends ViewComponent {
+
+  constructor() {
+    super();
+  }
+}
