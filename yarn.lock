@@ -5506,10 +5506,10 @@ pc-core@^0.0.7:
   dependencies:
     tslib "^2.3.0"
 
-pc-proxies@^0.0.6:
-  version "0.0.6"
-  resolved "https://registry.yarnpkg.com/pc-proxies/-/pc-proxies-0.0.6.tgz#dcdd3d990b1fa6515274d2f710b3e365a41065a9"
-  integrity sha512-Yz87MDIx9gFy3RIFURcth/F8/mTTq7AMWj5A/pXj29PyiF0N5MDJY0pkqBKvWuSFWJoV9oW9UFNKHuqLbeAMhg==
+pc-proxies@^0.0.7:
+  version "0.0.7"
+  resolved "https://registry.yarnpkg.com/pc-proxies/-/pc-proxies-0.0.7.tgz#d026adec0520973f2a4a017ecc5628b72f460883"
+  integrity sha512-mii7ocZozkzbBugG8Y1Aj/xG3U+G2zJ19f4JPcB15RU5W0uup4+fKZQlxTQ0vblM7vBlrX3vgM380aFcX9LiPw==
   dependencies:
     tslib "^2.3.0"
 
