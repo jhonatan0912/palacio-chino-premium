@@ -31,7 +31,6 @@ export class CategoriesProxy {
   }
 
   getAll(): Observable<CategoryDto[]> {
-    console.log(this.path);
     return this.http.get(this.path).pipe(mergeMap((data: any) => of(data.map((item: any) => new CategoryDto().fromJS(item)))));
   }
 

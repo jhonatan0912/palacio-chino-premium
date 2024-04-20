@@ -13,10 +13,16 @@
       (keyup.enter)="onLogin()"
       required>
 
+    @if (invalid) {
+    <div class="pb-2 text-center text-red-600">
+      Credenciales inválidas
+    </div>
+    }
+
     <button
       (click)="onLogin()"
       type="button"
-      [disabled]="busy">
+      [disabled]="busy || username.length <= 0 || password.length <= 0">
       @if (busy) {
       <ion-spinner name="crescent" />
       }@else {

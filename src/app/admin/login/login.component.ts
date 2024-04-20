@@ -19,6 +19,7 @@ export class AdminLoginComponent extends ViewComponent {
   busy: boolean = false;
   username: string = '';
   password: string = '';
+  invalid: boolean = false;
 
   constructor() {
     super();
@@ -39,6 +40,10 @@ export class AdminLoginComponent extends ViewComponent {
         localStorage.removeItem(REFRESH_TOKEN);
         this.navigation.forward('/admin-dashboard');
       },
+      error: () => {
+        this.invalid = true;
+        setTimeout(() => this.invalid = false, 1000);
+      }
     });
   }
 }
