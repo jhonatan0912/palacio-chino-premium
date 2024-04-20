@@ -10,6 +10,7 @@ import { finalize } from 'rxjs/internal/operators/finalize';
 import { ProductCardComponent } from '../shared/components/product-card/product-card.component';
 import { ChatPopoverComponent } from './chat-popover/chat-popover.component';
 import { MenuChatButtonComponent } from './menu-chat-button/menu-chat-button.component';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-menu',
@@ -20,8 +21,9 @@ import { MenuChatButtonComponent } from './menu-chat-button/menu-chat-button.com
 })
 export class MenuComponent extends ViewComponent implements OnInit {
 
-  private productsProxy = inject(ProductsProxy);
-  private destroyRef = inject(DestroyRef);
+  private readonly _title = inject(Title);
+  private readonly _productsProxy = inject(ProductsProxy);
+  private readonly _destroyRef = inject(DestroyRef);
 
   page: number = 1;
   lastPage: number = 1;
@@ -33,6 +35,7 @@ export class MenuComponent extends ViewComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this._title.setTitle('Inicio');
     this.getPromotions();
   }
 
@@ -44,9 +47,9 @@ export class MenuComponent extends ViewComponent implements OnInit {
     if (this.page > this.lastPage) return;
 
     this.busy = true;
-    this.productsProxy.getPromotions(this.page)
+    this._productsProxy.getPromotions(this.page)
       .pipe(
-        takeUntilDestroyed(this.destroyRef),
+        takeUntilDestroyed(this._destroyRef),
         finalize(() => this.busy = false)
       ).subscribe({
         next: (res) => {
