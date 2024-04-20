@@ -35,7 +35,7 @@ export class MenuComponent extends ViewComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this._title.setTitle('Inicio');
+    this._title.setTitle('Palacio Chino Premium');
     this.getPromotions();
   }
 
