@@ -59,7 +59,7 @@ export class AddressesListComponent extends ViewComponent implements OnInit {
   }
 
   onAddAddress(): void {
-    this.navigation.forward('/profile/addresses/add');
+    this.navigation.forward('/profile/addresses/form/create');
   }
 
   onBack(): void {
