@@ -8,7 +8,9 @@
 
   <div class="products">
     @if (busy()) {
-    <category-skeleton />
+    @for (item of [1,1,1,1,1,1,1,1]; track $index) {
+      <category-skeleton />
+    }
     }@else {
     @for (product of products(); track product.id) {
     <app-product-card
