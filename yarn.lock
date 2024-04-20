@@ -5499,17 +5499,17 @@ path-type@^4.0.0:
   resolved "https://registry.yarnpkg.com/path-type/-/path-type-4.0.0.tgz#84ed01c0a7ba380afe09d90a8c180dcd9d03043b"
   integrity sha512-gDKb8aZMDeD/tZWs9P6+q0J9Mwkdl6xMV8TjnGP3qJVJ06bdMgkbBlLU8IdfOsIsFz2BW1rNVT3XuNEl8zPAvw==
 
-pc-core@^0.0.6:
-  version "0.0.6"
-  resolved "https://registry.yarnpkg.com/pc-core/-/pc-core-0.0.6.tgz#b469f5c8c82fb98090173248bf3b7f57728ac9be"
-  integrity sha512-9F5y9JzhFGNxOgas0bNOBThW0HkCJpaLhG6aTowTviZzekYshBQqwodYbfXNdL6tr4gwiDF9tznaIeImdHuj7w==
+pc-core@^0.0.7:
+  version "0.0.7"
+  resolved "https://registry.yarnpkg.com/pc-core/-/pc-core-0.0.7.tgz#3687d06533ac65c9fb2e35d10af186f7f03e3cdd"
+  integrity sha512-WJzGf/AZrW5uRZkdkLy0yoguz1Tp+6QRbaEe33SN53ZLF215fus9uI2G4+/E48meLCzHZ9VScijer5UR3Aj67g==
   dependencies:
     tslib "^2.3.0"
 
-pc-proxies@^0.0.4:
-  version "0.0.4"
-  resolved "https://registry.yarnpkg.com/pc-proxies/-/pc-proxies-0.0.4.tgz#31c41f07668a3fb792b953b4f78a23abe685124d"
-  integrity sha512-FeRZxyOqJC2BL6yhW0ti0/9dUVFQwBFC70W2CPwKsml4rFkp1VU2ntYug/qahiizx0ul1LFy+rlAGupL9trBnw==
+pc-proxies@^0.0.6:
+  version "0.0.6"
+  resolved "https://registry.yarnpkg.com/pc-proxies/-/pc-proxies-0.0.6.tgz#dcdd3d990b1fa6515274d2f710b3e365a41065a9"
+  integrity sha512-Yz87MDIx9gFy3RIFURcth/F8/mTTq7AMWj5A/pXj29PyiF0N5MDJY0pkqBKvWuSFWJoV9oW9UFNKHuqLbeAMhg==
   dependencies:
     tslib "^2.3.0"
 
