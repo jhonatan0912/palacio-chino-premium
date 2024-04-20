@@ -6,6 +6,7 @@ import { IonSpinner } from "@ionic/angular/standalone";
 import { NgClass } from '@angular/common';
 import { ViewComponent } from 'pc-core';
 import { AuthProxy } from 'pc-proxies';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-personal-information',
@@ -16,6 +17,7 @@ import { AuthProxy } from 'pc-proxies';
 })
 export class PersonalInformationComponent extends ViewComponent implements OnInit {
 
+  private readonly _title = inject(Title);
   private readonly _authProxy = inject(AuthProxy);
 
   busy: boolean = false;
@@ -24,6 +26,7 @@ export class PersonalInformationComponent extends ViewComponent implements OnIni
   phone: string = '';
 
   ngOnInit(): void {
+    this._title.setTitle('Mi información');
     this.onSetInfo();
   }
 

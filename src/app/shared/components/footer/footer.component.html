@@ -44,7 +44,9 @@
           <p class="title pointer">INFORMACIÓN</p>
           <ul class="list">
             @for (item of information; track $index) {
-            <li class="pointer hover:text-zinc-400">
+            <li
+              (click)="item.method()"
+              class="pointer hover:text-zinc-400">
               {{ item.name }}
             </li>
             }

@@ -47,9 +47,18 @@ export class FooterComponent extends ViewComponent implements OnInit {
     },
   ];
   information = [
-    { name: 'Galeria' },
-    { name: 'Nuestro local' },
-    { name: 'Contáctanos' },
+    {
+      name: 'Nuestro local',
+      method: () => {
+        this.navigation.forward('/establishments')
+      }
+    },
+    {
+      name: 'Galeria',
+      method: () => {
+        this.navigation.forward('/galery')
+      }
+    },
   ];
   categories = signal<CategoryDto[]>([]);
 

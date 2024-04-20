@@ -1,4 +1,4 @@
-import { Component, DestroyRef, inject } from '@angular/core';
+import { Component, DestroyRef, OnInit, inject } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { FormsModule } from '@angular/forms';
 import { TitleMobileComponent } from '@shared/components/auth-title/auth-title.component';
@@ -9,6 +9,7 @@ import { finalize } from 'rxjs/internal/operators/finalize';
 import { AuthService } from '@auth/services/auth.service';
 import { AuthAsideComponent } from '@auth/components/aside/aside.component';
 import { AuthProxy } from 'pc-proxies';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-login',
@@ -17,8 +18,9 @@ import { AuthProxy } from 'pc-proxies';
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss'
 })
-export class LoginComponent extends ViewComponent {
+export class LoginComponent extends ViewComponent implements OnInit {
 
+  private readonly _title = inject(Title);
   private readonly _authProxy = inject(AuthProxy);
   private readonly _authService = inject(AuthService);
   private readonly _destroyRef = inject(DestroyRef);
@@ -28,6 +30,14 @@ export class LoginComponent extends ViewComponent {
   password: string = '';
   errors: string[] = [];
   inputType: 'password' | 'text' = 'password';
+
+  constructor() {
+    super();
+  }
+
+  ngOnInit(): void {
+    this._title.setTitle('Login');
+  }
 
   onLogin(): void {
     if (!this.areValidFields()) return;

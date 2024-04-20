@@ -1,4 +1,4 @@
-import { Component, DestroyRef, inject } from '@angular/core';
+import { Component, DestroyRef, OnInit, inject } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { FormsModule } from '@angular/forms';
 import { IonSpinner } from "@ionic/angular/standalone";
@@ -6,9 +6,10 @@ import { ButtonComponent } from '@lib/button/button.component';
 import { TitleMobileComponent } from '@shared/components/auth-title/auth-title.component';
 import { ViewComponent } from 'pc-core';
 import { AuthProxy } from 'pc-proxies';
-import { finalize } from 'rxjs';
+import { finalize } from 'rxjs/internal/operators/finalize';
 import { AuthAsideComponent } from '../components/aside/aside.component';
 import { AuthService } from '../services/auth.service';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-register',
@@ -17,8 +18,9 @@ import { AuthService } from '../services/auth.service';
   templateUrl: './register.component.html',
   styleUrl: './register.component.scss'
 })
-export class RegisterComponent extends ViewComponent {
+export class RegisterComponent extends ViewComponent implements OnInit {
 
+  private readonly _title = inject(Title);
   private readonly _authProxy = inject(AuthProxy);
   private readonly _authService = inject(AuthService);
   private readonly _destroyRef = inject(DestroyRef);
@@ -28,6 +30,14 @@ export class RegisterComponent extends ViewComponent {
   email: string = '';
   password: string = '';
   passwordConfirm: string = '';
+
+  constructor() {
+    super();
+  }
+
+  ngOnInit(): void {
+    this._title.setTitle('Registro');
+  }
 
   onRegister(): void {
     if (this.isInvalidFields()) return;

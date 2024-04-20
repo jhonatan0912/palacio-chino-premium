@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { StoreMapComponent } from '@shared/components/store-map/store-map.component';
 import { IonSkeletonText } from "@ionic/angular/standalone";
 import { ViewComponent } from 'pc-core';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-establishments',
@@ -10,10 +11,16 @@ import { ViewComponent } from 'pc-core';
   templateUrl: './establishments.component.html',
   styleUrl: './establishments.component.scss'
 })
-export class EstablishmentsComponent extends ViewComponent {
+export class EstablishmentsComponent extends ViewComponent implements OnInit {
+
+  private readonly _title = inject(Title);
 
   constructor() {
     super();
+  }
+
+  ngOnInit(): void {
+    this._title.setTitle('Local');
   }
 
   onHome(): void {
