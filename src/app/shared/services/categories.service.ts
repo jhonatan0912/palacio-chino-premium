@@ -7,6 +7,8 @@ import { Subject } from 'rxjs';
 })
 export class CategoriesService {
 
+
+  selectedId = signal<string>('');
   categories = signal<CategoryDto[]>([]);
 
   onCategory: Subject<CategoryDto> = new Subject<CategoryDto>();

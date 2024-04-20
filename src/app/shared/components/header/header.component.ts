@@ -20,8 +20,8 @@ interface HeaderOption {
 })
 export class HeaderComponent extends ViewComponent {
 
-  private categoriesService = inject(CategoriesService);
-  private shoppingCartService = inject(ShoppingCartService);
+  private _categoriesService = inject(CategoriesService);
+  private _shoppingCartService = inject(ShoppingCartService);
 
   cartBadge = signal<number | null>(null);
   options: HeaderOption[] = [
@@ -32,11 +32,12 @@ export class HeaderComponent extends ViewComponent {
   constructor() {
     super();
     effect(() => {
-      this.cartBadge.set(this.shoppingCartService.cart().length);
+      this.cartBadge.set(this._shoppingCartService.cart().length);
     }, { allowSignalWrites: true });
   }
 
   navigateToHome(): void {
+    this._categoriesService.selectedId.update(() => '');
     this.navigation.forward('/');
   };
 

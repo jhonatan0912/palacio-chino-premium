@@ -2,7 +2,6 @@
   @for (category of categories(); track category.id) {
   <category-menu
     [category]="category"
-    (onAction)="navigateToCategory($event)"
-    [selectedId]="selectedId" />
+    (onAction)="navigateToCategory($event)" />
   }
 </section>

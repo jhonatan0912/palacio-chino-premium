@@ -1,6 +1,7 @@
 import { NgClass } from '@angular/common';
-import { Component, EventEmitter, Output, input } from '@angular/core';
+import { Component, EventEmitter, Output, computed, inject, input, model, signal } from '@angular/core';
 import { SrcImagePipe } from '@shared/pipes/srcImage.pipe';
+import { CategoriesService } from '@shared/services/categories.service';
 import { CategoryDto } from 'pc-proxies';
 
 
@@ -13,8 +14,10 @@ import { CategoryDto } from 'pc-proxies';
 })
 export class CategoryMenuComponent {
 
+  private readonly _categoriesService = inject(CategoriesService);
+
   category = input.required<CategoryDto>();
-  selectedId = input<string>();
+  selectedId = computed<string>(() => this._categoriesService.selectedId());
 
   @Output() onAction: EventEmitter<string> = new EventEmitter();
 }

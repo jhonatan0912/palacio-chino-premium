@@ -1,8 +1,8 @@
-import { Component, effect, inject, signal } from '@angular/core';
+import { Component, computed, inject, signal } from '@angular/core';
 import { IonSkeletonText } from "@ionic/angular/standalone";
 import { CategoriesService } from '@shared/services/categories.service';
-import { CategoryMenuComponent } from './category-menu/category-menu.component';
 import { ViewComponent } from 'pc-core';
+import { CategoryMenuComponent } from './category-menu/category-menu.component';
 import { CategoryDto } from 'pc-proxies';
 
 @Component({
@@ -14,22 +14,17 @@ import { CategoryDto } from 'pc-proxies';
 })
 export class CategoriesMenuComponent extends ViewComponent {
 
-  private categoriesService = inject(CategoriesService);
+  private readonly _categoriesService = inject(CategoriesService);
 
-  categories = signal<CategoryDto[]>([]);
-  selectedId!: string;
+  categories = computed<CategoryDto[]>(() => this._categoriesService.categories());
 
   constructor() {
     super();
-    effect(() => {
-      this.categories.set(this.categoriesService.categories());
-      this.selectedId = this.categories()[0].id!;
-    }, { allowSignalWrites: true });
   }
 
   navigateToCategory(id: string): void {
-    this.selectedId = id;
-    this.navigation.forward(`category/${id}`);
+    this._categoriesService.selectedId.update(() => id);
+    this.navigation.forward(`/category/${id}`);
   }
 
 }

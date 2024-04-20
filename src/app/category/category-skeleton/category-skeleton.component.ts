@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { IonSkeletonText } from '@ionic/angular/standalone';
 
 @Component({
@@ -8,11 +8,4 @@ import { IonSkeletonText } from '@ionic/angular/standalone';
   templateUrl: './category-skeleton.component.html',
   styleUrls: ['./category-skeleton.component.scss']
 })
-export class CategorySkeletonComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit() {
-  }
-
-}
+export class CategorySkeletonComponent { }

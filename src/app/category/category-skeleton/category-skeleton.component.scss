@@ -1,0 +1,11 @@
+.wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 0 -10px;
+}
+
+.product {
+  width: calc(33.333% - 20px);
+  margin: 0 10px 20px;
+}
