@@ -56,6 +56,6 @@ export class SidebarComponent extends ViewComponent implements OnInit {
 
   onLogout(): void {
     localStorage.removeItem(ADMIN_TOKEN);
-    this.navigation.forward('menu');
+    this.navigation.forward('/');
   }
 }
