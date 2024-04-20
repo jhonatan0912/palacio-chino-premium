@@ -31,10 +31,13 @@
 }
 
 @media screen and (min-width: 1024px) {
-  .container {
-    .products {
-      grid-template-columns: repeat(4, 1fr);
-    }
+  .products {
+    grid-template-columns: repeat(4, 1fr) !important;
   }
+}
 
+@media screen and (min-width: 1440px) {
+  .products {
+    grid-template-columns: repeat(5, 1fr) !important;
+  }
 }
