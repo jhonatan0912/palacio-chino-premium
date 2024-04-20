@@ -1,11 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { StateOption } from '@shared/interfaces';
 import { ViewComponent } from 'pc-core';
 import { OrderStatus } from 'pc-proxies';
 
-interface StateOption {
-  id: OrderStatus,
-  name: string;
-}
 
 @Component({
   selector: 'rder-detail-status-popover',
@@ -18,8 +15,12 @@ export class OrderDetailStatusPopoverComponent extends ViewComponent {
     { id: 'pending', name: 'Pendiente' },
     { id: 'progress', name: 'En progreso' },
     { id: 'completed', name: 'Completado' },
-    { id: 'canceled', name: 'Cancelado' }
+    { id: 'canceled', name: 'Anular' }
   ];
+
+  constructor() {
+    super();
+  }
 
   onSelect(id: OrderStatus): void {
     this.popup.dismiss(id);

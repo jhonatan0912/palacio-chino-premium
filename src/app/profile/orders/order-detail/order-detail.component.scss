@@ -37,6 +37,13 @@
   }
 }
 
+.change__status__btn {
+  font-size: 14px;
+  color: #0375f8;
+  cursor: pointer;
+  float: inline-end;
+}
+
 @media screen and (min-width: 768px) {
   header-mobile {
     display: none;

@@ -1,6 +1,11 @@
 #Palacio Chino Premium App
 
 
+## Libraries
+- Core
+- Proxies
+
+
 ## build core
 ```
 cd ./projects/pc-core/

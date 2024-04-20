@@ -3,7 +3,7 @@ import { Socket, io } from 'socket.io-client';
 import { AdminOrdersService } from './orders.service';
 import { environment } from '@environments/environment';
 import { AppAlertService } from 'pc-core';
-import { AdminGetOrderDto } from 'pc-proxies';
+import { AdminGetOrderDto, OrderDetailAddressDto, OrderDetailDto, formatOrderStatus } from 'pc-proxies';
 
 
 @Injectable()
@@ -19,6 +19,7 @@ export class AdminWebsocketsService {
 
   init(): void {
     this.onOrder();
+    this.onChangeOrderStatus();
   }
 
   onOrder(): void {
@@ -37,5 +38,16 @@ export class AdminWebsocketsService {
   private updateOrders(order: AdminGetOrderDto): void {
     order = new AdminGetOrderDto().fromJS(order);
     this._adminOrdersService.orders.update((prev) => [order, ...prev]);
+  }
+
+  onChangeOrderStatus(): void {
+    this._socket.on('changeStatus', (data: any) => {
+      const order = this._adminOrdersService.orders().find(order => order.id === data.id);
+
+      if (!order) return;
+
+      order.status = data.status;
+      order.formatedStatus = formatOrderStatus(data.status);
+    });
   }
 }

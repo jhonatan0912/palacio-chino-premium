@@ -21,17 +21,17 @@ export class AdminOrderDetailComponent extends ViewComponent {
 
   order = input.required<AdminGetOrderDto>();
 
-  onChangeStatus(event: Event): void {
-    if (this.order().status === 'canceled') return;
+  onUpdateStatus(event: Event): void {
+    if (this.order().status === 'canceled' || this.order().status === 'completed') return;
 
     this.popup.showWithData({
       component: OrderDetailStatusPopoverComponent,
       event: event,
       arrow: false
     }).then((status: OrderStatus) => {
-      if (status === this.order().status) return;
+      if (status === this.order().status || !status) return;
 
-      this._adminProxy.changeOrderStatus(
+      this._adminProxy.updateOrderStatus(
         this.order().id,
         status
       ).subscribe({

@@ -27,7 +27,7 @@ export class WebsocketsService {
     });
   }
 
-  changeOrderDetailStatus(order: OrderDetailDto): void {
+  onChangeOrderDetailStatus(order: OrderDetailDto): void {
     this.socket.on('changeStatus', (data: any) => {
       if (order.id !== data.id) return;
       order.status = data.status;

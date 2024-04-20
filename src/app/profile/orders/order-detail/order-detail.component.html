@@ -14,6 +14,18 @@
     <span class="status__label {{ order().status }}">
       {{ order().formatedStatus }}
     </span>
+    @if (canChangeStatus()) {
+    <button
+      (click)="onUpdateStatus()"
+      class="change__status__btn"
+      [disabled]="busy">
+      @if (busy) {
+      <ion-spinner name="crescent" />
+      }@else {
+      Anular pedido
+      }
+    </button>
+    }
   </div>
 
   <div class="row">
