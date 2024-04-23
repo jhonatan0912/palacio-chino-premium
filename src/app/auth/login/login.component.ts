@@ -17,7 +17,7 @@ import { finalize } from 'rxjs/internal/operators/finalize';
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss'
 })
-export class LoginComponent extends ViewComponent  {
+export class LoginComponent extends ViewComponent {
 
   private readonly _authProxy = inject(AuthProxy);
   private readonly _authService = inject(AuthService);
@@ -29,9 +29,7 @@ export class LoginComponent extends ViewComponent  {
   errors: string[] = [];
   inputType: 'password' | 'text' = 'password';
 
-  constructor() {
-    super();
-  }
+
 
   onLogin(): void {
     if (!this.areValidFields()) return;

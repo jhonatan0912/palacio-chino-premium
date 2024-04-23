@@ -50,13 +50,13 @@ export class FooterComponent extends ViewComponent implements OnInit {
     {
       name: 'Nuestro local',
       method: () => {
-        this.navigation.forward('/establishments')
+        this.navigation.forward('/establishments');
       }
     },
     {
       name: 'Galeria',
       method: () => {
-        this.navigation.forward('/galery')
+        this.navigation.forward('/galery');
       }
     },
   ];
@@ -64,10 +64,6 @@ export class FooterComponent extends ViewComponent implements OnInit {
 
   get year(): string {
     return new Date().getFullYear().toString();
-  }
-
-  constructor() {
-    super();
   }
 
   ngOnInit(): void {

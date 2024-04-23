@@ -19,10 +19,6 @@ export class DeleteAccountModalComponent extends ViewComponent {
 
   busy: boolean = false;
 
-  constructor() {
-    super();
-  }
-
   onDeleteAccount(): void {
     this.busy = true;
 

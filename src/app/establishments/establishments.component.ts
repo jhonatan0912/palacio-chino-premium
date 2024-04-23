@@ -10,11 +10,7 @@ import { ViewComponent } from 'pc-core';
   templateUrl: './establishments.component.html',
   styleUrl: './establishments.component.scss'
 })
-export class EstablishmentsComponent extends ViewComponent  {
-
-  constructor() {
-    super();
-  }
+export class EstablishmentsComponent extends ViewComponent {
 
   onHome(): void {
     this.navigation.forward('/');

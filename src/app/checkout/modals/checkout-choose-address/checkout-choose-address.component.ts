@@ -27,9 +27,7 @@ export class CheckoutChooseAddressComponent extends ViewComponent implements OnI
   createOrderBusy: boolean = false;
   addresses = signal<AddressDto[]>([]);
 
-  constructor() {
-    super();
-  }
+
 
   ngOnInit() {
     this.onGetAddresses();

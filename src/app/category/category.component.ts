@@ -31,10 +31,6 @@ export class CategoryComponent extends ViewComponent implements OnInit {
   lastPage: number = 1;
   busy = signal<boolean>(false);
 
-  constructor() {
-    super();
-  }
-
   ngOnInit(): void {
     this._activatedRoute.params
       .subscribe(({ id }) => {
@@ -45,7 +41,6 @@ export class CategoryComponent extends ViewComponent implements OnInit {
         this.getProductsByCategory(id, true);
       });
   }
-
 
   getProductsByCategory(id: string, initial: boolean): void {
     if (initial) {

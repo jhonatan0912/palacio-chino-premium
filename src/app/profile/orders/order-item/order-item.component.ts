@@ -14,9 +14,7 @@ export class OrderItemComponent extends ViewComponent {
 
   order = input.required<GetOrderDto>();
 
-  constructor() {
-    super();
-  }
+
 
   @HostListener('click')
   onClick() {

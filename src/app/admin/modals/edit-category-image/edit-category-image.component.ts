@@ -4,7 +4,7 @@ import { IonSpinner } from "@ionic/angular/standalone";
 import { ImageUploaderComponent } from '@shared/components/image-uploader/image-uploader.component';
 import { TitleModalComponent } from '@shared/components/title-modal/title-modal.component';
 import { CategoriesProxy, onFileChange } from 'pc-proxies';
-import { finalize } from 'rxjs';
+import { finalize } from 'rxjs/internal/operators/finalize';
 
 @Component({
   selector: 'edit-category-image',
@@ -21,10 +21,6 @@ export class EditCategoryImageComponent extends ViewComponent {
 
   busy: boolean = false;
   icon = signal<File | undefined>(undefined);
-
-  constructor() {
-    super();
-  }
 
   onUpdateIcon(): void {
     if (!this.icon()) return;

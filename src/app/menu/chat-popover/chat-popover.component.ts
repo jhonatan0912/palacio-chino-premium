@@ -22,10 +22,6 @@ export class ChatPopoverComponent extends ViewComponent implements AfterViewInit
   busy: boolean = false;
   prompt: string = '';
 
-  constructor() {
-    super();
-  }
-
   ngAfterViewInit(): void {
     setTimeout(() => this.scroll(), 100);
     setTimeout(() => this.input().nativeElement.focus(), 1000);

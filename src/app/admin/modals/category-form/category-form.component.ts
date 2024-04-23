@@ -2,14 +2,14 @@ import { AdminCategoryFormComponent } from '@admin/pages/categories/category-for
 import { Component, DestroyRef, Input, inject } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { FormsModule } from '@angular/forms';
+import { IonSpinner } from "@ionic/angular/standalone";
 import { ButtonComponent } from '@lib/button/button.component';
 import { TitleModalComponent } from '@shared/components/title-modal/title-modal.component';
 import { SlugPipe } from '@shared/pipes/slug.pipe';
 import { SrcImagePipe } from '@shared/pipes/srcImage.pipe';
-import { finalize } from 'rxjs';
-import { IonSpinner } from "@ionic/angular/standalone";
 import { ViewComponent } from 'pc-core';
 import { CategoriesProxy, CategoryDto, getSlug } from 'pc-proxies';
+import { finalize } from 'rxjs/internal/operators/finalize';
 
 @Component({
   selector: 'admin-category-form',
@@ -26,10 +26,6 @@ export class AdminCategoryFormModalComponent extends ViewComponent {
   @Input() category!: CategoryDto;
 
   busy: boolean = false;
-
-  constructor() {
-    super();
-  }
 
   onUpdate(): void {
     this.busy = true;

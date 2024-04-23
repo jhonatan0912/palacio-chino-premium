@@ -21,10 +21,6 @@ export class AdminLoginComponent extends ViewComponent {
   password: string = '';
   invalid: boolean = false;
 
-  constructor() {
-    super();
-  }
-
   onLogin(): void {
     this.busy = true;
 

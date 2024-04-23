@@ -15,9 +15,7 @@ export class ProductItemComponent extends ViewComponent {
 
   product = model.required<ProductDto>();
 
-  constructor() {
-    super();
-  }
+
 
   onEditImage(): void {
     this.dialog.showWithData({

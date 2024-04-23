@@ -40,10 +40,6 @@ export class CheckoutComponent extends ViewComponent {
     reference: '',
   });
 
-  constructor() {
-    super();
-  }
-
   onConfirm(): void {
     if (!this.address.id) return;
 

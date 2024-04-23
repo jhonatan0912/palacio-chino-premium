@@ -18,10 +18,6 @@ export class CheckoutAddressComponent extends ViewComponent {
   address = model.required<AddressDto>();
   createOrderBusy: boolean = false;
 
-  constructor() {
-    super();
-  }
-
   onSelectAddress(): void {
     this.dialog.showWithData({
       component: CheckoutChooseAddressComponent,

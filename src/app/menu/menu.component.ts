@@ -28,10 +28,6 @@ export class MenuComponent extends ViewComponent implements OnInit {
   busy: boolean = false;
   promotions = signal<ProductDto[]>([]);
 
-  constructor() {
-    super();
-  }
-
   ngOnInit(): void {
     this.getPromotions();
   }

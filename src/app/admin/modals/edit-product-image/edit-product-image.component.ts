@@ -22,9 +22,7 @@ export class EditProductImageComponent extends ViewComponent {
   busy: boolean = false;
   image = signal<File | undefined>(undefined);
 
-  constructor() {
-    super();
-  }
+
 
   onUpdate(): void {
     if (!this.image()) return;

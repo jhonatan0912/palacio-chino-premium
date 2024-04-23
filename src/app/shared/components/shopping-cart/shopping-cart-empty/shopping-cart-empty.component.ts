@@ -9,9 +9,4 @@ import { ViewComponent } from 'pc-core';
   templateUrl: './shopping-cart-empty.component.html',
   styleUrls: ['./shopping-cart-empty.component.scss']
 })
-export class ShoppingCartEmptyComponent extends ViewComponent {
-
-  constructor() {
-    super();
-  }
-}
+export class ShoppingCartEmptyComponent extends ViewComponent { }

@@ -17,7 +17,5 @@ export class ProductsListComponent extends ViewComponent {
 
   products = computed<ProductDto[]>(() => this._productsService.products());
 
-  constructor() {
-    super();
-  }
+
 }

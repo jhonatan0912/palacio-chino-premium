@@ -17,10 +17,6 @@ export class AddressesListItemComponent extends ViewComponent {
 
   onDelete = output<string>();
 
-  constructor() {
-    super();
-  }
-
   onEdit(id: string): void {
     this.navigation.forward('/profile/addresses/form/edit', { id });
   }

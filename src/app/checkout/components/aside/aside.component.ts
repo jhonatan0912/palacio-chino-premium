@@ -11,10 +11,6 @@ import { IonIcon } from "@ionic/angular/standalone";
 })
 export class AsideComponent extends ViewComponent {
 
-  constructor() {
-    super();
-  }
-
   onBack(): void {
     this.navigation.back('/');
   }

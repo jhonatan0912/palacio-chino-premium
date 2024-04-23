@@ -18,10 +18,6 @@ export class CategoriesMenuComponent extends ViewComponent {
 
   categories = computed<CategoryDto[]>(() => this._categoriesService.categories());
 
-  constructor() {
-    super();
-  }
-
   navigateToCategory(id: string): void {
     this._categoriesService.selectedId.update(() => id);
     this.navigation.forward(`/category/${id}`);

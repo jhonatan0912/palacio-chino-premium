@@ -5,7 +5,6 @@ import { FooterComponent } from '@shared/components/footer/footer.component';
 import { HeaderMobileComponent } from '@shared/components/header-mobile/header-mobile.component';
 import { HeaderComponent } from '@shared/components/header/header.component';
 
-
 @Component({
   selector: 'app-home',
   standalone: true,
@@ -13,8 +12,4 @@ import { HeaderComponent } from '@shared/components/header/header.component';
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })
-export class HomeComponent extends ViewComponent {
-  constructor() {
-    super();
-  }
-}
+export class HomeComponent extends ViewComponent { }

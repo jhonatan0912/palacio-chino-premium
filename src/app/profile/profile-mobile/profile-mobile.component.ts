@@ -43,10 +43,6 @@ export class ProfileMobileComponent extends ViewComponent {
     },
   ];
 
-  constructor() {
-    super();
-  }
-
   onDeleteAccount(): void {
     this.dialog.showWithData({
       component: DeleteAccountModalComponent,

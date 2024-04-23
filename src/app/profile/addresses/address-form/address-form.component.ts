@@ -35,10 +35,6 @@ export class AddressFormComponent extends ViewComponent implements OnInit {
     reference: new FormControl(''),
   });
 
-  constructor() {
-    super();
-  }
-
   ngOnInit() {
     const { action } = this._activatedRoute.snapshot.params;
     this._activatedRoute.queryParams

@@ -12,8 +12,4 @@ import { ViewComponent } from 'pc-core';
 export class TitleModalComponent extends ViewComponent {
 
   @Output() onDismiss = new EventEmitter<void>();
-
-  constructor() {
-    super();
-  }
 }

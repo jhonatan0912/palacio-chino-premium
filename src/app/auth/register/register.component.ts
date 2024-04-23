@@ -17,7 +17,7 @@ import { AuthService } from '../services/auth.service';
   templateUrl: './register.component.html',
   styleUrl: './register.component.scss'
 })
-export class RegisterComponent extends ViewComponent  {
+export class RegisterComponent extends ViewComponent {
 
   private readonly _authProxy = inject(AuthProxy);
   private readonly _authService = inject(AuthService);
@@ -29,9 +29,7 @@ export class RegisterComponent extends ViewComponent  {
   password: string = '';
   passwordConfirm: string = '';
 
-  constructor() {
-    super();
-  }
+
 
   onRegister(): void {
     if (this.isInvalidFields()) return;

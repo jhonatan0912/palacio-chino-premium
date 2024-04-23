@@ -3,7 +3,6 @@ import { StateOption } from '@shared/interfaces';
 import { ViewComponent } from 'pc-core';
 import { OrderStatus } from 'pc-proxies';
 
-
 @Component({
   selector: 'rder-detail-status-popover',
   templateUrl: './order-detail-status-popover.component.html',
@@ -17,10 +16,6 @@ export class OrderDetailStatusPopoverComponent extends ViewComponent {
     { id: 'completed', name: 'Completado' },
     { id: 'canceled', name: 'Anular' }
   ];
-
-  constructor() {
-    super();
-  }
 
   onSelect(id: OrderStatus): void {
     this.popup.dismiss(id);
