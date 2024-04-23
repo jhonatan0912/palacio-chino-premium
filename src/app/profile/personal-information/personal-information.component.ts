@@ -1,12 +1,11 @@
+import { NgClass } from '@angular/common';
 import { Component, OnInit, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { ButtonComponent } from '@lib/button/button.component';
-import { finalize } from 'rxjs/internal/operators/finalize';
 import { IonSpinner } from "@ionic/angular/standalone";
-import { NgClass } from '@angular/common';
+import { ButtonComponent } from '@lib/button/button.component';
 import { ViewComponent } from 'pc-core';
 import { AuthProxy } from 'pc-proxies';
-import { Title } from '@angular/platform-browser';
+import { finalize } from 'rxjs/internal/operators/finalize';
 
 @Component({
   selector: 'app-personal-information',
@@ -17,7 +16,6 @@ import { Title } from '@angular/platform-browser';
 })
 export class PersonalInformationComponent extends ViewComponent implements OnInit {
 
-  private readonly _title = inject(Title);
   private readonly _authProxy = inject(AuthProxy);
 
   busy: boolean = false;
@@ -26,7 +24,6 @@ export class PersonalInformationComponent extends ViewComponent implements OnIni
   phone: string = '';
 
   ngOnInit(): void {
-    this._title.setTitle('Mi información');
     this.onSetInfo();
   }
 

@@ -1,13 +1,12 @@
 import { Component, DestroyRef, OnInit, inject, signal } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
-import { OrdersService } from '@profile/services/orders.service';
-import { OrderItemComponent } from './order-item/order-item.component';
-import { HeaderMobileComponent } from '@shared/components/header-mobile/header-mobile.component';
 import { IonIcon } from "@ionic/angular/standalone";
+import { OrdersService } from '@profile/services/orders.service';
 import { WebsocketsService } from '@profile/services/websockets.service';
+import { HeaderMobileComponent } from '@shared/components/header-mobile/header-mobile.component';
 import { ViewComponent } from 'pc-core';
 import { GetOrderDto, OrdersProxy } from 'pc-proxies';
-import { Title } from '@angular/platform-browser';
+import { OrderItemComponent } from './order-item/order-item.component';
 
 @Component({
   selector: 'app-orders',
@@ -19,7 +18,6 @@ import { Title } from '@angular/platform-browser';
 })
 export class OrdersComponent extends ViewComponent implements OnInit {
 
-  private readonly _title = inject(Title);
   private readonly _ordersProxy = inject(OrdersProxy);
   private readonly _ordersService = inject(OrdersService);
   private readonly _destroyRef = inject(DestroyRef);
@@ -35,7 +33,6 @@ export class OrdersComponent extends ViewComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this._title.setTitle('Mis pedidos');
     this.onGetAll();
   }
 

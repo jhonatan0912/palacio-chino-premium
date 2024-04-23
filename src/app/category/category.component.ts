@@ -8,6 +8,7 @@ import { ViewComponent } from 'pc-core';
 import { CategoryDto, ProductDto, ProductsProxy } from 'pc-proxies';
 import { finalize } from 'rxjs/internal/operators/finalize';
 import { CategorySkeletonComponent } from './category-skeleton/category-skeleton.component';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-category',
@@ -18,6 +19,7 @@ import { CategorySkeletonComponent } from './category-skeleton/category-skeleton
 })
 export class CategoryComponent extends ViewComponent implements OnInit {
 
+  private readonly _title = inject(Title);
   private readonly _activatedRoute = inject(ActivatedRoute);
   private readonly _categoriesService = inject(CategoriesService);
   private readonly _productsProxy = inject(ProductsProxy);
@@ -39,6 +41,7 @@ export class CategoryComponent extends ViewComponent implements OnInit {
         if (!id) return;
 
         this.id.set(id);
+        this._title.setTitle(this.category()?.name || 'Categoría');
         this.getProductsByCategory(id, true);
       });
   }

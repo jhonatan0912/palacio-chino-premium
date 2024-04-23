@@ -1,5 +1,4 @@
-import { Component, OnInit, inject } from '@angular/core';
-import { Title } from '@angular/platform-browser';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'galery',
@@ -8,11 +7,4 @@ import { Title } from '@angular/platform-browser';
   templateUrl: './galery.component.html',
   styleUrls: ['./galery.component.scss']
 })
-export class GaleryComponent implements OnInit {
-
-  private readonly _title = inject(Title);
-
-  ngOnInit(): void {
-    this._title.setTitle('Galería');
-  }
-}
+export class GaleryComponent  { }

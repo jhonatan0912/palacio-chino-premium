@@ -10,7 +10,6 @@ import { finalize } from 'rxjs/internal/operators/finalize';
 import { ProductCardComponent } from '../shared/components/product-card/product-card.component';
 import { ChatPopoverComponent } from './chat-popover/chat-popover.component';
 import { MenuChatButtonComponent } from './menu-chat-button/menu-chat-button.component';
-import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-menu',
@@ -21,7 +20,6 @@ import { Title } from '@angular/platform-browser';
 })
 export class MenuComponent extends ViewComponent implements OnInit {
 
-  private readonly _title = inject(Title);
   private readonly _productsProxy = inject(ProductsProxy);
   private readonly _destroyRef = inject(DestroyRef);
 
@@ -35,7 +33,6 @@ export class MenuComponent extends ViewComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this._title.setTitle('Palacio Chino Premium');
     this.getPromotions();
   }
 

@@ -1,5 +1,5 @@
 import { NgClass } from '@angular/common';
-import { Component, EventEmitter, Output, computed, inject, input, model, signal } from '@angular/core';
+import { Component, EventEmitter, Output, computed, inject, input } from '@angular/core';
 import { SrcImagePipe } from '@shared/pipes/srcImage.pipe';
 import { CategoriesService } from '@shared/services/categories.service';
 import { CategoryDto } from 'pc-proxies';

@@ -15,18 +15,17 @@ export const routes: Routes = [
     children: [
       {
         path: '',
+        title: 'Palacio Chino Premium',
         loadComponent: () => import('./menu/menu.component').then(p => p.MenuComponent)
       },
       {
-        path: 'promotions',
-        loadComponent: () => import('./promotions/promotions.component').then(p => p.PromotionsComponent)
-      },
-      {
         path: 'establishments',
+        title: 'Local',
         loadComponent: () => import('./establishments/establishments.component').then(p => p.EstablishmentsComponent)
       },
       {
         path: 'galery',
+        title: 'Galería',
         loadComponent: () => import('./galery/galery.component').then(p => p.GaleryComponent)
       },
       {
@@ -38,6 +37,7 @@ export const routes: Routes = [
   },
   {
     path: 'profile',
+    title: 'Perfil',
     canActivate: [profileGuard],
     loadChildren: profileRoutes()
   },
@@ -52,15 +52,18 @@ export const routes: Routes = [
   },
   {
     path: 'admin',
+    title: 'Login Admin',
     canActivate: [adminLoginGuard],
     loadComponent: () => import('@admin/login/login.component').then(p => p.AdminLoginComponent)
   },
   {
     path: 'admin-dashboard',
+    title: 'Dashboard',
     loadChildren: () => import('@admin/admin.routes').then(r => r.routes)
   },
   {
     path: 'shopping-cart',
+    title: 'Carrito de compras',
     loadComponent: () => import('@shopping-cart/shopping-cart.component').then(p => p.ShoppingCartComponent)
   },
   { path: '**', redirectTo: '', pathMatch: 'full' },
