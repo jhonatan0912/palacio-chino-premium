@@ -1,12 +1,12 @@
 import { CheckedPipe } from '@admin/pipes/checked.pipe';
 import { AdminProductsService } from '@admin/services/products.service';
 import { DecimalPipe } from "@angular/common";
-import { Component, DestroyRef, Input, computed, inject, signal } from '@angular/core';
+import { Component, DestroyRef, Input, computed, inject } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { FormsModule } from '@angular/forms';
 import { IonSearchbar, IonToggle, ToggleCustomEvent } from "@ionic/angular/standalone";
 import { FilterPipe } from '@shared/pipes/filter.pipe';
-import { CategoryDto, ProductDto, ProductsProxy } from 'pc-proxies';
+import { ProductDto, ProductsProxy } from 'pc-proxies';
 
 @Component({
   selector: 'app-products',

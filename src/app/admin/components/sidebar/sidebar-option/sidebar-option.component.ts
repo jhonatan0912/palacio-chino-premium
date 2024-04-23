@@ -1,5 +1,5 @@
 import { NgClass } from '@angular/common';
-import { Component, EventEmitter, Output, input, model } from '@angular/core';
+import { Component, EventEmitter, Output, input } from '@angular/core';
 import { IonIcon } from "@ionic/angular/standalone";
 
 export interface SidebarOption {

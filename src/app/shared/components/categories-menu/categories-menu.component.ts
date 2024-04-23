@@ -1,9 +1,9 @@
-import { Component, computed, inject, signal } from '@angular/core';
+import { Component, computed, inject } from '@angular/core';
 import { IonSkeletonText } from "@ionic/angular/standalone";
 import { CategoriesService } from '@shared/services/categories.service';
 import { ViewComponent } from 'pc-core';
-import { CategoryMenuComponent } from './category-menu/category-menu.component';
 import { CategoryDto } from 'pc-proxies';
+import { CategoryMenuComponent } from './category-menu/category-menu.component';
 
 @Component({
   selector: 'categories-menu',

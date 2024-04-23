@@ -1,9 +1,9 @@
 import { Injectable, inject } from '@angular/core';
-import { Socket, io } from 'socket.io-client';
-import { AdminOrdersService } from './orders.service';
 import { environment } from '@environments/environment';
 import { AppAlertService } from 'pc-core';
-import { AdminGetOrderDto, OrderDetailAddressDto, OrderDetailDto, formatOrderStatus } from 'pc-proxies';
+import { AdminGetOrderDto, formatOrderStatus } from 'pc-proxies';
+import { Socket, io } from 'socket.io-client';
+import { AdminOrdersService } from './orders.service';
 
 
 @Injectable()

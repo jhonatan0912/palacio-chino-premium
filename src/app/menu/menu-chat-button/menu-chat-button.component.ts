@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { IonIcon } from "@ionic/angular/standalone";
 
 @Component({

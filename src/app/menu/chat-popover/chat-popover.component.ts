@@ -5,10 +5,6 @@ import { TitleModalComponent } from '@shared/components/title-modal/title-modal.
 import { AiService } from '@shared/services/ai.service';
 import { ViewComponent } from 'pc-core';
 
-interface Message {
-  role: 'user' | 'model';
-  message: string;
-}
 
 @Component({
   selector: 'app-chat-popover',
