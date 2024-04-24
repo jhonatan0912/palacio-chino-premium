@@ -10,7 +10,7 @@ export const routes: Routes = [
         children: [
           {
             path: '',
-            title: 'Direcciones',
+            title: 'Mis direcciones',
             loadComponent: () => import('./addresses/addresses.component').then(p => p.AddressesComponent),
           },
           {
@@ -27,7 +27,7 @@ export const routes: Routes = [
       },
       {
         path: 'orders',
-        title: 'Pedidos',
+        title: 'Mis pedidos',
         loadComponent: () => import('./orders/orders.component').then(p => p.OrdersComponent),
       },
       {
