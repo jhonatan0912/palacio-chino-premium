@@ -1,0 +1,28 @@
+:host {
+  display: flex;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  padding: 1rem;
+  margin-block: 1rem;
+  justify-content: center;
+  margin-inline: auto;
+  width: max-content;
+}
+
+.states {
+  display: flex;
+  gap: 1rem;
+
+  .status__label {
+    padding: .5rem 1rem;
+    cursor: pointer;
+
+    &.all {
+      color: var(--primary);
+    }
+
+    &:active {
+      scale: .96;
+    }
+  }
+}

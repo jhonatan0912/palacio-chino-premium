@@ -2,7 +2,7 @@
   Seleccionar dirección
 </title-modal>
 
-<section class="modal__container">
+<section class="modal__container scroll">
   @if (!busy) {
   <ion-radio-group class="addresses" [(ngModel)]="address.id">
     @for (address of addresses(); track $index) {

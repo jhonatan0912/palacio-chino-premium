@@ -1,0 +1,14 @@
+<section class="states">
+  @for (item of states; track $index) {
+  <span
+    (click)="onSelecStatus(item.id)"
+    class="status__label {{ item.id }}">
+    {{ item.name }}
+  </span>
+  }
+  <span
+    (click)="onSelecStatus('all')"
+    class="status__label all">
+    Todos
+  </span>
+</section>

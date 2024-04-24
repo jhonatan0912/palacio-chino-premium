@@ -1,13 +1,15 @@
 import { AdminOrdersService } from '@admin/services/orders.service';
-import { Component, DestroyRef, OnInit, inject } from '@angular/core';
+import { Component, DestroyRef, OnInit, inject, signal } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { AdminOrderItemComponent } from './order-item/order-item.component';
-import { AdminProxy } from 'pc-proxies';
+import { AdminProxy, OrderStatus } from 'pc-proxies';
+import { AdminOrdersFilterComponent } from './orders-filter/orders-filter.component';
+import { FilterOrdersPipe } from '@admin/pipes/filterOrders.pipe';
 
 @Component({
   selector: 'app-orders',
   standalone: true,
-  imports: [AdminOrderItemComponent],
+  imports: [AdminOrderItemComponent, AdminOrdersFilterComponent, FilterOrdersPipe],
   templateUrl: './orders.component.html',
   styleUrls: ['./orders.component.scss'],
 })
@@ -17,6 +19,7 @@ export class OrdersComponent implements OnInit {
   private destroyRef = inject(DestroyRef);
 
   adminOrdersService = inject(AdminOrdersService);
+  status = signal<OrderStatus | 'all'>('all');
 
   ngOnInit() {
     this.getOrders();
@@ -31,5 +34,4 @@ export class OrdersComponent implements OnInit {
         }
       });
   }
-
 }

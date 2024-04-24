@@ -3,12 +3,21 @@
     <div class="title">
       Pedidos
     </div>
+
+    <admin-orders-filter
+      [(status)]="status" />
+
     <div class="content">
       <section class="orders scroll">
-        @for (order of adminOrdersService.orders(); track order.id) {
+        @for ( order of adminOrdersService.orders() | filterOrders : status();
+        track order.id) {
         <admin-order-item
           class="order__item"
           [order]="order" />
+        }@empty {
+        <div class="empty">
+          <span class="empty__label">No hay pedidos</span>
+        </div>
         }
       </section>
     </div>

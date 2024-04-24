@@ -5,8 +5,5 @@ import { AdminGetOrderDto } from 'pc-proxies';
   providedIn: 'root'
 })
 export class AdminOrdersService {
-
-
   orders = signal<AdminGetOrderDto[]>([]);
-
 }
