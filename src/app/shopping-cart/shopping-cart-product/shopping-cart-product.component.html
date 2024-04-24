@@ -1,6 +1,9 @@
 <article class="product">
   <div class="product__image">
-    <img [src]="product().image | srcImage" [alt]="product().name">
+    <img
+      imageBroken
+      [src]="product().image | srcImage"
+      [alt]="product().name">
   </div>
 
   <section class="product__details">
@@ -24,7 +27,7 @@
         </button>
       </div>
       <button class="button_delete" (click)="removeProduct()">
-        <ion-icon name="trash-outline" color="danger" />  
+        <ion-icon name="trash-outline" color="danger" />
       </button>
     </div>
   </section>

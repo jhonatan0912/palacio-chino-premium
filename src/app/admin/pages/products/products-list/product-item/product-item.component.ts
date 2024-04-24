@@ -3,11 +3,12 @@ import { Component, model } from '@angular/core';
 import { ViewComponent } from 'pc-core';
 import { SrcImagePipe } from '@shared/pipes/srcImage.pipe';
 import { ProductDto } from 'pc-proxies';
+import { ImageBrokenDirective } from '@shared/directives/imageBroken.directive';
 
 @Component({
   selector: 'admin-product-item',
   standalone: true,
-  imports: [SrcImagePipe],
+  imports: [SrcImagePipe, ImageBrokenDirective],
   templateUrl: './product-item.component.html',
   styleUrls: ['./product-item.component.scss']
 })

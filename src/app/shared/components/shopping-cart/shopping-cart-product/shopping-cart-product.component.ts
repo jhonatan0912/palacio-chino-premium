@@ -6,12 +6,13 @@ import { ShoppingCartService } from '@shared/services/shopping-cart.service';
 import { IonIcon } from "@ionic/angular/standalone";
 import { DecimalPipe } from '@angular/common';
 import { ProductDto } from 'pc-proxies';
+import { ImageBrokenDirective } from '@shared/directives/imageBroken.directive';
 
 
 @Component({
   selector: 'shopping-cart-product',
   standalone: true,
-  imports: [IonIcon, FormsModule, SrcImagePipe, QuantityInputDirective, DecimalPipe],
+  imports: [IonIcon, FormsModule, SrcImagePipe, QuantityInputDirective, DecimalPipe, ImageBrokenDirective],
   templateUrl: './shopping-cart-product.component.html',
   styleUrls: ['./shopping-cart-product.component.scss']
 })

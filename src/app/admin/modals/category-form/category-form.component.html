@@ -5,7 +5,9 @@
 <main class="modal__container scroll">
   <form action class="modal__container__form">
     <div class="preview">
-      <img [src]="category.icon | srcImage" [alt]="category.name">
+      <img
+        [src]="category.icon | srcImage"
+        [alt]="category.name">
     </div>
 
     <div class="form-group">
@@ -35,7 +37,7 @@
       @if (busy) {
       <ion-spinner name="crescent" />
       }@else {
-        Actualizar
+      Actualizar
       }
     </lib-button>
   </form>
