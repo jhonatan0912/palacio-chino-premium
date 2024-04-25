@@ -34,7 +34,7 @@
             placeholder="Correo electrónico">
       </div>
 
-      <div class="form-input">
+      <div class="form-input password">
          <span>Contraseña</span>
          <input
             (isValid)="validFields.password = $event"
@@ -42,10 +42,14 @@
             inputType="password"
             inputValidator
             placeholder="Contraseña"
-            type="password">
+            [type]="passwordType">
+         <ion-icon
+            class="icon"
+            (click)="onTogglePasswordVisibility()"
+            name="{{ passwordType === 'password' ? 'eye-off-outline' : 'eye-outline'}}" />
       </div>
 
-      <div class="form-input">
+      <div class="form-input password">
          <span>Confirmar Contraseña</span>
          <input
             (isValid)="validFields.passwordConfirm = $event"
@@ -54,7 +58,11 @@
             inputType="password"
             inputValidator
             placeholder="Confirmar Contraseña"
-            type="password">
+            [type]="passwordConfirmType">
+         <ion-icon
+            class="icon"
+            (click)="onTogglePasswordConfirmVisibility()"
+            name="{{ passwordConfirmType === 'password' ? 'eye-off-outline' : 'eye-outline'}}" />
       </div>
    </div>
 

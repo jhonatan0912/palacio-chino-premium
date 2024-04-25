@@ -15,6 +15,7 @@
         Correo electrónico
       </label>
       <input
+        (isValid)="validFields.email = $event"
         [(ngModel)]="email"
         id="email"
         inputType="email"
@@ -30,6 +31,7 @@
         Contraseña
       </label>
       <input
+        (isValid)="validFields.email = $event"
         (keydown.enter)="onLogin()"
         [(ngModel)]="password"
         [type]="inputType"

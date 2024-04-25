@@ -1,7 +1,7 @@
 import { Component, DestroyRef, inject } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { FormsModule } from '@angular/forms';
-import { IonSpinner } from "@ionic/angular/standalone";
+import { IonSpinner, IonIcon } from "@ionic/angular/standalone";
 import { ButtonComponent } from '@lib/button/button.component';
 import { TitleMobileComponent } from '@shared/components/auth-title/auth-title.component';
 import { ViewComponent } from 'pc-core';
@@ -14,7 +14,7 @@ import { InputValidatorDirective } from '@shared/directives/inputValidator.direc
 @Component({
   selector: 'app-register',
   standalone: true,
-  imports: [IonSpinner, TitleMobileComponent, AuthAsideComponent, ButtonComponent, FormsModule, InputValidatorDirective],
+  imports: [IonIcon, IonSpinner, TitleMobileComponent, AuthAsideComponent, ButtonComponent, FormsModule, InputValidatorDirective],
   templateUrl: './register.component.html',
   styleUrl: './register.component.scss'
 })
@@ -29,6 +29,8 @@ export class RegisterComponent extends ViewComponent {
   email: string = '';
   password: string = '';
   passwordConfirm: string = '';
+  passwordType: 'text' | 'password' = 'password';
+  passwordConfirmType: 'text' | 'password' = 'password';
   validFields = {
     fullName: false,
     email: false,
@@ -62,6 +64,14 @@ export class RegisterComponent extends ViewComponent {
 
   isInvalidFields(): boolean {
     return Object.values(this.validFields).some((field) => !field);
+  }
+
+  onTogglePasswordVisibility(): void {
+    this.passwordType = this.passwordType === 'password' ? 'text' : 'password';
+  }
+
+  onTogglePasswordConfirmVisibility(): void {
+    this.passwordConfirmType = this.passwordConfirmType === 'password' ? 'text' : 'password';
   }
 
   onAuth() {
