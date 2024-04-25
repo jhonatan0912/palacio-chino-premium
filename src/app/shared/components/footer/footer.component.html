@@ -18,7 +18,9 @@
           <p class="title pointer">MENÚ</p>
           <ul class="list">
             @for (category of categories(); track category.id) {
-            <li class="capitalize pointer hover:text-zinc-400">
+            <li
+            (click)="onCategory(category.id!)"
+            class="capitalize pointer hover:text-zinc-400">
               {{ category.name }}
             </li>
             }

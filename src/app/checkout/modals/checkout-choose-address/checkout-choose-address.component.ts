@@ -60,7 +60,7 @@ export class CheckoutChooseAddressComponent extends ViewComponent implements OnI
 
   onAddAddress(): void {
     this.dialog.dismiss('cancel');
-    setTimeout(() => this.navigation.forward('profile/addresses/add'), 500);
+    setTimeout(() => this.navigation.forward('/profile/addresses/form/create'), 500);
 
   }
 }

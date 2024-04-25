@@ -1,4 +1,4 @@
-import { Component, OnInit, inject, signal } from '@angular/core';
+import { Component, computed, inject } from '@angular/core';
 import { IonicModule } from '@ionic/angular';
 import { CategoriesService } from '@shared/services/categories.service';
 import { ViewComponent } from 'pc-core';
@@ -11,7 +11,7 @@ import { CategoryDto } from 'pc-proxies';
   templateUrl: './footer.component.html',
   styleUrl: './footer.component.scss'
 })
-export class FooterComponent extends ViewComponent implements OnInit {
+export class FooterComponent extends ViewComponent {
   private categoriesService = inject(CategoriesService);
 
   account = [
@@ -60,18 +60,13 @@ export class FooterComponent extends ViewComponent implements OnInit {
       }
     },
   ];
-  categories = signal<CategoryDto[]>([]);
+  categories = computed<CategoryDto[]>(() => this.categoriesService.categories());
 
   get year(): string {
     return new Date().getFullYear().toString();
   }
 
-  ngOnInit(): void {
-    this.getCategories();
+  onCategory(id: string): void {
+    this.navigation.forward(`/category/${id}`);
   }
-
-  getCategories(): void {
-    this.categories.set(this.categoriesService.categories());
-  }
-
 }
