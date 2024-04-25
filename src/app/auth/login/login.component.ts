@@ -6,7 +6,7 @@ import { AuthService } from '@auth/services/auth.service';
 import { IonIcon, IonSpinner } from "@ionic/angular/standalone";
 import { ButtonComponent } from '@lib/button/button.component';
 import { TitleMobileComponent } from '@shared/components/auth-title/auth-title.component';
-import { InputValidatorDirective } from '@shared/directives/inputValidator.directive';
+import { InputValidatorDirective } from 'pc-core';
 import { ViewComponent } from 'pc-core';
 import { AuthProxy } from 'pc-proxies';
 import { finalize } from 'rxjs/internal/operators/finalize';

@@ -9,7 +9,7 @@ import { AuthProxy } from 'pc-proxies';
 import { finalize } from 'rxjs/internal/operators/finalize';
 import { AuthAsideComponent } from '../components/aside/aside.component';
 import { AuthService } from '../services/auth.service';
-import { InputValidatorDirective } from '@shared/directives/inputValidator.directive';
+import { InputValidatorDirective } from 'pc-core';
 
 @Component({
   selector: 'app-register',
