@@ -5499,10 +5499,10 @@ path-type@^4.0.0:
   resolved "https://registry.yarnpkg.com/path-type/-/path-type-4.0.0.tgz#84ed01c0a7ba380afe09d90a8c180dcd9d03043b"
   integrity sha512-gDKb8aZMDeD/tZWs9P6+q0J9Mwkdl6xMV8TjnGP3qJVJ06bdMgkbBlLU8IdfOsIsFz2BW1rNVT3XuNEl8zPAvw==
 
-pc-core@^0.0.8:
-  version "0.0.8"
-  resolved "https://registry.yarnpkg.com/pc-core/-/pc-core-0.0.8.tgz#c565c865953ce5faeb7e50ee2bbcee714bc8c1c8"
-  integrity sha512-99FQT3/+2LCbIvIkCavuJ/SVI6QmKC2vHn4tH7tP1uAQazntL7hM3CflfJFXv9sCcKMxHY+BHrZIMNIPxEF1BA==
+pc-core@^0.0.9:
+  version "0.0.9"
+  resolved "https://registry.yarnpkg.com/pc-core/-/pc-core-0.0.9.tgz#13f4e9a2f74fcdaf568de1f5f8052f9be9d5885f"
+  integrity sha512-zHOaECq62wsk1Vm+z43U1VCryZajvJqhe/opwvv9ba6v52vvJaHH0gdb/NJk6prVCjjox9xahcLH8DpxoP5Vhg==
   dependencies:
     tslib "^2.3.0"
 
