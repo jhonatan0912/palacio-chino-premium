@@ -6,6 +6,7 @@ import { AuthService } from '@auth/services/auth.service';
 import { IonIcon, IonSpinner } from "@ionic/angular/standalone";
 import { ButtonComponent } from '@lib/button/button.component';
 import { TitleMobileComponent } from '@shared/components/auth-title/auth-title.component';
+import { InputValidatorDirective } from '@shared/directives/inputValidator.directive';
 import { ViewComponent } from 'pc-core';
 import { AuthProxy } from 'pc-proxies';
 import { finalize } from 'rxjs/internal/operators/finalize';
@@ -13,7 +14,7 @@ import { finalize } from 'rxjs/internal/operators/finalize';
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [IonIcon, IonSpinner, AuthAsideComponent, TitleMobileComponent, ButtonComponent, FormsModule],
+  imports: [IonIcon, IonSpinner, AuthAsideComponent, TitleMobileComponent, ButtonComponent, FormsModule, InputValidatorDirective],
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss'
 })
@@ -28,11 +29,13 @@ export class LoginComponent extends ViewComponent {
   password: string = '';
   errors: string[] = [];
   inputType: 'password' | 'text' = 'password';
-
-
+  validFields = {
+    email: false,
+    password: false
+  };
 
   onLogin(): void {
-    if (!this.areValidFields()) return;
+    if (!this.validFields.email || !this.validFields.password) return;
     this.busy = true;
 
     this._authProxy.login(
@@ -58,13 +61,6 @@ export class LoginComponent extends ViewComponent {
         setTimeout(() => this.errors = [], 1500);
       }
     });
-  }
-
-  areValidFields(): boolean {
-    return (
-      this.email.length > 5 &&
-      this.password.length > 5
-    );
   }
 
   onToggleInputType(): void {
