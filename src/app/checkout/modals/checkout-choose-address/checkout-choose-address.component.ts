@@ -1,7 +1,7 @@
 import { Component, DestroyRef, Input, OnInit, inject, signal } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { FormsModule } from '@angular/forms';
-import { IonRadio, IonSpinner, IonRadioGroup } from "@ionic/angular/standalone";
+import { IonRadio, IonSpinner, IonRadioGroup, IonIcon } from "@ionic/angular/standalone";
 import { AddressesService } from '@profile/services/addresses.service';
 import { TitleModalComponent } from '@shared/components/title-modal/title-modal.component';
 import { ViewComponent } from 'pc-core';
@@ -11,7 +11,7 @@ import { finalize } from 'rxjs/internal/operators/finalize';
 @Component({
   selector: 'checkout-choose-address',
   standalone: true,
-  imports: [IonSpinner, IonRadio, IonRadioGroup, FormsModule, TitleModalComponent],
+  imports: [IonIcon, IonSpinner, IonRadio, IonRadioGroup, FormsModule, TitleModalComponent],
   templateUrl: './checkout-choose-address.component.html',
   styleUrls: ['./checkout-choose-address.component.scss']
 })
@@ -59,6 +59,8 @@ export class CheckoutChooseAddressComponent extends ViewComponent implements OnI
   }
 
   onAddAddress(): void {
-    this.navigation.forward('profile/addresses/add');
+    this.dialog.dismiss('cancel');
+    setTimeout(() => this.navigation.forward('profile/addresses/add'), 500);
+
   }
 }

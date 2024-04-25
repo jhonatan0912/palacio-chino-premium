@@ -17,12 +17,21 @@
       </div>
     </article>
     }@empty {
-    <p class="empty">
-      No hay direcciones registradas
-    </p>
-    <button (click)="onAddAddress()" aria-label="Crear dirección">
-      Crear dirección
-    </button>
+    <section class="empty">
+      <span class="empty__icon">
+        😪
+      </span>
+      <p class="empty__label">
+        No hay direcciones registradas
+      </p>
+      <button
+        class="empty__button"
+        (click)="onAddAddress()"
+        aria-label="Crear dirección">
+        <ion-icon name="add-outline" />
+        Crear dirección
+      </button>
+    </section>
     }
   </ion-radio-group>
   }@else{
