@@ -39,7 +39,7 @@ export class RegisterComponent extends ViewComponent {
   };
 
   onRegister(): void {
-    if (this.isInvalidFields()) return;
+    if (this.areInvalidFields()) return;
     this.busy = true;
 
     this._authProxy.register(
@@ -62,7 +62,7 @@ export class RegisterComponent extends ViewComponent {
     });
   }
 
-  isInvalidFields(): boolean {
+  areInvalidFields(): boolean {
     return Object.values(this.validFields).some((field) => !field);
   }
 

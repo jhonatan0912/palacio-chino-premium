@@ -69,6 +69,10 @@ export class LoginComponent extends ViewComponent {
       : 'password';
   }
 
+  areInvalidFields(): boolean {
+    return Object.values(this.validFields).some((field) => !field);
+  }
+
   onAuth() {
     this.navigation.forward('/auth/register');
   }

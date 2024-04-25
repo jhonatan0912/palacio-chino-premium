@@ -31,7 +31,7 @@
         Contraseña
       </label>
       <input
-        (isValid)="validFields.email = $event"
+        (isValid)="validFields.password = $event"
         (keydown.enter)="onLogin()"
         [(ngModel)]="password"
         [type]="inputType"
@@ -49,7 +49,7 @@
 
   <lib-button
     (onAction)="onLogin()"
-    [disabled]="busy">
+    [disabled]="busy || areInvalidFields()">
     @if (busy) {
     <ion-spinner name="crescent" />
     }@else {

@@ -72,7 +72,8 @@
    </p>
 
    <lib-button
-      (onAction)="onRegister()">
+      (onAction)="onRegister()"
+      [disabled]="busy || areInvalidFields()">
       @if (busy) {
       <ion-spinner name="crescent" />
       }@else {
