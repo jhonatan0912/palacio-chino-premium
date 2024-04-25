@@ -55,6 +55,6 @@ export class InputValidatorDirective {
 
   private updateValidityStyle(target: HTMLInputElement, isValid: boolean): void {
     target.style.borderColor = isValid ? 'green' : 'red';
-    target.style.borderWidth = isValid ? '2px' : '1px';
+    target.style.borderWidth = isValid ? '2px' : '1.5px';
   }
 }

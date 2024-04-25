@@ -9,11 +9,12 @@ import { AuthProxy } from 'pc-proxies';
 import { finalize } from 'rxjs/internal/operators/finalize';
 import { AuthAsideComponent } from '../components/aside/aside.component';
 import { AuthService } from '../services/auth.service';
+import { InputValidatorDirective } from '@shared/directives/inputValidator.directive';
 
 @Component({
   selector: 'app-register',
   standalone: true,
-  imports: [IonSpinner, TitleMobileComponent, AuthAsideComponent, ButtonComponent, FormsModule],
+  imports: [IonSpinner, TitleMobileComponent, AuthAsideComponent, ButtonComponent, FormsModule, InputValidatorDirective],
   templateUrl: './register.component.html',
   styleUrl: './register.component.scss'
 })
@@ -28,8 +29,12 @@ export class RegisterComponent extends ViewComponent {
   email: string = '';
   password: string = '';
   passwordConfirm: string = '';
-
-
+  validFields = {
+    fullName: false,
+    email: false,
+    password: false,
+    passwordConfirm: false
+  };
 
   onRegister(): void {
     if (this.isInvalidFields()) return;
@@ -56,12 +61,7 @@ export class RegisterComponent extends ViewComponent {
   }
 
   isInvalidFields(): boolean {
-    return (
-      this.fullName.length < 5 ||
-      !this.email.includes('@') ||
-      this.password.length < 5 ||
-      this.password !== this.passwordConfirm
-    );
+    return Object.values(this.validFields).some((field) => !field);
   }
 
   onAuth() {

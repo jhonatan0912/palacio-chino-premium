@@ -15,24 +15,46 @@
    <div class="inputs_form">
       <div class="form-input">
          <span>Nombres completos</span>
-         <input [(ngModel)]="fullName" type="text" placeholder="Nombres">
+         <input
+            (isValid)="validFields.fullName = $event"
+            [(ngModel)]="fullName"
+            inputType="text"
+            inputValidator
+            placeholder="Nombres"
+            type="text">
       </div>
 
       <div class="form-input">
          <span>Correo electrónico</span>
-         <input [(ngModel)]="email" type="email"
+         <input
+            (isValid)="validFields.email = $event"
+            [(ngModel)]="email" type="email"
+            inputType="email"
+            inputValidator
             placeholder="Correo electrónico">
       </div>
 
       <div class="form-input">
          <span>Contraseña</span>
-         <input [(ngModel)]="password" type="password" placeholder="Contraseña">
+         <input
+            (isValid)="validFields.password = $event"
+            [(ngModel)]="password"
+            inputType="password"
+            inputValidator
+            placeholder="Contraseña"
+            type="password">
       </div>
 
       <div class="form-input">
          <span>Confirmar Contraseña</span>
-         <input (keydown.enter)="onRegister()" [(ngModel)]="passwordConfirm"
-            type="password" placeholder="Confirmar Contraseña">
+         <input
+            (isValid)="validFields.passwordConfirm = $event"
+            (keydown.enter)="onRegister()"
+            [(ngModel)]="passwordConfirm"
+            inputType="password"
+            inputValidator
+            placeholder="Confirmar Contraseña"
+            type="password">
       </div>
    </div>
 
