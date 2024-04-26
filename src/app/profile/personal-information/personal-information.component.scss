@@ -1,17 +1,19 @@
 .my_data {
-   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-   padding: 40px;
    border-radius: 30px;
    display: flex;
    flex-direction: column;
+
+   .title {
+      font-weight: 600;
+   }
 }
 
 .inputs_form {
    display: flex;
    flex-direction: column;
    gap: 30px;
-   margin-top: 50px;
    margin-bottom: 40px;
+   margin-top: 1rem;
 
    .inputs_second {
       display: grid;
