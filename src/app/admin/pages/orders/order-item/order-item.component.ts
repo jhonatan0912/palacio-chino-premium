@@ -15,8 +15,6 @@ export class AdminOrderItemComponent extends ViewComponent {
 
   order = input.required<AdminGetOrderDto>();
 
-
-
   onAction(): void {
     this.dialog.showWithData({
       component: AdminOrderDetailComponent,
