@@ -3,14 +3,14 @@ import { Component, OnInit, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { IonSpinner } from "@ionic/angular/standalone";
 import { ButtonComponent } from '@lib/button/button.component';
-import { ViewComponent } from 'pc-core';
+import { InputValidatorDirective, ViewComponent } from 'pc-core';
 import { AuthProxy } from 'pc-proxies';
 import { finalize } from 'rxjs/internal/operators/finalize';
 
 @Component({
   selector: 'app-personal-information',
   standalone: true,
-  imports: [IonSpinner, ButtonComponent, FormsModule, NgClass],
+  imports: [IonSpinner, ButtonComponent, FormsModule, NgClass, InputValidatorDirective],
   templateUrl: './personal-information.component.html',
   styleUrl: './personal-information.component.scss'
 })

@@ -3,20 +3,25 @@
 
    <div class="inputs_form">
       <input
-         type="text"
+         [(ngModel)]="fullName"
          placeholder="Nombre"
-         [(ngModel)]="fullName">
+         type="text">
+
       <div class="inputs_second">
          <input
-            type="text"
+            [(ngModel)]="email"
+            inputType="email"
+            inputValidator
             placeholder="Correo Electrónico"
-            [(ngModel)]="email">
+            type="text">
 
          <input
-            type="tel"
-            placeholder="Celular"
+            [(ngModel)]="phone"
             [maxlength]="9"
-            [(ngModel)]="phone">
+            inputType="tel"
+            inputValidator
+            placeholder="Celular"
+            type="tel">
       </div>
    </div>
 
