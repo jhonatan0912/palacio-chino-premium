@@ -12,7 +12,8 @@ const getCategories = (injector: Injector): void => {
 
   categoriesProxy.getAll()
     .subscribe((categories) => {
-      categoriesService.categories.set(categories);
+      console.log(categories);
+      categoriesService.categories.set(categories.data);
     });
 };
 
@@ -22,7 +23,7 @@ const getProducts = (injector: Injector): void => {
 
   productsProxy.getAll()
     .subscribe((response) => {
-      productsService.products.set(response.products);
+      productsService.products.set(response.data);
     });
 };
 

@@ -48,7 +48,7 @@ export class MenuComponent extends ViewComponent implements OnInit {
         next: (res) => {
           this.page += 1;
           this.lastPage = res.meta.lastPage;
-          this.promotions.set([...this.promotions(), ...res.products]);
+          this.promotions.set([...this.promotions(), ...res.data]);
         }
       });
   }

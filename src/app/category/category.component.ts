@@ -57,7 +57,7 @@ export class CategoryComponent extends ViewComponent implements OnInit {
         next: (res) => {
           this.page += 1;
           this.lastPage = res.meta.lastPage;
-          this.products.update((prev) => [...prev, ...res.products]);
+          this.products.update((prev) => [...prev, ...res.data]);
         }
       });
   }

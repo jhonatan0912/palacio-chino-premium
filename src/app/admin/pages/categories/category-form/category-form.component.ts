@@ -38,8 +38,8 @@ export class AdminCategoryFormComponent {
       takeUntilDestroyed(this.destroyRef),
       finalize(() => this.busy = false)
     ).subscribe({
-      next: (category) => {
-        this.categoriesService.onCategory.next(category);
+      next: (response) => {
+        this.categoriesService.onCategory.next(response.data);
         this.resetForm();
       },
       error: (error) => {

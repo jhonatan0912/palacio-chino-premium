@@ -58,7 +58,7 @@ export class CheckoutComponent extends ViewComponent {
     ).pipe(finalize(() => this.busy = false))
       .subscribe({
         next: (res) => {
-          this._ordersService.orders.update((prev) => [res, ...prev]);
+          this._ordersService.orders.update((prev) => [res.data, ...prev]);
           this.navigation.forward('/profile/orders');
           this._shoppingCartService.clear();
         }

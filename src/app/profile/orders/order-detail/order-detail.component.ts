@@ -42,8 +42,8 @@ export class OrderDetailComponent extends ViewComponent implements OnInit {
     this._ordersProxy.get(id)
       .pipe(takeUntilDestroyed(this._destroyRef))
       .subscribe({
-        next: (order) => {
-          this.order.set(order);
+        next: (response) => {
+          this.order.set(response.data);
           this._websocketsService.onChangeOrderDetailStatus(this.order());
         }
       });

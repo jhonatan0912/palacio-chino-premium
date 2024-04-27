@@ -43,9 +43,9 @@ export class OrdersComponent extends ViewComponent implements OnInit {
       this._ordersProxy.getAll()
         .pipe(takeUntilDestroyed(this._destroyRef))
         .subscribe({
-          next: (orders) => {
-            this.orders.set(orders);
-            this._ordersService.orders.set(orders);
+          next: (response) => {
+            this.orders.set(response.data);
+            this._ordersService.orders.set(response.data);
             this._ordersService.loaded.set(true);
           }
         });

@@ -41,8 +41,8 @@ export class ProductsFormComponent {
       takeUntilDestroyed(this.destroyRef),
       finalize(() => this.busy = false)
     ).subscribe({
-      next: (product) => {
-        this.productsService.products.update((prev) => [...prev, product]);
+      next: (response) => {
+        this.productsService.products.update((prev) => [...prev, response.data]);
         this.resetForm();
       },
     });
