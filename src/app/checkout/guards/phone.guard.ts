@@ -12,7 +12,7 @@ export const phoneGuard: CanActivateFn = (): boolean => {
     notify.error('Por favor, añada su número de teléfono para continuar', 1500);
 
     setTimeout(() => {
-      navigation.forward('/profile/personal-information')
+      navigation.forward('/profile/personal-information', { redirect: 'checkout' });
       return false;
     }, 1500);
   }

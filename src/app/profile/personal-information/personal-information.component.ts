@@ -1,6 +1,7 @@
 import { NgClass } from '@angular/common';
 import { Component, OnInit, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
 import { IonSpinner } from "@ionic/angular/standalone";
 import { ButtonComponent } from '@lib/button/button.component';
 import { InputValidatorDirective, ViewComponent } from 'pc-core';
@@ -16,6 +17,7 @@ import { finalize } from 'rxjs/internal/operators/finalize';
 })
 export class PersonalInformationComponent extends ViewComponent implements OnInit {
 
+  private readonly _activatedRoute = inject(ActivatedRoute);
   private readonly _authProxy = inject(AuthProxy);
 
   busy: boolean = false;
@@ -40,7 +42,13 @@ export class PersonalInformationComponent extends ViewComponent implements OnIni
     ).subscribe({
       next: (user) => {
         this.session.setUser(user);
-        this.notify.success('Información actualizada correctamente', 1500);
+        const { redirect } = this._activatedRoute.snapshot.queryParams;
+        if (redirect) {
+          this.notify.success('Información actualizada correctamente', 1500);
+          this.navigation.forward(redirect);
+        } else {
+          this.notify.success('Información actualizada correctamente', 1500);
+        }
       }
     });
   }
