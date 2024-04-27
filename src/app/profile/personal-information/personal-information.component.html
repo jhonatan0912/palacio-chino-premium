@@ -1,5 +1,13 @@
-<div class="my_data">
-   <h2 class="title">Mis datos</h2>
+<header-mobile />
+
+<div class="wrapper">
+   <h2 class="title">
+      <ion-icon
+         (click)="onBack()"
+         class="icon-back"
+         name="arrow-back-outline" />
+      Mis Datos
+   </h2>
 
    <div class="inputs_form">
       <input
@@ -7,9 +15,10 @@
          placeholder="Nombre"
          type="text">
 
-      <div class="inputs_second">
+      <div class="inputs__row">
          <input
             [(ngModel)]="email"
+            class="inputs__row__input"
             inputType="email"
             inputValidator
             placeholder="Correo Electrónico"
@@ -17,6 +26,7 @@
 
          <input
             [(ngModel)]="phone"
+            class="inputs__row__input"
             [maxlength]="9"
             inputType="tel"
             inputValidator

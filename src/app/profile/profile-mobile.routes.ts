@@ -29,5 +29,9 @@ export const routes: Routes = [
     path: 'addresses/form/:action',
     title: 'Agregar dirección',
     loadComponent: () => import('./addresses/address-form/address-form.component').then(p => p.AddressFormComponent)
+  }, {
+    path: 'personal-information',
+    title: 'Datos personales',
+    loadComponent: () => import('@profile/personal-information/personal-information.component').then(p => p.PersonalInformationComponent),
   }
 ];

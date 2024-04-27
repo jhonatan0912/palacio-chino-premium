@@ -2,8 +2,9 @@ import { NgClass } from '@angular/common';
 import { Component, OnInit, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
-import { IonSpinner } from "@ionic/angular/standalone";
+import { IonSpinner, IonIcon } from "@ionic/angular/standalone";
 import { ButtonComponent } from '@lib/button/button.component';
+import { HeaderMobileComponent } from '@shared/components/header-mobile/header-mobile.component';
 import { InputValidatorDirective, ViewComponent } from 'pc-core';
 import { AuthProxy } from 'pc-proxies';
 import { finalize } from 'rxjs/internal/operators/finalize';
@@ -11,7 +12,14 @@ import { finalize } from 'rxjs/internal/operators/finalize';
 @Component({
   selector: 'app-personal-information',
   standalone: true,
-  imports: [IonSpinner, ButtonComponent, FormsModule, NgClass, InputValidatorDirective],
+  imports: [IonIcon,
+    IonSpinner,
+    ButtonComponent,
+    FormsModule,
+    NgClass,
+    InputValidatorDirective,
+    HeaderMobileComponent,
+  ],
   templateUrl: './personal-information.component.html',
   styleUrl: './personal-information.component.scss'
 })
@@ -70,5 +78,9 @@ export class PersonalInformationComponent extends ViewComponent implements OnIni
       this.fullName.length > 5 &&
       this.email !== '' &&
       this.phone !== '';
+  }
+
+  onBack(): void {
+    this.navigation.back('/profile');
   }
 }

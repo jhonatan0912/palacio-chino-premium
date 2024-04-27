@@ -30,6 +30,12 @@ export class ProfileMobileComponent extends ViewComponent {
       method: () => this.navigation.forward('/profile/addresses')
     },
     {
+      name: 'Datos personales',
+      icon: 'id-card-outline',
+      class: '',
+      method: () => this.navigation.forward('/profile/personal-information')
+    },
+    {
       name: 'Cerrar sesión',
       icon: 'log-out-outline',
       class: 'text-delete',
