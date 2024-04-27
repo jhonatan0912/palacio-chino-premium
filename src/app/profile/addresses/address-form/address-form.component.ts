@@ -13,7 +13,16 @@ import { finalize } from 'rxjs/internal/operators/finalize';
 @Component({
   selector: 'address-form',
   standalone: true,
-  imports: [IonIcon, IonSpinner, IonFab, ButtonComponent, ReactiveFormsModule, InputValidatorDirective, HeaderMobileComponent, FixedFooterComponent],
+  imports: [
+    ButtonComponent,
+    FixedFooterComponent,
+    HeaderMobileComponent,
+    InputValidatorDirective,
+    IonFab,
+    IonIcon,
+    IonSpinner,
+    ReactiveFormsModule,
+  ],
   templateUrl: './address-form.component.html',
   styleUrls: ['./address-form.component.scss']
 })
@@ -82,7 +91,7 @@ export class AddressFormComponent extends ViewComponent implements OnInit {
       .subscribe({
         next: (response) => {
           this._addressesService.addresses.update((prev) => [...prev, response.data]);
-          this.onBack();
+          this.onRedirect();
         }
       });
   }
@@ -100,9 +109,19 @@ export class AddressFormComponent extends ViewComponent implements OnInit {
     ).subscribe({
       next: (response) => {
         this._addressesService.addresses.update((prev) => prev.map((address) => address.id === id ? response : address));
-        this.onBack();
+        this.onRedirect();
       }
     });
+  }
+
+  onRedirect(): void {
+    const { redirect } = this._activatedRoute.snapshot.queryParams;
+    if (redirect) {
+      this.navigation.forward(redirect);
+      return;
+    } else {
+      this.navigation.back('/profile/addresses');
+    }
   }
 
   onReset(): void {

@@ -16,7 +16,16 @@ import { AddressDto, CreateOrderDto, DeliveryType, OrdersProxy, PaymentMethod } 
 @Component({
   selector: 'app-checkout',
   standalone: true,
-  imports: [IonSpinner, RouterOutlet, AsideComponent, CheckoutAddressComponent, CheckoutDeliveryTypeComponent, ButtonComponent, TitleMobileComponent, FixedFooterComponent],
+  imports: [
+    AsideComponent,
+    ButtonComponent,
+    CheckoutAddressComponent,
+    CheckoutDeliveryTypeComponent,
+    FixedFooterComponent,
+    IonSpinner,
+    RouterOutlet,
+    TitleMobileComponent,
+  ],
   templateUrl: './checkout.component.html',
   styleUrls: ['./checkout.component.scss']
 })

@@ -11,7 +11,14 @@ import { finalize } from 'rxjs/internal/operators/finalize';
 @Component({
   selector: 'checkout-choose-address',
   standalone: true,
-  imports: [IonIcon, IonSpinner, IonRadio, IonRadioGroup, FormsModule, TitleModalComponent],
+  imports: [
+    FormsModule,
+    IonIcon,
+    IonRadio,
+    IonRadioGroup,
+    IonSpinner,
+    TitleModalComponent,
+  ],
   templateUrl: './checkout-choose-address.component.html',
   styleUrls: ['./checkout-choose-address.component.scss']
 })
@@ -26,8 +33,6 @@ export class CheckoutChooseAddressComponent extends ViewComponent implements OnI
   busy: boolean = false;
   createOrderBusy: boolean = false;
   addresses = signal<AddressDto[]>([]);
-
-
 
   ngOnInit() {
     this.onGetAddresses();
@@ -60,7 +65,7 @@ export class CheckoutChooseAddressComponent extends ViewComponent implements OnI
 
   onAddAddress(): void {
     this.dialog.dismiss('cancel');
-    setTimeout(() => this.navigation.forward('/profile/addresses/form/create'), 500);
+    setTimeout(() => this.navigation.forward('/profile/addresses/form/create', { redirect: 'checkout' }), 500);
 
   }
 }
