@@ -8,7 +8,6 @@ import { OrderStatus } from 'pc-proxies';
 export class FilterOrdersPipe implements PipeTransform {
 
   transform(orders: any[], status: OrderStatus | 'all'): any[] {
-    console.log(orders, status);
     if (status === 'all') {
       return orders;
     }
