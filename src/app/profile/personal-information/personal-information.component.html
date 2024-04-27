@@ -1,6 +1,6 @@
 <header-mobile />
 
-<div class="wrapper">
+<section class="wrapper">
    <h2 class="title">
       <ion-icon
          (click)="onBack()"
@@ -9,7 +9,7 @@
       Mis Datos
    </h2>
 
-   <div class="inputs_form">
+   <article class="inputs_form">
       <input
          [(ngModel)]="fullName"
          placeholder="Nombre"
@@ -17,6 +17,7 @@
 
       <div class="inputs__row">
          <input
+            (isValid)="validFields.email = $event"
             [(ngModel)]="email"
             class="inputs__row__input"
             inputType="email"
@@ -25,6 +26,7 @@
             type="text">
 
          <input
+            (isValid)="validFields.phone = $event"
             [(ngModel)]="phone"
             class="inputs__row__input"
             [maxlength]="9"
@@ -33,12 +35,12 @@
             placeholder="Celular"
             type="tel">
       </div>
-   </div>
+   </article>
 
    @if (valueChanges()) {
    <lib-button
       (onAction)="onUpdate()"
-      [disabled]="busy"
+      [disabled]="busy || !areValidFields()"
       class="button content_button">
       @if (busy) {
       <ion-spinner name="crescent" />
@@ -47,4 +49,4 @@
       }
    </lib-button>
    }
-</div>
+</section>

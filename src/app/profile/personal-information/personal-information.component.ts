@@ -32,6 +32,10 @@ export class PersonalInformationComponent extends ViewComponent implements OnIni
   fullName: string = '';
   email: string = '';
   phone: string = '';
+  validFields = {
+    email: false,
+    phone: false,
+  };
 
   ngOnInit(): void {
     this.onSetInfo();
@@ -68,16 +72,13 @@ export class PersonalInformationComponent extends ViewComponent implements OnIni
   }
 
   valueChanges(): boolean {
-    return (this.fullName !== this.session.user?.fullName ||
-      this.email !== this.session.user?.email ||
-      this.phone !== this.session.user?.phone) && this.areValidFields();
+    return this.fullName !== this.session?.user?.fullName
+      || this.email !== this.session?.user.email
+      || this.phone !== this.session?.user.phone;
   }
 
   areValidFields(): boolean {
-    return this.fullName !== '' &&
-      this.fullName.length > 5 &&
-      this.email !== '' &&
-      this.phone !== '';
+    return this.fullName.length > 5 && this.validFields.email && this.validFields.phone;
   }
 
   onBack(): void {
