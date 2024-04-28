@@ -54,11 +54,11 @@ export class LoginComponent extends ViewComponent {
       error: (err) => {
         if (!Array.isArray(err.message)) {
           this.errors.push(err.message);
-          setTimeout(() => this.errors = [], 1500);
+          setTimeout(() => this.errors = [], 500);
           return;
         };
         this.errors = err.message;
-        setTimeout(() => this.errors = [], 1500);
+        setTimeout(() => this.errors = [], 500);
       }
     });
   }
