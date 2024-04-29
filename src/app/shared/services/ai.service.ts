@@ -1,8 +1,12 @@
 import { Injectable, inject, signal } from '@angular/core';
 import { environment } from '@environments/environment';
-import { GoogleGenerativeAI, Content } from '@google/generative-ai';
+import { GoogleGenerativeAI, Content, ModelParams } from '@google/generative-ai';
 import { history } from 'pc-core';
 import { ProductsProxy } from 'pc-proxies';
+
+const params: ModelParams = {
+  model: 'gemini-pro',
+};
 
 interface Message {
   role: 'user' | 'model';
@@ -15,6 +19,8 @@ interface Message {
 export class AiService {
 
   private readonly _productsProxy = inject(ProductsProxy);
+  private readonly _genAI = new GoogleGenerativeAI(environment.tokenAI);
+  private readonly _model = this._genAI.getGenerativeModel(params);
 
   private history: Content[] = history;
 
@@ -46,12 +52,7 @@ export class AiService {
   }
 
   async onChat(msg: string): Promise<string> {
-    const genAI = new GoogleGenerativeAI(environment.tokenAI);
-
-    const model = genAI.getGenerativeModel({
-      model: 'gemini-pro',
-    });
-    const chat = model.startChat({
+    const chat = this._model.startChat({
       history: [...this.history],
     });
 

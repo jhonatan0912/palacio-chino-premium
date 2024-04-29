@@ -40,9 +40,28 @@
   &__input {
     display: flex;
     gap: 1rem;
+    border: 1px solid #ccc;
+    padding: .5rem;
+    border-radius: 5px;
 
     input {
       flex: 1;
+      border: none;
+      padding: 0;
+    }
+  }
+
+  &__button {
+    display: flex;
+    align-items: center;
+
+    ion-icon {
+      font-size: 24px;
+      cursor: pointer;
+    }
+
+    &:active {
+      scale: .97;
     }
   }
 }

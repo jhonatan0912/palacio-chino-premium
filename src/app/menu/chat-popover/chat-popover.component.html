@@ -19,7 +19,7 @@
       type="text"
       placeholder="Escribe un mensaje...">
 
-    <button (click)="onChat()">
+    <button class="chat__button" (click)="onChat()">
       @if (busy) {
       <ion-spinner name="crescent" />
       }@else {
