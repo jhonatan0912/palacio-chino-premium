@@ -3,17 +3,23 @@
   height: calc(100vh - 88px);
 
   &::-webkit-scrollbar {
-    width: 5px;
-    display: block;
+    display: none;
   }
 
-  &::-webkit-scrollbar-thumb {
-    background: #acacac;
-    border-radius: 10px;
-  }
+  &:hover {
+    &::-webkit-scrollbar {
+      width: 5px;
+      display: block;
+    }
 
-  &::-webkit-scrollbar-track {
-    background: #fff;
+    &::-webkit-scrollbar-thumb {
+      background: #acacac;
+      border-radius: 10px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background: #fff;
+    }
   }
 }
 
