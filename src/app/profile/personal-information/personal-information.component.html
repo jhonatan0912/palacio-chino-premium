@@ -17,21 +17,15 @@
 
       <div class="inputs__row">
          <input
-            (isValid)="validFields.email = $event"
             [(ngModel)]="email"
             class="inputs__row__input"
-            inputType="email"
-            inputValidator
             placeholder="Correo Electrónico"
             type="text">
 
          <input
-            (isValid)="validFields.phone = $event"
             [(ngModel)]="phone"
             class="inputs__row__input"
             [maxlength]="9"
-            inputType="tel"
-            inputValidator
             placeholder="Celular"
             type="tel">
       </div>

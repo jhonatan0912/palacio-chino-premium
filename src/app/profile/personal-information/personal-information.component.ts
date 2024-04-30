@@ -74,14 +74,12 @@ export class PersonalInformationComponent extends ViewComponent implements OnIni
   valueChanges(): boolean {
     return this.fullName !== this.session?.user?.fullName
       || this.email !== this.session?.user.email
-      || this.phone !== this.session?.user.phone;
+      || this.phone !== this.session?.user.phone
+      && this.areValidFields();
   }
 
   areValidFields(): boolean {
-    console.log(this.fullName.length > 5);
-    console.log(this.validFields.email);
-    console.log(this.validFields.phone);
-    return this.fullName.length > 5 && this.validFields.email && this.validFields.phone;
+    return this.fullName.length > 5 && this.email.includes('@') && this.phone.length === 9;
   }
 
   onBack(): void {

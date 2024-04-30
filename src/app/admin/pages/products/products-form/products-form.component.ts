@@ -50,7 +50,6 @@ export class ProductsFormComponent {
         ).subscribe({
           next: (product) => {
             this._adminProductsService.products.update((prev) => [...prev, product]);
-            console.log(this._adminProductsService.products());
             this.resetForm();
           },
         });
