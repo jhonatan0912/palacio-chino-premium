@@ -1,15 +1,20 @@
 import { AfterViewInit, Component, ElementRef, inject, viewChild } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { IonIcon, IonSpinner } from "@ionic/angular/standalone";
-import { TitleModalComponent } from '@shared/components/title-modal/title-modal.component';
-import { AiService } from '@shared/services/ai.service';
+import { TitleModalComponent } from '@shared/components';
+import { AIService } from '@shared/services';
 import { ViewComponent } from 'pc-core';
 
 
 @Component({
   selector: 'app-chat-popover',
   standalone: true,
-  imports: [IonSpinner, IonIcon, TitleModalComponent, FormsModule],
+  imports: [
+    IonSpinner,
+    IonIcon,
+    TitleModalComponent,
+    FormsModule
+  ],
   templateUrl: './chat-popover.component.html',
   styleUrls: ['./chat-popover.component.scss']
 })
@@ -17,7 +22,7 @@ export class ChatPopoverComponent extends ViewComponent implements AfterViewInit
 
   input = viewChild.required<ElementRef<HTMLInputElement>>('input');
 
-  aiService = inject(AiService);
+  aiService = inject(AIService);
 
   busy: boolean = false;
   prompt: string = '';

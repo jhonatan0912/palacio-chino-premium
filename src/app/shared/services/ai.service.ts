@@ -17,7 +17,7 @@ interface Message {
 @Injectable({
   providedIn: 'root'
 })
-export class AiService extends ViewComponent {
+export class AIService extends ViewComponent {
 
   private readonly _productsProxy = inject(ProductsProxy);
   private readonly _genAI = new GoogleGenerativeAI(environment.tokenAI);

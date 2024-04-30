@@ -2,19 +2,24 @@ import { Component, DestroyRef, OnInit, inject, signal } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { IonSpinner } from "@ionic/angular/standalone";
 import { ButtonComponent } from '@lib/button/button.component';
-import { CategoriesMenuComponent } from '@shared/components/categories-menu/categories-menu.component';
-import { StoreMapComponent } from "@shared/components/store-map/store-map.component";
+import { CategoriesMenuComponent, ProductCardComponent, StoreMapComponent } from '@shared/components';
 import { ViewComponent } from 'pc-core';
 import { ProductDto, ProductsProxy } from 'pc-proxies';
 import { finalize } from 'rxjs/internal/operators/finalize';
-import { ProductCardComponent } from '../shared/components/product-card/product-card.component';
 import { MenuChatButtonComponent } from './menu-chat-button/menu-chat-button.component';
-import { AiService } from '@shared/services/ai.service';
+import { AIService } from '@shared/services';
 
 @Component({
   selector: 'app-menu',
   standalone: true,
-  imports: [IonSpinner, ProductCardComponent, CategoriesMenuComponent, ButtonComponent, StoreMapComponent, MenuChatButtonComponent],
+  imports: [
+    IonSpinner,
+    ProductCardComponent,
+    CategoriesMenuComponent,
+    ButtonComponent,
+    StoreMapComponent,
+    MenuChatButtonComponent
+  ],
   templateUrl: './menu.component.html',
   styleUrl: './menu.component.scss'
 })
@@ -23,7 +28,7 @@ export class MenuComponent extends ViewComponent implements OnInit {
   private readonly _productsProxy = inject(ProductsProxy);
   private readonly _destroyRef = inject(DestroyRef);
 
-  aiService = inject(AiService);
+  aiService = inject(AIService);
 
   page: number = 1;
   lastPage: number = 1;

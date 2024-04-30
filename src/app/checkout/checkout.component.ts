@@ -1,17 +1,16 @@
 import { Component, inject } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { ViewComponent } from 'pc-core';
 import { IonSpinner } from "@ionic/angular/standalone";
 import { ButtonComponent } from '@lib/button/button.component';
 import { OrdersService } from '@profile/services/orders.service';
-import { TitleMobileComponent } from '@shared/components/auth-title/auth-title.component';
-import { FixedFooterComponent } from '@shared/components/fixed-footer/fixed-footer.component';
-import { ShoppingCartService } from '@shared/services/shopping-cart.service';
+import { FixedFooterComponent, TitleMobileComponent } from '@shared/components';
+import { ShoppingCartService } from '@shared/services';
+import { ViewComponent } from 'pc-core';
+import { AddressDto, CreateOrderDto, DeliveryType, OrdersProxy, PaymentMethod } from 'pc-proxies';
 import { finalize } from 'rxjs/internal/operators/finalize';
 import { CheckoutAddressComponent } from './checkout-address/checkout-address.component';
 import { CheckoutDeliveryTypeComponent } from './checkout-delivery-type/checkout-delivery-type.component';
 import { AsideComponent } from './components/aside/aside.component';
-import { AddressDto, CreateOrderDto, DeliveryType, OrdersProxy, PaymentMethod } from 'pc-proxies';
 
 @Component({
   selector: 'app-checkout',

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { StoreMapComponent } from '@shared/components/store-map/store-map.component';
+import { StoreMapComponent } from '@shared/components';
 
 @Component({
   selector: 'app-delivery-zones',
@@ -15,6 +15,4 @@ export class DeliveryZonesComponent {
     { district: 'HUANCAYO', schedule: '4:00 pm - 11:00 pm' },
     { district: 'CHILCA', schedule: '4:00 pm - 11:00 pm' },
   ];
-
-
 }
