@@ -78,6 +78,7 @@ export class PersonalInformationComponent extends ViewComponent implements OnIni
   }
 
   areValidFields(): boolean {
+    console.log(this.fullName.length > 5 && this.validFields.email && this.validFields.phone);
     return this.fullName.length > 5 && this.validFields.email && this.validFields.phone;
   }
 

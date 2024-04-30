@@ -6177,10 +6177,10 @@ pc-core@^0.0.9:
   dependencies:
     tslib "^2.3.0"
 
-pc-proxies@^0.0.7:
-  version "0.0.7"
-  resolved "https://registry.npmjs.org/pc-proxies/-/pc-proxies-0.0.7.tgz"
-  integrity sha512-mii7ocZozkzbBugG8Y1Aj/xG3U+G2zJ19f4JPcB15RU5W0uup4+fKZQlxTQ0vblM7vBlrX3vgM380aFcX9LiPw==
+pc-proxies@^0.0.8:
+  version "0.0.8"
+  resolved "https://registry.yarnpkg.com/pc-proxies/-/pc-proxies-0.0.8.tgz#d4838a0bf79edbf3b82a510eb84515d2770ad1fe"
+  integrity sha512-GF6zEGJIULfcM8Ke/mDOx/TR3TcJbg1Lc+80eTv1Le4pWIr9iGeTjNd3XNdMds3pHRqHALr2jdwxqnY5H36A+w==
   dependencies:
     tslib "^2.3.0"
 
