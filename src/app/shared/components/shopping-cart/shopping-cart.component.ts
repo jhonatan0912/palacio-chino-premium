@@ -18,8 +18,8 @@ import { ProductDto } from 'pc-proxies';
 })
 export class ShoppingCartComponent extends ViewComponent {
 
-  private popoverCtrl = inject(PopoverController);
-  private shoppingCartService = inject(ShoppingCartService);
+  private readonly _popoverCtrl = inject(PopoverController);
+  private readonly _shoppingCartService = inject(ShoppingCartService);
 
   products = signal<ProductDto[]>([]);
   total = signal<number>(0);
@@ -27,22 +27,22 @@ export class ShoppingCartComponent extends ViewComponent {
   constructor() {
     super();
     effect(() => {
-      this.products.set(this.shoppingCartService.cart());
+      this.products.set(this._shoppingCartService.cart());
       this.total.set(this.products().reduce((acc, product) => acc + (product.price! * product.quantity!), 0));
     }, { allowSignalWrites: true });
   }
 
   onDismiss(): void {
-    this.popoverCtrl.dismiss('cancel');
+    this._popoverCtrl.dismiss('cancel');
   }
 
   onPay(): void {
     if (!this.session.user) {
-      this.popoverCtrl.dismiss('cancel')
+      this._popoverCtrl.dismiss('cancel')
         .then(() => this.navigation.forward('/auth/login'));
 
     } else {
-      this.popoverCtrl.dismiss('cancel')
+      this._popoverCtrl.dismiss('cancel')
         .then(() => this.navigation.forward('/checkout'));
     }
   }

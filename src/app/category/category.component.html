@@ -9,7 +9,7 @@
   <div class="products">
     @if (busy()) {
     @for (item of [1,1,1,1,1,1,1,1]; track $index) {
-      <category-skeleton />
+    <category-skeleton />
     }
     }@else {
     @for (product of products(); track product.id) {
@@ -30,4 +30,7 @@
     }
   </button>
   }
+
+  <menu-chat-button
+    (click)="aiService.onOpenChat($event)" />
 </main>

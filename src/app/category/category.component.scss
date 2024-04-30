@@ -19,6 +19,10 @@
   }
 }
 
+menu-chat-button {
+  display: none;
+}
+
 @media screen and (min-width: 768px) {
   .container {
     margin-top: 5rem;
@@ -28,16 +32,28 @@
       gap: 4rem;
     }
   }
+
+  menu-chat-button {
+    display: grid !important;
+  }
 }
 
 @media screen and (min-width: 1024px) {
   .products {
     grid-template-columns: repeat(4, 1fr) !important;
   }
+
+  menu-chat-button {
+    display: grid !important;
+  }
 }
 
 @media screen and (min-width: 1440px) {
   .products {
     grid-template-columns: repeat(5, 1fr) !important;
+  }
+
+  menu-chat-button {
+    display: grid !important;
   }
 }

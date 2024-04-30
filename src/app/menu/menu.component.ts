@@ -8,8 +8,8 @@ import { ViewComponent } from 'pc-core';
 import { ProductDto, ProductsProxy } from 'pc-proxies';
 import { finalize } from 'rxjs/internal/operators/finalize';
 import { ProductCardComponent } from '../shared/components/product-card/product-card.component';
-import { ChatPopoverComponent } from './chat-popover/chat-popover.component';
 import { MenuChatButtonComponent } from './menu-chat-button/menu-chat-button.component';
+import { AiService } from '@shared/services/ai.service';
 
 @Component({
   selector: 'app-menu',
@@ -22,6 +22,8 @@ export class MenuComponent extends ViewComponent implements OnInit {
 
   private readonly _productsProxy = inject(ProductsProxy);
   private readonly _destroyRef = inject(DestroyRef);
+
+  aiService = inject(AiService);
 
   page: number = 1;
   lastPage: number = 1;
@@ -51,21 +53,5 @@ export class MenuComponent extends ViewComponent implements OnInit {
           this.promotions.set([...this.promotions(), ...res.products]);
         }
       });
-  }
-
-  onOpenChat(event: Event): void {
-    if (!this.session.user) {
-      this.navigation.forward('/auth/login');
-      return;
-    }
-    this.popup.showWithData({
-      component: ChatPopoverComponent,
-      event: event,
-      arrow: false,
-      side: 'top',
-      showBackdrop: false,
-      alignment: 'end',
-      cssClass: ['chat-popover']
-    });
   }
 }

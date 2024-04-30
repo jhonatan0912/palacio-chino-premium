@@ -1,6 +1,7 @@
 import { Component, OnInit, computed, inject, signal } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
-import { IonicModule } from '@ionic/angular';
+import { } from '@ionic/angular';
 import { CategoriesMenuComponent } from '@shared/components/categories-menu/categories-menu.component';
 import { ProductCardComponent } from '@shared/components/product-card/product-card.component';
 import { CategoriesService } from '@shared/services/categories.service';
@@ -8,12 +9,20 @@ import { ViewComponent } from 'pc-core';
 import { CategoryDto, ProductDto, ProductsProxy } from 'pc-proxies';
 import { finalize } from 'rxjs/internal/operators/finalize';
 import { CategorySkeletonComponent } from './category-skeleton/category-skeleton.component';
-import { Title } from '@angular/platform-browser';
+import { IonSpinner } from '@ionic/angular/standalone';
+import { MenuChatButtonComponent } from '../menu/menu-chat-button/menu-chat-button.component';
+import { AiService } from '@shared/services/ai.service';
 
 @Component({
   selector: 'app-category',
   standalone: true,
-  imports: [IonicModule, CategoriesMenuComponent, ProductCardComponent, CategorySkeletonComponent],
+  imports: [
+    IonSpinner,
+    CategoriesMenuComponent,
+    ProductCardComponent,
+    CategorySkeletonComponent,
+    MenuChatButtonComponent,
+  ],
   templateUrl: './category.component.html',
   styleUrls: ['./category.component.scss'],
 })
@@ -23,6 +32,8 @@ export class CategoryComponent extends ViewComponent implements OnInit {
   private readonly _activatedRoute = inject(ActivatedRoute);
   private readonly _categoriesService = inject(CategoriesService);
   private readonly _productsProxy = inject(ProductsProxy);
+
+  aiService = inject(AiService);
 
   id = signal<string>('');
   products = signal<ProductDto[]>([]);

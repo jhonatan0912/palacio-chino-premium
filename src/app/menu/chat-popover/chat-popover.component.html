@@ -3,7 +3,7 @@
 </title-modal>
 
 <section class="chat">
-  <div id="chat__history" class="chat__history scroll">
+  <div id="chat__history" class="chat__history">
     @for (message of aiService.messages(); track $index) {
     <div class="message {{ message.role }}">
       {{ message.message }}

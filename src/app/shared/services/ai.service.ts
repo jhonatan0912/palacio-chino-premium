@@ -1,8 +1,9 @@
 import { Injectable, inject, signal } from '@angular/core';
 import { environment } from '@environments/environment';
-import { GoogleGenerativeAI, Content, ModelParams } from '@google/generative-ai';
-import { history } from 'pc-core';
+import { Content, GoogleGenerativeAI, ModelParams } from '@google/generative-ai';
+import { ViewComponent, history } from 'pc-core';
 import { ProductsProxy } from 'pc-proxies';
+import { ChatPopoverComponent } from '../../menu/chat-popover/chat-popover.component';
 
 const params: ModelParams = {
   model: 'gemini-pro',
@@ -16,7 +17,7 @@ interface Message {
 @Injectable({
   providedIn: 'root'
 })
-export class AiService {
+export class AiService extends ViewComponent {
 
   private readonly _productsProxy = inject(ProductsProxy);
   private readonly _genAI = new GoogleGenerativeAI(environment.tokenAI);
@@ -25,10 +26,11 @@ export class AiService {
   private history: Content[] = history;
 
   messages = signal<Message[]>([
-    { role: 'model', message: '¡Hola! ¿En qué puedo ayudarte hoy? 😊' },
+    { role: 'model', message: '¡Hola! ¿En qué puedo ayudarte? 😊' },
   ]);
 
   constructor() {
+    super();
     this.init();
   }
 
@@ -39,7 +41,7 @@ export class AiService {
           const newContent: Content[] = [
             {
               role: 'user',
-              parts: [{ text: 'dime los productos' }]
+              parts: [{ text: 'productos' }]
             },
             {
               role: 'model',
@@ -49,6 +51,22 @@ export class AiService {
           this.history.push(...newContent);
         }
       });
+  }
+
+  onOpenChat(event: Event): void {
+    if (!this.session.user) {
+      this.navigation.forward('/auth/login');
+      return;
+    }
+    this.popup.showWithData({
+      component: ChatPopoverComponent,
+      event: event,
+      arrow: false,
+      side: 'top',
+      showBackdrop: false,
+      alignment: 'end',
+      cssClass: ['chat-popover']
+    });
   }
 
   async onChat(msg: string): Promise<string> {

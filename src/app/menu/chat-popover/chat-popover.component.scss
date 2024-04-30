@@ -35,6 +35,20 @@
         border-radius: .5rem .5rem .5rem 0;
       }
     }
+
+    &::-webkit-scrollbar {
+      width: 5px;
+      display: block;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: #acacac;
+      border-radius: 10px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background: #fff;
+    }
   }
 
   &__input {
