@@ -14,7 +14,9 @@
       <checkout-address
         [(address)]="address" />
 
-      <checkout-delivery-type />
+      <checkout-delivery-type
+        [(deliveryType)]="deliveryType"
+        [(paymentMethod)]="paymentMethod" />
 
       <lib-button
         (onAction)="onConfirm()"

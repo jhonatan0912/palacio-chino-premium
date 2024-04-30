@@ -6,28 +6,28 @@
   <section class="delivery__types">
     @for (option of deliveryTypeOptions; track $index) {
     <div
-      (click)="onSelectDeliveryType(option.id)"
+      (click)="deliveryType.set(option.id)"
       class="option"
       aria-label="Seleccionar método de pago"
-      [ngClass]="{'selected' : option.id === deliveryTypeId}">
+      [ngClass]="{'selected' : option.id === deliveryType()}">
       {{ option.name }}
     </div>
     }
   </section>
 
-  @if (deliveryTypeId === 'delivery') {
+  @if (deliveryType() === 'delivery') {
   <section class="payment__method">
     <h4 class="title">
       Método de pago
     </h4>
     <div class="payment__methods">
-      @for (paymentMethod of paymentMethods; track $index) {
+      @for (method of paymentMethods; track $index) {
       <button
-        (click)="onSelectPaymentMethod(paymentMethod.id)"
+        (click)="paymentMethod.set(method.id)"
         class="option"
         aria-label="Seleccionar método de pago"
-        [ngClass]="{'selected' : paymentMethod.id === paymentMethodId}">
-        {{ paymentMethod.name }}
+        [ngClass]="{'selected' : method.id === paymentMethod()}">
+        {{ method.name }}
       </button>
       }
     </div>

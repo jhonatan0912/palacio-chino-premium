@@ -1,9 +1,7 @@
 import { NgClass } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, model } from '@angular/core';
 import { IonRadio } from "@ionic/angular/standalone";
 import { DeliveryType, PaymentMethod } from 'pc-proxies';
-
-
 
 interface DeliveryOption {
   id: DeliveryType;
@@ -24,8 +22,8 @@ interface PaymentMethodOption {
 })
 export class CheckoutDeliveryTypeComponent {
 
-  deliveryTypeId: DeliveryType = 'delivery';
-  paymentMethodId: PaymentMethod = 'cash';
+  deliveryType = model.required<DeliveryType>();
+  paymentMethod = model.required<PaymentMethod>();
 
   deliveryTypeOptions: DeliveryOption[] = [
     { id: 'delivery', name: 'Delivery' },
@@ -35,12 +33,4 @@ export class CheckoutDeliveryTypeComponent {
     { id: 'cash', name: 'Efectivo' },
     { id: 'card', name: 'Tarjeta' },
   ];
-
-  onSelectDeliveryType(id: DeliveryType): void {
-    this.deliveryTypeId = id;
-  }
-
-  onSelectPaymentMethod(id: PaymentMethod): void {
-    this.paymentMethodId = id;
-  }
 }

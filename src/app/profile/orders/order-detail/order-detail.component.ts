@@ -29,8 +29,6 @@ export class OrderDetailComponent extends ViewComponent implements OnInit {
   order = signal<OrderDetailDto>(new OrderDetailDto());
   busy: boolean = false;
 
-
-
   ngOnInit(): void {
     this._activatedRoute.params
       .subscribe(({ id }) => {

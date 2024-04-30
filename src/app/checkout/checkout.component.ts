@@ -35,7 +35,7 @@ export class CheckoutComponent extends ViewComponent {
   private readonly _shoppingCartService = inject(ShoppingCartService);
 
   deliveryType: DeliveryType = 'delivery';
-  paymentMethod: PaymentMethod | null = null;
+  paymentMethod: PaymentMethod = 'cash';
 
   busy: boolean = false;
   address: AddressDto = new AddressDto({
