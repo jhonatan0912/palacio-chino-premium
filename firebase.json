@@ -1,0 +1,9 @@
+{
+  "hosting": [
+    {
+      "target": "pc-frontend-angular",
+      "source": ".",
+      "frameworksBackend": {}
+    }
+  ]
+}

@@ -16,6 +16,4 @@ export class ProductsListComponent extends ViewComponent {
   private readonly _productsService = inject(AdminProductsService);
 
   products = computed<ProductDto[]>(() => this._productsService.products());
-
-
 }

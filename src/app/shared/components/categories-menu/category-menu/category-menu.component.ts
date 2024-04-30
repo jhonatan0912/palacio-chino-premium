@@ -1,7 +1,6 @@
 import { NgClass } from '@angular/common';
 import { Component, EventEmitter, Output, computed, inject, input } from '@angular/core';
 import { ImageBrokenDirective } from '@shared/directives/imageBroken.directive';
-import { SrcImagePipe } from '@shared/pipes/srcImage.pipe';
 import { CategoriesService } from '@shared/services/categories.service';
 import { CategoryDto } from 'pc-proxies';
 
@@ -9,7 +8,7 @@ import { CategoryDto } from 'pc-proxies';
 @Component({
   selector: 'category-menu',
   standalone: true,
-  imports: [NgClass, SrcImagePipe, ImageBrokenDirective],
+  imports: [NgClass, ImageBrokenDirective],
   templateUrl: './category-menu.component.html',
   styleUrls: ['./category-menu.component.scss']
 })

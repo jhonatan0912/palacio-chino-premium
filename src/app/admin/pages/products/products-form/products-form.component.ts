@@ -1,13 +1,14 @@
+import { AdminProductsService } from '@admin/services/products.service';
 import { DecimalPipe } from '@angular/common';
 import { Component, DestroyRef, inject } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import { Storage, getDownloadURL, ref, uploadBytes } from "@angular/fire/storage";
 import { FormsModule } from '@angular/forms';
 import { IonSpinner } from "@ionic/angular/standalone";
 import { ButtonComponent } from '@lib/button/button.component';
 import { ImageUploaderComponent } from '@shared/components/image-uploader/image-uploader.component';
-import { ProductsService } from '@shared/services/products.service';
 import { ProductsProxy, onFileChange } from 'pc-proxies';
-import { finalize } from 'rxjs/internal/operators/finalize';
+import { finalize } from 'rxjs';
 
 @Component({
   selector: 'products-form',
@@ -18,9 +19,10 @@ import { finalize } from 'rxjs/internal/operators/finalize';
 })
 export class ProductsFormComponent {
 
-  private productsProxy = inject(ProductsProxy);
-  private productsService = inject(ProductsService);
-  private destroyRef = inject(DestroyRef);
+  private readonly _productsProxy = inject(ProductsProxy);
+  private readonly _adminProductsService = inject(AdminProductsService);
+  private readonly _destroyRef = inject(DestroyRef);
+  private readonly _storage = inject(Storage);
 
   busy: boolean = false;
   image: File | undefined;
@@ -31,21 +33,28 @@ export class ProductsFormComponent {
   onCreate(): void {
     if (!this.image) return;
 
+    const imgRef = ref(this._storage, `products/${this.image?.name}-${crypto.randomUUID()}`);
+
     this.busy = true;
-    this.productsProxy.create(
-      this.image!,
-      this.name,
-      this.price,
-      this.description
-    ).pipe(
-      takeUntilDestroyed(this.destroyRef),
-      finalize(() => this.busy = false)
-    ).subscribe({
-      next: (product) => {
-        this.productsService.products.update((prev) => [...prev, product]);
-        this.resetForm();
-      },
-    });
+    uploadBytes(imgRef, this.image!)
+      .then(async (res) => {
+        const url = await getDownloadURL(res.ref);
+        this._productsProxy.create(
+          url,
+          this.name,
+          this.price,
+          this.description
+        ).pipe(
+          takeUntilDestroyed(this._destroyRef),
+          finalize(() => this.busy = false)
+        ).subscribe({
+          next: (product) => {
+            this._adminProductsService.products.update((prev) => [...prev, product]);
+            console.log(this._adminProductsService.products());
+            this.resetForm();
+          },
+        });
+      });
   };
 
   onFileChange(event: File) {

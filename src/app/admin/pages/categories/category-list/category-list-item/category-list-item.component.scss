@@ -5,8 +5,23 @@
   position: relative;
   display: flex;
   justify-content: space-between;
+  gap: 1rem;
+  align-items: center;
+
+  &__icon {
+    width: 35px;
+    height: 35px;
+  }
+
+  &__name {
+    display: flex;
+    align-items: center;
+    flex: 1;
+  }
 
   &-options {
+    display: flex;
+    align-items: center;
     cursor: pointer;
   }
 }

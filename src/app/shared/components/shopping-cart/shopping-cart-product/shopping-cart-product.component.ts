@@ -1,7 +1,6 @@
 import { Component, inject, input, model } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { QuantityInputDirective } from '@shared/directives/quantityInput.directive';
-import { SrcImagePipe } from '@shared/pipes/srcImage.pipe';
 import { ShoppingCartService } from '@shared/services/shopping-cart.service';
 import { IonIcon } from "@ionic/angular/standalone";
 import { DecimalPipe } from '@angular/common';
@@ -12,7 +11,7 @@ import { ImageBrokenDirective } from '@shared/directives/imageBroken.directive';
 @Component({
   selector: 'shopping-cart-product',
   standalone: true,
-  imports: [IonIcon, FormsModule, SrcImagePipe, QuantityInputDirective, DecimalPipe, ImageBrokenDirective],
+  imports: [IonIcon, FormsModule, QuantityInputDirective, DecimalPipe, ImageBrokenDirective],
   templateUrl: './shopping-cart-product.component.html',
   styleUrls: ['./shopping-cart-product.component.scss']
 })

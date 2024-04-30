@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "storage-test-befa4": {
+      "hosting": {
+        "pc-frontend-angular": [
+          "storage-test-befa4"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "storage-test-befa4"
+  }
+}

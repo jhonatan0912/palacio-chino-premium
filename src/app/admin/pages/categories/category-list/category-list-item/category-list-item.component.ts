@@ -1,11 +1,11 @@
+import { EditCategoryImageComponent } from '@admin/modals/edit-category-image/edit-category-image.component';
 import { AdminProductsModalComponent } from '@admin/modals/products/products.component';
-import { Component, DestroyRef, EventEmitter, Output, inject, input } from '@angular/core';
+import { Component, DestroyRef, EventEmitter, Output, inject, model } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
-import { ViewComponent } from 'pc-core';
 import { IonIcon } from "@ionic/angular/standalone";
+import { ViewComponent } from 'pc-core';
 import { CategoriesProxy, CategoryDto } from 'pc-proxies';
 import { CategoryListItemPopoverComponent } from './category-list-item-popover/category-list-item-popover.component';
-import { EditCategoryImageComponent } from '@admin/modals/edit-category-image/edit-category-image.component';
 
 @Component({
   selector: 'category-list-item',
@@ -19,7 +19,7 @@ export class CategoryListItemComponent extends ViewComponent {
   private readonly _categoriesProxy = inject(CategoriesProxy);
   private readonly _deleteDestroyRef = inject(DestroyRef);
 
-  category = input.required<CategoryDto>();
+  category = model.required<CategoryDto>();
 
   @Output() onUpdate: EventEmitter<string> = new EventEmitter<string>();
   @Output() onDelete: EventEmitter<string> = new EventEmitter<string>();
@@ -58,8 +58,12 @@ export class CategoryListItemComponent extends ViewComponent {
     this.dialog.showWithData({
       component: EditCategoryImageComponent,
       componentProps: {
-        id: id
+        id: id,
+        category: this.category()
       }
+    }).then((response) => {
+      if (!response || response === 'cancel') return;
+      this.category.set(response);
     });
   }
 

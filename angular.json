@@ -157,6 +157,23 @@
               "browserTarget": "pc-frontend-angular:build:production"
             }
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {
+            "version": 2
+          },
+          "configurations": {
+            "production": {
+              "buildTarget": "pc-frontend-angular:build:production",
+              "serveTarget": "pc-frontend-angular:serve:production"
+            },
+            "development": {
+              "buildTarget": "pc-frontend-angular:build:development",
+              "serveTarget": "pc-frontend-angular:serve:development"
+            }
+          },
+          "defaultConfiguration": "production"
         }
       }
     },

@@ -6,7 +6,6 @@ import { IonSpinner } from "@ionic/angular/standalone";
 import { ButtonComponent } from '@lib/button/button.component';
 import { TitleModalComponent } from '@shared/components/title-modal/title-modal.component';
 import { SlugPipe } from '@shared/pipes/slug.pipe';
-import { SrcImagePipe } from '@shared/pipes/srcImage.pipe';
 import { ViewComponent } from 'pc-core';
 import { CategoriesProxy, CategoryDto, getSlug } from 'pc-proxies';
 import { finalize } from 'rxjs/internal/operators/finalize';
@@ -14,7 +13,7 @@ import { finalize } from 'rxjs/internal/operators/finalize';
 @Component({
   selector: 'admin-category-form',
   standalone: true,
-  imports: [IonSpinner, FormsModule, AdminCategoryFormComponent, TitleModalComponent, SrcImagePipe, SlugPipe, ButtonComponent],
+  imports: [IonSpinner, FormsModule, AdminCategoryFormComponent, TitleModalComponent,  SlugPipe, ButtonComponent],
   templateUrl: './category-form.component.html',
   styleUrls: ['./category-form.component.scss']
 })
