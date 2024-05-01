@@ -79,7 +79,7 @@ export class PersonalInformationComponent extends ViewComponent implements OnIni
   }
 
   areValidFields(): boolean {
-    return this.fullName.length > 5 && this.email.includes('@') && this.phone.length === 9;
+    return this.fullName.length >= 4 && this.email.includes('@') && this.phone.length === 9;
   }
 
   onBack(): void {
